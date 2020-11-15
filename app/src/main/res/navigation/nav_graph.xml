@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/dest_loginFragment">
+
+    <fragment
+        android:id="@+id/dest_loginFragment"
+        android:name="com.example.androiddevpractice.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_recyclerViewFragment"
+            app:destination="@id/dest_recyclerViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dest_recyclerViewFragment"
+        android:name="com.example.androiddevpractice.RecyclerViewFragment"
+        android:label="fragment_recycler_view"
+        tools:layout="@layout/fragment_recycler_view" >
+        <argument
+            android:name="UserName"
+            app:argType="string"
+            android:defaultValue="No Name" />
+    </fragment>
+    <fragment
+        android:id="@+id/dest_contextual1Fragment"
+        android:name="com.example.androiddevpractice.menu.contextualmenu.Contextual1Fragment"
+        android:label="fragment_contextual1"
+        tools:layout="@layout/fragment_contextual1" />
+    <fragment
+        android:id="@+id/dest_contextual2Fragment"
+        android:name="com.example.androiddevpractice.menu.contextualmenu.Contextual2Fragment"
+        android:label="fragment_contextual2"
+        tools:layout="@layout/fragment_contextual2" />
+    <fragment
+        android:id="@+id/dest_contextual3Fragment"
+        android:name="com.example.androiddevpractice.menu.contextualmenu.Contextual3Fragment"
+        android:label="fragment_contextual3"
+        tools:layout="@layout/fragment_contextual3" />
+    <fragment
+        android:id="@+id/dest_menu1Fragment"
+        android:name="com.example.androiddevpractice.menu.Menu1Fragment"
+        android:label="fragment_menu1"
+        tools:layout="@layout/fragment_menu1" />
+    <fragment
+        android:id="@+id/dest_menu2Fragment"
+        android:name="com.example.androiddevpractice.menu.Menu2Fragment"
+        android:label="fragment_menu2"
+        tools:layout="@layout/fragment_menu2" />
+    <fragment
+        android:id="@+id/dest_menu3Fragment"
+        android:name="com.example.androiddevpractice.menu.Menu3Fragment"
+        android:label="fragment_menu3"
+        tools:layout="@layout/fragment_menu3" />
+</navigation>
