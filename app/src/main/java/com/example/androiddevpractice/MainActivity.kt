@@ -5,30 +5,28 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
-import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.*
-import com.example.androiddevpractice.databinding.ActivityMainBinding
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.navigation.NavigationView
+
 
 class MainActivity : AppCompatActivity() {
 
     private var TAG = "PracticeMainActivity"
 
-    private lateinit var binding: ActivityMainBinding
-    lateinit var myAppBar: AppBarConfiguration
-
-
     private lateinit var navController: NavController
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var sharedPref: SharedPreferences
-
 
     // KEYS
     private val KEY_THEME: String = "User selected theme"
@@ -39,36 +37,36 @@ class MainActivity : AppCompatActivity() {
     private var userTheme = 0
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
        Log.i(TAG, "onCreate")
-        // Needs to load before super, this allows for the correct theme to be loaded.
 
-        super.onCreate(savedInstanceState)
         initSharedPreference()
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        // Needs to load before super, this allows for the correct theme to be loaded.
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
 
-        initNavDrawer()
-        initNavDrawerClickListener()
+//      initNavDrawer()
+     //   initNavDrawerClickListener()
     }
 
-    /**
-     * This method is called when ever the user choose to navigate up within the applications hierarchy.
-     *
-     * return: true if Up navigation completed successfully and this Activity was finished, false otherwise.
-     */
-    override fun onSupportNavigateUp(): Boolean {
-        return navController.navigateUp(myAppBar)
-    }
+//    /**
+//     * This method is called when ever the user choose to navigate up within the applications hierarchy.
+//     *
+//     * return: true if Up navigation completed successfully and this Activity was finished, false otherwise.
+//     */
+//    override fun onSupportNavigateUp(): Boolean {
+//        return navController.navigateUp(myAppBar)
+//    }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater: MenuInflater = menuInflater
-        inflater.inflate(R.menu.main_menu, menu)
+        Log.i(TAG, "onCreateOptionsMenu")
+        menuInflater.inflate(R.menu.main_menu, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        Log.i(TAG, "onOptionsItemSelected")
         return when(item.itemId) {
             R.id.dest_loginFragment -> {
                 return NavigationUI.onNavDestinationSelected(item, navController)
@@ -101,11 +99,11 @@ class MainActivity : AppCompatActivity() {
 
             else -> super.onOptionsItemSelected(item)
         }
-
     }
 
     override fun onStop() {
         super.onStop()
+        Log.i(TAG, "onStop")
         with(sharedPref.edit()) {
             putInt(KEY_THEME, userTheme)
             putInt(KEY_DARK_MODE, darkMode)
@@ -114,6 +112,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initSharedPreference() {
+        Log.i(TAG, "initSharedPreference")
         sharedPref = this.getSharedPreferences("AndroidDevPractice", Context.MODE_PRIVATE)
         userTheme = sharedPref.getInt(KEY_THEME, 0)
         darkMode = sharedPref.getInt(KEY_DARK_MODE, 0)
@@ -126,9 +125,10 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
 
-        drawerLayout = binding.myDrawerLayout
+        drawerLayout = findViewById(R.id.my_drawer_layout)
         navController = navHostFragment.navController
-        val toolbar = binding.myToolbar
+        val toolbar = findViewById<Toolbar>(R.id.myToolbar)
+
 
         // Post the call to the findNavController
         toolbar.setupWithNavController(navController, drawerLayout)
@@ -137,7 +137,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         // Pass top level destination, shows Nav drawer on the following fragments
-        myAppBar = AppBarConfiguration(
+        val myAppBar = AppBarConfiguration(
             setOf(
                 R.id.dest_loginFragment,
                 R.id.dest_contextual1Fragment,
@@ -155,7 +155,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initNavDrawerClickListener() {
-        binding.navView.setNavigationItemSelectedListener { menuItem ->
+        val navView = findViewById<NavigationView>(R.id.nav_view)
+        navView.setNavigationItemSelectedListener { menuItem ->
             when(menuItem.itemId) {
                 R.id.nav_first_fragment -> {
                     navController.navigate(R.id.dest_menu1Fragment)
@@ -196,16 +197,14 @@ class MainActivity : AppCompatActivity() {
      * Loads differentAPP themes.
      */
     private fun loadTheme() {
+        Log.i(TAG, "loadTheme")
         when(userTheme) {
             0 -> {
                 setTheme(R.style.AppTheme)
             }
             1 -> {
-                setTheme(R.style.AppTheme2)
+//                setTheme(R.style.AppTheme2)
             }
         }
-
     }
-
-
 }
