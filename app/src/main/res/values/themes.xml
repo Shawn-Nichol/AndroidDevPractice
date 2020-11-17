@@ -15,21 +15,26 @@
         <item name="android:windowTranslucentStatus">true</item>
         <!-- This allows the contextual action bar to cover the toolbar instead of pushing it down. -->
         <item name="windowActionModeOverlay">true</item>
+
+
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+
     </style>
 
     <!-- Second application theme. -->
-<!--    <style name="AppTheme2" parent="Theme.MaterialComponents.Light.NoActionBar">-->
-<!--        &lt;!&ndash; Customize your theme here. &ndash;&gt;-->
-<!--        <item name="colorPrimary">@color/colorPrimaryTwo</item>-->
-<!--        <item name="colorPrimaryDark">@color/colorPrimaryDarkTwo</item>-->
-<!--        <item name="colorAccent">@color/colorAccentTwo</item>-->
-<!--        &lt;!&ndash; Secondary brand color. &ndash;&gt;-->
-<!--        <item name="colorSecondary">@color/colorSecondary</item>-->
-<!--        <item name="colorSecondaryVariant">@color/ColorSecondaryVariant</item>-->
-<!--        <item name="colorOnSecondary">@color/colorOnSecondary</item>-->
-<!--        &lt;!&ndash; Allow DarkMode &ndash;&gt;-->
-<!--        <item name="android:forceDarkAllowed">true</item>-->
+    <style name="AppTheme2" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimaryTwo</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkTwo</item>
+        <item name="colorAccent">@color/colorAccentTwo</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorSecondaryVariant">@color/ColorSecondaryVariant</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+        <!-- Allow DarkMode -->
+        <item name="android:forceDarkAllowed">true</item>
 
-<!--        <item name="windowActionBar">false</item>-->
-<!--    </style>-->
+        <item name="windowActionBar">false</item>
+    </style>
 </resources>

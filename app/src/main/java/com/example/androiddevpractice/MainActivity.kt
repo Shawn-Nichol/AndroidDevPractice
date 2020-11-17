@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var sharedPref: SharedPreferences
+    private lateinit var myAppBar: AppBarConfiguration
 
     // KEYS
     private val KEY_THEME: String = "User selected theme"
@@ -46,18 +47,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-//      initNavDrawer()
-     //   initNavDrawerClickListener()
+         initNavDrawer()
+         initNavDrawerClickListener()
     }
 
-//    /**
-//     * This method is called when ever the user choose to navigate up within the applications hierarchy.
-//     *
-//     * return: true if Up navigation completed successfully and this Activity was finished, false otherwise.
-//     */
-//    override fun onSupportNavigateUp(): Boolean {
-//        return navController.navigateUp(myAppBar)
-//    }
+    /**
+     * This method is called when ever the user chooses to navigate up within the applications hierarchy.
+     *
+     * return: true if Up navigation completed successfully and this Activity was finished, false otherwise.
+     */
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp()
+    }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         Log.i(TAG, "onCreateOptionsMenu")
@@ -137,7 +138,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         // Pass top level destination, shows Nav drawer on the following fragments
-        val myAppBar = AppBarConfiguration(
+        myAppBar = AppBarConfiguration(
             setOf(
                 R.id.dest_loginFragment,
                 R.id.dest_contextual1Fragment,
@@ -203,8 +204,9 @@ class MainActivity : AppCompatActivity() {
                 setTheme(R.style.AppTheme)
             }
             1 -> {
-//                setTheme(R.style.AppTheme2)
+                 setTheme(R.style.AppTheme2)
             }
         }
     }
 }
+
