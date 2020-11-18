@@ -1,5 +1,6 @@
 package com.example.androiddevpractice.devtopics
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,11 +9,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.androiddevpractice.MainActivityViewModel
 import com.example.androiddevpractice.R
-
 import com.example.androiddevpractice.databinding.FragmentRecyclerViewBinding
+import com.example.androiddevpractice.devtopics.ui.CustomTouchHelper
 
 
 class RecyclerViewFragment : Fragment() {
@@ -20,8 +22,13 @@ class RecyclerViewFragment : Fragment() {
     private lateinit var binding: FragmentRecyclerViewBinding
     private lateinit var viewModel: MainActivityViewModel
     private lateinit var userName: String
+    private lateinit var mContext: Context
     val rvAdapter = RecyclerViewAdapter()
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        mContext = context
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,6 +66,8 @@ class RecyclerViewFragment : Fragment() {
         recyclerView.apply {
             adapter = rvAdapter
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            val customItemTouchHelper = ItemTouchHelper(CustomTouchHelper(mContext, viewModel))
+            customItemTouchHelper.attachToRecyclerView(recyclerView)
         }
     }
 }
