@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -26,26 +27,44 @@ class LoginFragment : Fragment() {
         binding.binding = this
 
 
-
+        initDoneButtonHandler()
 
         return binding.root
     }
 
+    /**
+     * Preforms action when the done button is clicked,
+     *
+     */
+    fun initDoneButtonHandler() {
+        binding.inputEditTextPassword.setOnEditorActionListener { textView, actionId, keyEvent ->
+            if (actionId == EditorInfo.IME_ACTION_DONE && enterUser()) {
 
-    fun enterUser() {
-        val user = binding.editTextUserName.editText?.text.toString()
+                // Closes keyboard
+                true
+            }
+            // Keeps keyboard open.
+            false
+        }
+    }
+
+
+    /**
+     * Checks password to ensure that it is correct, if not the user can't enter the app.
+     */
+    fun enterUser() : Boolean {
+        val user = binding.textInputUserName.editText?.text.toString()
         Log.i(TAG, "User: $user")
-        val password = binding.editTextPassword.editText?.text.toString().toInt()
+        val password = binding.textInputPassword.editText?.text.toString().toInt()
 
         if(password == 4369) {
             //val action = RecyclerViewFragment
             val action = LoginFragmentDirections.actionLoginFragmentToRecyclerViewFragment(user)
             view?.findNavController()?.navigate(action)
-
-        } else {
-            binding.editTextPassword.error = getString(R.string.wrong_password)
+            return true
         }
-
+            binding.textInputPassword.error = getString(R.string.wrong_password)
+            return false
 
 
     }
