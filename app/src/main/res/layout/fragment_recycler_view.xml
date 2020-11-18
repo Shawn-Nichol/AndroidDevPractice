@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="binding"
+            type="com.example.androiddevpractice.devtopics.RecyclerViewFragment" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".devtopics.RecyclerViewFragment">
+        android:layout_height="match_parent">
 
 
         <androidx.recyclerview.widget.RecyclerView
@@ -19,5 +20,20 @@
             android:layout_height="match_parent"
             android:scrollbars="vertical"
             tools:listitem="@layout/recycler_view_item"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/my_fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:src="@drawable/ic_plus"
+                android:layout_gravity="bottom|end"
+                android:onClick="@{() -> binding.fabClick()}"
+                app:borderWidth="8dp"
+                android:backgroundTint="@color/colorSecondary"
+                app:backgroundTint="@color/material_on_surface_emphasis_high_type"
+                app:layout_behavior=".devtopics.ui.FABBehavior"/>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 </layout>

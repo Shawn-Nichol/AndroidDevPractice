@@ -70,4 +70,8 @@ class RecyclerViewFragment : Fragment() {
             customItemTouchHelper.attachToRecyclerView(recyclerView)
         }
     }
+
+    fun fabClick() {
+
+    }
 }
