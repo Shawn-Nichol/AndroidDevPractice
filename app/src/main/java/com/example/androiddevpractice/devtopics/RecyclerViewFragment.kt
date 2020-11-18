@@ -32,6 +32,8 @@ class RecyclerViewFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
         val args: RecyclerViewFragmentArgs = RecyclerViewFragmentArgs.fromBundle(requireArguments())
         userName = args.UserName
         viewModel = ViewModelProvider(requireActivity()).get(MainActivityViewModel::class.java)
@@ -66,8 +68,17 @@ class RecyclerViewFragment : Fragment() {
         recyclerView.apply {
             adapter = rvAdapter
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+
+
             val customItemTouchHelper = ItemTouchHelper(CustomTouchHelper(mContext, viewModel))
             customItemTouchHelper.attachToRecyclerView(recyclerView)
+
+            // Delay Transition on backpress
+            postponeEnterTransition()
+            viewTreeObserver.addOnPreDrawListener {
+                startPostponedEnterTransition()
+                true
+            }
         }
     }
 

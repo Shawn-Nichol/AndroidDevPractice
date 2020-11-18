@@ -23,6 +23,9 @@
             android:name="UserName"
             app:argType="string"
             android:defaultValue="No Name" />
+        <action
+            android:id="@+id/action_dest_recyclerViewFragment_to_detailsFragment"
+            app:destination="@id/dest_detailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/dest_contextual1Fragment"
@@ -54,4 +57,13 @@
         android:name="com.example.androiddevpractice.menu.Menu3Fragment"
         android:label="fragment_menu3"
         tools:layout="@layout/fragment_menu3" />
+    <fragment
+        android:id="@+id/dest_detailsFragment"
+        android:name="com.example.androiddevpractice.topics.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="Title"
+            app:argType="string" />
+    </fragment>
 </navigation>

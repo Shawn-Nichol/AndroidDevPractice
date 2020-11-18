@@ -4,13 +4,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.cardview.widget.CardView
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androiddevpractice.R
 import com.example.androiddevpractice.room.Dev
 
-class RecyclerViewAdapter() : ListAdapter<Dev, RecyclerViewAdapter.ItemViewHolder>(MyDiffCallback()) {
+class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev, RecyclerViewAdapter.ItemViewHolder>(MyDiffCallback()) {
 
     class MyDiffCallback : DiffUtil.ItemCallback<Dev>() {
         override fun areItemsTheSame(oldItem: Dev, newItem: Dev): Boolean {
@@ -24,6 +26,7 @@ class RecyclerViewAdapter() : ListAdapter<Dev, RecyclerViewAdapter.ItemViewHolde
 
 
     class ItemViewHolder(private val view: View) :  RecyclerView.ViewHolder(view) {
+        val card:CardView = view.findViewById(R.id.item_card)
         val tv: TextView = view.findViewById(R.id.tv_rv_item)
     }
 
@@ -37,6 +40,19 @@ class RecyclerViewAdapter() : ListAdapter<Dev, RecyclerViewAdapter.ItemViewHolde
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = getItem(position)
         holder.tv.text = item.topic
+
+        // Needs to be set so the transition animation knows where to return.
+        holder.tv.transitionName = "transition_topic_$position"
+
+        holder.card.setOnClickListener {
+            val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToDetailsFragment(item.topic)
+            val extras = FragmentNavigatorExtras(
+                holder.tv to "transition_title"
+            )
+
+            it.findNavController().navigate(action, extras)
+
+        }
     }
 
 
