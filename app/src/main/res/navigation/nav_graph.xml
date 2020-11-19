@@ -30,37 +30,37 @@
     <fragment
         android:id="@+id/dest_contextual1Fragment"
         android:name="com.example.androiddevpractice.menu.contextualmenu.Contextual1Fragment"
-        android:label="fragment_contextual1"
+        android:label="Contextual Menu 1"
         tools:layout="@layout/fragment_contextual1" />
     <fragment
         android:id="@+id/dest_contextual2Fragment"
         android:name="com.example.androiddevpractice.menu.contextualmenu.Contextual2Fragment"
-        android:label="fragment_contextual2"
+        android:label="Contextual Menu 2"
         tools:layout="@layout/fragment_contextual2" />
     <fragment
         android:id="@+id/dest_contextual3Fragment"
         android:name="com.example.androiddevpractice.menu.contextualmenu.Contextual3Fragment"
-        android:label="fragment_contextual3"
+        android:label="Contextual Menu 3"
         tools:layout="@layout/fragment_contextual3" />
     <fragment
         android:id="@+id/dest_menu1Fragment"
         android:name="com.example.androiddevpractice.menu.Menu1Fragment"
-        android:label="fragment_menu1"
+        android:label="Menu 1"
         tools:layout="@layout/fragment_menu1" />
     <fragment
         android:id="@+id/dest_menu2Fragment"
         android:name="com.example.androiddevpractice.menu.Menu2Fragment"
-        android:label="fragment_menu2"
+        android:label="Menu 2"
         tools:layout="@layout/fragment_menu2" />
     <fragment
         android:id="@+id/dest_menu3Fragment"
         android:name="com.example.androiddevpractice.menu.Menu3Fragment"
-        android:label="fragment_menu3"
+        android:label="Menu 3"
         tools:layout="@layout/fragment_menu3" />
     <fragment
         android:id="@+id/dest_detailsFragment"
         android:name="com.example.androiddevpractice.topics.DetailsFragment"
-        android:label="fragment_details"
+        android:label="Details"
         tools:layout="@layout/fragment_details" >
         <argument
             android:name="Title"

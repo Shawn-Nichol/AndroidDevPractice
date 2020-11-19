@@ -1,11 +1,13 @@
 package com.example.androiddevpractice
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -61,11 +63,15 @@ class LoginFragment : Fragment() {
             //val action = RecyclerViewFragment
             val action = LoginFragmentDirections.actionLoginFragmentToRecyclerViewFragment(user)
             view?.findNavController()?.navigate(action)
+
+            // Hides keyboard
+            val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view?.windowToken, 0)
+
+
             return true
         }
             binding.textInputPassword.error = getString(R.string.wrong_password)
             return false
-
-
     }
 }
