@@ -13,11 +13,12 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 
 
@@ -58,7 +59,7 @@ class MainActivity : AppCompatActivity() {
      * return: true if Up navigation completed successfully and this Activity was finished, false otherwise.
      */
     override fun onSupportNavigateUp(): Boolean {
-        return navController.navigateUp()
+        return findNavController(R.id.nav_host_fragment).navigateUp(myAppBar)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -75,6 +76,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             R.id.dest_menu1Fragment -> {
+                Log.i(TAG, "onOptionItemSelected nav First Fragment")
                 return NavigationUI.onNavDestinationSelected(item, navController)
             }
 
@@ -99,7 +101,10 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
 
-            else -> super.onOptionsItemSelected(item)
+            else -> {
+                Log.i(TAG, "onOptionItemSelected(): no Item seleted")
+                super.onOptionsItemSelected(item)
+            }
         }
     }
 
@@ -113,6 +118,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Loads the users saved Theme settings.
+     */
     private fun initSharedPreference() {
         Log.i(TAG, "initSharedPreference")
         sharedPref = this.getSharedPreferences("AndroidDevPractice", Context.MODE_PRIVATE)
@@ -122,45 +130,51 @@ class MainActivity : AppCompatActivity() {
         setDarkMode()
     }
 
+    /**
+     * initialize the NavDrawer
+     */
     private fun initNavDrawer() {
-        // Retrieve the navController from the NavHostFragment.
+        // NavHostFragment, swaps different fragment destinations in and out as you navigate through the navigation graph
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
 
-        drawerLayout = findViewById(R.id.my_drawer_layout)
+        // NavController, triggers the fragment swap in the NavHostFragment.
         navController = navHostFragment.navController
-        val toolbar = findViewById<Toolbar>(R.id.myToolbar)
 
-
-        // Post the call to the findNavController
-        toolbar.setupWithNavController(navController, drawerLayout)
+        drawerLayout = findViewById(R.id.my_drawer_layout)
 
         // Set toolbar as the action bar
+        val toolbar = findViewById<Toolbar>(R.id.myToolbar)
         setSupportActionBar(toolbar)
 
         // Pass top level destination, shows Nav drawer on the following fragments
+        // Tells the action bar what fragments are top level, and whether the bar must handle a drawer layout.
         myAppBar = AppBarConfiguration(
             setOf(
                 R.id.dest_loginFragment,
-                R.id.dest_contextual1Fragment,
-                R.id.dest_contextual2Fragment,
-                R.id.dest_contextual3Fragment,
                 R.id.dest_menu1Fragment,
-                R.id.dest_menu2Fragment,
-                R.id.dest_menu3Fragment
+                R.id.dest_menu2Fragment
             ),
             drawerLayout
         )
 
-        // Setup Action bar
+
+        // Shows a title based off of the destinations label
+        // Display the UP button whenever you'r not on a top-level destination.
+        // Displays the DrawerIcon when you're on a top-level destination
         setupActionBarWithNavController(navController, myAppBar)
     }
 
+    /**
+     * Handles clicks inside the Navigation Drawer
+     */
     private fun initNavDrawerClickListener() {
-        val navView = findViewById<NavigationView>(R.id.nav_view)
+        val navView = findViewById<NavigationView>(R.id.nav_drawer_view)
         navView.setNavigationItemSelectedListener { menuItem ->
+
             when(menuItem.itemId) {
                 R.id.nav_first_fragment -> {
+                    Log.i(TAG, "drawerClickListener nav First Fragment")
                     navController.navigate(R.id.dest_menu1Fragment)
                     drawerLayout.closeDrawer(GravityCompat.START)
                     true
@@ -178,7 +192,10 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
 
-                else -> false
+                else -> {
+                    Log.i(TAG, "drawerClickListener else")
+                    false
+                }
             }
         }
     }

@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.transition.TransitionInflater
 import com.example.androiddevpractice.R
 import com.example.androiddevpractice.databinding.FragmentDetailsBinding
 
@@ -18,9 +17,9 @@ class DetailsFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val args = DetailsFragmentArgs.fromBundle(requireArguments())
-        topic = args.Title
-        sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
+//        val args = DetailsFragmentArgs.fromBundle(requireArguments())
+//        topic = args.Title
+//        sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
     }
 
     override fun onCreateView(
