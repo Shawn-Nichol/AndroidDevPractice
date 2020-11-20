@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -50,11 +51,32 @@ class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev, Recy
                 holder.tv to "transition_title"
             )
 
-            it.findNavController().navigate(action, extras)
+           loadFragment(it, item, extras)
 
         }
     }
 
+
+    fun loadFragment(view: View, item: Dev, extras: FragmentNavigator.Extras) {
+
+        when (item.topic) {
+            "Button" -> {
+                view.findNavController().navigate(R.id.dest_buttonFragment)
+            }
+            "Menu" -> {
+                view.findNavController().navigate(R.id.dest_menuFragment)
+                true
+            }
+
+            else -> {
+                val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToDetailsFragment(item.topic)
+                view.findNavController().navigate(action, extras)
+                true
+            }
+        }
+
+
+    }
 
 }
 

@@ -28,7 +28,7 @@ abstract class DevDatabase : RoomDatabase() {
                     // add dev topics
                     var dev = Dev("Button", "View")
                     devDao.insert(dev)
-                    dev = Dev("TextInput","View")
+                    dev = Dev("Menu","User Interface")
                     devDao.insert(dev)
                     dev = Dev("FAB", "User Interface")
                     devDao.insert(dev)

@@ -153,7 +153,11 @@ class MainActivity : AppCompatActivity() {
             setOf(
                 R.id.dest_loginFragment,
                 R.id.dest_menu1Fragment,
-                R.id.dest_menu2Fragment
+                R.id.dest_menu2Fragment,
+                R.id.dest_menu3Fragment,
+                R.id.dest_contextual1Fragment,
+                R.id.dest_contextual2Fragment,
+                R.id.dest_contextual3Fragment
             ),
             drawerLayout
         )

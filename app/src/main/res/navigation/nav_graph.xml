@@ -26,6 +26,12 @@
         <action
             android:id="@+id/action_dest_recyclerViewFragment_to_detailsFragment"
             app:destination="@id/dest_detailsFragment" />
+        <action
+            android:id="@+id/action_dest_recyclerViewFragment_to_menuFragment"
+            app:destination="@id/dest_menuFragment" />
+        <action
+            android:id="@+id/action_dest_recyclerViewFragment_to_buttonFragment"
+            app:destination="@id/dest_buttonFragment" />
     </fragment>
     <fragment
         android:id="@+id/dest_contextual1Fragment"
@@ -66,4 +72,14 @@
             android:name="Title"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/dest_menuFragment"
+        android:name="com.example.androiddevpractice.topics.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" />
+    <fragment
+        android:id="@+id/dest_buttonFragment"
+        android:name="com.example.androiddevpractice.topics.ButtonFragment"
+        android:label="fragment_button"
+        tools:layout="@layout/fragment_button" />
 </navigation>
