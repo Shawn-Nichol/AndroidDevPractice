@@ -28,7 +28,8 @@ class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev, Recy
 
     class ItemViewHolder(private val view: View) :  RecyclerView.ViewHolder(view) {
         val card:CardView = view.findViewById(R.id.item_card)
-        val tv: TextView = view.findViewById(R.id.tv_rv_item)
+        val title: TextView = view.findViewById(R.id.tv_rv_item)
+        val category: TextView = view.findViewById(R.id.tv_category)
     }
 
 
@@ -40,15 +41,16 @@ class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev, Recy
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = getItem(position)
-        holder.tv.text = item.topic
+        holder.title.text = item.topic
+        holder.category.text = item.category
 
         // Needs to be set so the transition animation knows where to return.
-        holder.tv.transitionName = "transition_topic_$position"
+        holder.title.transitionName = "transition_topic_$position"
 
         holder.card.setOnClickListener {
             val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToDetailsFragment(item.topic)
             val extras = FragmentNavigatorExtras(
-                holder.tv to "transition_title"
+                holder.title to "transition_title"
             )
 
            loadFragment(it, item, extras)
@@ -57,7 +59,7 @@ class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev, Recy
     }
 
 
-    fun loadFragment(view: View, item: Dev, extras: FragmentNavigator.Extras) {
+    private fun loadFragment(view: View, item: Dev, extras: FragmentNavigator.Extras) {
 
         when (item.topic) {
             "Button" -> {
