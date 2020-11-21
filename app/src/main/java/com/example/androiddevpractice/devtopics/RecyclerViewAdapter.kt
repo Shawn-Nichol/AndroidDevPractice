@@ -66,6 +66,7 @@ class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev, Recy
             "Menu" ->  view.findNavController().navigate(R.id.dest_menuFragment)
             "Constraint" -> view.findNavController().navigate(R.id.dest_constraintLayoutFragment)
             "Place Holder" -> view.findNavController().navigate(R.id.dest_placeHolderFragment)
+            "Motion Layout" -> view.findNavController().navigate(R.id.dest_motionLayoutFragment)
 
 
 

@@ -163,7 +163,7 @@ abstract class DevDatabase : RoomDatabase() {
                     devDao.insert(dev)
                     dev = Dev("CustomView", "User Interface", "Layouts")
                     devDao.insert(dev)
-                    dev = Dev("Motion", "User Interface", "Layouts")
+                    dev = Dev("Motion Layout", "User Interface", "Layouts")
                     devDao.insert(dev)
                     dev = Dev("Adapter", "User Interface", "Layouts")
                     devDao.insert(dev)

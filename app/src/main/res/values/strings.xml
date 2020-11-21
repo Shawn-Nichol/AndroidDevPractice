@@ -4,4 +4,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="wrong_password">Wrong Password</string>
     <string name="place_holder_instructions">Click on an icon to move it to the center and in large it.</string>
+    <string name="WhatIsMotionLayout">Motion Layout is a subclass of Constraint Layout, bridging he gap between layout transitions and complex motion handing, offering a mix of features between the property, animation framework, TransitionManager and Coordinator layout.</string>
 </resources>

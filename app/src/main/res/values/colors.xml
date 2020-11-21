@@ -12,4 +12,8 @@
     <color name="colorPrimaryTwo">#d81b60</color>
     <color name="colorPrimaryDarkTwo">#8e24aa</color>
     <color name="colorAccentTwo">#00796b</color>
+
+    <color name="colorOrange">#FF4500</color>
+    <color name="red">#FF0000</color>
+    <color name="neonGreen">#39FF14</color>
 </resources>
