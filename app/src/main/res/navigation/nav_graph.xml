@@ -32,6 +32,9 @@
         <action
             android:id="@+id/action_dest_recyclerViewFragment_to_buttonFragment"
             app:destination="@id/dest_buttonFragment" />
+        <action
+            android:id="@+id/action_dest_recyclerViewFragment_to_constraintLayoutFragment"
+            app:destination="@id/dest_constraintLayoutFragment" />
     </fragment>
     <fragment
         android:id="@+id/dest_contextual1Fragment"
@@ -82,4 +85,9 @@
         android:name="com.example.androiddevpractice.topics.ButtonFragment"
         android:label="fragment_button"
         tools:layout="@layout/fragment_button" />
+    <fragment
+        android:id="@+id/dest_constraintLayoutFragment"
+        android:name="com.example.androiddevpractice.topics.userinterface.ConstraintLayoutFragment"
+        android:label="Constraint Layout"
+        tools:layout="@layout/fragment_constraint_layout"/>
 </navigation>

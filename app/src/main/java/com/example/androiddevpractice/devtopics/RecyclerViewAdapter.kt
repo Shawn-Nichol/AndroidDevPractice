@@ -1,5 +1,6 @@
 package com.example.androiddevpractice.devtopics
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -48,7 +49,6 @@ class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev, Recy
         holder.title.transitionName = "transition_topic_$position"
 
         holder.card.setOnClickListener {
-            val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToDetailsFragment(item.topic)
             val extras = FragmentNavigatorExtras(
                 holder.title to "transition_title"
             )
@@ -60,13 +60,18 @@ class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev, Recy
 
 
     private fun loadFragment(view: View, item: Dev, extras: FragmentNavigator.Extras) {
-
+        Log.i("PracticeRecyclerViewAdapter", "loadFragment(), ${item.topic}")
         when (item.topic) {
             "Button" -> {
                 view.findNavController().navigate(R.id.dest_buttonFragment)
             }
             "Menu" -> {
                 view.findNavController().navigate(R.id.dest_menuFragment)
+                true
+            }
+
+            "Constraint" -> {
+                view.findNavController().navigate(R.id.dest_constraintLayoutFragment)
                 true
             }
 
