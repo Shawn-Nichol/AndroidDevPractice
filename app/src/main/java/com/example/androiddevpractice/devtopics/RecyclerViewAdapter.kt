@@ -62,18 +62,14 @@ class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev, Recy
     private fun loadFragment(view: View, item: Dev, extras: FragmentNavigator.Extras) {
         Log.i("PracticeRecyclerViewAdapter", "loadFragment(), ${item.topic}")
         when (item.topic) {
-            "Button" -> {
-                view.findNavController().navigate(R.id.dest_buttonFragment)
-            }
-            "Menu" -> {
-                view.findNavController().navigate(R.id.dest_menuFragment)
-                true
-            }
+            "Button" -> view.findNavController().navigate(R.id.dest_buttonFragment)
+            "Menu" ->  view.findNavController().navigate(R.id.dest_menuFragment)
+            "Constraint" -> view.findNavController().navigate(R.id.dest_constraintLayoutFragment)
+            "Place Holder" -> view.findNavController().navigate(R.id.dest_placeHolderFragment)
 
-            "Constraint" -> {
-                view.findNavController().navigate(R.id.dest_constraintLayoutFragment)
-                true
-            }
+
+
+
 
             else -> {
                 val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToDetailsFragment(item.topic)
