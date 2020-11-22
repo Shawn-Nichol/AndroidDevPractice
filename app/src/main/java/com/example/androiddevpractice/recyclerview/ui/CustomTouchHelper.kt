@@ -1,4 +1,4 @@
-package com.example.androiddevpractice.devtopics.ui
+package com.example.androiddevpractice.recyclerview.ui
 
 import android.content.Context
 import androidx.recyclerview.widget.ItemTouchHelper

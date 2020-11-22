@@ -1,4 +1,4 @@
-package com.example.androiddevpractice.devtopics
+package com.example.androiddevpractice.recyclerview
 
 import android.content.Context
 import android.os.Bundle
@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.androiddevpractice.MainActivityViewModel
 import com.example.androiddevpractice.R
 import com.example.androiddevpractice.databinding.FragmentRecyclerViewBinding
-import com.example.androiddevpractice.devtopics.ui.CustomTouchHelper
+import com.example.androiddevpractice.recyclerview.ui.CustomTouchHelper
 
 
 class RecyclerViewFragment : Fragment() {

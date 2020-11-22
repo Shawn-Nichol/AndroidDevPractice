@@ -14,6 +14,20 @@
         android:layout_height="match_parent"
         tools:context=".LoginFragment">
 
+
+        <com.example.androiddevpractice.customviews.LoginCustom
+            android:id="@+id/login_image"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:color1="#FFFF00"
+            app:color2="@color/red"
+            app:color3="#000080"
+            app:color4="@color/colorOrange"
+            app:showText="false"/>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/text_input_user_name"
             android:layout_width="match_parent"

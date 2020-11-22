@@ -1,4 +1,4 @@
-package com.example.androiddevpractice.devtopics
+package com.example.androiddevpractice.recyclerview
 
 import android.util.Log
 import android.view.LayoutInflater

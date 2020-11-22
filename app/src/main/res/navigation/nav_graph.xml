@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/dest_recyclerViewFragment"
-        android:name="com.example.androiddevpractice.devtopics.RecyclerViewFragment"
+        android:name="com.example.androiddevpractice.recyclerview.RecyclerViewFragment"
         android:label="fragment_recycler_view"
         tools:layout="@layout/fragment_recycler_view" >
         <argument

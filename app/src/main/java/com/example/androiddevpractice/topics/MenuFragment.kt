@@ -159,18 +159,15 @@ class MenuFragment : Fragment(), PopupMenu.OnMenuItemClickListener {
         return when (item.itemId) {
             R.id.dest_menu1Fragment -> {
                 Log.i(TAG, "onMenuItemClick Pop 1")
-                true
                 NavigationUI.onNavDestinationSelected(item, navController)
             }
             R.id.dest_menu2Fragment -> {
                 Log.i(TAG, "onMenuItemClick Pop 2")
-                true
                 NavigationUI.onNavDestinationSelected(item, navController)
             }
 
             R.id.dest_menu3Fragment -> {
                 Log.i(TAG, "onMenuItemClick Pop 3")
-                true
                 NavigationUI.onNavDestinationSelected(item, navController)
             }
             else -> false
