@@ -41,6 +41,9 @@
         <action
             android:id="@+id/action_dest_recyclerViewFragment_to_motionLayoutFragment"
             app:destination="@id/dest_motionLayoutFragment" />
+        <action
+            android:id="@+id/action_dest_recyclerViewFragment_to_checkBoxFragment"
+            app:destination="@id/dest_checkBoxFragment" />
     </fragment>
     <fragment
         android:id="@+id/dest_contextual1Fragment"
@@ -106,5 +109,10 @@
         android:name="com.example.androiddevpractice.topics.userinterface.MotionLayoutFragment"
         android:label="Motion Layout"
         tools:layout="@layout/fragment_motion_layout"/>
+    <fragment
+        android:id="@+id/dest_checkBoxFragment"
+        android:name="com.example.androiddevpractice.topics.userinterface.CheckBoxFragment"
+        android:label="Check Box"
+        tools:layout="@layout/fragment_check_box"/>
 
 </navigation>

@@ -67,6 +67,7 @@ class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev, Recy
             "Constraint" -> view.findNavController().navigate(R.id.dest_constraintLayoutFragment)
             "Place Holder" -> view.findNavController().navigate(R.id.dest_placeHolderFragment)
             "Motion Layout" -> view.findNavController().navigate(R.id.dest_motionLayoutFragment)
+            "Check Boxes" -> view.findNavController().navigate(R.id.dest_checkBoxFragment)
 
 
 
@@ -75,7 +76,6 @@ class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev, Recy
             else -> {
                 val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToDetailsFragment(item.topic)
                 view.findNavController().navigate(action, extras)
-                true
             }
         }
 

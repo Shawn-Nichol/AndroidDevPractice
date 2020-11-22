@@ -39,7 +39,7 @@ class LoginFragment : Fragment() {
      * Preforms action when the done button is clicked,
      *
      */
-    fun initDoneButtonHandler() {
+    private fun initDoneButtonHandler() {
         binding.inputEditTextPassword.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE && enterUser()) {
 
