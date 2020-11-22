@@ -28,8 +28,9 @@ class LoginFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
         binding.binding = this
 
-
         initDoneButtonHandler()
+
+
 
         return binding.root
     }
@@ -39,7 +40,7 @@ class LoginFragment : Fragment() {
      *
      */
     fun initDoneButtonHandler() {
-        binding.inputEditTextPassword.setOnEditorActionListener { textView, actionId, keyEvent ->
+        binding.inputEditTextPassword.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE && enterUser()) {
 
                 // Closes keyboard

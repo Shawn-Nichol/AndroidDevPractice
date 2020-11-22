@@ -165,7 +165,6 @@ class MenuFragment : Fragment(), PopupMenu.OnMenuItemClickListener {
                 Log.i(TAG, "onMenuItemClick Pop 2")
                 NavigationUI.onNavDestinationSelected(item, navController)
             }
-
             R.id.dest_menu3Fragment -> {
                 Log.i(TAG, "onMenuItemClick Pop 3")
                 NavigationUI.onNavDestinationSelected(item, navController)

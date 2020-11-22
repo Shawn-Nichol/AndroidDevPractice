@@ -88,7 +88,7 @@
         tools:layout="@layout/fragment_menu" />
     <fragment
         android:id="@+id/dest_buttonFragment"
-        android:name="com.example.androiddevpractice.topics.ButtonFragment"
+        android:name="com.example.androiddevpractice.topics.userinterface.ButtonFragment"
         android:label="fragment_button"
         tools:layout="@layout/fragment_button" />
     <fragment

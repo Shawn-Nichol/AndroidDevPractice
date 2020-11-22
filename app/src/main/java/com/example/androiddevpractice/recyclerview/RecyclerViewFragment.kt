@@ -23,7 +23,7 @@ class RecyclerViewFragment : Fragment() {
     private lateinit var viewModel: MainActivityViewModel
     private lateinit var userName: String
     private lateinit var mContext: Context
-    val rvAdapter = RecyclerViewAdapter()
+    private val rvAdapter = RecyclerViewAdapter()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -55,15 +55,15 @@ class RecyclerViewFragment : Fragment() {
         return binding.root
     }
 
-    fun submitList() {
-        viewModel?.devTopics.observe(viewLifecycleOwner, Observer {
+    private fun submitList() {
+        viewModel.devTopics.observe(viewLifecycleOwner, Observer {
             it?.let {
                 rvAdapter.submitList(it)
             }
         })
     }
 
-    fun initRecyclerView() {
+    private fun initRecyclerView() {
         val recyclerView = binding.recyclerView
         recyclerView.apply {
             adapter = rvAdapter
