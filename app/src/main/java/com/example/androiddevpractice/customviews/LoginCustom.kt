@@ -58,6 +58,7 @@ class LoginCustom(context: Context, attrs: AttributeSet) : View(context, attrs) 
             color1 = getColor(R.styleable.LoginView_color1, 0)
             color2 = getColor(R.styleable.LoginView_color2, 0)
             color3 = getColor(R.styleable.LoginView_color3, 0)
+            color4 = getColor(R.styleable.LoginView_color4, 0)
             showText = getBoolean(R.styleable.LoginView_showText, false)
 
         }
@@ -111,6 +112,9 @@ class LoginCustom(context: Context, attrs: AttributeSet) : View(context, attrs) 
     }
 
 
+    /**
+     * Draws the circle
+     */
     fun drawCircle(canvas: Canvas) {
         /**
          * drawCircle
@@ -123,6 +127,9 @@ class LoginCustom(context: Context, attrs: AttributeSet) : View(context, attrs) 
         canvas.drawCircle(centerX, centerY, radius, paintBoarder)
     }
 
+    /**
+     * Measures the size of the circle and draws an x inside the circle.
+     */
     fun drawX(canvas: Canvas) {
         var startAngle = 45.0
         var endAngle = 225.0
@@ -152,6 +159,9 @@ class LoginCustom(context: Context, attrs: AttributeSet) : View(context, attrs) 
         canvas.drawLine(startX, startY, endX, endY, paintBoarder)
     }
 
+    /**
+     * Draw text inside the circle, this will display the password.
+     */
     fun drawText(canvas: Canvas) {
         if (showText) {
             val startY = centerY - ((paintText.descent() + paintText.ascent()) / 2)
