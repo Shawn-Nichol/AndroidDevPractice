@@ -68,7 +68,7 @@ class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev, Recy
             "Place Holder" -> view.findNavController().navigate(R.id.dest_placeHolderFragment)
             "Motion Layout" -> view.findNavController().navigate(R.id.dest_motionLayoutFragment)
             "Check Boxes" -> view.findNavController().navigate(R.id.dest_checkBoxFragment)
-
+            "Radio Buttons" -> view.findNavController().navigate(R.id.dest_radioButtonFragment)
 
 
 

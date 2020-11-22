@@ -5,4 +5,7 @@
     <string name="wrong_password">Wrong Password</string>
     <string name="place_holder_instructions">Click on an icon to move it to the center and in large it.</string>
     <string name="WhatIsMotionLayout">Motion Layout is a subclass of Constraint Layout, bridging he gap between layout transitions and complex motion handing, offering a mix of features between the property, animation framework, TransitionManager and Coordinator layout.</string>
+    <string name="what_is_a_radio_button">RadioButton: is a two state button that can be checked or unchecked. Once check the user can\'t uncheck it.</string>
+    <string name="what_is_a_radio_group">RadioGroup: is a multiple-exlusion scope for a set of radio buttons. Checking one RadioButton in the group will uncheck an previously checked button in the same group.</string>
+    <string name="preference_file_key">AndroidDevPracticeFile</string>
 </resources>
