@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="binding"
+            type="com.example.androiddevpractice.topics.userinterface.CheckBoxFragment" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".topics.userinterface.CheckBoxFragment">
+
+        <CheckBox
+            android:id="@+id/checkbox_item_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{(View) -> binding.myCheckBox(View)}"
+            android:text="Item 1" />
+
+        <CheckBox
+            android:id="@+id/checkbox_item_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{(View) -> binding.myCheckBox(View)}"
+            android:text="Item 2" />
+
+        <CheckBox
+            android:id="@+id/checkbox_item_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{(View) -> binding.myCheckBox(View)}"
+            android:text="Item 3" />
+
+        <Button
+            android:id="@+id/btn_submit_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:onClick="@{() -> binding.submit()}" />
+
+    </LinearLayout>
+</layout>
