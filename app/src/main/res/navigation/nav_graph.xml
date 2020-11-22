@@ -47,6 +47,12 @@
         <action
             android:id="@+id/action_dest_recyclerViewFragment_to_radioButtonFragment"
             app:destination="@id/dest_radioButtonFragment" />
+        <action
+            android:id="@+id/action_dest_recyclerViewFragment_to_toggleButtonFragment"
+            app:destination="@id/dest_toggleButtonFragment" />
+        <action
+            android:id="@+id/action_dest_recyclerViewFragment_to_switchesFragment"
+            app:destination="@id/dest_switchesFragment" />
     </fragment>
     <fragment
         android:id="@+id/dest_contextual1Fragment"
@@ -120,7 +126,17 @@
     <fragment
         android:id="@+id/dest_radioButtonFragment"
         android:name="com.example.androiddevpractice.topics.userinterface.RadioButtonFragment"
-        android:label="RadioButtonFragment"
+        android:label="Radio Button"
         tools:layout="@layout/fragment_radio_button"/>
+    <fragment
+        android:id="@+id/dest_toggleButtonFragment"
+        android:name="com.example.androiddevpractice.topics.userinterface.ToggleButtonFragment"
+        android:label="Toggle Button"
+        tools:layout="@layout/fragment_toggle_button" />
+    <fragment
+        android:id="@+id/dest_switchesFragment"
+        android:name="com.example.androiddevpractice.topics.userinterface.SwitchesFragment"
+        android:label="Switches"
+        tools:layout="@layout/fragment_switches" />
 
 </navigation>
