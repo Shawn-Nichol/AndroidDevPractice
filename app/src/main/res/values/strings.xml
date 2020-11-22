@@ -9,7 +9,7 @@
     <string name="what_is_a_radio_group">RadioGroup: is a multiple-exlusion scope for a set of radio buttons. Checking one RadioButton in the group will uncheck an previously checked button in the same group.</string>
     <string name="preference_file_key">AndroidDevPracticeFile</string>
     <string name="what_is_a_toggle_button">Toggle Button: Allows the user to change a setting between two states.</string>
-    <string name="what_is_a_switch"><![CDATA[Switch: A switch is a two-state toggle widget that can select between two options. Users can drag there thumb back and forth to switch states. </androidx.constraintlayout.widget.ConstraintLayout> </layout>]]></string>
     <string name="off">OFF</string>
     <string name="on">ON</string>
+    <string name="what_is_a_switch">Switch: Is a two-state toggle switch that can select between two options. The user may drag a thumb back and forth of tap to toggle. Switch compat is backwards compatible to API 7.</string>
 </resources>

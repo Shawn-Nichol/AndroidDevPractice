@@ -70,7 +70,7 @@ class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev, Recy
             "Check Boxes" -> view.findNavController().navigate(R.id.dest_checkBoxFragment)
             "Radio Buttons" -> view.findNavController().navigate(R.id.dest_radioButtonFragment)
             "Toggle Buttons" -> view.findNavController().navigate(R.id.dest_toggleButtonFragment)
-
+            "Switch" -> view.findNavController().navigate(R.id.dest_switchesFragment)
 
 
             else -> {

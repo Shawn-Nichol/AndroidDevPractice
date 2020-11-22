@@ -135,8 +135,8 @@
         tools:layout="@layout/fragment_toggle_button" />
     <fragment
         android:id="@+id/dest_switchesFragment"
-        android:name="com.example.androiddevpractice.topics.userinterface.SwitchesFragment"
-        android:label="Switches"
-        tools:layout="@layout/fragment_switches" />
+        android:name="com.example.androiddevpractice.topics.userinterface.SwitchFragment"
+        android:label="Switch"
+        tools:layout="@layout/fragment_switch" />
 
 </navigation>
