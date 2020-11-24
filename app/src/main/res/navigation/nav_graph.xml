@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/dest_loginFragment">
+    app:startDestination="@id/dest_pickerFragment">
 
     <fragment
         android:id="@+id/dest_loginFragment"
@@ -53,6 +53,15 @@
         <action
             android:id="@+id/action_dest_recyclerViewFragment_to_switchesFragment"
             app:destination="@id/dest_switchesFragment" />
+        <action
+            android:id="@+id/action_dest_recyclerViewFragment_to_pickerFragment"
+            app:destination="@id/dest_pickerFragment" />
+        <action
+            android:id="@+id/action_dest_recyclerViewFragment_to_pickerFragment2"
+            app:destination="@id/dest_pickerFragment" />
+        <action
+            android:id="@+id/action_dest_recyclerViewFragment_to_pickerFragment3"
+            app:destination="@id/dest_pickerFragment" />
     </fragment>
     <fragment
         android:id="@+id/dest_contextual1Fragment"
@@ -138,5 +147,10 @@
         android:name="com.example.androiddevpractice.topics.userinterface.SwitchFragment"
         android:label="Switch"
         tools:layout="@layout/fragment_switch" />
+    <fragment
+        android:id="@+id/dest_pickerFragment"
+        android:name="com.example.androiddevpractice.topics.userinterface.PickerFragment"
+        android:label="Picker"
+        tools:layout="@layout/fragment_picker" />
 
 </navigation>
