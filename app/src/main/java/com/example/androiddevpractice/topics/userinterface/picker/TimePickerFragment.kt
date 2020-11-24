@@ -21,8 +21,10 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
         return TimePickerDialog(activity, this, hour, minute, DateFormat.is24HourFormat(activity))
     }
 
+    /**
+     * Posts select to the Pickers ViewModel so the data can be used loaded into the layout.
+     */
     override fun onTimeSet(view: TimePicker, hourOfDay: Int, minute: Int) {
-        // Do something with the time chosen by the user
         val viewModel = ViewModelProvider(requireActivity()).get(PickerViewModel::class.java)
         viewModel._hour.postValue(hourOfDay)
         viewModel._minute.postValue(minute)

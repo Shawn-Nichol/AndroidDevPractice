@@ -6,7 +6,7 @@
     <data>
         <variable
             name="binding"
-            type="com.example.androiddevpractice.topics.userinterface.PickerFragment" />
+            type="com.example.androiddevpractice.topics.userinterface.picker.PickerFragment" />
         <variable
             name="viewModel"
             type="com.example.androiddevpractice.topics.userinterface.picker.PickerViewModel" />
@@ -15,7 +15,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".topics.userinterface.PickerFragment">
+        tools:context=".topics.userinterface.picker.PickerFragment">
 
         <Button
             android:id="@+id/btn_time_picker"
@@ -24,12 +24,12 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:onClick="@{() -> binding.timePickerButton()}"
-            android:text="Time Picker"
+            android:text="Time Picker "
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/timer"
+            android:id="@+id/tv_time_picker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -38,6 +38,28 @@
             android:textSize="16sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/btn_time_picker"
             app:layout_constraintStart_toEndOf="@+id/btn_time_picker" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Date Picker"
+            android:onClick="@{() -> binding.datePickerButton()}"
+            app:layout_constraintEnd_toEndOf="@+id/btn_time_picker"
+            app:layout_constraintStart_toStartOf="@+id/btn_time_picker"
+            app:layout_constraintTop_toBottomOf="@+id/btn_time_picker" />
+
+        <TextView
+            android:id="@+id/tv_date_picker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textSize="16sp"
+            android:text="@{`Selected Date: ` + String.valueOf(viewModel.day) + `/` + String.valueOf(viewModel.month) + `/` + String.valueOf(viewModel.year)}"
+            android:hint="Selected Date:"
+            app:layout_constraintBaseline_toBaselineOf="@+id/button"
+            app:layout_constraintStart_toEndOf="@+id/button" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

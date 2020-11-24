@@ -1,4 +1,4 @@
-package com.example.androiddevpractice.topics.userinterface
+package com.example.androiddevpractice.topics.userinterface.picker
 
 import android.os.Bundle
 import android.util.Log
@@ -10,8 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.androiddevpractice.R
 import com.example.androiddevpractice.databinding.FragmentPickerBinding
-import com.example.androiddevpractice.topics.userinterface.picker.PickerViewModel
-import com.example.androiddevpractice.topics.userinterface.picker.TimePickerFragment
 
 
 class PickerFragment : Fragment() {
@@ -50,7 +48,10 @@ class PickerFragment : Fragment() {
     fun timePickerButton() {
         Log.i(TAG, "timePickerButton()")
         TimePickerFragment().show(activity?.supportFragmentManager!!, "timePicker")
+    }
 
+    fun datePickerButton() {
+        DatePickerFragment().show(activity?.supportFragmentManager!!, "datePicker")
     }
 
 }

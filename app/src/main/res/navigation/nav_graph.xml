@@ -149,7 +149,7 @@
         tools:layout="@layout/fragment_switch" />
     <fragment
         android:id="@+id/dest_pickerFragment"
-        android:name="com.example.androiddevpractice.topics.userinterface.PickerFragment"
+        android:name="com.example.androiddevpractice.topics.userinterface.picker.PickerFragment"
         android:label="Picker"
         tools:layout="@layout/fragment_picker" />
 
