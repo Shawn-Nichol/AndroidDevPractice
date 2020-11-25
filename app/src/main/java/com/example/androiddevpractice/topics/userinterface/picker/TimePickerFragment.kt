@@ -1,24 +1,33 @@
 package com.example.androiddevpractice.topics.userinterface.picker
 
 
+import android.app.AlertDialog
 import android.app.Dialog
 import android.app.TimePickerDialog
 import android.os.Bundle
 import android.text.format.DateFormat
-import android.util.Log
 import android.widget.TimePicker
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
+import java.util.*
 
-class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener {
+class TimePickerFragment(timeTheme: Int) : DialogFragment(), TimePickerDialog.OnTimeSetListener {
     val TAG = "PracticeTimePickerFragment"
 
+    val timeTheme = timeTheme
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val c = java.util.Calendar.getInstance()
-        val hour = c[java.util.Calendar.HOUR_OF_DAY]
-        val minute = c[java.util.Calendar.MINUTE]
-        Log.i(TAG, "onCreateView")
-        return TimePickerDialog(activity, this, hour, minute, DateFormat.is24HourFormat(activity))
+        val c = Calendar.getInstance()
+        val hour = c.get(Calendar.HOUR_OF_DAY)
+        val minute = c.get(Calendar.MINUTE)
+
+        return when(timeTheme) {
+            1 -> TimePickerDialog(activity, AlertDialog.THEME_TRADITIONAL,this, hour, minute, DateFormat.is24HourFormat(activity))
+            2 -> TimePickerDialog(activity, AlertDialog.THEME_DEVICE_DEFAULT_DARK, this, hour, minute, DateFormat.is24HourFormat(activity))
+            3 -> TimePickerDialog(activity, AlertDialog.THEME_HOLO_LIGHT, this, hour, minute, DateFormat.is24HourFormat(activity))
+            4 -> TimePickerDialog(activity, AlertDialog.THEME_HOLO_DARK, this, hour, minute, DateFormat.is24HourFormat(activity))
+            else -> TimePickerDialog(activity, AlertDialog.THEME_HOLO_LIGHT, this, hour, minute, DateFormat.is24HourFormat(activity))
+        }
     }
 
     /**

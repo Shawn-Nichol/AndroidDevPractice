@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.NumberPicker
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -17,6 +18,9 @@ class PickerFragment : Fragment() {
     private val TAG = "PracticePickerFragment"
     private lateinit var binding: FragmentPickerBinding
     private lateinit var viewModel: PickerViewModel
+
+    private lateinit var dateTheme: NumberPicker
+    private lateinit var timeTheme: NumberPicker
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,8 +42,8 @@ class PickerFragment : Fragment() {
         // binding can observe LiveData updates
         binding.lifecycleOwner = viewLifecycleOwner
 
-
-
+        initDateNumberPicker()
+        initTimeNumberPicker()
         return binding.root
     }
 
@@ -47,11 +51,31 @@ class PickerFragment : Fragment() {
 
     fun timePickerButton() {
         Log.i(TAG, "timePickerButton()")
-        TimePickerFragment().show(activity?.supportFragmentManager!!, "timePicker")
+        TimePickerFragment(timeTheme.value).show(activity?.supportFragmentManager!!, "timePicker")
     }
 
     fun datePickerButton() {
-        DatePickerFragment().show(activity?.supportFragmentManager!!, "datePicker")
+        Log.i(TAG, "datePicker, ${dateTheme.value}")
+        DatePickerFragment(dateTheme.value).show(activity?.supportFragmentManager!!, "datePicker")
+
     }
+
+
+    private fun initDateNumberPicker() {
+        dateTheme = binding.numberPicker
+        dateTheme.apply {
+            minValue = 1
+            maxValue = 5
+        }
+    }
+
+    private fun initTimeNumberPicker() {
+        timeTheme = binding.numberPickerTime
+        timeTheme.apply {
+            minValue = 1
+            maxValue = 5
+        }
+    }
+
 
 }
