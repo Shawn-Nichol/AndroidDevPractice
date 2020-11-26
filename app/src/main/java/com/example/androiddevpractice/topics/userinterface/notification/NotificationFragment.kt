@@ -1,11 +1,13 @@
 package com.example.androiddevpractice.topics.userinterface.notification
 
+import android.annotation.SuppressLint
 import android.app.PendingIntent
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioButton
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.databinding.DataBindingUtil
@@ -77,6 +79,7 @@ class NotificationFragment : Fragment() {
     /**
      * onActions, remomves all the action buttons, then will add all the active buttons to the notification
      */
+    @SuppressLint("RestrictedApi")
     fun onActions() {
         val myIntent = Intent(requireActivity(), MainActivity::class.java)
         val pendingIntent = PendingIntent.getActivity(requireActivity(), 0, myIntent, 0)
@@ -85,6 +88,23 @@ class NotificationFragment : Fragment() {
         if(binding.switch1.isChecked) builder.addAction(R.drawable.ic_head, "Action One", pendingIntent)
         if(binding.switch2.isChecked) builder.addAction(R.drawable.ic_head, "Action Two", pendingIntent)
         if(binding.switch3.isChecked) builder.addAction(R.drawable.ic_head, "Action Three", pendingIntent)
+    }
+
+    fun setCategory(view: View) {
+        if(view is RadioButton) {
+            val checked = view.isChecked
+            // Check which radio button was clicked
+            when(view.getId()) {
+                R.id.radioButton_category_alarm ->
+                    builder.setCategory(NotificationCompat.CATEGORY_ALARM)
+                R.id.radioButton_category_call ->
+                    builder.setCategory(NotificationCompat.CATEGORY_CALL)
+                R.id.radioButton_category_event ->
+                    builder.setCategory(NotificationCompat.CATEGORY_EVENT)
+                R.id.radioButton_category_reminder ->
+                    builder.setCategory(NotificationCompat.CATEGORY_REMINDER)
+            }
+        }
     }
 
 
