@@ -11,7 +11,7 @@ import android.widget.DatePicker
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
 
-class DatePickerFragment(dateTheme: Int) : DialogFragment(), DatePickerDialog.OnDateSetListener {
+class MyDatePicker(dateTheme: Int) : DialogFragment(), DatePickerDialog.OnDateSetListener {
 
     var dateTheme: Int = dateTheme
 

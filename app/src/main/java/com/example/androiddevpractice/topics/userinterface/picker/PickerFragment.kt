@@ -51,12 +51,12 @@ class PickerFragment : Fragment() {
 
     fun timePickerButton() {
         Log.i(TAG, "timePickerButton()")
-        TimePickerFragment(timeTheme.value).show(activity?.supportFragmentManager!!, "timePicker")
+        MyTimePicker(timeTheme.value).show(activity?.supportFragmentManager!!, "timePicker")
     }
 
     fun datePickerButton() {
         Log.i(TAG, "datePicker, ${dateTheme.value}")
-        DatePickerFragment(dateTheme.value).show(activity?.supportFragmentManager!!, "datePicker")
+        MyDatePicker(dateTheme.value).show(activity?.supportFragmentManager!!, "datePicker")
 
     }
 

@@ -11,7 +11,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
 import java.util.*
 
-class TimePickerFragment(timeTheme: Int) : DialogFragment(), TimePickerDialog.OnTimeSetListener {
+class MyTimePicker(timeTheme: Int) : DialogFragment(), TimePickerDialog.OnTimeSetListener {
     val TAG = "PracticeTimePickerFragment"
 
     val timeTheme = timeTheme

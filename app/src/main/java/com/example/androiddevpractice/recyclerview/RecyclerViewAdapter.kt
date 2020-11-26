@@ -72,6 +72,8 @@ class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev, Recy
             "Toggle Buttons" -> view.findNavController().navigate(R.id.dest_toggleButtonFragment)
             "Switch" -> view.findNavController().navigate(R.id.dest_switchesFragment)
             "Pickers" -> view.findNavController().navigate(R.id.dest_pickerFragment)
+            "ToolTip" -> view.findNavController().navigate(R.id.dest_toolTipFragment)
+            "Notification" -> view.findNavController().navigate(R.id.dest_notificationFragment)
 
 
             else -> {
@@ -79,9 +81,9 @@ class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev, Recy
                 view.findNavController().navigate(action, extras)
             }
         }
-
-
     }
+
+
 
 }
 

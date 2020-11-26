@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/dest_pickerFragment">
+    app:startDestination="@id/dest_notificationFragment">
 
     <fragment
         android:id="@+id/dest_loginFragment"
@@ -62,6 +62,12 @@
         <action
             android:id="@+id/action_dest_recyclerViewFragment_to_pickerFragment3"
             app:destination="@id/dest_pickerFragment" />
+        <action
+            android:id="@+id/action_dest_recyclerViewFragment_to_toolTipFragment"
+            app:destination="@id/dest_toolTipFragment" />
+        <action
+            android:id="@+id/action_dest_recyclerViewFragment_to_notificationFragment"
+            app:destination="@id/dest_notificationFragment" />
     </fragment>
     <fragment
         android:id="@+id/dest_contextual1Fragment"
@@ -152,5 +158,14 @@
         android:name="com.example.androiddevpractice.topics.userinterface.picker.PickerFragment"
         android:label="Picker"
         tools:layout="@layout/fragment_picker" />
+    <fragment
+        android:id="@+id/dest_toolTipFragment"
+        android:name="com.example.androiddevpractice.topics.userinterface.ToolTipFragment"
+        android:label="Tool Tip"
+        tools:layout="@layout/fragment_tool_tip" />
+    <fragment
+        android:id="@+id/dest_notificationFragment"
+        android:name="com.example.androiddevpractice.topics.userinterface.notification.NotificationFragment"
+        android:label="Notifications" />
 
 </navigation>

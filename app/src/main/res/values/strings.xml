@@ -12,4 +12,6 @@
     <string name="off">OFF</string>
     <string name="on">ON</string>
     <string name="what_is_a_switch">Switch: Is a two-state toggle switch that can select between two options. The user may drag a thumb back and forth of tap to toggle. Switch compat is backwards compatible to API 7.</string>
+    <string name="what_is_a_tool_tip">ToolTip: A Tool tip is a small is a small descriptive message that appears near a view when users long press the view or hover their mouse over it.</string>
+    <string name="what_is_a_notifiation">Notification: provides short, timely information about events in your app while it\'s not in use.</string>
 </resources>
