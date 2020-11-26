@@ -16,10 +16,10 @@
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="0dp"
+            android:layout_width="379dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:text="@string/what_is_a_notifiation"
             app:layout_constraintEnd_toEndOf="parent"
@@ -30,7 +30,7 @@
             android:id="@+id/btn_launch_notification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:onClick="@{() -> binding.launchNotification()}"
             android:text="Launch Notification"
             app:layout_constraintEnd_toEndOf="parent"
@@ -41,12 +41,12 @@
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Action Button"
-            android:textSize="24sp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Action"
+            android:textSize="14sp"
             android:textStyle="bold"
             android:tooltipText="Turn on action button"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_launch_notification" />
 
@@ -54,23 +54,19 @@
             android:id="@+id/switch1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
             android:text="BTN 1"
-            app:layout_constraintEnd_toStartOf="@+id/switch2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+            app:layout_constraintBottom_toBottomOf="@+id/textView11"
+            app:layout_constraintStart_toEndOf="@+id/textView11"
+            app:layout_constraintTop_toTopOf="@+id/textView11" />
 
         <Switch
             android:id="@+id/switch2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
             android:text="BTN 2"
             app:layout_constraintBottom_toBottomOf="@+id/switch1"
-            app:layout_constraintEnd_toStartOf="@+id/switch3"
             app:layout_constraintStart_toEndOf="@+id/switch1"
             app:layout_constraintTop_toTopOf="@+id/switch1" />
 
@@ -78,25 +74,42 @@
             android:id="@+id/switch3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
             android:text="BTN 3"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/switch2"
             app:layout_constraintStart_toEndOf="@+id/switch2"
             app:layout_constraintTop_toTopOf="@+id/switch2" />
+
+        <Spinner
+            android:id="@+id/spinner_notification_set_priority"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView14"
+            app:layout_constraintStart_toEndOf="@+id/textView14"
+            app:layout_constraintTop_toTopOf="@+id/textView14" />
 
         <TextView
             android:id="@+id/textView12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:text="SetCategory"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/radioGroup2"
-            app:layout_constraintStart_toStartOf="@+id/radioGroup2"
-            app:layout_constraintTop_toBottomOf="@+id/switch1" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/switch2" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
 
         <RadioGroup
             android:id="@+id/radioGroup2"
@@ -109,36 +122,36 @@
             app:layout_constraintTop_toBottomOf="@+id/textView12">
 
             <RadioButton
-                android:id="@+id/radioButton_category_alarm"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Alarm"
-                android:tooltipText="@string/what_is_a_cateogory_alarm"
-                android:onClick="@{(view)->binding.setCategory(view)}"/>
-
-            <RadioButton
                 android:id="@+id/radioButton_category_event"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="@{(view)->binding.setCategory(view)}"
                 android:text="Event"
-                android:tooltipText="@string/what_is_a_category_event"
-                android:onClick="@{(view)->binding.setCategory(view)}"/>
+                android:tooltipText="@string/what_is_a_category_event" />
+
+            <RadioButton
+                android:id="@+id/radioButton_category_alarm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{(view)->binding.setCategory(view)}"
+                android:text="Alarm"
+                android:tooltipText="@string/what_is_a_cateogory_alarm" />
 
             <RadioButton
                 android:id="@+id/radioButton_category_reminder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="@{(view)->binding.setCategory(view)}"
                 android:text="Reminder"
-                android:tooltipText="CATEGORY_REMINDER: user-scheduled reminder"
-                android:onClick="@{(view)->binding.setCategory(view)}"/>
+                android:tooltipText="CATEGORY_REMINDER: user-scheduled reminder" />
 
             <RadioButton
                 android:id="@+id/radioButton_category_call"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="@{(view)->binding.setCategory(view)}"
                 android:text="Call"
-                android:tooltipText="@string/what_is_a_category_call"
-                android:onClick="@{(view)->binding.setCategory(view)}"/>
+                android:tooltipText="@string/what_is_a_category_call" />
 
         </RadioGroup>
 

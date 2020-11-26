@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.RadioButton
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
@@ -18,7 +20,7 @@ import com.example.androiddevpractice.databinding.FragmentNotificationBinding
 import com.example.androiddevpractice.topics.userinterface.CHANNEL_ID
 import com.example.androiddevpractice.topics.userinterface.MyNotificationChannel
 
-class NotificationFragment : Fragment() {
+class NotificationFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     private lateinit var binding: FragmentNotificationBinding
     val notificationID  = 55
@@ -33,9 +35,25 @@ class NotificationFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_notification, container, false)
         binding.binding = this
 
+        initPrioritySpinner()
         initNotification()
         actionButtonState()
         return binding.root
+    }
+
+    override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {
+        when(parent?.getItemAtPosition(pos)) {
+            0 -> builder.priority = NotificationCompat.PRIORITY_DEFAULT
+            1 -> builder.priority = NotificationCompat.PRIORITY_HIGH
+            2 -> builder.priority = NotificationCompat.PRIORITY_LOW
+            3 -> builder.priority = NotificationCompat.PRIORITY_MAX
+            4 -> builder.priority = NotificationCompat.PRIORITY_MIN
+
+        }
+    }
+
+    override fun onNothingSelected(view: AdapterView<*>?) {
+
     }
 
     fun initNotification() {
@@ -104,6 +122,21 @@ class NotificationFragment : Fragment() {
                 R.id.radioButton_category_reminder ->
                     builder.setCategory(NotificationCompat.CATEGORY_REMINDER)
             }
+        }
+    }
+
+    fun initPrioritySpinner() {
+        val spinner = binding.spinnerNotificationSetPriority
+        // Create an ArrayAdapter using the string array and a default spinner layout.
+        ArrayAdapter.createFromResource(
+            requireContext(),
+            R.array.notification_priority,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            // Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            // Apply the adapter to the spinner
+            spinner.adapter = adapter
         }
     }
 
