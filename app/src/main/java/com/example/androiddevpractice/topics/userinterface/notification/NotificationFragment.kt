@@ -26,6 +26,7 @@ class NotificationFragment : Fragment(), AdapterView.OnItemSelectedListener {
     val notificationID  = 55
 
     lateinit var builder: NotificationCompat.Builder
+    private var progressType: String = "None"
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,6 +42,9 @@ class NotificationFragment : Fragment(), AdapterView.OnItemSelectedListener {
         return binding.root
     }
 
+    /**
+     * Spinner, allows the user to select Priority of the notification.
+     */
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {
         when(parent?.getItemAtPosition(pos)) {
             0 -> builder.priority = NotificationCompat.PRIORITY_DEFAULT
@@ -52,6 +56,9 @@ class NotificationFragment : Fragment(), AdapterView.OnItemSelectedListener {
         }
     }
 
+    /**
+     * Spinner, no item selected
+     */
     override fun onNothingSelected(view: AdapterView<*>?) {
 
     }
@@ -67,18 +74,70 @@ class NotificationFragment : Fragment(), AdapterView.OnItemSelectedListener {
             setContentText("My Notification Text info.")
             setContentIntent(pendingIntent)
             setAutoCancel(true) // Remove the notification after tap
+            setOnlyAlertOnce(true)
         }
     }
+
+    fun initPrioritySpinner() {
+        val spinner = binding.spinnerNotificationSetPriority
+        // Create an ArrayAdapter using the string array and a default spinner layout.
+        ArrayAdapter.createFromResource(
+            requireContext(),
+            R.array.notification_priority,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            // Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            // Apply the adapter to the spinner
+            spinner.adapter = adapter
+        }
+    }
+
+    var currentProgress = 0
 
     fun launchNotification() {
         // To make the notification appear,
         with(NotificationManagerCompat.from(requireContext())) {
-            notify(notificationID, builder.build())
+
+            if(binding.switchProgressBar.isChecked) {
+                if (binding.radioBtnProgressbar.isChecked) {
+                    // Initialize ProgressBar Notification.
+                    builder.setProgress(100, currentProgress, false)
+                    notify(notificationID, builder.build())
+                    // Mock progress, add a worker thread to it later.
+                    for (i in 0..5) {
+                        Thread.sleep(1000)
+                        currentProgress = i * 20
+                        builder.setProgress(100, currentProgress, false)
+                        notify(notificationID, builder.build())
+                    }
+                    // After the ProgressBar is completed update the Notification.
+                    builder.setContentText("Download complete")
+                        .setProgress(0, 0, false)
+                    notify(notificationID, builder.build())
+
+                } else if (binding.radioBtnIndeterminateProgressBar.isChecked) {
+                    // Start a indeterminate ProgressBar
+                    builder.setProgress(0, 0, true)
+                    notify(notificationID, builder.build())
+
+                    for (i in 0..5) {
+                        Thread.sleep(1000)
+                    }
+                    // After the work is done, update the Notification.
+                    builder.setContentText("Download complete")
+                        .setProgress(0, 0, false)
+                    notify(notificationID, builder.build())
+                }
+            } else {
+                notify(notificationID, builder.build())
+            }
+
         }
     }
 
     /**
-     * monitors changes the action button switches
+     * Radio buttons are used to enable/disable action button switches
      */
     fun actionButtonState() {
         binding.switch1.setOnCheckedChangeListener {_, isChecked ->
@@ -94,6 +153,8 @@ class NotificationFragment : Fragment(), AdapterView.OnItemSelectedListener {
         }
     }
 
+
+
     /**
      * onActions, remomves all the action buttons, then will add all the active buttons to the notification
      */
@@ -108,6 +169,9 @@ class NotificationFragment : Fragment(), AdapterView.OnItemSelectedListener {
         if(binding.switch3.isChecked) builder.addAction(R.drawable.ic_head, "Action Three", pendingIntent)
     }
 
+    /**
+     * Radio buttons, Set the Notification of the Notification
+     */
     fun setCategory(view: View) {
         if(view is RadioButton) {
             val checked = view.isChecked
@@ -125,18 +189,14 @@ class NotificationFragment : Fragment(), AdapterView.OnItemSelectedListener {
         }
     }
 
-    fun initPrioritySpinner() {
-        val spinner = binding.spinnerNotificationSetPriority
-        // Create an ArrayAdapter using the string array and a default spinner layout.
-        ArrayAdapter.createFromResource(
-            requireContext(),
-            R.array.notification_priority,
-            android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            // Specify the layout to use when the list of choices appears
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            // Apply the adapter to the spinner
-            spinner.adapter = adapter
+    fun setProgressBar(view: View) {
+        if(view is RadioButton) {
+            val check = view.isChecked
+
+            when(view.getId()) {
+                R.id.radio_btn_progressbar -> progressType = "Progress"
+                R.id.radio_btn_indeterminate_progress_bar -> progressType = "Indeterminate"
+            }
         }
     }
 

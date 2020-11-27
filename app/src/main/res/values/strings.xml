@@ -17,6 +17,7 @@
     <string name="what_is_a_category_call">CATEGORY_CALL: incoming call or similar synchronous communication request</string>
     <string name="what_is_a_cateogory_alarm">CATEGORY_ALARM: Alarm or timer</string>
     <string name="what_is_a_category_event">CATEGORY_EVENT: Notification category calendar event</string>
+    <string name="what_is_Notification_priority">Notification Priority: Is an indication of how much of the user\'s valuable attention should be consumed by this notification.</string>
 
 
     <string-array name="notification_priority">
