@@ -1,6 +1,5 @@
 package com.example.androiddevpractice.topics.userinterface.notification
 
-import android.annotation.SuppressLint
 import android.app.PendingIntent
 import android.content.Intent
 import android.os.Bundle
@@ -9,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.RadioButton
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.databinding.DataBindingUtil
@@ -26,7 +24,7 @@ class NotificationFragment : Fragment(), AdapterView.OnItemSelectedListener {
     val notificationID  = 55
 
     lateinit var builder: NotificationCompat.Builder
-    private var progressType: String = "None"
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,8 +35,7 @@ class NotificationFragment : Fragment(), AdapterView.OnItemSelectedListener {
         binding.binding = this
 
         initPrioritySpinner()
-        initNotification()
-        actionButtonState()
+        MyNotificationChannel(requireContext())
         return binding.root
     }
 
@@ -63,20 +60,7 @@ class NotificationFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     }
 
-    fun initNotification() {
-        MyNotificationChannel(requireContext())
-        // Create an explicit intent for an Activity in your app.
-        val myIntent = Intent(requireActivity(), MainActivity::class.java)
-        val pendingIntent = PendingIntent.getActivity(requireActivity(), 0, myIntent, 0)
-        builder = NotificationCompat.Builder(requireActivity(), CHANNEL_ID).apply {
-            setSmallIcon(R.drawable.ic_head)
-            setContentTitle("My Title")
-            setContentText("My Notification Text info.")
-            setContentIntent(pendingIntent)
-            setAutoCancel(true) // Remove the notification after tap
-            setOnlyAlertOnce(true)
-        }
-    }
+
 
     fun initPrioritySpinner() {
         val spinner = binding.spinnerNotificationSetPriority
@@ -96,6 +80,10 @@ class NotificationFragment : Fragment(), AdapterView.OnItemSelectedListener {
     var currentProgress = 0
 
     fun launchNotification() {
+
+        notificationBuilder()
+
+
         // To make the notification appear,
         with(NotificationManagerCompat.from(requireContext())) {
 
@@ -137,68 +125,44 @@ class NotificationFragment : Fragment(), AdapterView.OnItemSelectedListener {
     }
 
     /**
-     * Radio buttons are used to enable/disable action button switches
+     * The Notification builder will run each time the notification is launched, this allows for setting to be updated correctly.
      */
-    fun actionButtonState() {
-        binding.switch1.setOnCheckedChangeListener {_, isChecked ->
-                onActions()
-        }
-
-        binding.switch2.setOnCheckedChangeListener { _, isChecked ->
-            onActions()
-        }
-
-        binding.switch3.setOnCheckedChangeListener { _, isChecked ->
-            onActions()
-        }
-    }
-
-
-
-    /**
-     * onActions, remomves all the action buttons, then will add all the active buttons to the notification
-     */
-    @SuppressLint("RestrictedApi")
-    fun onActions() {
+    private fun notificationBuilder() {
+        // Create an explicit intent for an Activity in your app.
         val myIntent = Intent(requireActivity(), MainActivity::class.java)
         val pendingIntent = PendingIntent.getActivity(requireActivity(), 0, myIntent, 0)
+        builder = NotificationCompat.Builder(requireActivity(), CHANNEL_ID).apply {
+            setSmallIcon(R.drawable.ic_head)
+            setContentTitle("My Title")
+            setContentText("My Notification Text info.")
+            setContentIntent(pendingIntent)
+            setAutoCancel(true) // Remove the notification after tap
+            setOnlyAlertOnce(true) // Only makes Notification noise once.
 
-        builder.mActions.clear()
-        if(binding.switch1.isChecked) builder.addAction(R.drawable.ic_head, "Action One", pendingIntent)
-        if(binding.switch2.isChecked) builder.addAction(R.drawable.ic_head, "Action Two", pendingIntent)
-        if(binding.switch3.isChecked) builder.addAction(R.drawable.ic_head, "Action Three", pendingIntent)
-    }
+            // Action Buttons
+            if(binding.switch1.isChecked) addAction(R.drawable.ic_head, "Action One", pendingIntent)
+            if(binding.switch2.isChecked) addAction(R.drawable.ic_head, "Action Two", pendingIntent)
+            if(binding.switch3.isChecked) addAction(R.drawable.ic_head, "Action Three", pendingIntent)
 
-    /**
-     * Radio buttons, Set the Notification of the Notification
-     */
-    fun setCategory(view: View) {
-        if(view is RadioButton) {
-            val checked = view.isChecked
-            // Check which radio button was clicked
-            when(view.getId()) {
-                R.id.radioButton_category_alarm ->
-                    builder.setCategory(NotificationCompat.CATEGORY_ALARM)
-                R.id.radioButton_category_call ->
-                    builder.setCategory(NotificationCompat.CATEGORY_CALL)
-                R.id.radioButton_category_event ->
-                    builder.setCategory(NotificationCompat.CATEGORY_EVENT)
-                R.id.radioButton_category_reminder ->
-                    builder.setCategory(NotificationCompat.CATEGORY_REMINDER)
+            // Set the Category of the Notification.
+            if(binding.radioButtonCategoryAlarm.isChecked) setCategory(NotificationCompat.CATEGORY_ALARM)
+            if(binding.radioButtonCategoryCall.isChecked) setCategory(NotificationCompat.CATEGORY_CALL)
+            if(binding.radioButtonCategoryEvent.isChecked) setCategory(NotificationCompat.CATEGORY_EVENT)
+            if(binding.radioButtonCategoryReminder.isChecked) setCategory(NotificationCompat.CATEGORY_REMINDER)
+
+
+
+
+
+            // Set notification to full screen. Note you must request the permission in the manifest file.
+            if(binding.switchFullScreen.isChecked) {
+                val fullScreenIntent = Intent(requireContext(), MainActivity::class.java)
+                val fullScreenPendingIntent = PendingIntent.getActivity(requireContext(),
+                    0, fullScreenIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+
+                setFullScreenIntent(fullScreenPendingIntent, true)
             }
         }
     }
-
-    fun setProgressBar(view: View) {
-        if(view is RadioButton) {
-            val check = view.isChecked
-
-            when(view.getId()) {
-                R.id.radio_btn_progressbar -> progressType = "Progress"
-                R.id.radio_btn_indeterminate_progress_bar -> progressType = "Indeterminate"
-            }
-        }
-    }
-
 
 }

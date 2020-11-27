@@ -126,7 +126,6 @@
                 android:id="@+id/radioButton_category_event"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="@{(view)->binding.setCategory(view)}"
                 android:text="Event"
                 android:tooltipText="@string/what_is_a_category_event" />
 
@@ -134,7 +133,6 @@
                 android:id="@+id/radioButton_category_alarm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="@{(view)->binding.setCategory(view)}"
                 android:text="Alarm"
                 android:tooltipText="@string/what_is_a_cateogory_alarm" />
 
@@ -142,7 +140,6 @@
                 android:id="@+id/radioButton_category_reminder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="@{(view)->binding.setCategory(view)}"
                 android:text="Reminder"
                 android:tooltipText="CATEGORY_REMINDER: user-scheduled reminder" />
 
@@ -150,7 +147,6 @@
                 android:id="@+id/radioButton_category_call"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="@{(view)->binding.setCategory(view)}"
                 android:text="Call"
                 android:tooltipText="@string/what_is_a_category_call" />
 
@@ -178,16 +174,25 @@
                 android:id="@+id/radio_btn_progressbar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Percentage"
-                android:onClick="@{(view) -> binding.setProgressBar(view)}"/>
+                android:text="Percentage" />
 
             <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/radio_btn_indeterminate_progress_bar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Indeterminate"
-                android:onClick="@{(view) -> binding.setProgressBar(view)}"/>
+                android:text="Indeterminate" />
         </RadioGroup>
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switchFullScreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Full Screen"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/switch_progress_bar" />
+
 
 
 
