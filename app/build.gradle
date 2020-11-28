@@ -67,4 +67,7 @@ dependencies {
 
     // RecyclerView
     implementation "androidx.recyclerview:recyclerview:1.1.0"
+
+    // Used for media notification
+    implementation "androidx.media:media:1.1.0"
 }

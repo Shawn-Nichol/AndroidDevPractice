@@ -1,4 +1,4 @@
-package com.example.androiddevpractice.topics.userinterface
+package com.example.androiddevpractice.topics.userinterface.notification
 
 
 import android.app.NotificationChannel
@@ -14,6 +14,7 @@ fun MyNotificationChannel(context: Context) {
         val name = "My Notification Channel Name"
         val descriptionText = "This is my notification description."
         val importance = NotificationManager.IMPORTANCE_DEFAULT
+
         val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
             description = descriptionText
         }

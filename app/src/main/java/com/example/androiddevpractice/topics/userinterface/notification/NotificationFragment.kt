@@ -1,13 +1,14 @@
 package com.example.androiddevpractice.topics.userinterface.notification
 
+import android.app.Notification
 import android.app.PendingIntent
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.databinding.DataBindingUtil
@@ -15,10 +16,10 @@ import androidx.fragment.app.Fragment
 import com.example.androiddevpractice.MainActivity
 import com.example.androiddevpractice.R
 import com.example.androiddevpractice.databinding.FragmentNotificationBinding
-import com.example.androiddevpractice.topics.userinterface.CHANNEL_ID
-import com.example.androiddevpractice.topics.userinterface.MyNotificationChannel
 
 class NotificationFragment : Fragment(), AdapterView.OnItemSelectedListener {
+
+    val TAG = "PracticeNotificationFragment"
 
     private lateinit var binding: FragmentNotificationBinding
     val notificationID  = 55
@@ -34,7 +35,7 @@ class NotificationFragment : Fragment(), AdapterView.OnItemSelectedListener {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_notification, container, false)
         binding.binding = this
 
-        initPrioritySpinner()
+
         MyNotificationChannel(requireContext())
         return binding.root
     }
@@ -58,23 +59,6 @@ class NotificationFragment : Fragment(), AdapterView.OnItemSelectedListener {
      */
     override fun onNothingSelected(view: AdapterView<*>?) {
 
-    }
-
-
-
-    fun initPrioritySpinner() {
-        val spinner = binding.spinnerNotificationSetPriority
-        // Create an ArrayAdapter using the string array and a default spinner layout.
-        ArrayAdapter.createFromResource(
-            requireContext(),
-            R.array.notification_priority,
-            android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            // Specify the layout to use when the list of choices appears
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            // Apply the adapter to the spinner
-            spinner.adapter = adapter
-        }
     }
 
     var currentProgress = 0
@@ -162,7 +146,54 @@ class NotificationFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
                 setFullScreenIntent(fullScreenPendingIntent, true)
             }
+
+            // Set Lock screen visibility
+            if(binding.radioBtnVisibilityPublic.isChecked) {
+                setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                Thread.sleep(5000)
+            }
+            if(binding.radioBtnVisibilitySecret.isChecked) setVisibility(NotificationCompat.VISIBILITY_SECRET)
+            if(binding.radioBtnVisibilityPrivate.isChecked) setVisibility(NotificationCompat.VISIBILITY_PRIVATE)
+
+            if(binding.radioStyleBigPicture.isChecked) {
+                val bitmap = BitmapFactory.decodeResource(resources, R.drawable.mountians)
+                setStyle(NotificationCompat.BigPictureStyle()
+                    .bigPicture(bitmap)
+                    .bigLargeIcon(bitmap)
+                    .setSummaryText("Summary This is a shot of the mountain range")
+                    .setBigContentTitle("Big Title ")
+                )
+            }
+
+            if(binding.radioStyleMessaging.isChecked) {
+                val message1 = NotificationCompat.MessagingStyle.Message("Message One", 123333L, "Shannon")
+                val message2 = NotificationCompat.MessagingStyle.Message("Message Two", 133333L, "Shawn")
+                setSmallIcon(R.drawable.ic_mail)
+                setStyle(NotificationCompat.MessagingStyle("Myself")
+                        .addMessage(message1)
+                        .addMessage(message2))
+            }
+
+            if(binding.radioStyleMediaPlayer.isChecked) {
+                val bitmap = BitmapFactory.decodeResource(resources, R.drawable.mountians)
+                    setStyle(
+                        Notification.MediaStyle(
+                            setMedia
+                        )
+
+//                        .setShowActionsInCompactView(1 /* #1: pause button \*/)
+//                        .setMediaSession(mediaSession.getSessionToken()))
+                setContentTitle("Title My Medial")
+                setContentText("THe Mores")
+                setLargeIcon(bitmap)
+
+            }
         }
+
     }
 
+
+
+
 }
+

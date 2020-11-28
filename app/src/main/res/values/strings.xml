@@ -18,6 +18,9 @@
     <string name="what_is_a_cateogory_alarm">CATEGORY_ALARM: Alarm or timer</string>
     <string name="what_is_a_category_event">CATEGORY_EVENT: Notification category calendar event</string>
     <string name="what_is_Notification_priority">Notification Priority: Is an indication of how much of the user\'s valuable attention should be consumed by this notification.</string>
+    <string name="what_is_visibility_public">VISIBILITY_PUBLIC: shows the notification\'s full content</string>
+    <string name="what_is_visibility_secret">VISIBILITY_SECRET: doesn\'t show any part of this notification on the screen</string>
+    <string name="what_is_visibility_private">VISIBILITY_PRIVATE: shows basic information, such as the notifications icon adn the content title, but hides the notifications full content</string>
 
 
     <string-array name="notification_priority">
