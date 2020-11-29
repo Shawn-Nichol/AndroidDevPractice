@@ -1,7 +1,9 @@
 package com.example.androiddevpractice.topics.userinterface.notification
 
 import android.app.PendingIntent
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -21,11 +23,47 @@ class NotificationFragment : Fragment() {
 
     val TAG = "PracticeNotificationFragment"
 
+    // Keys
+    private var ACTION_BUTTON_ONE_KEY = "Action button one"
+    private var ACTION_BUTTON_TWO_KEY = " Action button two"
+    private var ACTION_BUTTON_THREE_KEY = " Action button three"
+    private var VISIBILITY_NONE_KEY = "Visibility none"
+    private var VISIBILITY_PUBLIC_KEY = "Visibility key"
+    private var VISIBILITY_SECRET_KEY = "Visibility secret"
+    private var VISIBILITY_PRIVATE_KEY = "Visibility private"
+    private var STYLE_NONE_KEY = "STYLE none"
+    private var STYLE_BIG_PICTURE_KEY = "Style Big Picture"
+    private var STYLE_INBOX_KEY = "STYLE key"
+    private var STYLE_MEDIA_KEY = "Style key"
+    private var CATEGORY_EVENT_KEY = "Category event"
+    private var CATEGORY_ALARM_KEY = "Category alarm"
+    private var CATEGORY_REMINDER_KEY = "Category reminder"
+    private var CATEGORY_CALL_KEY = "Category call"
+    private var FULLSCREEN_KEY = "FullScreen"
+    private var ONGOING_KEY = "OnGoing"
+    private var PROGRESSBAR_NONE_KEY = "Progressbar"
+    private var PROGRESSBAR_PER_KEY = "Progress percent"
+    private var PROGRESSBAR_INDETERMNIATE_KEY = "Progress indeterminate"
+    private var WHEN_KEY = "When"
+    private var TIMER_UP_KEY = "Timer up"
+    private var TIMER_DOWN_KEY = "Timer down"
+    private var TIME_OUT_KEY = "Time out"
+
     private lateinit var binding: FragmentNotificationBinding
     val notificationID = 55
 
     lateinit var builder: NotificationCompat.Builder
 
+    lateinit var sharedPref: SharedPreferences
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        sharedPref = activity?.getSharedPreferences(
+            getString(R.string.preference_file_key),
+            Context.MODE_PRIVATE
+        )
+            ?: return
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,55 +74,136 @@ class NotificationFragment : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_notification, container, false)
         binding.binding = this
 
+        loadSavedPref()
 
         MyNotificationChannel(requireContext())
         return binding.root
     }
 
-    var currentProgress = 0
+    override fun onStop() {
+        super.onStop()
+        with(sharedPref.edit()) {
+            putBoolean(ACTION_BUTTON_ONE_KEY, binding.switch1.isChecked)
+            putBoolean(ACTION_BUTTON_TWO_KEY, binding.switch2.isChecked)
+            putBoolean(ACTION_BUTTON_THREE_KEY, binding.switch3.isChecked)
+            putBoolean(VISIBILITY_NONE_KEY, binding.radioBtnVisibilityNone.isChecked)
+            putBoolean(VISIBILITY_PUBLIC_KEY, binding.radioBtnVisibilityPublic.isChecked)
+            putBoolean(VISIBILITY_SECRET_KEY, binding.radioBtnVisibilitySecret.isChecked)
+            putBoolean(VISIBILITY_PRIVATE_KEY, binding.radioBtnVisibilityNone.isChecked)
+            putBoolean(VISIBILITY_NONE_KEY, binding.radioBtnVisibilityNone.isChecked)
+            putBoolean(STYLE_NONE_KEY, binding.radioStyleNone.isChecked)
+            putBoolean(STYLE_BIG_PICTURE_KEY, binding.radioStyleBigPicture.isChecked)
+            putBoolean(STYLE_INBOX_KEY, binding.radioStyleMessaging.isChecked)
+            putBoolean(STYLE_MEDIA_KEY, binding.radioStyleMediaPlayer.isChecked)
+            putBoolean(CATEGORY_EVENT_KEY, binding.radioButtonCategoryEvent.isChecked)
+            putBoolean(CATEGORY_ALARM_KEY, binding.radioButtonCategoryAlarm.isChecked)
+            putBoolean(CATEGORY_REMINDER_KEY, binding.radioButtonCategoryReminder.isChecked)
+            putBoolean(CATEGORY_CALL_KEY, binding.radioButtonCategoryCall.isChecked)
+            putBoolean(FULLSCREEN_KEY, binding.switchFullScreen.isChecked)
+            putBoolean(ONGOING_KEY, binding.switchOngoing.isChecked)
+            putBoolean(PROGRESSBAR_NONE_KEY, binding.radioBtnProgressbarNone.isChecked)
+            putBoolean(PROGRESSBAR_PER_KEY, binding.radioBtnProgressbar.isChecked)
+            putBoolean(PROGRESSBAR_INDETERMNIATE_KEY, binding.radioBtnIndeterminateProgressBar.isChecked)
+            putBoolean(WHEN_KEY, binding.switchShowWhen.isChecked)
+            putBoolean(TIMER_UP_KEY, binding.switchUseChronometer.isChecked)
+            putBoolean(TIMER_DOWN_KEY, binding.switchUseChronometerDown.isChecked)
+            putBoolean(TIME_OUT_KEY, binding.switchTimeOut.isChecked)
+            commit()
+        }
+    }
+
+
+    fun loadSavedPref() {
+        sharedPref.apply {
+            binding.switch1.isChecked = sharedPref.getBoolean(ACTION_BUTTON_ONE_KEY, false)
+            binding.switch2.isChecked = sharedPref.getBoolean(ACTION_BUTTON_TWO_KEY, false)
+            binding.switch3.isChecked = sharedPref.getBoolean(ACTION_BUTTON_THREE_KEY, false)
+            binding.radioBtnVisibilityNone.isChecked = sharedPref.getBoolean(VISIBILITY_NONE_KEY, false)
+            binding.radioBtnVisibilityPublic.isChecked = sharedPref.getBoolean(VISIBILITY_PUBLIC_KEY, false)
+            binding.radioBtnVisibilitySecret.isChecked = sharedPref.getBoolean(VISIBILITY_SECRET_KEY, false)
+            binding.radioBtnVisibilityPrivate.isChecked = sharedPref.getBoolean(VISIBILITY_PRIVATE_KEY, false)
+            binding.radioStyleNone.isChecked = sharedPref.getBoolean(STYLE_NONE_KEY, false)
+            binding.radioStyleBigPicture.isChecked = sharedPref.getBoolean(STYLE_BIG_PICTURE_KEY, false)
+            binding.radioStyleMessaging.isChecked = sharedPref.getBoolean(STYLE_MEDIA_KEY, false)
+            binding.radioStyleMediaPlayer.isChecked = sharedPref.getBoolean(STYLE_MEDIA_KEY, false)
+            binding.radioButtonCategoryAlarm.isChecked = sharedPref.getBoolean(CATEGORY_ALARM_KEY, false)
+            binding.radioButtonCategoryEvent.isChecked = sharedPref.getBoolean(CATEGORY_EVENT_KEY, false)
+            binding.radioButtonCategoryReminder.isChecked = sharedPref.getBoolean(CATEGORY_REMINDER_KEY, false)
+            binding.radioButtonCategoryCall.isChecked = sharedPref.getBoolean(CATEGORY_CALL_KEY, false)
+            binding.switchFullScreen.isChecked = sharedPref.getBoolean(FULLSCREEN_KEY, false)
+            binding.switchOngoing.isChecked = sharedPref.getBoolean(ONGOING_KEY, false)
+            binding.radioBtnProgressbarNone.isChecked = sharedPref.getBoolean(PROGRESSBAR_NONE_KEY, false)
+            binding.radioBtnProgressbar.isChecked = sharedPref.getBoolean(PROGRESSBAR_PER_KEY, false)
+            binding.radioBtnIndeterminateProgressBar.isChecked = sharedPref.getBoolean(PROGRESSBAR_INDETERMNIATE_KEY, false)
+            binding.switchShowWhen.isChecked = sharedPref.getBoolean(WHEN_KEY, false)
+            binding.switchUseChronometer.isChecked = sharedPref.getBoolean(TIMER_UP_KEY, false)
+            binding.switchUseChronometerDown.isChecked = sharedPref.getBoolean(TIMER_DOWN_KEY, false)
+            binding.switchTimeOut.isChecked = sharedPref.getBoolean(TIME_OUT_KEY, false)
+
+        }
+    }
 
     fun launchNotification() {
 
         notificationBuilder()
 
+        // If a progress bar is selected load it.
+        when {
+            binding.radioBtnProgressbar.isChecked -> initProgressBar()
+            binding.radioBtnIndeterminateProgressBar.isChecked -> indeterminateProgressBar()
+            else -> initNoProgressBar()
+        }
+    }
 
-        // To make the notification appear,
+    /**
+     * Loads a percentage progress bar.
+     */
+    private fun initProgressBar() {
+        var currentProgress = 0
+
         with(NotificationManagerCompat.from(requireContext())) {
-
-            if (binding.switchProgressBar.isChecked) {
-                if (binding.radioBtnProgressbar.isChecked) {
-                    // Initialize ProgressBar Notification.
-                    builder.setProgress(100, currentProgress, false)
-                    notify(notificationID, builder.build())
-                    // Mock progress, add a worker thread to it later.
-                    for (i in 0..5) {
-                        Thread.sleep(1000)
-                        currentProgress = i * 20
-                        builder.setProgress(100, currentProgress, false)
-                        notify(notificationID, builder.build())
-                    }
-                    // After the ProgressBar is completed update the Notification.
-                    builder.setContentText("Download complete")
-                        .setProgress(0, 0, false)
-                    notify(notificationID, builder.build())
-
-                } else if (binding.radioBtnIndeterminateProgressBar.isChecked) {
-                    // Start a indeterminate ProgressBar
-                    builder.setProgress(0, 0, true)
-                    notify(notificationID, builder.build())
-
-                    for (i in 0..5) {
-                        Thread.sleep(1000)
-                    }
-                    // After the work is done, update the Notification.
-                    builder.setContentText("Download complete")
-                        .setProgress(0, 0, false)
-                    notify(notificationID, builder.build())
-                }
-            } else {
+            // Initialize ProgressBar Notification.
+            builder.setProgress(100, currentProgress, false)
+            notify(notificationID, builder.build())
+            // Mock progress, add a worker thread to it later.
+            for (i in 0..5) {
+                Thread.sleep(1000)
+                currentProgress = i * 20
+                builder.setProgress(100, currentProgress, false)
                 notify(notificationID, builder.build())
             }
+            // After the ProgressBar is completed update the Notification.
+            builder.setContentText("Download complete")
+                .setProgress(0, 0, false)
+            notify(notificationID, builder.build())
+        }
+    }
 
+    /**
+     * Loads an indeterminate progressbar.
+     */
+    private fun indeterminateProgressBar() {
+        with(NotificationManagerCompat.from(requireContext())) {
+            // Start a indeterminate ProgressBar
+            builder.setProgress(0, 0, true)
+            notify(notificationID, builder.build())
+
+            for (i in 0..5) {
+                Thread.sleep(1000)
+            }
+            // After the work is done, update the Notification.
+            builder.setContentText("Download complete")
+                .setProgress(0, 0, false)
+            notify(notificationID, builder.build())
+        }
+    }
+
+    /**
+     * No progress bar is selected.
+     */
+    private fun initNoProgressBar() {
+        with(NotificationManagerCompat.from(requireContext())) {
+            notify(notificationID, builder.build())
         }
     }
 
@@ -103,7 +222,6 @@ class NotificationFragment : Fragment() {
             setContentIntent(pendingIntent)
             setAutoCancel(true) // Remove the notification after tap
             setOnlyAlertOnce(true) // Only makes Notification noise once.
-
 
             if (binding.switchOngoing.isChecked) setOngoing(true)
 
@@ -130,13 +248,11 @@ class NotificationFragment : Fragment() {
 
             if (binding.switchTimeOut.isChecked) setTimeoutAfter(10_000)
 
-
         }
         actionButton()
         notificationCategory()
         notificationFullScreen()
         notificationStyle()
-
     }
 
     /**
@@ -240,6 +356,5 @@ class NotificationFragment : Fragment() {
             }
         }
     }
-
 }
 
