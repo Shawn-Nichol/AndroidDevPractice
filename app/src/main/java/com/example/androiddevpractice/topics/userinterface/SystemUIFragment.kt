@@ -34,61 +34,77 @@ class SystemUIFragment : Fragment() {
             val checked = view.isChecked
 
             when (view.id) {
-                R.id.radio_dim_status -> {
-                    activity?.window?.decorView?.apply {
-                        systemUiVisibility = View.SYSTEM_UI_FLAG_LOW_PROFILE
-                    }
-                }
-                R.id.radio_hide_status -> {
-                    // Note:
-                    // where you set the Hide makes a difference
-                    // Navigating away causes the flags to be reset.
-                    requireActivity().window.decorView.systemUiVisibility =
-                        View.SYSTEM_UI_FLAG_FULLSCREEN
-                    // You should hide the action bar if the status bar is hidden
-
-                }
-
-                R.id.radio_navigation -> {
-                    requireActivity().window.decorView.systemUiVisibility =
-                        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                }
-
-                R.id.radio_lean_back -> {
-                    requireActivity().window.decorView.systemUiVisibility =
-                        (View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION)
-                }
-
-                R.id.radio_immersive -> {
-                    requireActivity().window.decorView.systemUiVisibility =
-                        (View.SYSTEM_UI_FLAG_IMMERSIVE
-                                // Set the content to appear under the system bar so that the content doesn't
-                                // resize when the system bars hid and show
-                                or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                                // Hide the nav bar and status bar
-                                or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                                or View.SYSTEM_UI_FLAG_FULLSCREEN)
-                }
-
-                R.id.radio_immersive_sticky -> {
-                    requireActivity().window.decorView.systemUiVisibility =
-                        (View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                                // Set the content to appear under the system bar so that the content doesn't
-                                // resize when the system bars hid and show
-                                or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                                // Hide the nav bar and status bar
-                                or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                                or View.SYSTEM_UI_FLAG_FULLSCREEN)
-                }
+                R.id.radio_dim_status -> dimStatusBar()
+                R.id.radio_hide_status -> hideMyStatusBar()
+                R.id.radio_navigation -> hideNavigationBar()
+                R.id.radio_lean_back -> leanBack()
+                R.id.radio_immersive -> immersive()
+                R.id.radio_immersive_sticky -> immersiveSticky()
                 else -> {
                     requireActivity().window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE)
                 }
 
             }
         }
+    }
+
+    private fun dimStatusBar() {
+        activity?.window?.decorView?.apply {
+            systemUiVisibility = View.SYSTEM_UI_FLAG_LOW_PROFILE
+        }
+    }
+
+    private fun hideMyStatusBar() {
+        // Note:
+        // where you set the Hide makes a difference
+        // Navigating away causes the flags to be reset.
+        requireActivity().window.decorView.systemUiVisibility =
+            View.SYSTEM_UI_FLAG_FULLSCREEN
+        // You should hide the action bar if the status bar is hidden
+    }
+
+    private fun hideNavigationBar() {
+        requireActivity().window.decorView.systemUiVisibility =
+            View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+    }
+
+    /**
+     * Sets the app to full screen, system bars will appear when the user taps on the screen.
+     */
+    private fun leanBack() {
+        requireActivity().window.decorView.systemUiVisibility =
+            (View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION)
+    }
+
+    /**
+     * Sets the app to full screen, system bars will appear when the user swipes down from the top.
+     */
+    private fun immersive() {
+        requireActivity().window.decorView.systemUiVisibility =
+            (View.SYSTEM_UI_FLAG_IMMERSIVE
+                    // Set the content to appear under the system bar so that the content doesn't
+                    // resize when the system bars hid and show
+                    or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                    or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                    or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    // Hide the nav bar and status bar
+                    or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                    or View.SYSTEM_UI_FLAG_FULLSCREEN)
+    }
+
+    /**
+     * Sets the app to full screen, system bars will be transparent when swiped.
+     */
+    private fun immersiveSticky() {
+        requireActivity().window.decorView.systemUiVisibility =
+            (View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                    // Set the content to appear under the system bar so that the content doesn't
+                    // resize when the system bars hid and show
+                    or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                    or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                    or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    // Hide the nav bar and status bar
+                    or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                    or View.SYSTEM_UI_FLAG_FULLSCREEN)
     }
 }
