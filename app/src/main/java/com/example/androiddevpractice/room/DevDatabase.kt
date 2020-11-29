@@ -141,6 +141,8 @@ abstract class DevDatabase : RoomDatabase() {
                     devDao.insert(dev)
                     dev = Dev("Start and Stop", "Service", "")
                     devDao.insert(dev)
+
+
                     // User Interface
                     dev = Dev("AppBar", "User Interface", "AppBar")
                     devDao.insert(dev)
@@ -220,7 +222,8 @@ abstract class DevDatabase : RoomDatabase() {
                     devDao.insert(dev)
                     dev = Dev("Place Holder", "User Interface", "")
                     devDao.insert(dev)
-
+                    dev = Dev("System UI", "UserInterface", "")
+                    devDao.insert(dev)
                     // Animation
                     dev = Dev("Motion Layout", "User Interface", "Animation")
                     devDao.insert(dev)

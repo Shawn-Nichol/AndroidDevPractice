@@ -68,6 +68,9 @@
         <action
             android:id="@+id/action_dest_recyclerViewFragment_to_notificationFragment"
             app:destination="@id/dest_notificationFragment" />
+        <action
+            android:id="@+id/action_dest_recyclerViewFragment_to_systemUIFragment"
+            app:destination="@id/dest_systemUIFragment" />
     </fragment>
     <fragment
         android:id="@+id/dest_contextual1Fragment"
@@ -167,5 +170,10 @@
         android:id="@+id/dest_notificationFragment"
         android:name="com.example.androiddevpractice.topics.userinterface.notification.NotificationFragment"
         android:label="Notifications" />
+    <fragment
+        android:id="@+id/dest_systemUIFragment"
+        android:name="com.example.androiddevpractice.topics.userinterface.SystemUIFragment"
+        android:label="System UI"
+        tools:layout="@layout/fragment_system_ui"/>
 
 </navigation>

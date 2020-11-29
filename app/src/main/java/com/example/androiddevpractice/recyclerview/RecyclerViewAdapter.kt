@@ -74,6 +74,7 @@ class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev, Recy
             "Pickers" -> view.findNavController().navigate(R.id.dest_pickerFragment)
             "ToolTip" -> view.findNavController().navigate(R.id.dest_toolTipFragment)
             "Notification" -> view.findNavController().navigate(R.id.dest_notificationFragment)
+            "System UI" -> view.findNavController().navigate(R.id.dest_systemUIFragment)
 
 
             else -> {

@@ -24,6 +24,7 @@
     <string name="notification_what_is_full_screen">Full Screen: Heads up notification doesn\'t close</string>
     <string name="notification_what_is_on_going">OnGoing: You cannot swipe the notification away.</string>
     <string name="notification_what_is_set_show_when">SetShowWhen: Controls whether the timestamp set with is displayed in the notification</string>
+    <string name="system_ui_what_is_system_ui">The System UI is screen bars dedicated to the display of notification, communication of device status, and device navigation. Typically the system bar displayed concurrently with the app.</string>
 
 
     <string-array name="notification_priority">
