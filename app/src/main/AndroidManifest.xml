@@ -3,6 +3,10 @@
     package="com.example.androiddevpractice">
 
     <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT"/>
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
+    <uses-permission android:name="android.permission."/>
+
+
     
     <application
         android:allowBackup="true"

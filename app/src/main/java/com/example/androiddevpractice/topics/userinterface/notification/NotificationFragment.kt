@@ -10,13 +10,14 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.androiddevpractice.MainActivity
 import com.example.androiddevpractice.R
 import com.example.androiddevpractice.databinding.FragmentNotificationBinding
 
-class NotificationFragment : Fragment(){
+class NotificationFragment : Fragment() {
 
     val TAG = "PracticeNotificationFragment"
 
@@ -103,6 +104,33 @@ class NotificationFragment : Fragment(){
             setAutoCancel(true) // Remove the notification after tap
             setOnlyAlertOnce(true) // Only makes Notification noise once.
 
+
+            if (binding.switchOngoing.isChecked) setOngoing(true)
+
+            // Text has been removed
+            setTicker("Ticker Text is mine")
+            setColorized(true)
+            color = ContextCompat.getColor(requireContext(), R.color.neonGreen)
+            val bitmap = BitmapFactory.decodeResource(resources, R.drawable.cake)
+            setLargeIcon(bitmap)
+
+            // Displays when the notification arrived
+
+            if (binding.switchShowWhen.isChecked) setShowWhen(true)
+            // Sets a stop watch
+
+            if (binding.switchUseChronometer.isChecked) setUsesChronometer(true)
+
+            // This isn't work is referencing a null object.
+            if (binding.switchUseChronometerDown.isChecked) {
+                setChronometerCountDown(true)
+                setWhen(10)
+                setShowWhen(true)
+            }
+
+            if (binding.switchTimeOut.isChecked) setTimeoutAfter(10_000)
+
+
         }
         actionButton()
         notificationCategory()
@@ -155,17 +183,17 @@ class NotificationFragment : Fragment(){
      * Sets the notification to full screen. Permissino must be granted in the manifest.
      */
     private fun notificationFullScreen() {
-       builder.apply {
-           if (binding.switchFullScreen.isChecked) {
-               val fullScreenIntent = Intent(requireContext(), MainActivity::class.java)
-               val fullScreenPendingIntent = PendingIntent.getActivity(
-                   requireContext(),
-                   0, fullScreenIntent, PendingIntent.FLAG_UPDATE_CURRENT
-               )
+        builder.apply {
+            if (binding.switchFullScreen.isChecked) {
+                val fullScreenIntent = Intent(requireContext(), MainActivity::class.java)
+                val fullScreenPendingIntent = PendingIntent.getActivity(
+                    requireContext(),
+                    0, fullScreenIntent, PendingIntent.FLAG_UPDATE_CURRENT
+                )
 
-               setFullScreenIntent(fullScreenPendingIntent, true)
-           }
-       }
+                setFullScreenIntent(fullScreenPendingIntent, true)
+            }
+        }
     }
 
     private fun notificationStyle() {

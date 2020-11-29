@@ -166,6 +166,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="Full Screen"
+            android:tooltipText="@string/notification_what_is_full_screen"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
 
@@ -273,6 +274,52 @@
             app:layout_constraintGuide_begin="74dp"
             app:layout_constraintStart_toStartOf="parent" />
 
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_ongoing"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:text="OnGoing"
+            android:tooltipText="@string/notification_what_is_on_going"
+            app:layout_constraintBottom_toBottomOf="@+id/switchFullScreen"
+            app:layout_constraintStart_toEndOf="@+id/switchFullScreen"
+            app:layout_constraintTop_toTopOf="@+id/switchFullScreen" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_show_when"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="When"
+            android:tooltipText="@string/notification_what_is_set_show_when"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/switch_progress_bar" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_use_chronometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Timer Up"
+            android:tooltipText="setUSesChronometer: Show the Notification.when filed as a stopwatch. "
+            app:layout_constraintStart_toEndOf="@+id/switch_show_when"
+            app:layout_constraintTop_toTopOf="@+id/switch_show_when" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_use_chronometer_down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Timer Down"
+            android:tooltipText="setChronometer: to count down instead of counting up"
+            app:layout_constraintStart_toEndOf="@+id/switch_use_chronometer"
+            app:layout_constraintTop_toTopOf="@+id/switch_use_chronometer" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switch_time_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time Out"
+            android:tooltipText="TimeOut: Specifies the time before a notification should be canceled. "
+            app:layout_constraintStart_toEndOf="@+id/switch_use_chronometer_down"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup4" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

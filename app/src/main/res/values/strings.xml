@@ -21,6 +21,9 @@
     <string name="what_is_visibility_public">VISIBILITY_PUBLIC: shows the notification\'s full content</string>
     <string name="what_is_visibility_secret">VISIBILITY_SECRET: doesn\'t show any part of this notification on the screen</string>
     <string name="what_is_visibility_private">VISIBILITY_PRIVATE: shows basic information, such as the notifications icon adn the content title, but hides the notifications full content</string>
+    <string name="notification_what_is_full_screen">Full Screen: Heads up notification doesn\'t close</string>
+    <string name="notification_what_is_on_going">OnGoing: You cannot swipe the notification away.</string>
+    <string name="notification_what_is_set_show_when">SetShowWhen: Controls whether the timestamp set with is displayed in the notification</string>
 
 
     <string-array name="notification_priority">
