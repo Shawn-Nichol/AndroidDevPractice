@@ -13,7 +13,7 @@ fun MyNotificationChannel(context: Context) {
     if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
         val name = "My Notification Channel Name"
         val descriptionText = "This is my notification description."
-        val importance = NotificationManager.IMPORTANCE_DEFAULT
+        val importance = NotificationManager.IMPORTANCE_HIGH
 
         val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
             description = descriptionText
