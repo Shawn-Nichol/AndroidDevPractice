@@ -1,9 +1,9 @@
 package com.example.androiddevpractice.topics.userinterface
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.util.Log
+import android.view.*
+
 import android.widget.RadioButton
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -14,6 +14,7 @@ import com.example.androiddevpractice.databinding.FragmentSystemUiBinding
 class SystemUIFragment : Fragment() {
 
     private lateinit var binding: FragmentSystemUiBinding
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,7 +42,7 @@ class SystemUIFragment : Fragment() {
                 R.id.radio_immersive -> immersive()
                 R.id.radio_immersive_sticky -> immersiveSticky()
                 else -> {
-                    requireActivity().window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE)
+                    noInsets()
                 }
 
             }
@@ -49,62 +50,59 @@ class SystemUIFragment : Fragment() {
     }
 
     private fun dimStatusBar() {
-        activity?.window?.decorView?.apply {
-            systemUiVisibility = View.SYSTEM_UI_FLAG_LOW_PROFILE
-        }
+        val controller = requireActivity().window.insetsController
+        controller?.setSystemBarsAppearance(WindowInsetsController.APPEARANCE_LIGHT_NAVIGATION_BARS, WindowInsetsController.APPEARANCE_LIGHT_NAVIGATION_BARS)
+        controller?.controlWindowInsetsAnimation(WindowInsets.Type.statusBars(), 3000,null, null, )
+
     }
 
     private fun hideMyStatusBar() {
-        // Note:
-        // where you set the Hide makes a difference
-        // Navigating away causes the flags to be reset.
-        requireActivity().window.decorView.systemUiVisibility =
-            View.SYSTEM_UI_FLAG_FULLSCREEN
-        // You should hide the action bar if the status bar is hidden
+
+        val controller = requireActivity().window.insetsController
+        controller?.systemBarsBehavior = WindowInsetsController.BEHAVIOR_SHOW_BARS_BY_TOUCH
+        controller?.hide(WindowInsets.Type.statusBars())
+
+
     }
 
     private fun hideNavigationBar() {
-        requireActivity().window.decorView.systemUiVisibility =
-            View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+        val controller = requireActivity().window.insetsController
+        controller?.systemBarsBehavior = WindowInsetsController.BEHAVIOR_SHOW_BARS_BY_SWIPE
+        controller?.hide(WindowInsets.Type.navigationBars())
     }
 
     /**
      * Sets the app to full screen, system bars will appear when the user taps on the screen.
      */
     private fun leanBack() {
-        requireActivity().window.decorView.systemUiVisibility =
-            (View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION)
+        requireActivity().window.setDecorFitsSystemWindows(false)
+        val controller = requireActivity().window.insetsController
+        controller?.systemBarsBehavior = WindowInsetsController.BEHAVIOR_SHOW_BARS_BY_TOUCH
+        controller?.hide(WindowInsets.Type.systemBars())
     }
 
     /**
      * Sets the app to full screen, system bars will appear when the user swipes down from the top.
      */
     private fun immersive() {
-        requireActivity().window.decorView.systemUiVisibility =
-            (View.SYSTEM_UI_FLAG_IMMERSIVE
-                    // Set the content to appear under the system bar so that the content doesn't
-                    // resize when the system bars hid and show
-                    or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                    or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                    or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                    // Hide the nav bar and status bar
-                    or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                    or View.SYSTEM_UI_FLAG_FULLSCREEN)
+        val controller = requireActivity().window.insetsController
+        controller?.systemBarsBehavior = WindowInsetsController.BEHAVIOR_SHOW_BARS_BY_SWIPE
+        controller?.hide(WindowInsets.Type.systemBars())
+
     }
 
     /**
      * Sets the app to full screen, system bars will be transparent when swiped.
      */
     private fun immersiveSticky() {
-        requireActivity().window.decorView.systemUiVisibility =
-            (View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                    // Set the content to appear under the system bar so that the content doesn't
-                    // resize when the system bars hid and show
-                    or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                    or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                    or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                    // Hide the nav bar and status bar
-                    or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                    or View.SYSTEM_UI_FLAG_FULLSCREEN)
+        val controller = requireActivity().window.insetsController
+        controller?.systemBarsBehavior = WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        controller?.hide(WindowInsets.Type.systemBars())
+
+    }
+
+    private fun noInsets() {
+        Log.i("Practice", "NONE")
+        requireActivity().window.insetsController?.show(WindowInsets.Type.statusBars())
     }
 }

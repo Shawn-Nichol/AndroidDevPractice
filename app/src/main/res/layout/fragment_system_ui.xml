@@ -39,7 +39,8 @@
                 android:id="@+id/radio_none"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="None"/>
+                android:text="None"
+                android:onClick="@{(view)-> binding.radioButton(view)}"/>
 
             <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/radio_dim_status"
