@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/dest_systemUIFragment">
+    app:startDestination="@id/dest_toastFragment">
 
     <fragment
         android:id="@+id/dest_loginFragment"
@@ -71,6 +71,9 @@
         <action
             android:id="@+id/action_dest_recyclerViewFragment_to_systemUIFragment"
             app:destination="@id/dest_systemUIFragment" />
+        <action
+            android:id="@+id/action_dest_recyclerViewFragment_to_toastFragment"
+            app:destination="@id/dest_toastFragment" />
     </fragment>
     <fragment
         android:id="@+id/dest_contextual1Fragment"
@@ -175,5 +178,10 @@
         android:name="com.example.androiddevpractice.topics.userinterface.SystemUIFragment"
         android:label="System UI"
         tools:layout="@layout/fragment_system_ui"/>
+    <fragment
+        android:id="@+id/dest_toastFragment"
+        android:name="com.example.androiddevpractice.topics.userinterface.ToastFragment"
+        android:label="Toast"
+        tools:layout="@layout/fragment_toast" />
 
 </navigation>

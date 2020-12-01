@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="binding"
+            type="com.example.androiddevpractice.topics.userinterface.ToastFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".topics.userinterface.ToastFragment">
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/materialTextView2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/toast_what_is_a_toast"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/switch_toast_length">
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/radio_toast_position_none"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="None" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/radio_toast_position_centered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Centered" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/radio_toast_position_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Top" />
+
+        </RadioGroup>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_toast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="toast"
+            android:onClick="@{() -> binding.launchToast()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_toast_custom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{()-> binding.launchCustomToast()}"
+            android:text="CustomToast"
+            app:layout_constraintBottom_toTopOf="@+id/btn_toast"
+            app:layout_constraintEnd_toEndOf="@+id/btn_toast"
+            app:layout_constraintStart_toStartOf="@+id/btn_toast" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switch_toast_length"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOff="Short"
+            android:textOn="Long"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/materialTextView2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

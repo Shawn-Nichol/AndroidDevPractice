@@ -52,7 +52,7 @@ class SystemUIFragment : Fragment() {
     private fun dimStatusBar() {
         val controller = requireActivity().window.insetsController
         controller?.setSystemBarsAppearance(WindowInsetsController.APPEARANCE_LIGHT_NAVIGATION_BARS, WindowInsetsController.APPEARANCE_LIGHT_NAVIGATION_BARS)
-        controller?.controlWindowInsetsAnimation(WindowInsets.Type.statusBars(), 3000,null, null, )
+//        controller?.controlWindowInsetsAnimation(WindowInsets.Type.statusBars(), 3000,null, null, )
 
     }
 
