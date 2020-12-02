@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="binding"
             type="com.example.androiddevpractice.topics.userinterface.MotionLayoutFragment" />
@@ -42,8 +41,6 @@
                 android:text="Sin"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="310dp" />
-
-
         </androidx.constraintlayout.motion.widget.MotionLayout>
 
         <androidx.constraintlayout.motion.widget.MotionLayout
@@ -76,6 +73,4 @@
                 tools:layout_editor_absoluteY="400dp" />
         </androidx.constraintlayout.motion.widget.MotionLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </layout>

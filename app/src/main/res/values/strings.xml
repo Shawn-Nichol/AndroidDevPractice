@@ -26,6 +26,7 @@
     <string name="notification_what_is_set_show_when">SetShowWhen: Controls whether the timestamp set with is displayed in the notification</string>
     <string name="system_ui_what_is_system_ui">The System UI is screen bars dedicated to the display of notification, communication of device status, and device navigation. Typically the system bar displayed concurrently with the app.</string>
     <string name="toast_what_is_a_toast">Toast: is a view containing a quick little message for the user, the view appears as a floating view over the application.</string>
+    <string name="snackbar_what_is_a_snackbar">Snackbar: Is attached to a view. The snackbar provides basic functionality if it is attached to any object derived fromt he view class</string>
 
 
     <string-array name="notification_priority">
