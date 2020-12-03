@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="binding"
+            type="com.example.androiddevpractice.topics.userinterface.dialog.DialogInfoFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".topics.userinterface.dialog.DialogInfoFragment">
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_alertDialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> binding.launchAlertDialog()}"
+            android:text="AlertDialog"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_custom_dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> binding.launchCustomDialog() }"
+            android:text="CustomDialog"
+            app:layout_constraintEnd_toEndOf="@+id/btn_multi_dialog"
+            app:layout_constraintStart_toStartOf="@+id/btn_multi_dialog"
+            app:layout_constraintTop_toBottomOf="@+id/btn_multi_dialog" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_multi_dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> binding.launchMultipleChoice()}"
+            android:text="Multi Choice"
+            app:layout_constraintEnd_toEndOf="@+id/btn_single_choice"
+            app:layout_constraintStart_toStartOf="@+id/btn_single_choice"
+            app:layout_constraintTop_toBottomOf="@+id/btn_single_choice" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_single_choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> binding.launchSingleChoice()}"
+            android:text="Single Choice"
+            app:layout_constraintEnd_toEndOf="@+id/btn_alertDialog"
+            app:layout_constraintStart_toStartOf="@+id/btn_alertDialog"
+            app:layout_constraintTop_toBottomOf="@+id/btn_alertDialog" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

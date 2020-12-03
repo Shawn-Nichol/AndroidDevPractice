@@ -7,14 +7,14 @@
 
         <variable
             name="binding"
-            type="com.example.androiddevpractice.topics.snackbar.SnackbarFragment" />
+            type="com.example.androiddevpractice.topics.userinterface.snackbar.SnackbarFragment" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinator_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".topics.snackbar.SnackbarFragment">
+        tools:context=".topics.userinterface.snackbar.SnackbarFragment">
 
 <!-- A gravity value describing how this child view dodges any insnet vhild views in the Coordinator layoutr-->
         <androidx.constraintlayout.widget.ConstraintLayout

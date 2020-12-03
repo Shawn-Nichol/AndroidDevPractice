@@ -1,4 +1,4 @@
-package com.example.androiddevpractice.topics.snackbar
+package com.example.androiddevpractice.topics.userinterface.snackbar
 
 import android.os.Bundle
 import android.view.LayoutInflater

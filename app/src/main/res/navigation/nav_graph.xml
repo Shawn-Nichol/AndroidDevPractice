@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/dest_snackbarFragment">
+    app:startDestination="@id/dest_dialogInfoFragment">
 
     <fragment
         android:id="@+id/dest_loginFragment"
@@ -80,6 +80,9 @@
         <action
             android:id="@+id/action_dest_recyclerViewFragment_to_snackbarFragment"
             app:destination="@id/dest_snackbarFragment" />
+        <action
+            android:id="@+id/action_dest_recyclerViewFragment_to_dialogInfoFragment"
+            app:destination="@id/dest_dialogInfoFragment" />
     </fragment>
     <fragment
         android:id="@+id/dest_contextual1Fragment"
@@ -191,8 +194,41 @@
         tools:layout="@layout/fragment_toast" />
     <fragment
         android:id="@+id/dest_snackbarFragment"
-        android:name="com.example.androiddevpractice.topics.snackbar.SnackbarFragment"
+        android:name="com.example.androiddevpractice.topics.userinterface.snackbar.SnackbarFragment"
         android:label="Snackbar"
         tools:layout="@layout/fragment_snackbar" />
+    <fragment
+        android:id="@+id/dest_dialogInfoFragment"
+        android:name="com.example.androiddevpractice.topics.userinterface.dialog.DialogInfoFragment"
+        android:label="Dialog Info" >
+        <action
+            android:id="@+id/action_dest_dialogInfoFragment_to_myAlertDialog"
+            app:destination="@id/dest_myAlertDialog" />
+        <action
+            android:id="@+id/action_dest_dialogInfoFragment_to_singleChoiceList"
+            app:destination="@id/dest_singleChoiceList" />
+        <action
+            android:id="@+id/action_dest_dialogInfoFragment_to_customDialog"
+            app:destination="@id/dest_customDialog" />
+        <action
+            android:id="@+id/action_dest_dialogInfoFragment_to_multiChoiceList"
+            app:destination="@id/dest_multiChoiceList" />
+    </fragment>
+    <dialog
+        android:id="@+id/dest_myAlertDialog"
+        android:name="com.example.androiddevpractice.topics.userinterface.dialog.MyAlertDialog"
+        android:label="MyAlertDialog" />
+    <dialog
+        android:id="@+id/dest_customDialog"
+        android:name="com.example.androiddevpractice.topics.userinterface.dialog.CustomDialog"
+        android:label="CustomDialog" />
+    <dialog
+        android:id="@+id/dest_multiChoiceList"
+        android:name="com.example.androiddevpractice.topics.userinterface.dialog.MultiChoiceList"
+        android:label="MultiChoiceList" />
+    <dialog
+        android:id="@+id/dest_singleChoiceList"
+        android:name="com.example.androiddevpractice.topics.userinterface.dialog.SingleChoiceList"
+        android:label="SingleChoiceList" />
 
 </navigation>
