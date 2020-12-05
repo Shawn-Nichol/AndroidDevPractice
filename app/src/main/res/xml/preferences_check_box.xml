@@ -1,4 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <CheckBoxPreference
+        android:key="CheckBoxOne"
+        android:title="CheckBox One"
+        app:defaultValue="false"
+        />
+
+    <CheckBoxPreference
+        android:key="CheckBoxTwo"
+        android:title="CheckBox Two"
+
+        app:defaultValue="false"
+        />
+
+    <CheckBoxPreference
+        android:key="CheckBoxThree"
+        android:title="CheckBox Three"
+        app:defaultValue="false"
+        />
+    <CheckBoxPreference
+        android:key="CheckBoxFour"
+        android:title="CheckBox Four"
+        app:defaultValue="false"
+        />
 
 </PreferenceScreen>
