@@ -70,4 +70,6 @@ dependencies {
 
     // Used for media notification
     implementation "androidx.media:media:1.1.0"
+
+    implementation "androidx.preference:preference:1.1.1"
 }

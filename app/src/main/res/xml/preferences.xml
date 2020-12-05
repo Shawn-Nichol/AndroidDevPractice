@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <PreferenceCategory
+        app:key="Category 1"
+        app:title="Category 1">
+
+        <SwitchPreferenceCompat
+            app:key="notifications"
+            app:title="Enable message notifications" />
+
+        <Preference
+            app:key="feedback"
+            app:summary="Report technical issues or suggest new features"
+            app:title="Send feedback" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="Category 2"
+        app:title="Category 2">
+
+        <Preference
+            app:key="feedback"
+            app:summary="Report info"
+            app:title="Send Feedback" />
+
+    </PreferenceCategory>
+
+    <Preference
+        app:key="UI Screen"
+        app:title="UI Screen"
+        app:summary="UI Summary"
+        app:fragment="com.example.androiddevpractice.topics.userinterface.preferences.UIPreferences"
+
+        />
+
+
+</PreferenceScreen>

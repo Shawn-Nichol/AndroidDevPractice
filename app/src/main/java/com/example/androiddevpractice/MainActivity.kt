@@ -19,10 +19,12 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.preference.Preference
+import androidx.preference.PreferenceFragmentCompat
 import com.google.android.material.navigation.NavigationView
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
 
     private var TAG = "PracticeMainActivity"
 
@@ -98,6 +100,11 @@ class MainActivity : AppCompatActivity() {
                 userTheme = if(userTheme == 0) 1 else 0
                 // Reloads the app so theme changes can be applied.
                 recreate()
+                return true
+            }
+
+            R.id.preferences -> {
+                navController.navigate(R.id.dest_myPreferencesFragment)
                 return true
             }
 
@@ -230,5 +237,19 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    override fun onPreferenceStartFragment(
+        caller: PreferenceFragmentCompat?,
+        pref: Preference?
+    ): Boolean {
+        Log.i(TAG, "onPreferenceStartFragment")
+
+        navController.navigate(R.id.dest_UIPreferences)
+
+        return true
+    }
+
+
+
 }
 

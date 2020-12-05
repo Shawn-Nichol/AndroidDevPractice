@@ -38,7 +38,6 @@ class MyAlertDialog : DialogFragment(){
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        listener = targetFragment as MyAlertDialogListener
         return activity?.let {
             // Use the Builder class for convenient dialog contruction
             val builder = AlertDialog.Builder(it)
@@ -47,7 +46,6 @@ class MyAlertDialog : DialogFragment(){
                 .setPositiveButton("Positive button",
                     DialogInterface.OnClickListener{ dialog, id ->
                         Log.i(TAG, "onCreateDialog, postive button")
-                        listener = targetFragment as MyAlertDialogListener
                         listener.onDialogPostiveCLick(this)
 
                     })

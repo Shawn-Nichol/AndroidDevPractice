@@ -83,6 +83,9 @@
         <action
             android:id="@+id/action_dest_recyclerViewFragment_to_dialogInfoFragment"
             app:destination="@id/dest_dialogInfoFragment" />
+        <action
+            android:id="@+id/action_dest_recyclerViewFragment_to_myPreferencesFragment"
+            app:destination="@id/dest_myPreferencesFragment" />
     </fragment>
     <fragment
         android:id="@+id/dest_contextual1Fragment"
@@ -230,5 +233,19 @@
         android:id="@+id/dest_singleChoiceList"
         android:name="com.example.androiddevpractice.topics.userinterface.dialog.SingleChoiceList"
         android:label="SingleChoiceList" />
+    <fragment
+        android:id="@+id/dest_myPreferencesFragment"
+        android:name="com.example.androiddevpractice.topics.userinterface.preferences.MyPreferencesFragment"
+        android:label="Preferences"
+        >
+        <action
+            android:id="@+id/action_dest_myPreferencesFragment_to_UIPreferences"
+            app:destination="@id/dest_UIPreferences" />
+    </fragment>
+    <fragment
+        android:id="@+id/dest_UIPreferences"
+        android:name="com.example.androiddevpractice.topics.userinterface.preferences.UIPreferences"
+        android:label="UIPreferences" />
+
 
 </navigation>

@@ -230,6 +230,9 @@ abstract class DevDatabase : RoomDatabase() {
                     devDao.insert(dev)
                     dev = Dev("Dialog", "UserInterface", "")
                     devDao.insert(dev)
+                    dev = Dev("Preference", "UserInterface", "")
+                    devDao.insert(dev)
+
 
 
 

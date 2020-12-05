@@ -28,7 +28,7 @@
     <string name="toast_what_is_a_toast">Toast: is a view containing a quick little message for the user, the view appears as a floating view over the application.</string>
     <string name="snackbar_what_is_a_snackbar">Snackbar: Is attached to a view. The snackbar provides basic functionality if it is attached to any object derived fromt he view class</string>
 
-<!--I think this can be removed, used for a spinner that is no longer in use. -->
+    <!--I think this can be removed, used for a spinner that is no longer in use. -->
     <string-array name="notification_priority">
         <item>DEFAULT</item>
         <item>HIGH</item>
@@ -44,7 +44,6 @@
         <item>Item 4</item>
         <item>Item 5</item>
     </string-array>
-
 
 
 </resources>

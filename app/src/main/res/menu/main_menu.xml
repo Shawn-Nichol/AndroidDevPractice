@@ -26,4 +26,7 @@
     <item
         android:id="@+id/theme_change"
         android:title="Change Theme" />
+    <item
+        android:id="@+id/preferences"
+        android:title="Preferences"/>
 </menu>
