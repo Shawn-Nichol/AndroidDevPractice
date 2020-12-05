@@ -238,13 +238,29 @@ class MainActivity : AppCompatActivity(), PreferenceFragmentCompat.OnPreferenceS
         }
     }
 
+    /**
+     * Called when the user clicked on a preference that has a fragment class associated with it. The
+     * implementation should instantiate and switch to an instance of the given fragment.
+     * @caller: PreferenceFragmentCompat, The fragment requesting navigation
+     * @pref: Preference, The preference request the fragment.
+     * return: True, if the fragment creation has been handled.
+     *
+     */
     override fun onPreferenceStartFragment(
         caller: PreferenceFragmentCompat?,
         pref: Preference?
     ): Boolean {
-        Log.i(TAG, "onPreferenceStartFragment")
+        Log.i(TAG, "onPreferenceStartFragment, pref: $pref, Caller: $caller")
 
-        navController.navigate(R.id.dest_UIPreferences)
+        when(pref?.key) {
+            "CheckBox" -> navController.navigate(R.id.dest_checkBoxPreferences)
+            "EditText" -> navController.navigate(R.id.dest_edit_text_preference)
+            "List" -> navController.navigate(R.id.dest_listPreferences)
+            "MultiList" -> navController.navigate(R.id.dest_multiSelectListPreferences)
+            "SeekBars" -> navController.navigate(R.id.dest_seekBarPreferences)
+            "UI" ->  navController.navigate(R.id.dest_UIPreferences)
+        }
+
 
         return true
     }

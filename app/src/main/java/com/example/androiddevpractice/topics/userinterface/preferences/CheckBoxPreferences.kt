@@ -5,13 +5,12 @@ import android.util.Log
 import androidx.preference.PreferenceFragmentCompat
 import com.example.androiddevpractice.R
 
+class CheckBoxPreferences : PreferenceFragmentCompat() {
 
-class MyPreferencesFragment : PreferenceFragmentCompat() {
-
-   private val TAG = "PracticeMyPreferencesFragment"
+    private val TAG = "PracticeCheckBoxPreference"
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        setPreferencesFromResource(R.xml.preferences, rootKey)
+        setPreferencesFromResource(R.xml.preferences_check_box, rootKey)
         Log.i(TAG, "onCreatePreferences")
 
 
@@ -20,4 +19,3 @@ class MyPreferencesFragment : PreferenceFragmentCompat() {
 
 
 }
-

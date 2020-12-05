@@ -241,11 +241,46 @@
         <action
             android:id="@+id/action_dest_myPreferencesFragment_to_UIPreferences"
             app:destination="@id/dest_UIPreferences" />
+        <action
+            android:id="@+id/action_dest_myPreferencesFragment_to_screen2"
+            app:destination="@id/dest_edit_text_preference" />
+        <action
+            android:id="@+id/action_dest_myPreferencesFragment_to_checkBoxPreferences"
+            app:destination="@id/dest_checkBoxPreferences" />
+        <action
+            android:id="@+id/action_dest_myPreferencesFragment_to_listPreferences"
+            app:destination="@id/dest_listPreferences" />
+        <action
+            android:id="@+id/action_dest_myPreferencesFragment_to_multiSelectListPreferences"
+            app:destination="@id/dest_multiSelectListPreferences" />
+        <action
+            android:id="@+id/action_dest_myPreferencesFragment_to_seekBarPreferences"
+            app:destination="@id/dest_seekBarPreferences" />
     </fragment>
     <fragment
         android:id="@+id/dest_UIPreferences"
         android:name="com.example.androiddevpractice.topics.userinterface.preferences.UIPreferences"
-        android:label="UIPreferences" />
+        android:label="UI Preferences" />
+    <fragment
+        android:id="@+id/dest_edit_text_preference"
+        android:name="com.example.androiddevpractice.topics.userinterface.preferences.EditTextPreferences"
+        android:label="EditText Preference" />
+    <fragment
+        android:id="@+id/dest_checkBoxPreferences"
+        android:name="com.example.androiddevpractice.topics.userinterface.preferences.CheckBoxPreferences"
+        android:label="CheckBox Preferences" />
+    <fragment
+        android:id="@+id/dest_listPreferences"
+        android:name="com.example.androiddevpractice.topics.userinterface.preferences.ListPreferences"
+        android:label="List Preferences" />
+    <fragment
+        android:id="@+id/dest_multiSelectListPreferences"
+        android:name="com.example.androiddevpractice.topics.userinterface.preferences.MultiSelectListPreferences"
+        android:label="MultiList Preferences" />
+    <fragment
+        android:id="@+id/dest_seekBarPreferences"
+        android:name="com.example.androiddevpractice.topics.userinterface.preferences.SeekBarPreferences"
+        android:label="SeekBar Preferences" />
 
 
 </navigation>

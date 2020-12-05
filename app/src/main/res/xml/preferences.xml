@@ -2,7 +2,6 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
     <PreferenceCategory
         app:key="Category 1"
         app:title="Category 1">
@@ -21,19 +20,42 @@
         app:title="Category 2">
 
         <Preference
-            app:key="feedback"
-            app:summary="Report info"
-            app:title="Send Feedback" />
+            app:fragment="com.example.androiddevpractice.topics.userinterface.preferences.CheckBoxPreferences"
+            app:key="CheckBox"
+            app:summary="CheckBox summary"
+            app:title="CheckBox Screen" />
+
+        <Preference
+            app:fragment="com.example.androiddevpractice.topics.userinterface.preferences.EditTextPreference"
+            app:key="EditText"
+            app:summary="Edit Text Summary"
+            app:title="Edit Text" />
+
+        <Preference
+            app:fragment="com.example.androiddevpractice.topics.userinterface.preferences.ListPreference"
+            app:key="List"
+            app:summary="List Summary"
+            app:title="List Screen" />
+
+        <Preference
+            app:fragment="com.example.androiddevpractice.topics.userinterface.preferences.MultiListPreferences"
+            app:key="MultiList"
+            app:summary="MultiList Summary"
+            app:title="MultiList Screen" />
+
+        <Preference
+            app:fragment="com.example.androiddevpractice.topics.userinterface.preferences.SeekBarsPreferences"
+            app:key="SeekBars"
+            app:summary="SeekBars Summary"
+            app:title="SeekBars Screen" />
+
+        <Preference
+            app:fragment="com.example.androiddevpractice.topics.userinterface.preferences.UIPreferences"
+            app:key="UI"
+            app:summary="UI summary"
+            app:title="UI Screen" />
 
     </PreferenceCategory>
-
-    <Preference
-        app:key="UI Screen"
-        app:title="UI Screen"
-        app:summary="UI Summary"
-        app:fragment="com.example.androiddevpractice.topics.userinterface.preferences.UIPreferences"
-
-        />
 
 
 </PreferenceScreen>
