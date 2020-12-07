@@ -8,7 +8,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-@Database(entities = arrayOf(Dev::class), version = 1, exportSchema = false)
+@Database(entities = arrayOf(Dev::class), version = 2, exportSchema = true)
 abstract class DevDatabase : RoomDatabase() {
     // Database exposes the DAOs through an abstract getter, for each DAO
     abstract fun devDao(): DevDao

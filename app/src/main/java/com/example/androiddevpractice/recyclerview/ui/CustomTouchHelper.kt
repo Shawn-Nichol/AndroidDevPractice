@@ -38,7 +38,7 @@ class CustomTouchHelper(context: Context, val viewModel: MainActivityViewModel) 
      * Deletes item from, if swiped of in the left or right direction.
      */
     override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-        val editList: MutableList<Dev>? = viewModel.devTopics.value as MutableList<Dev>?
+        val editList: MutableList<Dev>? = viewModel.listDevTopics.value as MutableList<Dev>?
         val editDevList = editList?.toMutableList()
 
         val topic: Dev = editDevList!![viewHolder.adapterPosition]

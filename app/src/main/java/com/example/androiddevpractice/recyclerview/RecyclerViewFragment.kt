@@ -2,9 +2,8 @@ package com.example.androiddevpractice.recyclerview
 
 import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.util.Log
+import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -18,6 +17,8 @@ import com.example.androiddevpractice.recyclerview.ui.CustomTouchHelper
 
 
 class RecyclerViewFragment : Fragment() {
+
+    private val TAG = "PracticeRecyclerViewFragmnet"
 
     private lateinit var binding: FragmentRecyclerViewBinding
     private lateinit var viewModel: MainActivityViewModel
@@ -45,18 +46,47 @@ class RecyclerViewFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater,
-            R.layout.fragment_recycler_view, container, false)
+        Log.i(TAG, "onCreateView")
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.fragment_recycler_view, container, false
+        )
 
-
+        // Allows menu Item to be added.
+        setHasOptionsMenu(true);
         initRecyclerView()
         submitList()
 
         return binding.root
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        Log.i(TAG, "onPrepareOptionsMenu")
+
+        menu.add(Menu.NONE, Menu.NONE, 0, "Search")?.apply {
+            setIcon(R.drawable.ic_search)
+            setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
+        }
+
+
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.title == "Search") {
+            Log.i(TAG, "Search clicked.")
+            viewModel.searchTopic("Life%")
+            // submits list with search result to he RecyclerView.
+            submitList()
+            // Return so the onOptionItemSelected in the MainActivity doesn't run.
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
     private fun submitList() {
-        viewModel.devTopics.observe(viewLifecycleOwner, Observer {
+        viewModel.listDevTopics.observe(viewLifecycleOwner, Observer {
             it?.let {
                 rvAdapter.submitList(it)
             }
@@ -67,7 +97,8 @@ class RecyclerViewFragment : Fragment() {
         val recyclerView = binding.recyclerView
         recyclerView.apply {
             adapter = rvAdapter
-            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
 
             val customItemTouchHelper = ItemTouchHelper(CustomTouchHelper(mContext, viewModel))

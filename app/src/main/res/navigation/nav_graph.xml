@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/dest_dialogInfoFragment">
+    app:startDestination="@id/dest_recyclerViewFragment">
 
     <fragment
         android:id="@+id/dest_loginFragment"
@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/dest_recyclerViewFragment"
         android:name="com.example.androiddevpractice.recyclerview.RecyclerViewFragment"
-        android:label="fragment_recycler_view"
+        android:label="Android Dev"
         tools:layout="@layout/fragment_recycler_view" >
         <argument
             android:name="UserName"

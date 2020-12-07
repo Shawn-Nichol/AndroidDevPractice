@@ -2,8 +2,11 @@ package com.example.androiddevpractice.room
 
 import androidx.lifecycle.LiveData
 
-class DevRepository(private val devDao: DevDao) {
-    val devTopics: LiveData<List<Dev>> = devDao.getAllDevTopics()
+class DevRepository(private val devDao: DevDao, search: String) {
+
+    val TAG = "PracticeDevRepository"
+
+    val listDevTopics: LiveData<List<Dev>> = devDao.getAllDevTopics(search)
 
     suspend fun insert(topic: Dev) {
         devDao.insert(topic)

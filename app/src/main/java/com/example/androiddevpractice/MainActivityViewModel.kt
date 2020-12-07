@@ -1,6 +1,7 @@
 package com.example.androiddevpractice
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
@@ -12,15 +13,24 @@ import kotlinx.coroutines.launch
 
 class MainActivityViewModel(application: Application) : AndroidViewModel(application){
 
+    private val TAG = "PracticeMainActivityViewModel"
     // Reference Repository
-    private val repository: DevRepository
+    private var repository: DevRepository
 
-    val devTopics: LiveData<List<Dev>>
+    var listDevTopics: LiveData<List<Dev>>
+
+    val devDao = DevDatabase.getDatabase(application, viewModelScope).devDao()
+
 
     init {
-        val devDao = DevDatabase.getDatabase(application, viewModelScope).devDao()
-        repository = DevRepository(devDao)
-        devTopics = repository.devTopics
+        repository = DevRepository(devDao, "%")
+        listDevTopics = repository.listDevTopics
+    }
+
+    fun searchTopic(search: String) {
+        Log.i(TAG, "Search: $search")
+        repository = DevRepository(devDao, search)
+        listDevTopics = repository.listDevTopics
     }
 
     fun insertTopic(topic: Dev) = viewModelScope.launch(Dispatchers.IO) {

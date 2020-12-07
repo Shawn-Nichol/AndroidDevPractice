@@ -50,6 +50,8 @@ class MainActivity : AppCompatActivity(), PreferenceFragmentCompat.OnPreferenceS
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+
          ViewModelProvider(this).get(MainActivityViewModel::class.java)
          initNavDrawer()
          initNavDrawerClickListener()
