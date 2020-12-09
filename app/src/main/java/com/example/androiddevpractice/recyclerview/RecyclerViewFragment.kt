@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -64,26 +65,26 @@ class RecyclerViewFragment : Fragment() {
         super.onCreateOptionsMenu(menu, inflater)
         Log.i(TAG, "onPrepareOptionsMenu")
 
-        menu.add(Menu.NONE, Menu.NONE, 0, "Search")?.apply {
-            setIcon(R.drawable.ic_search)
-            setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
-        }
+        inflater.inflate(R.menu.recycler_view_menu, menu)
 
 
+        val searchItem = menu.findItem(R.id.my_search)
+        val searchView: SearchView = searchItem.actionView as SearchView
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                viewModel.searchTopic("%$query%")
+                submitList()
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+
+                return false
+            }
+        })
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.title == "Search") {
-            Log.i(TAG, "Search clicked.")
-            viewModel.searchTopic("Life%")
-            // submits list with search result to he RecyclerView.
-            submitList()
-            // Return so the onOptionItemSelected in the MainActivity doesn't run.
-            return true
-        }
-
-        return super.onOptionsItemSelected(item)
-    }
 
     private fun submitList() {
         viewModel.listDevTopics.observe(viewLifecycleOwner, Observer {
