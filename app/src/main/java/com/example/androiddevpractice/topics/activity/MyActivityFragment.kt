@@ -1,4 +1,4 @@
-package com.example.androiddevpractice.topics
+package com.example.androiddevpractice.topics.activity
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,17 +8,18 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.transition.TransitionInflater
 import com.example.androiddevpractice.R
-import com.example.androiddevpractice.databinding.FragmentDetailsBinding
+import com.example.androiddevpractice.databinding.FragmentMyActivityBinding
 
 
-class DetailsFragment : Fragment() {
+class MyActivityFragment : Fragment() {
 
-    private lateinit var binding: FragmentDetailsBinding
+    private lateinit var binding: FragmentMyActivityBinding
+
     private lateinit var topic: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val args = DetailsFragmentArgs.fromBundle(requireArguments())
+        val args = MyActivityFragmentArgs.fromBundle(requireArguments())
         topic = args.Title
         sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
     }
@@ -28,11 +29,9 @@ class DetailsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_details, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_my_activity, container, false)
+
         binding.tvTitle.text = topic
-
-
-
         return binding.root
     }
 }

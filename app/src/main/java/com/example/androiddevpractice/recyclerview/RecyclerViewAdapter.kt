@@ -14,9 +14,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.androiddevpractice.R
 import com.example.androiddevpractice.room.Dev
 
-class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev, RecyclerViewAdapter.ItemViewHolder>(MyDiffCallback()) {
+
+class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev,
+        RecyclerViewAdapter.ItemViewHolder>(MyDiffCallback()) {
+
+
+    lateinit var searchList: List<Dev>
 
     class MyDiffCallback : DiffUtil.ItemCallback<Dev>() {
+
         override fun areItemsTheSame(oldItem: Dev, newItem: Dev): Boolean {
             return oldItem.topic == newItem.topic
         }
@@ -24,6 +30,8 @@ class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev, Recy
         override fun areContentsTheSame(oldItem: Dev, newItem: Dev): Boolean {
             return oldItem == newItem
         }
+
+
     }
 
 
@@ -64,8 +72,24 @@ class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev, Recy
     private fun loadFragment(view: View, item: Dev, extras: FragmentNavigator.Extras) {
         Log.i("PracticeRecyclerViewAdapter", "loadFragment(), ${item.topic}")
         when (item.topic) {
+            "Activity" -> {
+                val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToMyActivityFragment(item.topic)
+                view.findNavController().navigate(action, extras)
+            }
+            "Configuration Change" ->  {
+                val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToConfigurationChangeFragment(item.topic)
+                view.findNavController().navigate(action, extras)
+            }
+            "Process Life cycle" -> {
+                val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToProcessLifeCycleFragment(item.topic)
+                view.findNavController().navigate(action, extras)
+            }
+            "Saving Persistent State" -> {
+                val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToSavingPersistentStateFragment(item.topic)
+                view.findNavController().navigate(action, extras)
+            }
             "Button" -> view.findNavController().navigate(R.id.dest_buttonFragment)
-            "Menu" ->  view.findNavController().navigate(R.id.dest_menuFragment)
+            "Menu" -> view.findNavController().navigate(R.id.dest_menuFragment)
             "Constraint" -> view.findNavController().navigate(R.id.dest_constraintLayoutFragment)
             "Place Holder" -> view.findNavController().navigate(R.id.dest_placeHolderFragment)
             "Motion Layout" -> view.findNavController().navigate(R.id.dest_motionLayoutFragment)
@@ -84,13 +108,43 @@ class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev, Recy
 
 
             else -> {
-                val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToDetailsFragment(item.topic)
+                val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToDetailsFragment(
+                    item.topic
+                )
                 view.findNavController().navigate(action, extras)
             }
         }
     }
 
-
+//    override fun getFilter(): Filter {
+//
+//    }
+//
+//    private val shopFilter: Filter = object : Filter() {
+//        override fun performFiltering(constraint: CharSequence): FilterResults {
+//            val filteredList: MutableList<StoreEntity> = ArrayList()
+//            if (constraint == null || constraint.length == 0) {
+//                filteredList.addAll(fullList)
+//            } else {
+//                val filterPattern = constraint.toString().toLowerCase().trim { it <= ' ' }
+//                for (store in fullList) {
+//                    if (store.getName().toLowerCase().contains(filterPattern)) {
+//                        filteredList.add(store)
+//                    }
+//                }
+//            }
+//            val results = FilterResults()
+//            results.values = filteredList
+//            return results
+//        }
+//
+//        override fun publishResults(constraint: CharSequence, results: FilterResults) {
+//            //differ.getCurrentList().clear();
+//            //differ.getCurrentList().addAll((List) results.values);
+//            differ.submitList(results.values as List<*>)
+//            notifyDataSetChanged()
+//        }
+//    }
 
 }
 

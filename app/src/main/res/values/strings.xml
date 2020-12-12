@@ -27,8 +27,10 @@
     <string name="system_ui_what_is_system_ui">The System UI is screen bars dedicated to the display of notification, communication of device status, and device navigation. Typically the system bar displayed concurrently with the app.</string>
     <string name="toast_what_is_a_toast">Toast: is a view containing a quick little message for the user, the view appears as a floating view over the application.</string>
     <string name="snackbar_what_is_a_snackbar">Snackbar: Is attached to a view. The snackbar provides basic functionality if it is attached to any object derived fromt he view class</string>
-
-
+    <string name="what_is_an_activity">An activity is a single focused thing that the user can do. Activities interact with the user, so the Activity class takes care of creating a window fro you in which you can place your UI with setContentView. Activities are oftten presented to the user as full screen windows they can also be used in other ways as floating windows</string>
+    <string name="what_is_configuration_change">Configuration change occurs when the orientation of the device changes, a configuration change results in reloading of the activity and a new layout depending on orientation. You can create you unique layouts for portrait or lands scape mode.</string>
+    <string name="what_is_process_lifecycle">The Android system attempts to keep process around fo as long as possible, if memory needs to be freed up then process can be terminated. The four states of importance are listed here and will determine what process get terminated.</string>
+    <string name="what_is_saving_persistent_data">Saving persistent data will save the data as a key value pair into a file to be loaded later.</string>
 
 
 </resources>

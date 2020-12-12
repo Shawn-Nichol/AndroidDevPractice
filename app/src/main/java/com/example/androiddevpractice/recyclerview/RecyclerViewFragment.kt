@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.view.inputmethod.EditorInfo
 import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -70,18 +71,37 @@ class RecyclerViewFragment : Fragment() {
 
         val searchItem = menu.findItem(R.id.my_search)
         val searchView: SearchView = searchItem.actionView as SearchView
+        searchView.imeOptions = EditorInfo.IME_ACTION_DONE
 
+
+        searchView.setIconifiedByDefault(false)
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            /**
+             * Called when the user submits the query. This could be due to a key press on the keyboard
+             * or due to pressing a submit button. Th e listener can override the standard behavior by
+             * returning true to indicate taht it has handled the submit request. Otherwise return false
+             * to let the SearchView handle the submission by launching any associated intent.
+             * @query: teh query text that is to be submitted.
+             * return: treu if the query has been handled by the listener, false to let the SearchView
+             * perform the default action.
+             */
             override fun onQueryTextSubmit(query: String): Boolean {
                 viewModel.searchTopic("%$query%")
                 submitList()
                 return false
             }
 
+            /**
+             * Called when the query text is changed by the user.
+             * @newText: the new content of the query text field.
+             * return false if the SerachView should perfomr the default action of showing any suggestions if available,
+             *  true if the action was handled by the listener.
+             */
             override fun onQueryTextChange(newText: String): Boolean {
 
-                return false
+                return true
             }
+
         })
     }
 
