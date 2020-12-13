@@ -24,7 +24,7 @@
                 android:id="@+id/tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="@dimen/default_top"
                 android:text="@string/title"
                 android:textSize="@dimen/title_size"
                 android:transitionName="transition_title"
@@ -40,7 +40,7 @@
                 android:layout_marginStart="@dimen/default_start"
                 android:layout_marginTop="@dimen/default_top"
                 android:layout_marginEnd="@dimen/default_end"
-                android:onClick="@{(view) -> binding.showLifeCycleText(view)}"
+                android:onClick='@{(view) -> binding.showLifeCycleText(view, ")")}'
                 android:text="@string/activity_onCreate"
                 android:theme="@style/TextViewDescription"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -55,7 +55,7 @@
                 android:layout_marginStart="@dimen/default_start"
                 android:layout_marginTop="@dimen/default_top"
                 android:layout_marginEnd="@dimen/default_end"
-                android:onClick="@{(view) -> binding.showLifeCycleText(view)}"
+                android:onClick='@{(view) -> binding.showLifeCycleText(view, ")")}'
                 android:text="@string/activity_onRestart"
                 android:theme="@style/TextViewDescription"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -69,7 +69,7 @@
                 android:layout_marginStart="@dimen/default_start"
                 android:layout_marginTop="@dimen/default_top"
                 android:layout_marginEnd="@dimen/default_end"
-                android:onClick="@{(view) -> binding.showLifeCycleText(view)}"
+                android:onClick='@{(view) -> binding.showLifeCycleText(view, ")")}'
                 android:text="@string/activity_onStart"
                 android:theme="@style/TextViewDescription"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -83,7 +83,7 @@
                 android:layout_marginStart="@dimen/default_start"
                 android:layout_marginTop="@dimen/default_top"
                 android:layout_marginEnd="@dimen/default_end"
-                android:onClick="@{(view) -> binding.showLifeCycleText(view)}"
+                android:onClick='@{(view) -> binding.showLifeCycleText(view, ")")}'
                 android:text="@string/activity_onResume"
                 android:theme="@style/TextViewDescription"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -97,7 +97,7 @@
                 android:layout_marginStart="@dimen/default_start"
                 android:layout_marginTop="@dimen/default_top"
                 android:layout_marginEnd="@dimen/default_end"
-                android:onClick="@{(view) -> binding.showLifeCycleText(view)}"
+                android:onClick='@{(view) -> binding.showLifeCycleText(view, ")")}'
                 android:text="@string/activity_onPause"
                 android:theme="@style/TextViewDescription"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -111,7 +111,7 @@
                 android:layout_marginStart="@dimen/default_start"
                 android:layout_marginTop="@dimen/default_top"
                 android:layout_marginEnd="@dimen/default_end"
-                android:onClick="@{(view) -> binding.showLifeCycleText(view)}"
+                android:onClick='@{(view) -> binding.showLifeCycleText(view, ")")}'
                 android:text="@string/activity_onStop"
                 android:theme="@style/TextViewDescription"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -125,7 +125,7 @@
                 android:layout_marginStart="@dimen/default_start"
                 android:layout_marginTop="@dimen/default_top"
                 android:layout_marginEnd="@dimen/default_end"
-                android:onClick="@{(view) -> binding.showLifeCycleText(view)}"
+                android:onClick='@{(view) -> binding.showLifeCycleText(view, ")")}'
                 android:text="@string/activity_onDestroy"
                 android:theme="@style/TextViewDescription"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -150,7 +150,7 @@
                 android:layout_marginStart="@dimen/default_start"
                 android:layout_marginTop="@dimen/default_top"
                 android:layout_marginEnd="@dimen/default_end"
-                android:onClick="@{(view) -> binding.showLoopText(view)}"
+                android:onClick='@{(view) -> binding.showLifeCycleText(view, "life")}'
                 android:text="@string/activity_loop_entire"
                 android:theme="@style/TextViewDescription"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -164,7 +164,7 @@
                 android:layout_marginStart="@dimen/default_start"
                 android:layout_marginTop="@dimen/default_top"
                 android:layout_marginEnd="@dimen/default_end"
-                android:onClick="@{(view) -> binding.showLoopText(view)}"
+                android:onClick='@{(view) -> binding.showLifeCycleText(view, "life")}'
                 android:text="@string/activity_loop_visible"
                 android:theme="@style/TextViewDescription"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -178,7 +178,7 @@
                 android:layout_marginStart="@dimen/default_start"
                 android:layout_marginTop="@dimen/default_top"
                 android:layout_marginEnd="@dimen/default_end"
-                android:onClick="@{(view) -> binding.showLoopText(view)}"
+                android:onClick='@{(view) -> binding.showLifeCycleText(view, "life")}'
                 android:text="@string/activity_loop_foreground"
                 android:theme="@style/TextViewDescription"
                 app:layout_constraintEnd_toEndOf="parent"

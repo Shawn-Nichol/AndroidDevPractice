@@ -92,6 +92,11 @@ class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev,
                 val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToSavingPersistentStateFragment(item.topic)
                 view.findNavController().navigate(action, extras)
             }
+
+            "DataBinding" -> {
+                val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToDataBindingFragment(item.topic)
+                view.findNavController().navigate(action,extras)
+            }
             "Button" -> view.findNavController().navigate(R.id.dest_buttonFragment)
             "Menu" -> view.findNavController().navigate(R.id.dest_menuFragment)
             "Constraint" -> view.findNavController().navigate(R.id.dest_constraintLayoutFragment)
