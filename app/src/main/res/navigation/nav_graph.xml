@@ -98,6 +98,9 @@
         <action
             android:id="@+id/action_dest_recyclerViewFragment_to_savingPersistentStateFragment"
             app:destination="@id/dest_savingPersistentStateFragment" />
+        <action
+            android:id="@+id/action_dest_recyclerViewFragment_to_lifecycleFragment"
+            app:destination="@id/dest_lifecycleFragment" />
     </fragment>
     <fragment
         android:id="@+id/dest_contextual1Fragment"
@@ -325,6 +328,14 @@
         android:id="@+id/dest_savingPersistentStateFragment"
         android:name="com.example.androiddevpractice.topics.activity.SavingPersistentStateFragment"
         android:label="SavingPersistentState">
+        <argument
+            android:name="Title"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/dest_lifecycleFragment"
+        android:name="com.example.androiddevpractice.topics.activity.LifecycleFragment"
+        android:label="Activity Lifecycle" >
         <argument
             android:name="Title"
             app:argType="string" />

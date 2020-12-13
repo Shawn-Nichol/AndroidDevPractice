@@ -28,11 +28,11 @@ abstract class DevDatabase : RoomDatabase() {
                     // Activity
                     var  dev = Dev("Activity", "Activity", "")
                     devDao.insert(dev)
-                    dev = Dev("Life Cycle", "Activity", "")
+                    dev = Dev("Lifecycle", "Activity", "")
                     devDao.insert(dev)
                     dev = Dev("Configuration Change", "Activity", "")
                     devDao.insert(dev)
-                    dev = Dev("Process Life cycle", "Activity", "")
+                    dev = Dev("Process Lifecycle", "Activity", "")
                     devDao.insert(dev)
                     dev = Dev("Saving Persistent State", "Activity", "")
                     devDao.insert(dev)

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="binding"
+            type="com.example.androiddevpractice.topics.activity.LifecycleFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".topics.activity.MyActivityFragment">
+
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="TOPIC TITLE"
+            android:textSize="32sp"
+            android:transitionName="transition_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tv_onCreate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:maxLines="1"
+            android:onClick="@{() -> binding.showOnCreate()}"
+            android:text="onCreate()\n This Call back fires when the system first creates an activity, onCreate handles basic application startup logic that should happen only once for the entire life of the activity. This method receives the savedInstanceState"
+            android:textAlignment="viewStart"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_onRestart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:maxLines="1"
+            android:onClick="@{() -> binding.showOnRestart()}"
+            android:text="onRestart()\n Called after onStop() when the current activity is being re-displayed to the user"
+            android:textAlignment="viewStart"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_onCreate" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_onStart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:maxLines="1"
+            android:onClick="@{() -> binding.showOnStart()}"
+            android:text="onStart()\n makes the activity visible to the user, as the app prepares for the  activity to enter the foreground and become interactive"
+            android:textAlignment="viewStart"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_onRestart" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_onResume"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:maxLines="1"
+            android:onClick="@{() -> binding.showOnResume()}"
+            android:text="onResume()\n The  app comes to the foreground, and then the system invokes onResume(). The user interacts with the app in this state, the app will stay in this state until something happens to take focus away from the app. "
+            android:textAlignment="viewStart"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_onStart" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_onPause"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:maxLines="1"
+            android:onClick="@{() -> binding.showOnPause()}"
+            android:text="onPause()\n When the activty leaves the foreground it will enter the onPause() state. Use onPause() to adjust operations that should not continue while the activity is not in active state. OnPause can also be used to release system resources. "
+            android:textAlignment="viewStart"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_onResume" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_onStop"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:maxLines="1"
+            android:onClick="@{() ->binding.showOnStop()}"
+            android:text="onStop()\n When the activity is no longer visible to the user the system will invoke the onStop(). The app should release or adjust resources that are not needed while the app is not visible to the user. When the activity enters the stopped state, the activity object maintains all state and member information, but is not attached to window manager."
+            android:textAlignment="viewStart"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_onPause" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_onDestroy"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:maxLines="1"
+            android:onClick="@{()-> binding.showOnDestroy()}"
+            android:text="onDestroy()\n Is called before the activity is destroyed. The system invokes this call back for two reasons. \n 1. The Activity is finished\n 2. The system is temporarily destroying the activity due to a configuration change. "
+            android:textAlignment="viewStart"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_onStop" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

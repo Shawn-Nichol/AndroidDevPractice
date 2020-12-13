@@ -80,7 +80,11 @@ class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev,
                 val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToConfigurationChangeFragment(item.topic)
                 view.findNavController().navigate(action, extras)
             }
-            "Process Life cycle" -> {
+            "Lifecycle" -> {
+                val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToLifecycleFragment(item.topic)
+                view.findNavController().navigate(action, extras)
+            }
+            "Process Lifecycle" -> {
                 val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToProcessLifeCycleFragment(item.topic)
                 view.findNavController().navigate(action, extras)
             }
