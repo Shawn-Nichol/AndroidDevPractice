@@ -31,6 +31,18 @@
     <string name="what_is_configuration_change">Configuration change occurs when the orientation of the device changes, a configuration change results in reloading of the activity and a new layout depending on orientation. You can create you unique layouts for portrait or lands scape mode.</string>
     <string name="what_is_process_lifecycle">The Android system attempts to keep process around fo as long as possible, if memory needs to be freed up then process can be terminated. The four states of importance are listed here and will determine what process get terminated.</string>
     <string name="what_is_saving_persistent_data">Saving persistent data will save the data as a key value pair into a file to be loaded later.</string>
+    <string name="title">TOPIC TITLE</string>
+    <string name="activity_onCreate">onCreate()\nThis Call back fires when the system first creates an activity, onCreate handles basic application startup logic that should happen only once for the entire life of the activity. This method receives the savedInstanceState</string>
+    <string name="activity_onRestart">onRestart()\nCalled after onStop() when the current activity is being re-displayed to the user</string>
+    <string name="activity_onStart">onStart()\nMakes the activity visible to the user, as the app prepares for the activity to enter the foreground and become interactive</string>
+    <string name="activity_onResume">onResume()\nThe app comes to the foreground, and then the system invokes onResume(). The user interacts with the app in this state, the app will stay in this state until something happens to take focus away from the app.</string>
+    <string name="activity_onPause">onPause()\nWhen the activity leaves the foreground it will enter the onPause() state. Use onPause() to adjust operations that should not continue while the activity is not in active state. OnPause can also be used to release system resources.</string>
+    <string name="activity_onStop">onStop()\nWhen the activity is no longer visible to the user the system will invoke the onStop(). The app should release or adjust resources that are not needed while the app is not visible to the user. When the activity enters the stopped state, the activity object maintains all state and member information, but is not attached to window manager.</string>
+    <string name="activity_onDestroy">onDestroy()\nIs called before the activity is destroyed. The system invokes this call back for two reasons. \n 1. The Activity is finished\n 2. The system is temporarily destroying the activity due to a configuration change.</string>
+    <string name="activity_lifecycle_loops">Lifecycle Loops</string>
+    <string name="activity_loop_entire">Entire Life\nThe entire lifetime of an activity happens between teh first call to onCreate() through to a single final call to onDestory(). An activity will do all setup of global states in onCreate(), and release all remaining resources in onDestroy().</string>
+    <string name="activity_loop_visible">Visible life\n The visible lifetime of an activity happens between a call to onStart() until a corresponding call to onStop(). During this time the user can see the activity -on-screen, though it may not be in the foreground interacting with the user.</string>
+    <string name="activity_loop_foreground">Foreground life\nThe foreground lifetime of an activity happens between a call to onResume() until a corresponding call to onPause(). During this time the activity is invisible,a ctive and interacting with the user.</string>
 
 
 </resources>

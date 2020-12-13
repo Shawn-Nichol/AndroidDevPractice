@@ -49,39 +49,22 @@ class LifecycleFragment : Fragment() {
         return binding.root
     }
 
-    fun showOnCreate() {
-        showText(binding.tvOnCreate)
-    }
-
-    fun showOnRestart() {
-        showText(binding.tvOnRestart)
-    }
-
-    fun showOnStart() {
-        showText(binding.tvOnStart)
-    }
-
-    fun showOnResume() {
-        showText(binding.tvOnResume)
-    }
-
-    fun showOnPause() {
-        showText(binding.tvOnPause)
-    }
-
-    fun showOnStop() {
-        showText(binding.tvOnStop)
-    }
-
-    fun showOnDestroy() {
-        showText(binding.tvOnDestroy)
-    }
-
-
-    private fun showText(view: TextView) {
-
+    fun showLifeCycleText(view: View) {
+        view as TextView
         val titleEnd = view.text.indexOf(")") + 1
+        val end = view.text.length + 5
+        showText(view, titleEnd, end)
+    }
+
+    fun showLoopText(view: View) {
+        view as TextView
+        val titleEnd = view.text.indexOf("life", 0,true) + 4
         val end = view.text.length
+        showText(view, titleEnd, end)
+
+    }
+
+    fun showText(view: TextView, titleEnd: Int, end: Int) {
         val red = ForegroundColorSpan(Color.RED)
         val largeTextSize = AbsoluteSizeSpan(32, true)
         val smallTextSize = AbsoluteSizeSpan(14, true)
@@ -108,4 +91,6 @@ class LifecycleFragment : Fragment() {
             }
         }
     }
+
+
 }
