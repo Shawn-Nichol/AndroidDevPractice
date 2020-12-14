@@ -1,32 +1,30 @@
-package com.example.androiddevpractice.topics.activity
+package com.example.androiddevpractice.topics.architecturecomponents
 
 import android.os.Bundle
-import android.transition.TransitionInflater
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import com.example.androiddevpractice.TextSetup
+import androidx.transition.TransitionInflater
 import com.example.androiddevpractice.R
-import com.example.androiddevpractice.databinding.FragmentActivityLifecycleBinding
+import com.example.androiddevpractice.TextSetup
+import com.example.androiddevpractice.databinding.FragmentLifeCycleAwareBinding
 
 
-class LifecycleFragment : Fragment() {
+class LifeCycleAwareFragment : Fragment() {
 
-    private val TAG = "PracticeLifecycleFragment"
-
-    private lateinit var binding: FragmentActivityLifecycleBinding
+    private lateinit var binding: FragmentLifeCycleAwareBinding
     private lateinit var topic: String
-    var display = TextSetup()
+    lateinit var textSetup: TextSetup
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val args = LifecycleFragmentArgs.fromBundle(requireArguments())
+        val args = DataBindingFragmentArgs.fromBundle(requireArguments())
         topic = args.Title
         sharedElementEnterTransition =
             TransitionInflater.from(context).inflateTransition(android.R.transition.move)
+
     }
 
     override fun onCreateView(
@@ -36,18 +34,25 @@ class LifecycleFragment : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.fragment_activity_lifecycle,
+            R.layout.fragment_life_cycle_aware,
             container,
             false
         )
-        binding.binding = this
-        binding.tvTitle.text = topic
+
+        textSetup = TextSetup()
+        createTextView()
 
         return binding.root
     }
 
-    fun showLifeCycleText(view: View) {
-        view as TextView
-        display.showHideText(view)
+    fun createTextView() {
+        val linear = binding.linearLayout
+
+        val details = arrayOf("ItemOne: \nLine2", "ItemTwo: \nLine2", "ItemThree: \nline 2")
+
+        textSetup.createTextView(requireContext(), details, linear)
+
     }
+
+
 }

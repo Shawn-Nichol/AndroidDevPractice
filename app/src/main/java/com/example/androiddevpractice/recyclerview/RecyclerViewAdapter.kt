@@ -97,6 +97,10 @@ class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev,
                 val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToDataBindingFragment(item.topic)
                 view.findNavController().navigate(action,extras)
             }
+            "LifeCycle-Aware" -> {
+                val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToLifeCycleAwareFragment(item.topic)
+                view.findNavController().navigate(action,extras)
+            }
             "Button" -> view.findNavController().navigate(R.id.dest_buttonFragment)
             "Menu" -> view.findNavController().navigate(R.id.dest_menuFragment)
             "Constraint" -> view.findNavController().navigate(R.id.dest_constraintLayoutFragment)

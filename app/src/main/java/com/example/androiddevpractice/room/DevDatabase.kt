@@ -65,7 +65,7 @@ abstract class DevDatabase : RoomDatabase() {
                     devDao.insert(dev)
                     dev = Dev("DataBinding", "Architecture Component", "DataBinding")
                     devDao.insert(dev)
-                    dev = Dev("HandlingLifeCycles", "Architecture Component", "")
+                    dev = Dev("LifeCycle-Aware", "Architecture Component", "")
                     devDao.insert(dev)
                     dev = Dev("LiveData", "Architecture Component", "")
                     devDao.insert(dev)

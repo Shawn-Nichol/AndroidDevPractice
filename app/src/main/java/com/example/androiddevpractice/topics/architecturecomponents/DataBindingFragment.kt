@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import com.example.androiddevpractice.DisplayText
+import com.example.androiddevpractice.TextSetup
 import com.example.androiddevpractice.R
 import com.example.androiddevpractice.databinding.FragmentDatabindingBinding
 
@@ -17,6 +17,7 @@ class DataBindingFragment : Fragment() {
 
     private lateinit var binding: FragmentDatabindingBinding
     private lateinit var topic: String
+    val display = TextSetup()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,13 +35,13 @@ class DataBindingFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_databinding, container, false)
         binding.binding = this
 
+
         return binding.root
     }
 
     fun showText(view: View) {
         view as TextView
-        val display = DisplayText()
-        display.showText(view, ":")
+        display.showHideText(view)
     }
 
 }
