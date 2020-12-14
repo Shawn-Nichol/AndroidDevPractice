@@ -56,7 +56,7 @@ dependencies {
     // Material Design, Text Input, Nav Drawer, CardView, FAB
     implementation 'com.google.android.material:material:1.2.1'
 
-    def room_version = "2.2.5"
+    def room_version = "2.3.0-alpha03"
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
     // optional - Kotlin Extensions and Coroutines support for Room

@@ -6,8 +6,8 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "dev_table")
 data class Dev(
-    @ColumnInfo(name = "topic") val topic: String,
-    @ColumnInfo(name = "category") val category: String,
-    @ColumnInfo(name = "sub category") val subCategory: String,
+    @ColumnInfo(name = "Topic") val topic: String,
+    @ColumnInfo(name = "Category") val category: String,
+    @ColumnInfo(name = "Details") val Details: String,
     @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "rowId") var id: Long = 0
 )

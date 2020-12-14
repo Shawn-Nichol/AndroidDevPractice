@@ -20,7 +20,7 @@ import com.example.androiddevpractice.recyclerview.ui.CustomTouchHelper
 
 class RecyclerViewFragment : Fragment() {
 
-    private val TAG = "PracticeRecyclerViewFragmnet"
+    private val TAG = "PracticeRecyclerViewFragment"
 
     private lateinit var binding: FragmentRecyclerViewBinding
     private lateinit var viewModel: MainActivityViewModel
@@ -53,6 +53,7 @@ class RecyclerViewFragment : Fragment() {
             inflater,
             R.layout.fragment_recycler_view, container, false
         )
+        binding.binding = this
 
         // Allows menu Item to be added.
         setHasOptionsMenu(true);
@@ -135,6 +136,11 @@ class RecyclerViewFragment : Fragment() {
     }
 
     fun fabClick() {
-
+        Log.i(TAG, "FAB Click")
+        viewModel.listTopic.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                Log.i(TAG, it.toString())
+            }
+        })
     }
 }

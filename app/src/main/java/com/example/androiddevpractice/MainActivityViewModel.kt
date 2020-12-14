@@ -11,13 +11,15 @@ import com.example.androiddevpractice.room.DevRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class MainActivityViewModel(application: Application) : AndroidViewModel(application){
+class MainActivityViewModel(application: Application) : AndroidViewModel(application) {
 
     private val TAG = "PracticeMainActivityViewModel"
+
     // Reference Repository
     private var repository: DevRepository
 
     var listDevTopics: LiveData<List<Dev>>
+    var listTopic: LiveData<List<String>>
 
     val devDao = DevDatabase.getDatabase(application, viewModelScope).devDao()
 
@@ -25,6 +27,7 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
     init {
         repository = DevRepository(devDao, "%")
         listDevTopics = repository.listDevTopics
+        listTopic = repository.listTopics
     }
 
     fun searchTopic(search: String) {
@@ -37,7 +40,7 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
         repository.insert(topic)
     }
 
-    fun deleteTopic(topic: Dev)  = viewModelScope.launch(Dispatchers.IO) {
+    fun deleteTopic(topic: Dev) = viewModelScope.launch(Dispatchers.IO) {
         repository.deleteTopic(topic)
     }
 
