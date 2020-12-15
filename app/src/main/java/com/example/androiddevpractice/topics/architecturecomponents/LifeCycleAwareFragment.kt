@@ -8,7 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.transition.TransitionInflater
 import com.example.androiddevpractice.R
-import com.example.androiddevpractice.TextSetup
+import com.example.androiddevpractice.topics.TextSetup
 import com.example.androiddevpractice.databinding.FragmentLifeCycleAwareBinding
 
 

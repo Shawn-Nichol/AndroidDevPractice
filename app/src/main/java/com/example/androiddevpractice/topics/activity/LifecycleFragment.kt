@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import com.example.androiddevpractice.TextSetup
+import com.example.androiddevpractice.topics.TextSetup
 import com.example.androiddevpractice.R
 import com.example.androiddevpractice.databinding.FragmentActivityLifecycleBinding
 

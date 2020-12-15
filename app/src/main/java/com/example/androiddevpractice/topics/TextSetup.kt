@@ -1,4 +1,4 @@
-package com.example.androiddevpractice
+package com.example.androiddevpractice.topics
 
 import android.content.Context
 import android.graphics.Color
@@ -9,6 +9,7 @@ import android.text.style.ForegroundColorSpan
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.widget.LinearLayoutCompat
+import com.example.androiddevpractice.R
 
 /**
  * DisplayText is used to show and hide the description of text.

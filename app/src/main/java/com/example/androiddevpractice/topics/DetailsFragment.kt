@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.transition.TransitionInflater
 import com.example.androiddevpractice.MainActivityViewModel
 import com.example.androiddevpractice.R
-import com.example.androiddevpractice.TextSetup
 import com.example.androiddevpractice.databinding.FragmentDetailsBinding
 
 
@@ -29,7 +28,7 @@ class DetailsFragment : Fragment() {
         topic = args.Title
         sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
         viewModel = ViewModelProvider(requireActivity()).get(MainActivityViewModel::class.java)
-        viewModel.selectTopic(topic)
+        viewModel.selectTopic(topic, args.Category)
     }
 
     override fun onCreateView(
