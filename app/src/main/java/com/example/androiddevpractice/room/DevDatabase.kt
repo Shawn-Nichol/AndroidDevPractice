@@ -41,12 +41,6 @@ abstract class DevDatabase : RoomDatabase() {
 //                    // Fragments
                     dev = Dev("Fragment", "Fragment", "Item 1 \nLine2")
                     devDao.insert(dev)
-                    dev = Dev("Fragment", "Fragment", "Item 2 \nLine2")
-                    devDao.insert(dev)
-                    dev = Dev("Fragment", "Fragment", "Item 3 \nLine2")
-                    devDao.insert(dev)
-                    dev = Dev("Fragment", "Activity", "Item 3 \nLine2")
-                    devDao.insert(dev)
 //                    dev = Dev("LifeCycle", "Fragment", "")
 //                    devDao.insert(dev)
 //                    dev = Dev("Load Fragment", "Fragment", "")

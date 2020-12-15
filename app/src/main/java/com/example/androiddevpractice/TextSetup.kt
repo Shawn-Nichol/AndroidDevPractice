@@ -6,11 +6,9 @@ import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.AbsoluteSizeSpan
 import android.text.style.ForegroundColorSpan
-import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.widget.LinearLayoutCompat
-import androidx.lifecycle.LiveData
 
 /**
  * DisplayText is used to show and hide the description of text.
@@ -19,17 +17,12 @@ class TextSetup() {
 
     val TAG: String =  "PracticeTextSetup"
 
-    fun createTextView2(context: Context, details: LiveData<List<String>>, linear: LinearLayoutCompat) {
-        Log.i(TAG, "CreateText2, Size: ${listOf(details).size}")
-
-        listOf(details).size
-        for (i in 0..listOf(details).size) {
-            Log.i(TAG, "i = $i, Text = ${listOf(details)[i]}")
-
+    fun createTextView2(context: Context, details: List<String>, linear: LinearLayoutCompat) {
+        for (i in details.indices) {
             var myText: TextView = TextView(context)
             myText.apply {
                 setOnClickListener { showHideText(myText) }
-                text = listOf(details)[i].toString()
+                text = details[i]
                 textSize = 14f
                 textAlignment = View.TEXT_ALIGNMENT_TEXT_START
                 maxLines = 1

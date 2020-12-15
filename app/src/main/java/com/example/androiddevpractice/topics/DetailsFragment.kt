@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.transition.TransitionInflater
 import com.example.androiddevpractice.MainActivityViewModel
@@ -27,7 +28,6 @@ class DetailsFragment : Fragment() {
         val args = DetailsFragmentArgs.fromBundle(requireArguments())
         topic = args.Title
         sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
-
         viewModel = ViewModelProvider(requireActivity()).get(MainActivityViewModel::class.java)
     }
 
@@ -48,15 +48,10 @@ class DetailsFragment : Fragment() {
     fun createTextView() {
         val linear = binding.linearLayout
 
-        viewModel.listTopic
-
-//        viewModel.listTopic.observe(viewLifecycleOwner, Observer {
-//            it?.let {
-//                textSetup.createTextView2(requireContext(), it.toString() , linear )
-//            }
-//        })
-//
-        textSetup.createTextView2(requireContext(), viewModel.listTopic, linear)
-
+        viewModel.listTopic.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                textSetup.createTextView2(requireContext(), it, linear)
+            }
+        })
     }
 }

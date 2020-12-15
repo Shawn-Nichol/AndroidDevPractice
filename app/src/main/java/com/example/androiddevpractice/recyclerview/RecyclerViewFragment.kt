@@ -137,10 +137,10 @@ class RecyclerViewFragment : Fragment() {
 
     fun fabClick() {
         Log.i(TAG, "FAB Click")
-        viewModel.listTopic.observe(viewLifecycleOwner, Observer {
-            it?.let {
-                Log.i(TAG, it.toString())
-            }
-        })
+//        viewModel.listTopic.observe(viewLifecycleOwner, Observer {
+//            it?.let {
+//                Log.i(TAG, it.toString())
+//            }
+//        })
     }
 }
