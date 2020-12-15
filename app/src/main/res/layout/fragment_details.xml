@@ -21,7 +21,6 @@
             android:orientation="vertical"
             tools:context=".topics.architecturecomponents.LifeCycleAwareFragment">
 
-
             <TextView
                 android:id="@+id/tv_title"
                 android:layout_width="match_parent"
@@ -31,14 +30,6 @@
                 android:textAlignment="center"
                 android:textSize="@dimen/title_size"
                 android:transitionName="transition_title" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="@dimen/default_start"
-                android:layout_marginTop="@dimen/default_top"
-                android:layout_marginEnd="@dimen/default_end"
-                android:text="@string/lifecycle_aware_what_is" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
     </ScrollView>

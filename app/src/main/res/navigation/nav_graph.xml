@@ -146,6 +146,9 @@
         <argument
             android:name="Title"
             app:argType="string" />
+        <argument
+            android:name="Category"
+            app:argType="string"/>
     </fragment>
     <fragment
         android:id="@+id/dest_menuFragment"

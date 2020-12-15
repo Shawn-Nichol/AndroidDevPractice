@@ -5,18 +5,23 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.example.androiddevpractice.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @Database(entities = arrayOf(Dev::class), version = 3, exportSchema = true)
-abstract class DevDatabase : RoomDatabase() {
+abstract class DevDatabase() : RoomDatabase() {
     // Database exposes the DAOs through an abstract getter, for each DAO
     abstract fun devDao(): DevDao
 
     // Populate
     private class DevDatabaseCallback(
-        private val scope: CoroutineScope
+        private val scope: CoroutineScope, val mContext: Context
     ) : RoomDatabase.Callback() {
+
+
+
+
         override fun onOpen(db: SupportSQLiteDatabase) {
             super.onOpen(db)
             INSTANCE?.let { database ->
@@ -25,62 +30,104 @@ abstract class DevDatabase : RoomDatabase() {
                      // delete all
                     devDao.deleteAll()
 
+
+
                     // Activity
                     var  dev = Dev("Activity", "Activity", "")
                     devDao.insert(dev)
 
-//                    dev = Dev("Lifecycle", "Activity", "")
-//                    devDao.insert(dev)
-//                    dev = Dev("Configuration Change", "Activity", "")
-//                    devDao.insert(dev)
-//                    dev = Dev("Process Lifecycle", "Activity", "")
-//                    devDao.insert(dev)
-//                    dev = Dev("Saving Persistent State", "Activity", "")
-//                    devDao.insert(dev)
-//
-//                    // Fragments
+                    dev = Dev("Lifecycle", "Activity", mContext.getString(R.string.activity_onCreate) )
+                    devDao.insert(dev)
+                    dev = Dev("Lifecycle", "Activity", mContext.getString(R.string.activity_onRestart))
+                    devDao.insert(dev)
+                    dev = Dev("Lifecycle", "Activity", mContext.getString(R.string.activity_onStart))
+                    devDao.insert(dev)
+                    dev = Dev("Lifecycle", "Activity", mContext.getString(R.string.activity_onPause))
+                    devDao.insert(dev)
+                    dev = Dev("Lifecycle", "Activity", mContext.getString(R.string.activity_onStop))
+                    devDao.insert(dev)
+                    dev = Dev("Lifecycle", "Activity", mContext.getString(R.string.activity_onDestroy))
+                    devDao.insert(dev)
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    dev = Dev("Configuration Change", "Activity", "")
+                    devDao.insert(dev)
+                    dev = Dev("Process Lifecycle", "Activity", "")
+                    devDao.insert(dev)
+                    dev = Dev("Saving Persistent State", "Activity", "")
+                    devDao.insert(dev)
+
+                    // Fragments
                     dev = Dev("Fragment", "Fragment", "Item 1 \nLine2")
                     devDao.insert(dev)
-//                    dev = Dev("LifeCycle", "Fragment", "")
-//                    devDao.insert(dev)
-//                    dev = Dev("Load Fragment", "Fragment", "")
-//                    devDao.insert(dev)
-//                    dev = Dev("Listenable Interface", "Fragment", "")
-//                    devDao.insert(dev)
-//                    dev = Dev("Flexible UI", "Fragment", "" )
-//                    devDao.insert(dev)
-//                    dev = Dev("Animation", "Fragment", "Animate & Transition" )
-//                    devDao.insert(dev)
-//                    dev = Dev("SharedElement", "Fragment", "Animate & Transition" )
-//                    devDao.insert(dev)
-//                    dev = Dev("Transitions Animation", "Fragment", "Animate & Transition" )
-//                    devDao.insert(dev)
-//
-//
-//                    // Architecture components
-//                    dev = Dev("LifeCycle", "Architecture Component", "Coroutines")
-//                    devDao.insert(dev)
-//                    dev = Dev("LiveData", "Architecture Component", "Coroutines")
-//                    devDao.insert(dev)
-//                    dev = Dev("ViewModelScope", "Architecture Component", "Coroutines")
-//                    devDao.insert(dev)
-//                    dev = Dev("DataBinding", "Architecture Component", "DataBinding")
-//                    devDao.insert(dev)
-//                    dev = Dev("LifeCycle-Aware", "Architecture Component", "")
-//                    devDao.insert(dev)
-//                    dev = Dev("LiveData", "Architecture Component", "")
-//                    devDao.insert(dev)
-//
-//                    dev = Dev("Paging", "Architecture Component", "")
-//                    devDao.insert(dev)
-//                    dev = Dev("Room", "Architecture Component", "")
-//                    devDao.insert(dev)
-//                    dev = Dev("Saving UI States", "Architecture Component", "")
-//                    devDao.insert(dev)
-//                    dev = Dev("ViewModel", "Architecture Component", "")
-//                    devDao.insert(dev)
-//                    dev = Dev("WorkManager", "Architecture Component", "")
-//                    devDao.insert(dev)
+                    dev = Dev("LifeCycle", "Fragment", "")
+                    devDao.insert(dev)
+                    dev = Dev("Load Fragment", "Fragment", "")
+                    devDao.insert(dev)
+                    dev = Dev("Listenable Interface", "Fragment", "")
+                    devDao.insert(dev)
+                    dev = Dev("Flexible UI", "Fragment", "" )
+                    devDao.insert(dev)
+                    dev = Dev("Animation", "Fragment", "Animate & Transition" )
+                    devDao.insert(dev)
+                    dev = Dev("SharedElement", "Fragment", "Animate & Transition" )
+                    devDao.insert(dev)
+                    dev = Dev("Transitions Animation", "Fragment", "Animate & Transition" )
+                    devDao.insert(dev)
+
+
+                    // Architecture components
+                    dev = Dev("LifeCycle", "Architecture Component", "Coroutines")
+                    devDao.insert(dev)
+                    dev = Dev("LiveData", "Architecture Component", "Coroutines")
+                    devDao.insert(dev)
+                    dev = Dev("ViewModelScope", "Architecture Component", "Coroutines")
+                    devDao.insert(dev)
+                    dev = Dev("DataBinding", "Architecture Component", mContext.getString(R.string.data_binding_expression_language))
+                    devDao.insert(dev)
+                    dev = Dev("DataBinding", "Architecture Component", mContext.getString(R.string.data_binding_generated_classes))
+                    devDao.insert(dev)
+                    dev = Dev("DataBinding", "Architecture Component", mContext.getString(R.string.data_binding_binding_object))
+                    devDao.insert(dev)
+                    dev = Dev("DataBinding", "Architecture Component", mContext.getString(R.string.data_binding_view_id))
+                    devDao.insert(dev)
+                    dev = Dev("DataBinding", "Architecture Component", mContext.getString(R.string.data_binding_observable_data))
+                    devDao.insert(dev)
+                    dev = Dev("DataBinding", "Architecture Component", mContext.getString(R.string.data_binding_twoway_data_binding))
+                    devDao.insert(dev)
+
+
+
+
+
+
+
+                    dev = Dev("LifeCycle-Aware", "Architecture Component", "")
+                    devDao.insert(dev)
+                    dev = Dev("LiveData", "Architecture Component", "")
+                    devDao.insert(dev)
+
+                    dev = Dev("Paging", "Architecture Component", "")
+                    devDao.insert(dev)
+                    dev = Dev("Room", "Architecture Component", "")
+                    devDao.insert(dev)
+                    dev = Dev("Saving UI States", "Architecture Component", "")
+                    devDao.insert(dev)
+                    dev = Dev("ViewModel", "Architecture Component", "")
+                    devDao.insert(dev)
+                    dev = Dev("WorkManager", "Architecture Component", "")
+                    devDao.insert(dev)
 //
 //
 //                    // Broadcast Receiver.
@@ -258,7 +305,7 @@ abstract class DevDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: DevDatabase? = null
 
-        fun getDatabase(context: Context, scope: CoroutineScope): DevDatabase {
+        fun getDatabase(context: Context, scope: CoroutineScope,): DevDatabase {
             val tempInstance = INSTANCE
             if(tempInstance != null) {
                 return tempInstance
@@ -269,7 +316,7 @@ abstract class DevDatabase : RoomDatabase() {
                     context.applicationContext,
                     DevDatabase::class.java,
                     "dev_database"
-                ).addCallback(DevDatabaseCallback(scope))
+                ).addCallback(DevDatabaseCallback(scope, context.applicationContext))
                     .build()
                 INSTANCE = instance
                 return instance

@@ -80,10 +80,10 @@ class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev,
                 val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToConfigurationChangeFragment(item.topic)
                 view.findNavController().navigate(action, extras)
             }
-            "Lifecycle" -> {
-                val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToLifecycleFragment(item.topic)
-                view.findNavController().navigate(action, extras)
-            }
+//            "Lifecycle" -> {
+//                val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToLifecycleFragment(item.topic)
+//                view.findNavController().navigate(action, extras)
+//            }
             "Process Lifecycle" -> {
                 val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToProcessLifeCycleFragment(item.topic)
                 view.findNavController().navigate(action, extras)
@@ -93,10 +93,10 @@ class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev,
                 view.findNavController().navigate(action, extras)
             }
 
-            "DataBinding" -> {
-                val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToDataBindingFragment(item.topic)
-                view.findNavController().navigate(action,extras)
-            }
+//            "DataBinding" -> {
+//                val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToDataBindingFragment(item.topic)
+//                view.findNavController().navigate(action,extras)
+//            }
             "LifeCycle-Aware" -> {
                 val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToLifeCycleAwareFragment(item.topic)
                 view.findNavController().navigate(action,extras)
@@ -122,7 +122,7 @@ class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev,
 
             else -> {
                 val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToDetailsFragment(
-                    item.topic
+                    item.topic, item.category
                 )
                 view.findNavController().navigate(action, extras)
             }

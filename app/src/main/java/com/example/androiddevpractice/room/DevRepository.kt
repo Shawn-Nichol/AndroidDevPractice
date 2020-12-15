@@ -7,7 +7,12 @@ class DevRepository(private val devDao: DevDao, search: String) {
     val TAG = "PracticeDevRepository"
 
     val listDevTopics: LiveData<List<Dev>> = devDao.getAllDevTopics(search)
-    val listTopics: LiveData<List<String>> = devDao.getTopics()
+
+
+
+    suspend fun selectTopic(topic: String): List<String> {
+       return devDao.getTopics(topic)
+    }
 
 
     suspend fun insert(topic: Dev) {

@@ -19,7 +19,7 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
     private var repository: DevRepository
 
     var listDevTopics: LiveData<List<Dev>>
-    var listTopic: LiveData<List<String>>
+    var listTopic = mutableListOf<String>()
 
     val devDao = DevDatabase.getDatabase(application, viewModelScope).devDao()
 
@@ -27,13 +27,22 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
     init {
         repository = DevRepository(devDao, "%")
         listDevTopics = repository.listDevTopics
-        listTopic = repository.listTopics
+
+
     }
 
     fun searchTopic(search: String) {
         Log.i(TAG, "Search: $search")
         repository = DevRepository(devDao, search)
         listDevTopics = repository.listDevTopics
+    }
+
+    fun selectTopic(topic: String) = viewModelScope.launch(Dispatchers.IO){
+        Log.i(TAG, "SelectedTopic = $topic")
+        listTopic = repository.selectTopic(topic).toMutableList()
+        Log.i(TAG, "selectTopic, ${listTopic}")
+
+
     }
 
     fun insertTopic(topic: Dev) = viewModelScope.launch(Dispatchers.IO) {
