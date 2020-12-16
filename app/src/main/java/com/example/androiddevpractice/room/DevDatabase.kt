@@ -59,11 +59,17 @@ abstract class DevDatabase() : RoomDatabase() {
 
 
                     // Architecture components
-                    dev = Dev("LifeCycle", "Architecture Component", "Coroutines")
+                    dev = Dev("Coroutines", "Architecture Component", mContext.getString(R.string.ac_coroutines_summary))
                     devDao.insert(dev)
-                    dev = Dev("LiveData", "Architecture Component", "Coroutines")
+                    dev = Dev("Coroutines", "Architecture Component", mContext.getString(R.string.ac_coroutines_coroutine_scope))
                     devDao.insert(dev)
-                    dev = Dev("ViewModelScope", "Architecture Component", "Coroutines")
+                    dev = Dev("Coroutines", "Architecture Component", mContext.getString(R.string.ac_coroutines_viewmodel_scope))
+                    devDao.insert(dev)
+                    dev = Dev("Coroutines", "Architecture Component", mContext.getString(R.string.ac_coroutines_lifecycle_scope))
+                    devDao.insert(dev)
+                    dev = Dev("Coroutines", "Architecture Component", mContext.getString(R.string.ac_coroutines_suspend))
+                    devDao.insert(dev)
+                    dev = Dev("Coroutines", "Architecture Component", mContext.getString(R.string.ac_coroutines_livedata))
                     devDao.insert(dev)
                     dev = Dev("DataBinding", "Architecture Component", mContext.getString(R.string.ac_data_binding_expression_language))
                     devDao.insert(dev)
@@ -77,8 +83,22 @@ abstract class DevDatabase() : RoomDatabase() {
                     devDao.insert(dev)
                     dev = Dev("DataBinding", "Architecture Component", mContext.getString(R.string.ac_data_binding_twoway_data_binding))
                     devDao.insert(dev)
+
+
                     dev = Dev("LifeCycle-Aware", "Architecture Component", mContext.getString(R.string.ac_lifecycle_aware_summary))
                     devDao.insert(dev)
+                    dev = Dev("LifeCycle-Aware", "Architecture Component", mContext.getString(R.string.ac_lifecycle_aware_lifecycle))
+                    devDao.insert(dev)
+                    dev = Dev("LifeCycle-Aware", "Architecture Component", mContext.getString(R.string.ac_lifecycle_aware_owner))
+                    devDao.insert(dev)
+                    dev = Dev("LifeCycle-Aware", "Architecture Component", mContext.getString(R.string.ac_lifecycle_aware_best_practice))
+                    devDao.insert(dev)
+                    dev = Dev("LifeCycle-Aware", "Architecture Component", mContext.getString(R.string.ac_lifecycle_aware_cases))
+                    devDao.insert(dev)
+                    dev = Dev("LifeCycle-Aware", "Architecture Component", mContext.getString(R.string.ac_lifecycle_aware_stop_events))
+                    devDao.insert(dev)
+
+
                     dev = Dev("LiveData", "Architecture Component", "")
                     devDao.insert(dev)
 
