@@ -114,8 +114,20 @@ abstract class DevDatabase() : RoomDatabase() {
 
                     dev = Dev("Paging", "Architecture Component", "")
                     devDao.insert(dev)
-                    dev = Dev("Room", "Architecture Component", "")
+                    dev = Dev("Room", "Architecture Component", mContext.getString(R.string.ac_room_database))
                     devDao.insert(dev)
+                    dev = Dev("Room", "Architecture Component", mContext.getString(R.string.ac_room_entity))
+                    devDao.insert(dev)
+                    dev = Dev("Room", "Architecture Component", mContext.getString(R.string.ac_room_dao))
+                    devDao.insert(dev)
+                    dev = Dev("Room", "Architecture Component", mContext.getString(R.string.ac_room_repository))
+                    devDao.insert(dev)
+
+
+
+
+
+
                     dev = Dev("Saving UI States", "Architecture Component", "")
                     devDao.insert(dev)
                     dev = Dev("ViewModel", "Architecture Component", "")
