@@ -109,10 +109,25 @@
     </string>
     <!--Architecture Components Room    -->
     <string name="ac_room_summary">The Room persistence library provides an abstraction layer over SQLite to allow for more robust database access while harnessing the full power of SQLite. The library helps create a cache of the app\'s data on a device that\'s running the app.</string>
-    <string name="ac_room_entity">Entity: represents a table in the data base. Use a data class to create the entity. For each entity a table is created.  </string>
-    <string name="ac_room_database">Database: Contains the database holder and  serves as the main access point for the underlying connectio tyou app's persisted realtion data. </string>
-    <string name="ac_room_dao">DAO: Data Access Object, contains the methods used for accessing the data in the database. </string>
-    <string name="ac_room_repository">Repository: Is responsible for interacting with the database  on behalf of the ViewModel and will need to provide methods that use the DAO.  </string>
+    <string name="ac_room_entity">Entity: \nrepresents a table in the data base. Use a data class to create the entity. For each entity a table is created.  </string>
+    <string name="ac_room_database">Database: \nContains the database holder and  serves as the main access point for the underlying connectio tyou app's persisted realtion data. </string>
+    <string name="ac_room_dao">DAO: \nData Access Object, contains the methods used for accessing the data in the database. </string>
+    <string name="ac_room_repository">Repository: \nIs responsible for interacting with the database  on behalf of the ViewModel and will need to provide methods that use the DAO.  </string>
+
+    <!--Architecture Component ViewModel    -->
+    <string name="ac_viewmodel_summary">The View Model class is designed to store and manage UI-related data in a lifecycle conscious way. The ViewModel class allows data to survive configuration changes. ViewModel replaces Loaders.</string>
+    <string name="ac_viewmodel_provider">ViewModelProvider: \nA utility class that provides ViewModels scope. </string>
+    <string name="ac_viewmodel_lifecycle">Lifecycle: \nViewModel objects are scoped to the lifecycle passed to the ViewModelProvider when getting the ViewModel remains in memory until the Lifecycle is scoped to go away permanently or in the case of fragment detached. </string>
+    <string name="ac_viewmodel_sharedViewModel">SharedViewModel:
+        \n Fragments can share ViewModels by using their activity scope to handle communication. SharedViewModel provides the following benifts.
+        \n - The activity does not need to do anything, or know aything about this communication
+        \n - Fragments doesn\'t need to know about each other be sides the SharedViewModel
+        \n - Each fragment has its own lifecyle, and is not affected by the lifecycle of the other one.
+    </string>
+    <!--Architecture Component Saving UI States-->
+    <string name="ac_saving_ui_states_summary"> </string>
+
+
 
     <!--User Interface-->
     <string name="ui_switch_summary">Switch: Is a two-state toggle switch that can select between two options. The user may drag a thumb back and forth of tap to toggle. Switch compat is backwards compatible to API 7.</string>
@@ -127,8 +142,9 @@
     <string name="ui_place_holder_instructions">Click on an icon to move it to the center and in large it.</string>
     <string name="ui_motion_layout_summary">Motion Layout is a subclass of Constraint Layout, bridging he gap between layout transitions and complex motion handing, offering a mix of features between the property, animation framework, TransitionManager and Coordinator layout.</string>
     <string name="ui_radio_button_summary">RadioButton: is a two state button that can be checked or unchecked. Once check the user can\'t uncheck it.</string>
-    <string name="ui_radio_group_summary">RadioGroup: is a multiple-exlusion scope for a set of radio buttons. Checking one RadioButton in the group will uncheck an previously checked button in the same group.</string>
+    <string name="ui_radio_group_summary">RadioGroup: is a multiple-exclusion scope for a set of radio buttons. Checking one RadioButton in the group will uncheck an previously checked button in the same group.</string>
     <string name="ui_toggle_button_summary">Toggle Button: Allows the user to change a setting between two states.</string>
+
 
     <!-- Notification   -->
     <string name="notification_priority">Notification Priority: Is an indication of how much of the user\'s valuable attention should be consumed by this notification.</string>

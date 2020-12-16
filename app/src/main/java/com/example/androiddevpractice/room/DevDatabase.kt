@@ -123,6 +123,14 @@ abstract class DevDatabase() : RoomDatabase() {
                     dev = Dev("Room", "Architecture Component", mContext.getString(R.string.ac_room_repository))
                     devDao.insert(dev)
 
+                    dev = Dev("ViewModel", "Architecture Component", mContext.getString(R.string.ac_viewmodel_summary))
+                    devDao.insert(dev)
+                    dev = Dev("ViewModel", "Architecture Component", mContext.getString(R.string.ac_viewmodel_provider))
+                    devDao.insert(dev)
+                    dev = Dev("ViewModel", "Architecture Component", mContext.getString(R.string.ac_viewmodel_lifecycle))
+                    devDao.insert(dev)
+                    dev = Dev("ViewModel", "Architecture Component", mContext.getString(R.string.ac_viewmodel_sharedViewModel))
+                    devDao.insert(dev)
 
 
 
@@ -130,8 +138,7 @@ abstract class DevDatabase() : RoomDatabase() {
 
                     dev = Dev("Saving UI States", "Architecture Component", "")
                     devDao.insert(dev)
-                    dev = Dev("ViewModel", "Architecture Component", "")
-                    devDao.insert(dev)
+
                     dev = Dev("WorkManager", "Architecture Component", "")
                     devDao.insert(dev)
 
