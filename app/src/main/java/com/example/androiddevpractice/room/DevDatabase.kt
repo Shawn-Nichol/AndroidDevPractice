@@ -99,7 +99,17 @@ abstract class DevDatabase() : RoomDatabase() {
                     devDao.insert(dev)
 
 
-                    dev = Dev("LiveData", "Architecture Component", "")
+                    dev = Dev("LiveData", "Architecture Component", mContext.getString(R.string.ac_livedata_summary))
+                    devDao.insert(dev)
+                    dev = Dev("LiveData", "Architecture Component", mContext.getString(R.string.ac_livedata_observer))
+                    devDao.insert(dev)
+                    dev = Dev("LiveData", "Architecture Component", mContext.getString(R.string.ac_livedata_advantages))
+                    devDao.insert(dev)
+                    dev = Dev("LiveData", "Architecture Component", mContext.getString(R.string.ac_livedata_working_with))
+                    devDao.insert(dev)
+                    dev = Dev("LiveData", "Architecture Component", mContext.getString(R.string.ac_livedata_states))
+                    devDao.insert(dev)
+                    dev = Dev("LiveData", "Architecture Component", mContext.getString(R.string.ac_livedata_transform))
                     devDao.insert(dev)
 
                     dev = Dev("Paging", "Architecture Component", "")
