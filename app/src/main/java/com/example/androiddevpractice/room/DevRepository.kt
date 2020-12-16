@@ -10,7 +10,7 @@ class DevRepository(private val devDao: DevDao, search: String) {
 
 
 
-    suspend fun selectTopic(topic: String, category: String): List<String> {
+    fun selectTopic(topic: String, category: String): LiveData<List<String>> {
        return devDao.getTopics(topic, category)
     }
 

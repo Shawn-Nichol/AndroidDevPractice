@@ -34,26 +34,34 @@ class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev,
 
     }
 
-
+    /**
+     * Views for each item in the recyclerView.
+     */
     class ItemViewHolder(private val view: View) :  RecyclerView.ViewHolder(view) {
         val card:CardView = view.findViewById(R.id.item_card)
         val title: TextView = view.findViewById(R.id.tv_rv_item)
         val category: TextView = view.findViewById(R.id.tv_category)
     }
 
-
+    /**
+     * layout to load for each item.
+     */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val adapterLayout = LayoutInflater.from(parent.context)
             .inflate(R.layout.recycler_view_item, parent, false)
         return ItemViewHolder(adapterLayout)
     }
 
+    /**
+     * Bind data from each item to a viewItem.
+     */
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = getItem(position)
+        // Set Item to View
         holder.title.text = item.topic
         holder.category.text = item.category
 
-        // Needs to be set so the transition animation knows where to return.
+        // Sets a unique transition name, so transition knows where to end when back button is pressed.
         holder.title.transitionName = "transition_topic_$position"
 
         holder.card.setOnClickListener {
@@ -62,13 +70,12 @@ class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev,
             )
 
            loadFragment(it, item, extras)
-
         }
     }
 
-
-
-
+    /**
+     * Loads framgent depending on item selection.
+     */
     private fun loadFragment(view: View, item: Dev, extras: FragmentNavigator.Extras) {
         Log.i("PracticeRecyclerViewAdapter", "loadFragment(), ${item.topic}")
         when (item.topic) {
@@ -89,8 +96,6 @@ class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev,
             "Snackbar" -> view.findNavController().navigate(R.id.dest_snackbarFragment)
             "Dialog" -> view.findNavController().navigate(R.id.dest_dialogInfoFragment)
             "Preference" -> view.findNavController().navigate(R.id.dest_myPreferencesFragment)
-
-
             else -> {
                 val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToDetailsFragment(
                     item.topic, item.category

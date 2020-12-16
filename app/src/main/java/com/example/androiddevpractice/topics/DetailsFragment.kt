@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.transition.TransitionInflater
 import com.example.androiddevpractice.MainActivityViewModel
@@ -24,9 +25,11 @@ class DetailsFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
+
         val args = DetailsFragmentArgs.fromBundle(requireArguments())
         topic = args.Title
-        sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
+
         viewModel = ViewModelProvider(requireActivity()).get(MainActivityViewModel::class.java)
         viewModel.selectTopic(topic, args.Category)
     }
@@ -39,7 +42,7 @@ class DetailsFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_details, container, false)
         binding.tvTitle.text = topic
 
-        textSetup = TextSetup()
+        textSetup = TextSetup(requireContext())
         createTextView()
 
         return binding.root
@@ -47,13 +50,10 @@ class DetailsFragment : Fragment() {
 
     fun createTextView() {
         val linear = binding.linearLayout
-
-//        viewModel.listTopic.observe(viewLifecycleOwner, Observer {
-//            it?.let {
-//                textSetup.createTextView2(requireContext(), it, linear)
-//            }
-//        })
-        textSetup.createTextView2(requireContext(), viewModel.listTopic, linear)
-
+        viewModel.listTopic.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                textSetup.createTextView2(it, linear)
+            }
+        })
     }
 }

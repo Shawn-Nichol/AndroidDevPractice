@@ -19,7 +19,10 @@ interface DevDao {
 
 
     @Query("SELECT Details FROM dev_table WHERE (Topic = :topic and Category = :category) ")
-    suspend fun getTopics(topic: String, category: String): List<String>
+    fun getTopics(topic: String, category: String): LiveData<List<String>>
+
+//    @Query("SELECT Details FROM dev_table WHERE (Topic = :topic and Category = :category) ")
+//    suspend fun getTopics(topic: String, category: String): List<String>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun  insert(topic: Dev)

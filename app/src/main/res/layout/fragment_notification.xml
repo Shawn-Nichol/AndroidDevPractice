@@ -21,7 +21,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:text="@string/what_is_a_notifiation"
+            android:text="@string/ui_notification_summary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -78,7 +78,7 @@
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:text="OnGoing"
-            android:tooltipText="@string/notification_what_is_on_going"
+            android:tooltipText="@string/notification_on_going"
             app:layout_constraintBottom_toBottomOf="@+id/switchFullScreen"
             app:layout_constraintStart_toEndOf="@+id/switchFullScreen"
             app:layout_constraintTop_toBottomOf="@+id/switch_show_when" />
@@ -88,7 +88,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="When"
-            android:tooltipText="@string/notification_what_is_set_show_when"
+            android:tooltipText="@string/notification_set_show_when"
             app:layout_constraintStart_toStartOf="@+id/switchFullScreen"
             app:layout_constraintTop_toBottomOf="@+id/switch1" />
 
@@ -124,7 +124,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Full Screen"
-            android:tooltipText="@string/notification_what_is_full_screen"
+            android:tooltipText="@string/notification_full_screen"
             app:layout_constraintStart_toStartOf="@+id/materialTextView"
             app:layout_constraintTop_toBottomOf="@+id/switch_show_when" />
 
@@ -181,21 +181,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Public"
-                android:tooltipText="@string/what_is_visibility_public" />
+                android:tooltipText="@string/notification_visibility_public" />
 
             <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/radio_btn_visibility_secret"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Secret"
-                android:tooltipText="@string/what_is_visibility_secret" />
+                android:tooltipText="@string/notification_visibility_secret" />
 
             <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/radio_btn_visibility_private"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Private"
-                android:tooltipText="@string/what_is_visibility_private" />
+                android:tooltipText="@string/notification_visibility_private" />
 
         </RadioGroup>
 
@@ -212,14 +212,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Event"
-                android:tooltipText="@string/what_is_a_category_event" />
+                android:tooltipText="@string/ui_category_event" />
 
             <RadioButton
                 android:id="@+id/radioButton_category_alarm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Alarm"
-                android:tooltipText="@string/what_is_a_cateogory_alarm" />
+                android:tooltipText="@string/ui_category_alarm_summary" />
 
             <RadioButton
                 android:id="@+id/radioButton_category_reminder"
@@ -233,7 +233,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Call"
-                android:tooltipText="@string/what_is_a_category_call" />
+                android:tooltipText="@string/ui_category_call_summary" />
 
         </RadioGroup>
 

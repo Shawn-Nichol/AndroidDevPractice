@@ -33,7 +33,7 @@ abstract class DevDatabase() : RoomDatabase() {
 
 
                     // Activity
-                    var  dev = Dev("Activity", "Activity", mContext.getString(R.string.activity_what_is))
+                    var  dev = Dev("Activity", "Activity", mContext.getString(R.string.activity_summary))
                     devDao.insert(dev)
                     dev = Dev("Configuration Change", "Activity", mContext.getString(R.string.activity_configuration_change_summary))
                     devDao.insert(dev)
@@ -41,17 +41,20 @@ abstract class DevDatabase() : RoomDatabase() {
                     devDao.insert(dev)
                     dev = Dev("Saving Persistent State", "Activity", mContext.getString(R.string.activity_saving_persistent_data_summary))
                     devDao.insert(dev)
-                    dev = Dev("Lifecycle", "Activity", mContext.getString(R.string.activity_onCreate) )
+
+                    dev = Dev("Lifecycle", "Activity", mContext.getString(R.string.activity_lifecycle_onCreate) )
                     devDao.insert(dev)
-                    dev = Dev("Lifecycle", "Activity", mContext.getString(R.string.activity_onRestart))
+                    dev = Dev("Lifecycle", "Activity", mContext.getString(R.string.activity_lifecycle_onCreate) )
                     devDao.insert(dev)
-                    dev = Dev("Lifecycle", "Activity", mContext.getString(R.string.activity_onStart))
+                    dev = Dev("Lifecycle", "Activity", mContext.getString(R.string.activity_lifecycle_onRestart))
                     devDao.insert(dev)
-                    dev = Dev("Lifecycle", "Activity", mContext.getString(R.string.activity_onPause))
+                    dev = Dev("Lifecycle", "Activity", mContext.getString(R.string.activity_lifecycle_onStart))
                     devDao.insert(dev)
-                    dev = Dev("Lifecycle", "Activity", mContext.getString(R.string.activity_onStop))
+                    dev = Dev("Lifecycle", "Activity", mContext.getString(R.string.activity_lifecycle_onPause))
                     devDao.insert(dev)
-                    dev = Dev("Lifecycle", "Activity", mContext.getString(R.string.activity_onDestroy))
+                    dev = Dev("Lifecycle", "Activity", mContext.getString(R.string.activity_lifecycle_onStop))
+                    devDao.insert(dev)
+                    dev = Dev("Lifecycle", "Activity", mContext.getString(R.string.activity_lifecycle_onDestroy))
                     devDao.insert(dev)
 
 
