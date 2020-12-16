@@ -33,9 +33,14 @@ abstract class DevDatabase() : RoomDatabase() {
 
 
                     // Activity
-                    var  dev = Dev("Activity", "Activity", "")
+                    var  dev = Dev("Activity", "Activity", mContext.getString(R.string.activity_what_is))
                     devDao.insert(dev)
-
+                    dev = Dev("Configuration Change", "Activity", mContext.getString(R.string.activity_configuration_change_summary))
+                    devDao.insert(dev)
+                    dev = Dev("Process Lifecycle", "Activity", mContext.getString(R.string.activity_process_lifecycle_summary))
+                    devDao.insert(dev)
+                    dev = Dev("Saving Persistent State", "Activity", mContext.getString(R.string.activity_saving_persistent_data_summary))
+                    devDao.insert(dev)
                     dev = Dev("Lifecycle", "Activity", mContext.getString(R.string.activity_onCreate) )
                     devDao.insert(dev)
                     dev = Dev("Lifecycle", "Activity", mContext.getString(R.string.activity_onRestart))
@@ -50,23 +55,53 @@ abstract class DevDatabase() : RoomDatabase() {
                     devDao.insert(dev)
 
 
-
-
-
-
-
-
-
-
-
-
-
-                    dev = Dev("Configuration Change", "Activity", "")
+                    // Architecture components
+                    dev = Dev("LifeCycle", "Architecture Component", "Coroutines")
                     devDao.insert(dev)
-                    dev = Dev("Process Lifecycle", "Activity", "")
+                    dev = Dev("LiveData", "Architecture Component", "Coroutines")
                     devDao.insert(dev)
-                    dev = Dev("Saving Persistent State", "Activity", "")
+                    dev = Dev("ViewModelScope", "Architecture Component", "Coroutines")
                     devDao.insert(dev)
+                    dev = Dev("DataBinding", "Architecture Component", mContext.getString(R.string.ac_data_binding_expression_language))
+                    devDao.insert(dev)
+                    dev = Dev("DataBinding", "Architecture Component", mContext.getString(R.string.ac_data_binding_generated_classes))
+                    devDao.insert(dev)
+                    dev = Dev("DataBinding", "Architecture Component", mContext.getString(R.string.ac_data_binding_binding_object))
+                    devDao.insert(dev)
+                    dev = Dev("DataBinding", "Architecture Component", mContext.getString(R.string.ac_data_binding_view_id))
+                    devDao.insert(dev)
+                    dev = Dev("DataBinding", "Architecture Component", mContext.getString(R.string.ac_data_binding_observable_data))
+                    devDao.insert(dev)
+                    dev = Dev("DataBinding", "Architecture Component", mContext.getString(R.string.ac_data_binding_twoway_data_binding))
+                    devDao.insert(dev)
+                    dev = Dev("LifeCycle-Aware", "Architecture Component", mContext.getString(R.string.ac_lifecycle_aware_summary))
+                    devDao.insert(dev)
+                    dev = Dev("LiveData", "Architecture Component", "")
+                    devDao.insert(dev)
+
+                    dev = Dev("Paging", "Architecture Component", "")
+                    devDao.insert(dev)
+                    dev = Dev("Room", "Architecture Component", "")
+                    devDao.insert(dev)
+                    dev = Dev("Saving UI States", "Architecture Component", "")
+                    devDao.insert(dev)
+                    dev = Dev("ViewModel", "Architecture Component", "")
+                    devDao.insert(dev)
+                    dev = Dev("WorkManager", "Architecture Component", "")
+                    devDao.insert(dev)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                     // Fragments
                     dev = Dev("Fragment", "Fragment", "Item 1 \nLine2")
@@ -87,25 +122,6 @@ abstract class DevDatabase() : RoomDatabase() {
                     devDao.insert(dev)
 
 
-                    // Architecture components
-                    dev = Dev("LifeCycle", "Architecture Component", "Coroutines")
-                    devDao.insert(dev)
-                    dev = Dev("LiveData", "Architecture Component", "Coroutines")
-                    devDao.insert(dev)
-                    dev = Dev("ViewModelScope", "Architecture Component", "Coroutines")
-                    devDao.insert(dev)
-                    dev = Dev("DataBinding", "Architecture Component", mContext.getString(R.string.data_binding_expression_language))
-                    devDao.insert(dev)
-                    dev = Dev("DataBinding", "Architecture Component", mContext.getString(R.string.data_binding_generated_classes))
-                    devDao.insert(dev)
-                    dev = Dev("DataBinding", "Architecture Component", mContext.getString(R.string.data_binding_binding_object))
-                    devDao.insert(dev)
-                    dev = Dev("DataBinding", "Architecture Component", mContext.getString(R.string.data_binding_view_id))
-                    devDao.insert(dev)
-                    dev = Dev("DataBinding", "Architecture Component", mContext.getString(R.string.data_binding_observable_data))
-                    devDao.insert(dev)
-                    dev = Dev("DataBinding", "Architecture Component", mContext.getString(R.string.data_binding_twoway_data_binding))
-                    devDao.insert(dev)
 
 
 
@@ -113,21 +129,8 @@ abstract class DevDatabase() : RoomDatabase() {
 
 
 
-                    dev = Dev("LifeCycle-Aware", "Architecture Component", "")
-                    devDao.insert(dev)
-                    dev = Dev("LiveData", "Architecture Component", "")
-                    devDao.insert(dev)
 
-                    dev = Dev("Paging", "Architecture Component", "")
-                    devDao.insert(dev)
-                    dev = Dev("Room", "Architecture Component", "")
-                    devDao.insert(dev)
-                    dev = Dev("Saving UI States", "Architecture Component", "")
-                    devDao.insert(dev)
-                    dev = Dev("ViewModel", "Architecture Component", "")
-                    devDao.insert(dev)
-                    dev = Dev("WorkManager", "Architecture Component", "")
-                    devDao.insert(dev)
+
 //
 //
 //                    // Broadcast Receiver.

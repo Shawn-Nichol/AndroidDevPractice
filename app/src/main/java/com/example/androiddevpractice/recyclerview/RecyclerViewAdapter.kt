@@ -72,35 +72,6 @@ class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev,
     private fun loadFragment(view: View, item: Dev, extras: FragmentNavigator.Extras) {
         Log.i("PracticeRecyclerViewAdapter", "loadFragment(), ${item.topic}")
         when (item.topic) {
-            "Activity" -> {
-                val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToMyActivityFragment(item.topic)
-                view.findNavController().navigate(action, extras)
-            }
-            "Configuration Change" ->  {
-                val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToConfigurationChangeFragment(item.topic)
-                view.findNavController().navigate(action, extras)
-            }
-//            "Lifecycle" -> {
-//                val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToLifecycleFragment(item.topic)
-//                view.findNavController().navigate(action, extras)
-//            }
-            "Process Lifecycle" -> {
-                val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToProcessLifeCycleFragment(item.topic)
-                view.findNavController().navigate(action, extras)
-            }
-            "Saving Persistent State" -> {
-                val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToSavingPersistentStateFragment(item.topic)
-                view.findNavController().navigate(action, extras)
-            }
-
-//            "DataBinding" -> {
-//                val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToDataBindingFragment(item.topic)
-//                view.findNavController().navigate(action,extras)
-//            }
-            "LifeCycle-Aware" -> {
-                val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToLifeCycleAwareFragment(item.topic)
-                view.findNavController().navigate(action,extras)
-            }
             "Button" -> view.findNavController().navigate(R.id.dest_buttonFragment)
             "Menu" -> view.findNavController().navigate(R.id.dest_menuFragment)
             "Constraint" -> view.findNavController().navigate(R.id.dest_constraintLayoutFragment)
@@ -128,36 +99,5 @@ class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev,
             }
         }
     }
-
-//    override fun getFilter(): Filter {
-//
-//    }
-//
-//    private val shopFilter: Filter = object : Filter() {
-//        override fun performFiltering(constraint: CharSequence): FilterResults {
-//            val filteredList: MutableList<StoreEntity> = ArrayList()
-//            if (constraint == null || constraint.length == 0) {
-//                filteredList.addAll(fullList)
-//            } else {
-//                val filterPattern = constraint.toString().toLowerCase().trim { it <= ' ' }
-//                for (store in fullList) {
-//                    if (store.getName().toLowerCase().contains(filterPattern)) {
-//                        filteredList.add(store)
-//                    }
-//                }
-//            }
-//            val results = FilterResults()
-//            results.values = filteredList
-//            return results
-//        }
-//
-//        override fun publishResults(constraint: CharSequence, results: FilterResults) {
-//            //differ.getCurrentList().clear();
-//            //differ.getCurrentList().addAll((List) results.values);
-//            differ.submitList(results.values as List<*>)
-//            notifyDataSetChanged()
-//        }
-//    }
-
 }
 
