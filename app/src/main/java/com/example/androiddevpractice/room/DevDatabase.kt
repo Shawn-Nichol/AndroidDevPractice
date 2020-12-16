@@ -58,7 +58,7 @@ abstract class DevDatabase() : RoomDatabase() {
                     devDao.insert(dev)
 
 
-                    // Architecture components
+                    // Architecture components, Coroutines
                     dev = Dev("Coroutines", "Architecture Component", mContext.getString(R.string.ac_coroutines_summary))
                     devDao.insert(dev)
                     dev = Dev("Coroutines", "Architecture Component", mContext.getString(R.string.ac_coroutines_coroutine_scope))
@@ -71,6 +71,8 @@ abstract class DevDatabase() : RoomDatabase() {
                     devDao.insert(dev)
                     dev = Dev("Coroutines", "Architecture Component", mContext.getString(R.string.ac_coroutines_livedata))
                     devDao.insert(dev)
+
+                    // Architecture components, DataBinding
                     dev = Dev("DataBinding", "Architecture Component", mContext.getString(R.string.ac_data_binding_expression_language))
                     devDao.insert(dev)
                     dev = Dev("DataBinding", "Architecture Component", mContext.getString(R.string.ac_data_binding_generated_classes))
@@ -84,7 +86,7 @@ abstract class DevDatabase() : RoomDatabase() {
                     dev = Dev("DataBinding", "Architecture Component", mContext.getString(R.string.ac_data_binding_twoway_data_binding))
                     devDao.insert(dev)
 
-
+                    // Architecture components, Lifecycle aware
                     dev = Dev("LifeCycle-Aware", "Architecture Component", mContext.getString(R.string.ac_lifecycle_aware_summary))
                     devDao.insert(dev)
                     dev = Dev("LifeCycle-Aware", "Architecture Component", mContext.getString(R.string.ac_lifecycle_aware_lifecycle))
@@ -98,7 +100,7 @@ abstract class DevDatabase() : RoomDatabase() {
                     dev = Dev("LifeCycle-Aware", "Architecture Component", mContext.getString(R.string.ac_lifecycle_aware_stop_events))
                     devDao.insert(dev)
 
-
+                    // Architecture components, LiveData
                     dev = Dev("LiveData", "Architecture Component", mContext.getString(R.string.ac_livedata_summary))
                     devDao.insert(dev)
                     dev = Dev("LiveData", "Architecture Component", mContext.getString(R.string.ac_livedata_observer))
@@ -112,8 +114,11 @@ abstract class DevDatabase() : RoomDatabase() {
                     dev = Dev("LiveData", "Architecture Component", mContext.getString(R.string.ac_livedata_transform))
                     devDao.insert(dev)
 
+                    // Architecture components, paging
                     dev = Dev("Paging", "Architecture Component", "")
                     devDao.insert(dev)
+
+                    // Architecture components, Room
                     dev = Dev("Room", "Architecture Component", mContext.getString(R.string.ac_room_database))
                     devDao.insert(dev)
                     dev = Dev("Room", "Architecture Component", mContext.getString(R.string.ac_room_entity))
@@ -123,6 +128,7 @@ abstract class DevDatabase() : RoomDatabase() {
                     dev = Dev("Room", "Architecture Component", mContext.getString(R.string.ac_room_repository))
                     devDao.insert(dev)
 
+                    // Architecture components, ViewModel
                     dev = Dev("ViewModel", "Architecture Component", mContext.getString(R.string.ac_viewmodel_summary))
                     devDao.insert(dev)
                     dev = Dev("ViewModel", "Architecture Component", mContext.getString(R.string.ac_viewmodel_provider))
@@ -132,15 +138,22 @@ abstract class DevDatabase() : RoomDatabase() {
                     dev = Dev("ViewModel", "Architecture Component", mContext.getString(R.string.ac_viewmodel_sharedViewModel))
                     devDao.insert(dev)
 
-
-
-
-
-                    dev = Dev("Saving UI States", "Architecture Component", "")
+                    // Architecture components, WorkManager
+                    dev = Dev("WorkManager", "Architecture Component", mContext.getString(R.string.ac_WorkManager_summary))
+                    devDao.insert(dev)
+                    dev = Dev("WorkManager", "Architecture Component", mContext.getString(R.string.ac_WorkManager_constraints))
+                    devDao.insert(dev)
+                    dev = Dev("WorkManager", "Architecture Component", mContext.getString(R.string.ac_WorkManager_scheduling))
+                    devDao.insert(dev)
+                    dev = Dev("WorkManager", "Architecture Component", mContext.getString(R.string.ac_WorkManager_retry))
+                    devDao.insert(dev)
+                    dev = Dev("WorkManager", "Architecture Component", mContext.getString(R.string.ac_WorkManager_chaining))
+                    devDao.insert(dev)
+                    dev = Dev("WorkManager", "Architecture Component", mContext.getString(R.string.ac_WorkManager_integrates))
                     devDao.insert(dev)
 
-                    dev = Dev("WorkManager", "Architecture Component", "")
-                    devDao.insert(dev)
+
+
 
 
 

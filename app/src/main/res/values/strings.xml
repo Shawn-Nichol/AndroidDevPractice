@@ -119,15 +119,18 @@
     <string name="ac_viewmodel_provider">ViewModelProvider: \nA utility class that provides ViewModels scope. </string>
     <string name="ac_viewmodel_lifecycle">Lifecycle: \nViewModel objects are scoped to the lifecycle passed to the ViewModelProvider when getting the ViewModel remains in memory until the Lifecycle is scoped to go away permanently or in the case of fragment detached. </string>
     <string name="ac_viewmodel_sharedViewModel">SharedViewModel:
-        \n Fragments can share ViewModels by using their activity scope to handle communication. SharedViewModel provides the following benifts.
+        \n Fragments can share ViewModels by using their activity scope to handle communication. SharedViewModel provides the following benefits.
         \n - The activity does not need to do anything, or know aything about this communication
         \n - Fragments doesn\'t need to know about each other be sides the SharedViewModel
         \n - Each fragment has its own lifecyle, and is not affected by the lifecycle of the other one.
     </string>
-    <!--Architecture Component Saving UI States-->
-    <string name="ac_saving_ui_states_summary"> </string>
-
-
+    <!--Architecture WorkManager-->
+    <string name="ac_WorkManager_summary">WorkManager is an API used to schedule deferrable asynchronous tasks that are expected to run even if the app exits or the device restarts. WorkManager API is a suitable and recommend replacement for all previous Android background scheduling APIs. </string>
+    <string name="ac_WorkManager_constraints">Constraints: \nDefine the optimal conditions for your work to run using Work Constraints. ex wait to be on Wi-Fi, device idle</string>
+    <string name="ac_WorkManager_scheduling">Scheduling: \nWork can be run on-time or repeatedly using flexible scheduling windows. Work can be tagged  and named as well, allowing you to schedule unique, replaceable work and monitor or cancel groups of work together. Scheduled work is stored in an internally managed SQLite database and WorkManager takes careof ensuring that this work persists and is rescheduled across device reboots..</string>
+    <string name="ac_WorkManager_retry">Retry Policy: \nWorkManager offers flexible retry polices, including a configurable exponential backoff policy.</string>
+    <string name="ac_WorkManager_chaining">Work Chaining: \nFor complex related work, chain individual work tasks together using a fluent, natural,interface that allows you to control which pieces run sequentially and which run in parallel. </string>
+    <string name="ac_WorkManager_integrates">Integrates: \nWorkManager intgrates seamlessly with RxJava and Corotuines and provides the flexibility to plug in your own asynchronous APIs.</string>
 
     <!--User Interface-->
     <string name="ui_switch_summary">Switch: Is a two-state toggle switch that can select between two options. The user may drag a thumb back and forth of tap to toggle. Switch compat is backwards compatible to API 7.</string>
