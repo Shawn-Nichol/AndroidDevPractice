@@ -167,6 +167,8 @@ abstract class DevDatabase() : RoomDatabase() {
                     devDao.insert(dev)
                     dev = Dev("Navigation", "Navigation", mContext.getString(R.string.navigation_navigation_benefits))
                     devDao.insert(dev)
+                    dev = Dev("Navigation", "Navigation", mContext.getString(R.string.navigation_destination))
+                    devDao.insert(dev)
                     dev = Dev("Principles Of Navigation", "Navigation", mContext.getString(R.string.navigation_principles_of_navigation_fixed))
                     devDao.insert(dev)
                     dev = Dev("Principles Of Navigation", "Navigation", mContext.getString(R.string.navigation_principles_of_navigation_stack))
