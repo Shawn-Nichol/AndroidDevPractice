@@ -42,6 +42,9 @@ abstract class DevDatabase() : RoomDatabase() {
                     dev = Dev("Saving Persistent State", "Activity", mContext.getString(R.string.activity_saving_persistent_data_summary))
                     devDao.insert(dev)
 
+                    // Activity Lifecycle
+                    dev = Dev("Lifecycle", "Activity", mContext.getString(R.string.activity_lifecycle_summary) )
+                    devDao.insert(dev)
                     dev = Dev("Lifecycle", "Activity", mContext.getString(R.string.activity_lifecycle_onCreate) )
                     devDao.insert(dev)
                     dev = Dev("Lifecycle", "Activity", mContext.getString(R.string.activity_lifecycle_onCreate) )
@@ -153,7 +156,25 @@ abstract class DevDatabase() : RoomDatabase() {
                     devDao.insert(dev)
 
 
-
+                    // Navigation
+                    dev = Dev("Navigation", "Navigation", mContext.getString(R.string.navigation_summary))
+                    devDao.insert(dev)
+                    dev = Dev("Navigation", "Navigation", mContext.getString(R.string.navigation_graph))
+                    devDao.insert(dev)
+                    dev = Dev("Navigation", "Navigation", mContext.getString(R.string.navigation_nav_host))
+                    devDao.insert(dev)
+                    dev = Dev("Navigation", "Navigation", mContext.getString(R.string.navigation_nav_controller))
+                    devDao.insert(dev)
+                    dev = Dev("Navigation", "Navigation", mContext.getString(R.string.navigation_navigation_benefits))
+                    devDao.insert(dev)
+                    dev = Dev("Principles Of Navigation", "Navigation", mContext.getString(R.string.navigation_principles_of_navigation_fixed))
+                    devDao.insert(dev)
+                    dev = Dev("Principles Of Navigation", "Navigation", mContext.getString(R.string.navigation_principles_of_navigation_stack))
+                    devDao.insert(dev)
+                    dev = Dev("Principles Of Navigation", "Navigation", mContext.getString(R.string.navigation_principles_of_navigation_up_and_back))
+                    devDao.insert(dev)
+                    dev = Dev("Principles Of Navigation", "Navigation", mContext.getString(R.string.navigation_principles_of_navigation_deep_link))
+                    devDao.insert(dev)
 
 
 
@@ -169,22 +190,22 @@ abstract class DevDatabase() : RoomDatabase() {
 
 
                     // Fragments
-                    dev = Dev("Fragment", "Fragment", "Item 1 \nLine2")
-                    devDao.insert(dev)
-                    dev = Dev("LifeCycle", "Fragment", "")
-                    devDao.insert(dev)
-                    dev = Dev("Load Fragment", "Fragment", "")
-                    devDao.insert(dev)
-                    dev = Dev("Listenable Interface", "Fragment", "")
-                    devDao.insert(dev)
-                    dev = Dev("Flexible UI", "Fragment", "" )
-                    devDao.insert(dev)
-                    dev = Dev("Animation", "Fragment", "Animate & Transition" )
-                    devDao.insert(dev)
-                    dev = Dev("SharedElement", "Fragment", "Animate & Transition" )
-                    devDao.insert(dev)
-                    dev = Dev("Transitions Animation", "Fragment", "Animate & Transition" )
-                    devDao.insert(dev)
+//                    dev = Dev("Fragment", "Fragment", "Item 1 \nLine2")
+//                    devDao.insert(dev)
+//                    dev = Dev("LifeCycle", "Fragment", "")
+//                    devDao.insert(dev)
+//                    dev = Dev("Load Fragment", "Fragment", "")
+//                    devDao.insert(dev)
+//                    dev = Dev("Listenable Interface", "Fragment", "")
+//                    devDao.insert(dev)
+//                    dev = Dev("Flexible UI", "Fragment", "" )
+//                    devDao.insert(dev)
+//                    dev = Dev("Animation", "Fragment", "Animate & Transition" )
+//                    devDao.insert(dev)
+//                    dev = Dev("SharedElement", "Fragment", "Animate & Transition" )
+//                    devDao.insert(dev)
+//                    dev = Dev("Transitions Animation", "Fragment", "Animate & Transition" )
+//                    devDao.insert(dev)
 
 
 
@@ -214,31 +235,7 @@ abstract class DevDatabase() : RoomDatabase() {
 //                    dev = Dev("Pending Intent", "Intent", "")
 //                    devDao.insert(dev)
 //
-//                    // Navigation
-//                    dev = Dev("Principles of Navigation", "Navigation", "")
-//                    devDao.insert(dev)
-//                    dev = Dev("NavigationGraphs", "Navigation", "")
-//                    devDao.insert(dev)
-//                    dev = Dev("NavHostFragment", "Navigation", "")
-//                    devDao.insert(dev)
-//                    dev = Dev("Destinations", "Navigation", "")
-//                    devDao.insert(dev)
-//                    dev = Dev("Actions", "Navigation", "")
-//                    devDao.insert(dev)
-//                    dev = Dev("SafeArgs", "Navigation", "")
-//                    devDao.insert(dev)
-//                    dev = Dev("Deep Link", "Navigation", "")
-//                    devDao.insert(dev)
-//                    dev = Dev("Nested Nav Graphs", "Navigation", "")
-//                    devDao.insert(dev)
-//                    dev = Dev("Animation", "Navigation", "")
-//                    devDao.insert(dev)
-//                    dev = Dev("Shared Element", "Navigation", "")
-//                    devDao.insert(dev)
-//                    dev = Dev("SharedElement RecyclerView", "Navigation", "")
-//                    devDao.insert(dev)
-//                    dev = Dev("Menu Ties", "Navigation", "")
-//                    devDao.insert(dev)
+
 //
 //                    // Service
 //                    dev = Dev("What is a Service", "Service", "")

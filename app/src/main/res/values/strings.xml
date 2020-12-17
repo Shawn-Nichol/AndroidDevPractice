@@ -12,7 +12,9 @@
     <!--Activity-->
     <string name="activity_summary">An activity is a single focused thing that the user can do. Activities interact with the user, so the Activity class takes care of creating a window fro you in which you can place your UI with setContentView. Activities are oftten presented to the user as full screen windows they can also be used in other ways as floating windows</string>
     <string name="activity_configuration_change_summary">Configuration change occurs when the orientation of the device changes, a configuration change results in reloading of the activity and a new layout depending on orientation. You can create you unique layouts for portrait or lands scape mode.</string>
-    <string name="activity_life_cycle_summary">As a user navigates through, out of and back to your app, the Activity instances transition through different states in their lifecycle. The activity class provides a number of callbacks that allow the activity to know that a state has changed.</string>
+
+    <!--Activity Lifecycle    -->
+    <string name="activity_lifecycle_summary">As a user navigates through, out of and back to your app, the Activity instances transition through different states in their lifecycle. The activity class provides a number of callbacks that allow the activity to know that a state has changed.</string>
     <string name="activity_lifecycle_onCreate">callback onCreate():
         \n This Call back fires when the system first creates an activity, onCreate handles basic application startup logic that should happen only once for the entire life of the activity. This method receives the savedInstanceState</string>
     <string name="activity_lifecycle_onRestart">callback onRestart():
@@ -28,13 +30,13 @@
         \nWhen the activity is no longer visible to the user the system will invoke the onStop(). The app should release or adjust resources that are not needed while the app is not visible to the user. When the activity enters the stopped state, the activity object maintains all state and member information, but is not attached to window manager.</string>
     <string name="activity_lifecycle_onDestroy">callback onDestroy():
         \nIs called before the activity is destroyed. The system invokes this call back for two reasons. \n 1. The Activity is finished\n 2. The system is temporarily destroying the activity due to a configuration change.</string>
-    <string name="activity_lifecycle_loops">Lifecycle Loops</string>
     <string name="activity_lifecycle_loop_entire">Entire Life Loop:
         \nThe entire lifetime of an activity happens between the first call to onCreate() through to a single final call to onDestroy(). An activity will do all setup of global states in onCreate(), and release all remaining resources in onDestroy().</string>
     <string name="activity_lifecycle_loop_visible">Visible Life Loop:
         \nThe visible lifetime of an activity happens between a call to onStart() until a corresponding call to onStop(). During this time the user can see the activity -on-screen, though it may not be in the foreground interacting with the user.</string>
     <string name="activity_lifecycle_loop_foreground">Foreground Life Loop:
         \nThe foreground lifetime of an activity happens between a call to onResume() until a corresponding call to onPause(). During this time the activity is invisible, active and interacting with the user.</string>
+
     <string name="activity_process_lifecycle_summary">The Android system attempts to keep process around fo as long as possible, if memory needs to be freed up then process can be terminated. The four states of importance are listed here and will determine what process get terminated.</string>
     <string name="activity_saving_persistent_data_summary">Saving persistent data will save the data as a key value pair into a file to be loaded later.</string>
 
@@ -110,7 +112,7 @@
     <!--Architecture Components Room    -->
     <string name="ac_room_summary">The Room persistence library provides an abstraction layer over SQLite to allow for more robust database access while harnessing the full power of SQLite. The library helps create a cache of the app\'s data on a device that\'s running the app.</string>
     <string name="ac_room_entity">Entity: \nrepresents a table in the data base. Use a data class to create the entity. For each entity a table is created.  </string>
-    <string name="ac_room_database">Database: \nContains the database holder and  serves as the main access point for the underlying connectio tyou app's persisted realtion data. </string>
+    <string name="ac_room_database">Database: \nContains the database holder and  serves as the main access point for the underlying connection tyou app\'s persisted relation data. </string>
     <string name="ac_room_dao">DAO: \nData Access Object, contains the methods used for accessing the data in the database. </string>
     <string name="ac_room_repository">Repository: \nIs responsible for interacting with the database  on behalf of the ViewModel and will need to provide methods that use the DAO.  </string>
 
@@ -130,7 +132,7 @@
     <string name="ac_WorkManager_scheduling">Scheduling: \nWork can be run on-time or repeatedly using flexible scheduling windows. Work can be tagged  and named as well, allowing you to schedule unique, replaceable work and monitor or cancel groups of work together. Scheduled work is stored in an internally managed SQLite database and WorkManager takes careof ensuring that this work persists and is rescheduled across device reboots..</string>
     <string name="ac_WorkManager_retry">Retry Policy: \nWorkManager offers flexible retry polices, including a configurable exponential backoff policy.</string>
     <string name="ac_WorkManager_chaining">Work Chaining: \nFor complex related work, chain individual work tasks together using a fluent, natural,interface that allows you to control which pieces run sequentially and which run in parallel. </string>
-    <string name="ac_WorkManager_integrates">Integrates: \nWorkManager intgrates seamlessly with RxJava and Corotuines and provides the flexibility to plug in your own asynchronous APIs.</string>
+    <string name="ac_WorkManager_integrates">Integrates: \nWorkManager intgrates seamlessly with RxJava and Coroutines and provides the flexibility to plug in your own asynchronous APIs.</string>
 
     <!--User Interface-->
     <string name="ui_switch_summary">Switch: Is a two-state toggle switch that can select between two options. The user may drag a thumb back and forth of tap to toggle. Switch compat is backwards compatible to API 7.</string>
@@ -147,6 +149,27 @@
     <string name="ui_radio_button_summary">RadioButton: is a two state button that can be checked or unchecked. Once check the user can\'t uncheck it.</string>
     <string name="ui_radio_group_summary">RadioGroup: is a multiple-exclusion scope for a set of radio buttons. Checking one RadioButton in the group will uncheck an previously checked button in the same group.</string>
     <string name="ui_toggle_button_summary">Toggle Button: Allows the user to change a setting between two states.</string>
+
+
+    <string name="navigation_summary">Navigation: \n refers to the interactions that allow users to navigate through different sections of the app. JetPack\s navigation component ensures a consistent and predictable user experience by adhering to an established set of principles </string>
+    <string name="navigation_graph">Navigation Graph: \nAn XML resource that contains all navigation-related information in one centralized location. This includes all of the individual content areas within your app, called destinations, as well as the possible paths that a user can take to navigate through the app.</string>
+    <string name="navigation_nav_host">NavHost: \nAn empty container that displays destinations from your navigation graph. The navigation component contains a default NavHost implementation, NavHostFragment, that displays fragment destinations.</string>
+    <string name="navigation_nav_controller">NavController: \nAn object that manages app navigation with a navHost. The NavController orchestrates the swapping of destination content in the NavHost as users move throughout the app.</string>
+    <string name="navigation_navigation_benefits">Benefits:
+        \n - Handling fragment transactions
+        \n - Handling Up and Back actions correctly be default
+        \n - Providing standardized resources for animations and transitions.
+        \n - Implementing and handling deep link
+        \n - Including Navigation UI patterns, such as navigation drawers and bottom navigation, with minimal additional work
+        \n - Safe Args a gradle plugin that provides tpe safety when navigating and passing data between destinations.
+        \n - ViewModel supports, you can scope a ViewModel to navigation graph to share UI-related data between the graph's destinations.
+    </string>
+    <string name="navigation_principles_of_navigation_fixed">Fixed Start Destination: \nThis is the first screen the user sees when they launch the app from the launcher. This destination is also the last screen the user after pressing the back button. </string>
+    <string name="navigation_principles_of_navigation_stack">Stack: \nThe start destination is the base destination of what is known as the back stack and is the basis for the app\'s navigation state. The top of the stack is the current screen and the previous destinations in the stack represent the history of where you\'ve been. The back stack always has the start destination of the app at the bottom of the stack. Navigation component manages all of the back stack ordering for you can choose to manage the back stack your self.</string>
+    <string name="navigation_principles_of_navigation_up_and_back">Up and Back:
+        \nThe back button appears in the system navigation bar at the bottom of the screen and is used to navigate in reverse-chronological order through the history of the screens the user has recently worked with. When you press the current destination is popped off the top of the back stack, and you then navigate to the previous destination.
+        \nThe Up button appears in the app bar at tht top of the screen and is identical to the back button but can't exit the app. </string>
+    <string name="navigation_principles_of_navigation_deep_link">Deep Link: \nAllows an icon that you place on the screen to link to specified destination in the app. </string>
 
 
     <!-- Notification   -->
