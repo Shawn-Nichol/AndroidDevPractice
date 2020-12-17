@@ -193,7 +193,7 @@ abstract class DevDatabase() : RoomDatabase() {
                     dev = Dev("NavGraph", "Navigation", mContext.getString(R.string.navigation_NavGraph_NestedGraphs_create))
                     devDao.insert(dev)
 
-
+                    // Navigation Navigate
                     dev = Dev("Navigate", "Navigation", mContext.getString(R.string.navigation_Navigate_summary))
                     devDao.insert(dev)
                     dev = Dev("Navigate", "Navigation", mContext.getString(R.string.navigation_Navigate_safe_args))
@@ -205,6 +205,7 @@ abstract class DevDatabase() : RoomDatabase() {
                     dev = Dev("Navigate", "Navigation", mContext.getString(R.string.navigation_Navigate_DeepLink))
                     devDao.insert(dev)
 
+                    // Navigation Pass data
                     dev = Dev("PassData", "Navigation", mContext.getString(R.string.navigation_PassData_summary))
                     devDao.insert(dev)
                     dev = Dev("PassData", "Navigation", mContext.getString(R.string.navigation_PassData_Arguments))
@@ -215,6 +216,21 @@ abstract class DevDatabase() : RoomDatabase() {
                     devDao.insert(dev)
 
 
+//                    // Intent & intent Filters
+                    dev = Dev("Intent", "Intent", mContext.getString(R.string.intent_summary))
+                    devDao.insert(dev)
+                    dev = Dev("Intent", "Intent", mContext.getString(R.string.intent_types))
+                    devDao.insert(dev)
+                    dev = Dev("Intent", "Intent", mContext.getString(R.string.intent_category))
+                    devDao.insert(dev)
+                    dev = Dev("Intent", "Intent", mContext.getString(R.string.intent_chooser))
+                    devDao.insert(dev)
+                    dev = Dev("Intent", "Intent", mContext.getString(R.string.intent_receiving_implicit_intent))
+                    devDao.insert(dev)
+                    dev = Dev("Intent", "Intent", mContext.getString(R.string.intent_pending_Intent))
+                    devDao.insert(dev)
+                    dev = Dev("Intent", "Intent", mContext.getString(R.string.intent_resolution))
+                    devDao.insert(dev)
 
 
 
@@ -274,18 +290,7 @@ abstract class DevDatabase() : RoomDatabase() {
 //                    dev = Dev("BroadcastReceiver", "BroadcastReceiver", "")
 //                    devDao.insert(dev)
 //
-//                    // Intent & intent Filters
-//                    dev = Dev("Intent", "Intent", "")
-//                    devDao.insert(dev)
-//                    dev = Dev("Chooser", "Intent", "")
-//                    devDao.insert(dev)
-//                    dev = Dev("Receiving an implicit intent", "Intent", "")
-//                    devDao.insert(dev)
-//                    dev = Dev("Intent Resolution", "Intent", "")
-//                    devDao.insert(dev)
-//                    dev = Dev("Pending Intent", "Intent", "")
-//                    devDao.insert(dev)
-//
+
 
 //
 //                    // Service
