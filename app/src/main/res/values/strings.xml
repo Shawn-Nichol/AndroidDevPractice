@@ -135,7 +135,6 @@
     <string name="ac_WorkManager_integrates">Integrates: \nWorkManager intgrates seamlessly with RxJava and Coroutines and provides the flexibility to plug in your own asynchronous APIs.</string>
 
 
-
     <!-- Navigation    -->
     <string name="navigation_summary">Refers to the interactions that allow users to navigate through different sections of the app. JetPack\s navigation component ensures a consistent and predictable user experience by adhering to an established set of principles </string>
     <string name="navigation_graph">Navigation Graph: \nAn XML resource that contains all navigation-related information in one centralized location. This includes all of the individual content areas within your app, called destinations, as well as the possible paths that a user can take to navigate through the app.</string>
@@ -219,10 +218,6 @@
     </string>
 
 
-
-
-
-
     <!-- Notification   -->
     <string name="notification_priority">Notification Priority: Is an indication of how much of the user\'s valuable attention should be consumed by this notification.</string>
     <string name="notification_visibility_public">VISIBILITY_PUBLIC: shows the notification\'s full content</string>
@@ -233,7 +228,7 @@
     <string name="notification_set_show_when">SetShowWhen: Controls whether the timestamp set with is displayed in the notification</string>
 
 
-<!--UserInterface-->
+    <!--UserInterface-->
     <string name="UI_summary">UserInterface is everything that the user can see and interact with. Android provides variety of pre-built UI components such as structured layout objects and UI controls that allow you to interface such as dialogs, notification and menus. </string>
     <string name="UI_layouts_summary">A layout defines the structure for a user interface in your app, such as in activity. All elements in the layout are built using a hierarchy of View and ViewGroup objects.</string>
     <string name="UI_layouts_xml">XML: \nLayouts are typically written in XML but can be coded to</string>
@@ -247,7 +242,7 @@
         \n 2. The second pair is known as width and height. or sometimes drawing width and drawing height. These dimensions define the actual size of the view on screen, at drawing time and after layout.
     </string>
 
-<!--UserInterface Layouts    -->
+    <!--UserInterface Layouts    -->
     <string name="UI_layout_summary">Layout: Is a ViewGroup that has several child views to create a UserInterface.</string>
     <string name="UI_layout_linear">LinearLayout: \nA layout that organizes its children into a single horizontal or vertical row. </string>
     <string name="UI_layout_relative">RelativeLayout: \nEnables you to specify the location of child objects relative to each other.</string>
@@ -258,7 +253,7 @@
     <string name="UI_layout_constraint">ConstraintLayout: \nAllows you to create large and complex layouts with a flat view hierarchy. Defines the view\'s position by add on horizontal and one vertical constraint for the view. </string>
     <string name="UI_layout_motionLayout">MotionLayout: \nIs a layout that helps you manage motion and widget animation in your app. MotionLayout is a subclass of ConstraintLayout and builds upon its rich layout capabilities. MotionLayout bridges the gap between layout transitions and complex motion handling, offering a mix of features between the property animation framework and TransitionManager.</string>
 
-<!--UserInterface RecyclerView.-->
+    <!--UserInterface RecyclerView.-->
     <string name="UI_RecyclerView_summary">Is a ViewGroup that efficiently displays a large set of data. When an item scrolls off the screen RecyclerView doesn\'t destroy its view. Instead, RecyclerView reuses the view for new items that have scrolled onscreen. Reuse improves the apps responsiveness and reducing power consumption.  </string>
     <string name="UI_RecyclerView_adapter">Adapter: \nAdapters provide a binding from an app-specific data set to views that are displayed within a RecyclerView.</string>
     <string name="UI_RecyclerView_layoutManager">LayoutManager: \nThe layout manager arranges the individual elements.
@@ -267,14 +262,53 @@
     </string>
     <string name="UI_RecyclerView_ViewHolder">ViewHolder: \nEach element in the list is defined by a ViewHolder object. ViewHolder provides all the functionality for the list items. ViewHolder is a wrapper around a view, and that view is managed by RecyclerView.  </string>
     <string name="UI_RecyclerView_onCreateViewHolder">onCreateViewHolder(): \nRecyclerView calls this method when it needs to create a new ViewHolder. The method creates and initializes the ViewHolder and its associated View, but does not fill in the view\s contents.</string>
-    <string name="UI_RecyclerView_onBindViewHolder">onBindViewHolder(): \n RecyclerView calls this method to associate a ViewHolder with data. The method fetches the appropriate data and uses the data to fill in the view holder's layout. </string>
+    <string name="UI_RecyclerView_onBindViewHolder">onBindViewHolder(): \n RecyclerView calls this method to associate a ViewHolder with data. The method fetches the appropriate data and uses the data to fill in the view holder\'s layout. </string>
     <string name="UI_recyclerView_getItemCount">getItemCount(): \nRecyclerView calls this method to get the size of the list. </string>
     <string name="UI_recyclerView_diffUtils">DiffUtil: \n Is a utility class that calculates the difference between two lists and outputs the operations that convert the first lit into the second one. </string>
     <string name="UI_RecyclerView_ItemDecoration">ItemDecoration: \nItem decoration allows the application to add a drawing and a layout offset to a specific item view from the adapters data set. All Item decorations are drawing in the order they appear.</string>
     <string name="UI_RecyclerView_TouchHelper">TouchHelper: \nThis is a contract between ItemTouchHelper and the application, that allows you to control touch behavior such as slide drag.</string>
 
 
+    <!--User Interface CustomView -->
+    <string name="UI_CustomView_summary">Creating a CustomView subclass gives precise control over the appearance and function of screen elements.
+        \n - combine a group of View components into a new single component.
+        \n - Override the way a View like EditText is rendered on screen.
+        \n - capture other events like key presses and handle them in some custom way.
+    </string>
+    <string name="UI_CustomView_basic_approach">Basic approach:
+        \n 1. Extend an Existing View class or subclass.
+        \n 2. Override some of the methods from the SuperClasss. The superclass method to override start with on.
+        \n 3. Use your new extension class. once completed, your new extension classs can be used in place of the view upon which it was based.
+    </string>
+    <string name="UI_CustomView_onDraw">onDraw(): \n Delivers a Canvas upon which you can implement anything you want(2D).</string>
+    <string name="UI_CustomView_onMeasure">onMeasure(): \nEfficiently and accurately reports the measurements of its contained parts.  </string>
+    <string name="UI_CustomView_CompoundControls">CompoundControls: \nAre atomic reusable Views that contain multiple child controls laid out and wired together. </string>
+    <string name="UI_CustomView_Canvas">Canvas: \nThe canvas class holds the draw calls. To draw something you need 4 basic components
+        \n 1. Bitmap that hold the pixels,
+        \n 2. Canvas to the draw calls
+        \n 3. A drawing primitive(rect, Path, text, bitmap)
+        \n 4. Pain.
+    </string>
+    <string name="UI_CustomView_paint">Paint: \nThe paint class holds the style and color informationa bout how to draw geometries, text and bitmaps. </string>
 
+    <!--UserInterface Look and feel    -->
+    <string name="UI_Look_summary">  </string>
+    <string name="UI_Look_MaterialDesign">Material Design: \n is a comprehensive guide for visual, motion and interaction designed across multiple platforms and devices.</string>
+    <string name="UI_Look_Styles_Themes">Styles and Themes: \nStyles and Themes on Android allow you to separate the details of your app design format and UI structure and behavior, similar to styles sheet in web design.
+        \n - Styles: is a collection of attributes that specify the appearance for a single View. A style can specify attributes such as font color, font size background color and much more.
+        \n - Theme: is a collection of attribute that\'s applied to an entire app, activity, or view hierarchy not just an individual view. When you apply a theme, every view in the app activity or view hierarchy.
+    </string>
+    <string name="UI_Look_DarkTheme">DarkTheme: \n DarkTheme is color alternative to the app and supplies the following benifits.
+        \n - Reduce power usage by a significant amount
+        \n - Imrpoves visibliity for users with low vision and those who are senstive to bright light.
+        \n - Makes it easier for anyone nto use a device in a low-light environment.
+    </string>
+    <string name="UI_Look_AdaptiveIcon">AdaptiveIcon: \nIs the icon launcher, it used background image and foreground image to create the icon. Shapes of the icon can very from devices to firmware.</string>
+    <string name="UI_Look_FAB">FAB: \nFloating Action Button, is a circular button that triggers the primary action in the activity. </string>
+    <string name="UI_Look_Shadows">Shadows: \nMaterial design introduces elevation to help hep users understand the relative importance of each elements and focus their attention to the task at hand. Shadows are drawn by the parent of the elevated view and thus subject to standard view clipping.</string>
+    <string name="UI_Look_clip">Clip: \nClipping views enables you to easily change the shape of a veiw. YOu can clip views for consistency with other design elemtns or to change the shape of a view in response to user input. you can clip a view to its outline are using the View.setClipTooutlIne</string>
+
+    <string name="UI_widget_CardView">CardView: \n The CardView API shows information inside a card that have s a consistent look across the platform. These cards have default evlevation above their contiang view group s othe systme draws shadows below them. </string>
     <!--User Interface-->
     <string name="ui_switch_summary">Switch: Is a two-state toggle switch that can select between two options. The user may drag a thumb back and forth of tap to toggle. Switch compat is backwards compatible to API 7.</string>
     <string name="ui_tool_tip_summary">ToolTip: A Tool tip is a small is a small descriptive message that appears near a view when users long press the view or hover their mouse over it.</string>

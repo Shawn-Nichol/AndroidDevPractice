@@ -1,10 +1,12 @@
 package com.example.androiddevpractice.topics.userinterface
 
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.*
 
 import android.widget.RadioButton
+import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.androiddevpractice.R
@@ -30,6 +32,7 @@ class SystemUIFragment : Fragment() {
     }
 
 
+    @RequiresApi(Build.VERSION_CODES.R)
     fun radioButton(view: View) {
         if (view is RadioButton) {
             val checked = view.isChecked
@@ -49,6 +52,8 @@ class SystemUIFragment : Fragment() {
         }
     }
 
+
+    @RequiresApi(Build.VERSION_CODES.R)
     private fun dimStatusBar() {
         val controller = requireActivity().window.insetsController
         controller?.setSystemBarsAppearance(WindowInsetsController.APPEARANCE_LIGHT_NAVIGATION_BARS, WindowInsetsController.APPEARANCE_LIGHT_NAVIGATION_BARS)
@@ -56,6 +61,7 @@ class SystemUIFragment : Fragment() {
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.R)
     private fun hideMyStatusBar() {
 
         val controller = requireActivity().window.insetsController
@@ -65,6 +71,7 @@ class SystemUIFragment : Fragment() {
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.R)
     private fun hideNavigationBar() {
         val controller = requireActivity().window.insetsController
         controller?.systemBarsBehavior = WindowInsetsController.BEHAVIOR_SHOW_BARS_BY_SWIPE
@@ -74,6 +81,7 @@ class SystemUIFragment : Fragment() {
     /**
      * Sets the app to full screen, system bars will appear when the user taps on the screen.
      */
+    @RequiresApi(Build.VERSION_CODES.R)
     private fun leanBack() {
         requireActivity().window.setDecorFitsSystemWindows(false)
         val controller = requireActivity().window.insetsController
@@ -84,6 +92,7 @@ class SystemUIFragment : Fragment() {
     /**
      * Sets the app to full screen, system bars will appear when the user swipes down from the top.
      */
+    @RequiresApi(Build.VERSION_CODES.R)
     private fun immersive() {
         val controller = requireActivity().window.insetsController
         controller?.systemBarsBehavior = WindowInsetsController.BEHAVIOR_SHOW_BARS_BY_SWIPE
@@ -94,6 +103,7 @@ class SystemUIFragment : Fragment() {
     /**
      * Sets the app to full screen, system bars will be transparent when swiped.
      */
+    @RequiresApi(Build.VERSION_CODES.R)
     private fun immersiveSticky() {
         val controller = requireActivity().window.insetsController
         controller?.systemBarsBehavior = WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
@@ -101,6 +111,7 @@ class SystemUIFragment : Fragment() {
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.R)
     private fun noInsets() {
         Log.i("Practice", "NONE")
         requireActivity().window.insetsController?.show(WindowInsets.Type.statusBars())
