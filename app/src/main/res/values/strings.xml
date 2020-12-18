@@ -134,21 +134,7 @@
     <string name="ac_WorkManager_chaining">Work Chaining: \nFor complex related work, chain individual work tasks together using a fluent, natural,interface that allows you to control which pieces run sequentially and which run in parallel. </string>
     <string name="ac_WorkManager_integrates">Integrates: \nWorkManager intgrates seamlessly with RxJava and Coroutines and provides the flexibility to plug in your own asynchronous APIs.</string>
 
-    <!--User Interface-->
-    <string name="ui_switch_summary">Switch: Is a two-state toggle switch that can select between two options. The user may drag a thumb back and forth of tap to toggle. Switch compat is backwards compatible to API 7.</string>
-    <string name="ui_tool_tip_summary">ToolTip: A Tool tip is a small is a small descriptive message that appears near a view when users long press the view or hover their mouse over it.</string>
-    <string name="ui_notification_summary">Notification: provides short, timely information about events in your app while it\'s not in use.</string>
-    <string name="ui_category_call_summary">CATEGORY_CALL: incoming call or similar synchronous communication request</string>
-    <string name="ui_category_alarm_summary">CATEGORY_ALARM: Alarm or timer</string>
-    <string name="ui_category_event">CATEGORY_EVENT: Notification category calendar event</string>
-    <string name="ui_system_ui_summary">The System UI is screen bars dedicated to the display of notification, communication of device status, and device navigation. Typically the system bar displayed concurrently with the app.</string>
-    <string name="ui_toast_summary">Toast: is a view containing a quick little message for the user, the view appears as a floating view over the application.</string>
-    <string name="ui_snackbar_summary">Snackbar: Is attached to a view. The snackbar provides basic functionality if it is attached to any object derived from the view class</string>
-    <string name="ui_place_holder_instructions">Click on an icon to move it to the center and in large it.</string>
-    <string name="ui_motion_layout_summary">Motion Layout is a subclass of Constraint Layout, bridging he gap between layout transitions and complex motion handing, offering a mix of features between the property, animation framework, TransitionManager and Coordinator layout.</string>
-    <string name="ui_radio_button_summary">RadioButton: is a two state button that can be checked or unchecked. Once check the user can\'t uncheck it.</string>
-    <string name="ui_radio_group_summary">RadioGroup: is a multiple-exclusion scope for a set of radio buttons. Checking one RadioButton in the group will uncheck an previously checked button in the same group.</string>
-    <string name="ui_toggle_button_summary">Toggle Button: Allows the user to change a setting between two states.</string>
+
 
     <!-- Navigation    -->
     <string name="navigation_summary">Refers to the interactions that allow users to navigate through different sections of the app. JetPack\s navigation component ensures a consistent and predictable user experience by adhering to an established set of principles </string>
@@ -245,6 +231,65 @@
     <string name="notification_full_screen">Full Screen: Heads up notification doesn\'t close</string>
     <string name="notification_on_going">OnGoing: You cannot swipe the notification away.</string>
     <string name="notification_set_show_when">SetShowWhen: Controls whether the timestamp set with is displayed in the notification</string>
+
+
+<!--UserInterface-->
+    <string name="UI_summary">UserInterface is everything that the user can see and interact with. Android provides variety of pre-built UI components such as structured layout objects and UI controls that allow you to interface such as dialogs, notification and menus. </string>
+    <string name="UI_layouts_summary">A layout defines the structure for a user interface in your app, such as in activity. All elements in the layout are built using a hierarchy of View and ViewGroup objects.</string>
+    <string name="UI_layouts_xml">XML: \nLayouts are typically written in XML but can be coded to</string>
+    <string name="UI_layouts_load">Load Layout: \n When you compile your app, each XML layout file compiled into a View resource. Load the layout resource form Activity.onCreate(). Do so by calling setContentView(), passing the reference to the layout resource</string>
+    <string name="UI_layouts_attributes">Attribute: \nEvery View and ViewGroup object supports their own variety of XML attributes. Some attributes are specific to a View object, well others are common to all View objects because they inherit the root View.  </string>
+    <string name="UI_layout_parameters">Layout Parameters: \nAre layout attributes named layout_something define layout parameters for the view that are appropriate for the ViewGroup in which it resides. EveryViewGroup class implements a nested class that extends ViewGroup.LayoutParams. This subclass contains property types that define the size and position for each child view, as appropriate for the view group.  .</string>
+    <string name="UI_layout_ID">ID: \nAny View object may have an integer ID associated with it, to uniquely identify the View within the tree. When the app is compiled, this ID is referenced as an integer, but the ID is typically assigned in the layout XMl file as a string, in the id attribute.The @ symbol at the beginning of the string indicates that the XML parser should parse and expand the rest of the ID string and identify it as an ID resource. The plus symbol menas that this is a new resource name that must be created and added to resources file. </string>
+    <string name="UI_layout_position">Layout Position: \nThe geometry of a view is that of a rectangle. A View has a location,expressed as a pair of left and top coordinates, and two dimensions, expressed as a width and height. The unit for location and dimension is the pixel.</string>
+    <string name="UI_layout_size">Size, Padding, Margins: \nThe size of a view is expressed with a width and height. A view posses two pairs of width and height values.
+        \n 1. Measured width and Measured Height. These dimension define how big a view wants to be within  its parents, this includes the padding surronding the view.
+        \n 2. The second pair is known as width and height. or sometimes drawing width and drawing height. These dimensions define the actual size of the view on screen, at drawing time and after layout.
+    </string>
+
+<!--UserInterface Layouts    -->
+    <string name="UI_layout_summary">Layout: Is a ViewGroup that has several child views to create a UserInterface.</string>
+    <string name="UI_layout_linear">LinearLayout: \nA layout that organizes its children into a single horizontal or vertical row. </string>
+    <string name="UI_layout_relative">RelativeLayout: \nEnables you to specify the location of child objects relative to each other.</string>
+    <string name="UI_layout_WebView">WebView: Displays web pages. </string>
+    <string name="UI_layout_adapters">Adapters: \nWhen the content for a layout is dynamic or not pre-determined, you can sue a layout that subclasses AdapterView to populate the layout with views at runtime. A subclass of the AdapterViw classs uses an Adapter to bind data to its layout. The adapter Behaves as a middleman between the data sources and the AdapterView, the Adapter retrieves the dat and converts each entry into a view that can be added into the AdapterView.</string>
+    <string name="UI_layout_list">ListLayout: displays a scrolling single column list</string>
+    <string name="UI_layout_gridView">Displays a scrolling grid of columns and rows. </string>
+    <string name="UI_layout_constraint">ConstraintLayout: \nAllows you to create large and complex layouts with a flat view hierarchy. Defines the view\'s position by add on horizontal and one vertical constraint for the view. </string>
+    <string name="UI_layout_motionLayout">MotionLayout: \nIs a layout that helps you manage motion and widget animation in your app. MotionLayout is a subclass of ConstraintLayout and builds upon its rich layout capabilities. MotionLayout bridges the gap between layout transitions and complex motion handling, offering a mix of features between the property animation framework and TransitionManager.</string>
+
+<!--UserInterface RecyclerView.-->
+    <string name="UI_RecyclerView_summary">Is a ViewGroup that efficiently displays a large set of data. When an item scrolls off the screen RecyclerView doesn\'t destroy its view. Instead, RecyclerView reuses the view for new items that have scrolled onscreen. Reuse improves the apps responsiveness and reducing power consumption.  </string>
+    <string name="UI_RecyclerView_adapter">Adapter: \nAdapters provide a binding from an app-specific data set to views that are displayed within a RecyclerView.</string>
+    <string name="UI_RecyclerView_layoutManager">LayoutManager: \nThe layout manager arranges the individual elements.
+        \n - LinearLayout: arranges the items in one dimensional list.
+        \n - LinearLayout: arranges all items in a two-dimensional grid.
+    </string>
+    <string name="UI_RecyclerView_ViewHolder">ViewHolder: \nEach element in the list is defined by a ViewHolder object. ViewHolder provides all the functionality for the list items. ViewHolder is a wrapper around a view, and that view is managed by RecyclerView.  </string>
+    <string name="UI_RecyclerView_onCreateViewHolder">onCreateViewHolder(): \nRecyclerView calls this method when it needs to create a new ViewHolder. The method creates and initializes the ViewHolder and its associated View, but does not fill in the view\s contents.</string>
+    <string name="UI_RecyclerView_onBindViewHolder">onBindViewHolder(): \n RecyclerView calls this method to associate a ViewHolder with data. The method fetches the appropriate data and uses the data to fill in the view holder's layout. </string>
+    <string name="UI_recyclerView_getItemCount">getItemCount(): \nRecyclerView calls this method to get the size of the list. </string>
+    <string name="UI_recyclerView_diffUtils">DiffUtil: \n Is a utility class that calculates the difference between two lists and outputs the operations that convert the first lit into the second one. </string>
+    <string name="UI_RecyclerView_ItemDecoration">ItemDecoration: \nItem decoration allows the application to add a drawing and a layout offset to a specific item view from the adapters data set. All Item decorations are drawing in the order they appear.</string>
+    <string name="UI_RecyclerView_TouchHelper">TouchHelper: \nThis is a contract between ItemTouchHelper and the application, that allows you to control touch behavior such as slide drag.</string>
+
+
+
+    <!--User Interface-->
+    <string name="ui_switch_summary">Switch: Is a two-state toggle switch that can select between two options. The user may drag a thumb back and forth of tap to toggle. Switch compat is backwards compatible to API 7.</string>
+    <string name="ui_tool_tip_summary">ToolTip: A Tool tip is a small is a small descriptive message that appears near a view when users long press the view or hover their mouse over it.</string>
+    <string name="ui_notification_summary">Notification: provides short, timely information about events in your app while it\'s not in use.</string>
+    <string name="ui_category_call_summary">CATEGORY_CALL: incoming call or similar synchronous communication request</string>
+    <string name="ui_category_alarm_summary">CATEGORY_ALARM: Alarm or timer</string>
+    <string name="ui_category_event">CATEGORY_EVENT: Notification category calendar event</string>
+    <string name="ui_system_ui_summary">The System UI is screen bars dedicated to the display of notification, communication of device status, and device navigation. Typically the system bar displayed concurrently with the app.</string>
+    <string name="ui_toast_summary">Toast: is a view containing a quick little message for the user, the view appears as a floating view over the application.</string>
+    <string name="ui_snackbar_summary">Snackbar: Is attached to a view. The snackbar provides basic functionality if it is attached to any object derived from the view class</string>
+    <string name="ui_place_holder_instructions">Click on an icon to move it to the center and in large it.</string>
+    <string name="ui_motion_layout_summary">Motion Layout is a subclass of Constraint Layout, bridging he gap between layout transitions and complex motion handing, offering a mix of features between the property, animation framework, TransitionManager and Coordinator layout.</string>
+    <string name="ui_radio_button_summary">RadioButton: is a two state button that can be checked or unchecked. Once check the user can\'t uncheck it.</string>
+    <string name="ui_radio_group_summary">RadioGroup: is a multiple-exclusion scope for a set of radio buttons. Checking one RadioButton in the group will uncheck an previously checked button in the same group.</string>
+    <string name="ui_toggle_button_summary">Toggle Button: Allows the user to change a setting between two states.</string>
 
 
 </resources>
