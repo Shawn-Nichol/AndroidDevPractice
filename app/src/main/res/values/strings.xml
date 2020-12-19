@@ -218,14 +218,7 @@
     </string>
 
 
-    <!-- Notification   -->
-    <string name="notification_priority">Notification Priority: Is an indication of how much of the user\'s valuable attention should be consumed by this notification.</string>
-    <string name="notification_visibility_public">VISIBILITY_PUBLIC: shows the notification\'s full content</string>
-    <string name="notification_visibility_secret">VISIBILITY_SECRET: doesn\'t show any part of this notification on the screen</string>
-    <string name="notification_visibility_private">VISIBILITY_PRIVATE: shows basic information, such as the notifications icon and the content title, but hides the notifications full content</string>
-    <string name="notification_full_screen">Full Screen: Heads up notification doesn\'t close</string>
-    <string name="notification_on_going">OnGoing: You cannot swipe the notification away.</string>
-    <string name="notification_set_show_when">SetShowWhen: Controls whether the timestamp set with is displayed in the notification</string>
+
 
 
     <!--UserInterface-->
@@ -252,6 +245,39 @@
     <string name="UI_layout_gridView">Displays a scrolling grid of columns and rows. </string>
     <string name="UI_layout_constraint">ConstraintLayout: \nAllows you to create large and complex layouts with a flat view hierarchy. Defines the view\'s position by add on horizontal and one vertical constraint for the view. </string>
     <string name="UI_layout_motionLayout">MotionLayout: \nIs a layout that helps you manage motion and widget animation in your app. MotionLayout is a subclass of ConstraintLayout and builds upon its rich layout capabilities. MotionLayout bridges the gap between layout transitions and complex motion handling, offering a mix of features between the property animation framework and TransitionManager.</string>
+
+    <!--User Interface Notification   -->
+    <string name="notification_summary">A notification is a message that Android displays outside of the app\'s UI to provide the user with reminders, communication from other people, or other timely information. Users can tap the notification to open the app or take an action directly from the notificaiton.</string>
+    <string name="notification_types">Types:
+        \n - Status bar: The notification appears in the status bar, users can swipe down to view the notification.
+        \n - Heads-up: Notifications can briefly appear in a floating window. This is normally important an important notification  that user should know about.
+        \n - Lock Screen: Notification appear in the lock screen, users can set the detail level of visible of notification.
+        \n - icon Badge: Users can long press the app icon to view the notifications.
+    </string>
+    <string name="notification_action">Action: \nNotification should open an appropriate app activity when the notification is tapped, you can additional add three buttons to the notification.</string>
+    <string name="notification_expandable">Expandable: \nThe notification text content is truncated to fit on one line, applying expandable allows an additional template that show more text.</string>
+    <string name="notification_group">Groups: \n To avoid bombarding  your users with multiple or redundant notifications, new updates should update an existing notification rather than issuing a new one. </string>
+    <string name="notification_channel">NotificationChannel: \nAll notification must be assigned to a channel or it will not appear. by categorizing notifications into channels, users can disable specific notification channels.</string>
+    <string name="notification_importance">Importance: \n the importance of a notification to determine how much the notification should interrupt the user. The higher the importance of a notification the more interruptive the notification will be.
+        \n - Urgent: Makes a sound and appears as a heads-up notification.
+        \n - High: Makes a sound.
+        \n - Medium: No sound.
+        \n - Low: No sound and does not appear in the status bar.
+    </string>
+    <string name="notification_DoNotDisturb">Do Not Disturb: \n Users can enable Do not Disturb mode, which silences sounds and vibrations for all notifications.
+        \n Total silence: Blocks all sounds and vibrations, including alarms, videos and games.
+        \n Alarms only: blocks all sounds and vibrations, except from alarms
+        \n Priority only: users can configure which system-wide categories can interrupt them.
+    </string>
+    <string name="notification_ForegroundService">Foreground Service: \nA notification is required when your app is running a foreground service. </string>
+    <!-- TODO These can be removed in the future.   -->
+    <string name="notification_priority">Notification Priority: Is an indication of how much of the user\'s valuable attention should be consumed by this notification.</string>
+    <string name="notification_visibility_public">VISIBILITY_PUBLIC: shows the notification\'s full content</string>
+    <string name="notification_visibility_secret">VISIBILITY_SECRET: doesn\'t show any part of this notification on the screen</string>
+    <string name="notification_visibility_private">VISIBILITY_PRIVATE: shows basic information, such as the notifications icon and the content title, but hides the notifications full content</string>
+    <string name="notification_full_screen">Full Screen: Heads up notification doesn\'t close</string>
+    <string name="notification_on_going">OnGoing: You cannot swipe the notification away.</string>
+    <string name="notification_set_show_when">SetShowWhen: Controls whether the timestamp set with is displayed in the notification</string>
 
     <!--UserInterface RecyclerView.-->
     <string name="UI_RecyclerView_summary">Is a ViewGroup that efficiently displays a large set of data. When an item scrolls off the screen RecyclerView doesn\'t destroy its view. Instead, RecyclerView reuses the view for new items that have scrolled onscreen. Reuse improves the apps responsiveness and reducing power consumption.  </string>
@@ -300,15 +326,25 @@
     </string>
     <string name="UI_Look_DarkTheme">DarkTheme: \n DarkTheme is color alternative to the app and supplies the following benifits.
         \n - Reduce power usage by a significant amount
-        \n - Imrpoves visibliity for users with low vision and those who are senstive to bright light.
-        \n - Makes it easier for anyone nto use a device in a low-light environment.
+        \n - Improves visibility for users with low vision and those who are sensitive to bright light.
+        \n - Makes it easier to use a device in a low-light environment.
     </string>
     <string name="UI_Look_AdaptiveIcon">AdaptiveIcon: \nIs the icon launcher, it used background image and foreground image to create the icon. Shapes of the icon can very from devices to firmware.</string>
     <string name="UI_Look_FAB">FAB: \nFloating Action Button, is a circular button that triggers the primary action in the activity. </string>
     <string name="UI_Look_Shadows">Shadows: \nMaterial design introduces elevation to help hep users understand the relative importance of each elements and focus their attention to the task at hand. Shadows are drawn by the parent of the elevated view and thus subject to standard view clipping.</string>
-    <string name="UI_Look_clip">Clip: \nClipping views enables you to easily change the shape of a veiw. YOu can clip views for consistency with other design elemtns or to change the shape of a view in response to user input. you can clip a view to its outline are using the View.setClipTooutlIne</string>
+    <string name="UI_Look_clip">Clip: \nClipping views enables you to easily change the shape of a view. YOu can clip views for consistency with other design elements or to change the shape of a view in response to user input. you can clip a view to its outline are using the View.setClipTooutlIne</string>
+    <string name="UI_Look_button">Buttons: \nA button consist of text or an icon tht communicates what actions occurs when the user touches it. </string>
+    <string name="UI_Look_CheckButton">CheckBoxes: \nCheckboxes allow the user to select one or more options from a set. Typically you should present each checkbox option in a vertical list. </string>
+    <string name="UI_Look_RadioButtons">RadioButtons: \nRadio buttons allow the user to select a option from a set. </string>
+    <string name="UI_Look_ToggleButton">Toggle: \nThe toggle button allows the user to change a setting between two states.</string>
+    <string name="UI_Look_Spinners">Spinners: \nProvides a quick way to select one value form a set. In the default state, a spinner shows its currently selected value. Touching the spinner displays a dropdown menu with all other available value. </string>
+    <string name="UI_Look_Pickers">Pickers:\nAndroid provides controls for the user to pick a time or date as ready to use dialogs.</string>
+    <string name="UI_Look_ToolTips">Tooltips: \nA tooltip is  small descriptive message that appears near a view when a users long presses the view or hover their mouse over it. </string>
 
-    <string name="UI_widget_CardView">CardView: \n The CardView API shows information inside a card that have s a consistent look across the platform. These cards have default evlevation above their contiang view group s othe systme draws shadows below them. </string>
+
+
+
+    <string name="UI_widget_CardView">CardView: \n The CardView API shows information inside a card that have s a consistent look across the platform. These cards have default elevation above their containing view group s other system draws shadows below them. </string>
     <!--User Interface-->
     <string name="ui_switch_summary">Switch: Is a two-state toggle switch that can select between two options. The user may drag a thumb back and forth of tap to toggle. Switch compat is backwards compatible to API 7.</string>
     <string name="ui_tool_tip_summary">ToolTip: A Tool tip is a small is a small descriptive message that appears near a view when users long press the view or hover their mouse over it.</string>

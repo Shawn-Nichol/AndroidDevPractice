@@ -311,6 +311,56 @@ abstract class DevDatabase() : RoomDatabase() {
                     devDao.insert(dev)
                     dev = Dev("Look and Feel", "UserInterface", mContext.getString(R.string.UI_Look_clip))
                     devDao.insert(dev)
+                    dev = Dev("Look and Feel", "UserInterface", mContext.getString(R.string.UI_Look_button))
+                    devDao.insert(dev)
+                    dev = Dev("Look and Feel", "UserInterface", mContext.getString(R.string.UI_Look_CheckButton))
+                    devDao.insert(dev)
+                    dev = Dev("Look and Feel", "UserInterface", mContext.getString(R.string.UI_Look_RadioButtons))
+                    devDao.insert(dev)
+                    dev = Dev("Look and Feel", "UserInterface", mContext.getString(R.string.UI_Look_ToggleButton))
+                    devDao.insert(dev)
+                    dev = Dev("Look and Feel", "UserInterface", mContext.getString(R.string.UI_Look_Spinners))
+                    devDao.insert(dev)
+                    dev = Dev("Look and Feel", "UserInterface", mContext.getString(R.string.UI_Look_Pickers ))
+                    devDao.insert(dev)
+                    dev = Dev("Look and Feel", "UserInterface", mContext.getString(R.string.UI_Look_ToolTips))
+                    devDao.insert(dev)
+
+                    // Notification
+                    dev = Dev("Notification", "UserInterface", mContext.getString(R.string.notification_summary))
+                    devDao.insert(dev)
+                    dev = Dev("Notification", "UserInterface", mContext.getString(R.string.notification_types))
+                    devDao.insert(dev)
+                    dev = Dev("Notification", "UserInterface", mContext.getString(R.string.notification_action))
+                    devDao.insert(dev)
+                    devDao.insert(dev)
+                    dev = Dev("Notification", "UserInterface", mContext.getString(R.string.notification_expandable))
+                    devDao.insert(dev)
+                    devDao.insert(dev)
+                    dev = Dev("Notification", "UserInterface", mContext.getString(R.string.notification_group))
+                    devDao.insert(dev)
+                    devDao.insert(dev)
+                    dev = Dev("Notification", "UserInterface", mContext.getString(R.string.notification_channel))
+                    devDao.insert(dev)
+                    devDao.insert(dev)
+                    dev = Dev("Notification", "UserInterface", mContext.getString(R.string.notification_importance))
+                    devDao.insert(dev)
+                    devDao.insert(dev)
+                    dev = Dev("Notification", "UserInterface", mContext.getString(R.string.notification_DoNotDisturb))
+                    devDao.insert(dev)
+                    devDao.insert(dev)
+                    dev = Dev("Notification", "UserInterface", mContext.getString(R.string.notification_ForegroundService))
+                    devDao.insert(dev)
+
+
+
+
+
+
+
+
+
+
 
 
 //                    // User Interface
