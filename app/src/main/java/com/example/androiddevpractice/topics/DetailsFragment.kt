@@ -52,7 +52,7 @@ class DetailsFragment : Fragment() {
         val linear = binding.linearLayout
         viewModel.listTopic.observe(viewLifecycleOwner, Observer {
             it?.let {
-                textSetup.createTextView2(it, linear)
+                textSetup.createTextView(it, linear)
             }
         })
     }

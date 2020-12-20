@@ -16,26 +16,26 @@
     <!--Activity Lifecycle    -->
     <string name="activity_lifecycle_summary">As a user navigates through, out of and back to your app, the Activity instances transition through different states in their lifecycle. The activity class provides a number of callbacks that allow the activity to know that a state has changed.</string>
     <string name="activity_lifecycle_onCreate">callback onCreate():
-        \n This Call back fires when the system first creates an activity, onCreate handles basic application startup logic that should happen only once for the entire life of the activity. This method receives the savedInstanceState</string>
+        This Call back fires when the system first creates an activity, onCreate handles basic application startup logic that should happen only once for the entire life of the activity. This method receives the savedInstanceState</string>
     <string name="activity_lifecycle_onRestart">callback onRestart():
-        \nCalled after onStop() when the current activity is being re-displayed to the user
+        Called after onStop() when the current activity is being re-displayed to the user
     </string>
     <string name="activity_lifecycle_onStart">callback onStart():
-        \nMakes the activity visible to the user, as the app prepares for the activity to enter the foreground and become interactive</string>
+        Makes the activity visible to the user, as the app prepares for the activity to enter the foreground and become interactive</string>
     <string name="activity_lifecycle_onResume">callback onResume():
-        \nThe app comes to the foreground, and then the system invokes onResume(). The user interacts with the app in this state, the app will stay in this state until something happens to take focus away from the app.</string>
+        The app comes to the foreground, and then the system invokes onResume(). The user interacts with the app in this state, the app will stay in this state until something happens to take focus away from the app.</string>
     <string name="activity_lifecycle_onPause">callback onPause():
-        \nWhen the activity leaves the foreground it will enter the onPause() state. Use onPause() to adjust operations that should not continue while the activity is not in active state. OnPause can also be used to release system resources.</string>
+        When the activity leaves the foreground it will enter the onPause() state. Use onPause() to adjust operations that should not continue while the activity is not in active state. OnPause can also be used to release system resources.</string>
     <string name="activity_lifecycle_onStop">callback onStop():
-        \nWhen the activity is no longer visible to the user the system will invoke the onStop(). The app should release or adjust resources that are not needed while the app is not visible to the user. When the activity enters the stopped state, the activity object maintains all state and member information, but is not attached to window manager.</string>
+        When the activity is no longer visible to the user the system will invoke the onStop(). The app should release or adjust resources that are not needed while the app is not visible to the user. When the activity enters the stopped state, the activity object maintains all state and member information, but is not attached to window manager.</string>
     <string name="activity_lifecycle_onDestroy">callback onDestroy():
-        \nIs called before the activity is destroyed. The system invokes this call back for two reasons. \n 1. The Activity is finished\n 2. The system is temporarily destroying the activity due to a configuration change.</string>
+        Is called before the activity is destroyed. The system invokes this call back for two reasons. \n 1. The Activity is finished\n 2. The system is temporarily destroying the activity due to a configuration change.</string>
     <string name="activity_lifecycle_loop_entire">Entire Life Loop:
-        \nThe entire lifetime of an activity happens between the first call to onCreate() through to a single final call to onDestroy(). An activity will do all setup of global states in onCreate(), and release all remaining resources in onDestroy().</string>
+        The entire lifetime of an activity happens between the first call to onCreate() through to a single final call to onDestroy(). An activity will do all setup of global states in onCreate(), and release all remaining resources in onDestroy().</string>
     <string name="activity_lifecycle_loop_visible">Visible Life Loop:
-        \nThe visible lifetime of an activity happens between a call to onStart() until a corresponding call to onStop(). During this time the user can see the activity -on-screen, though it may not be in the foreground interacting with the user.</string>
+        The visible lifetime of an activity happens between a call to onStart() until a corresponding call to onStop(). During this time the user can see the activity -on-screen, though it may not be in the foreground interacting with the user.</string>
     <string name="activity_lifecycle_loop_foreground">Foreground Life Loop:
-        \nThe foreground lifetime of an activity happens between a call to onResume() until a corresponding call to onPause(). During this time the activity is invisible, active and interacting with the user.</string>
+        The foreground lifetime of an activity happens between a call to onResume() until a corresponding call to onPause(). During this time the activity is invisible, active and interacting with the user.</string>
 
     <string name="activity_process_lifecycle_summary">The Android system attempts to keep process around fo as long as possible, if memory needs to be freed up then process can be terminated. The four states of importance are listed here and will determine what process get terminated.</string>
     <string name="activity_saving_persistent_data_summary">Saving persistent data will save the data as a key value pair into a file to be loaded later.</string>
@@ -231,8 +231,15 @@
     <string name="UI_layout_ID">ID: \nAny View object may have an integer ID associated with it, to uniquely identify the View within the tree. When the app is compiled, this ID is referenced as an integer, but the ID is typically assigned in the layout XMl file as a string, in the id attribute.The @ symbol at the beginning of the string indicates that the XML parser should parse and expand the rest of the ID string and identify it as an ID resource. The plus symbol menas that this is a new resource name that must be created and added to resources file. </string>
     <string name="UI_layout_position">Layout Position: \nThe geometry of a view is that of a rectangle. A View has a location,expressed as a pair of left and top coordinates, and two dimensions, expressed as a width and height. The unit for location and dimension is the pixel.</string>
     <string name="UI_layout_size">Size, Padding, Margins: \nThe size of a view is expressed with a width and height. A view posses two pairs of width and height values.
-        \n 1. Measured width and Measured Height. These dimension define how big a view wants to be within  its parents, this includes the padding surronding the view.
+        \n 1. Measured width and Measured Height. These dimension define how big a view wants to be within  its parents, this includes the padding surrounding the view.
         \n 2. The second pair is known as width and height. or sometimes drawing width and drawing height. These dimensions define the actual size of the view on screen, at drawing time and after layout.
+    </string>
+
+    <!-- UserInterface AppBar    -->
+    <string name="UI_appbar_summary">The app bar, also known as the action bar, provides a visual structure and interactive element that is familiar to users. Key functions of an app bar.
+        \n - A dedicated space for giving your app an identity and indicating the user\'s location in the app.
+        \n - Access to important actions in a predictable way, such as search.
+        \n - Support for navigation and view switching.
     </string>
 
     <!--UserInterface Layouts    -->
@@ -340,11 +347,14 @@
     <string name="UI_Look_Spinners">Spinners: \nProvides a quick way to select one value form a set. In the default state, a spinner shows its currently selected value. Touching the spinner displays a dropdown menu with all other available value. </string>
     <string name="UI_Look_Pickers">Pickers:\nAndroid provides controls for the user to pick a time or date as ready to use dialogs.</string>
     <string name="UI_Look_ToolTips">Tooltips: \nA tooltip is  small descriptive message that appears near a view when a users long presses the view or hover their mouse over it. </string>
+    <string name="UI_Look_CardView">CardView: \n The CardView API shows information inside a card that have s a consistent look across the platform. These cards have default elevation above their containing view group s other system draws shadows below them. </string>
 
+<!-- User Interface system UI visibility    -->
+    <string name="UI_SystemUIVisibility_summary">The system bars are screen areas dedicated to the display of notifications, communication of device status, and device navigation. Typically the system bars are displayed concurrently int he app. Apps that display immersive content such as movies or images can temporarily dim the ssytem bar icons for a less distracting experience or temporarily hide the bars for a fully immersive experience. </string>
+    <string name="UI_SystemUIVisibility_Dim">Dim Bars: \n Will hide the system bars until the user touches the status or navigation bar clearing the flag, once the flag is cleared it will need to be reset to hide the bars. Dim system bars doesn\'t adjust the size of the screen or views. </string>
+    <string name="UI_SystemUIVisibility_StatusBar">Hide StatusBar: \n Hiding the status bar allows the app to use more of the screen. This can be either programmatically set or use a theme without a status bar. </string>
+    <string name="UI_SystemUIVisibility_Navigation">Hide Navigation Bar: \n</string>
 
-
-
-    <string name="UI_widget_CardView">CardView: \n The CardView API shows information inside a card that have s a consistent look across the platform. These cards have default elevation above their containing view group s other system draws shadows below them. </string>
     <!--User Interface-->
     <string name="ui_switch_summary">Switch: Is a two-state toggle switch that can select between two options. The user may drag a thumb back and forth of tap to toggle. Switch compat is backwards compatible to API 7.</string>
     <string name="ui_tool_tip_summary">ToolTip: A Tool tip is a small is a small descriptive message that appears near a view when users long press the view or hover their mouse over it.</string>

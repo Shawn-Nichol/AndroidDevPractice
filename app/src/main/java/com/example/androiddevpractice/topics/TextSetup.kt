@@ -1,11 +1,8 @@
 package com.example.androiddevpractice.topics
 
 import android.content.Context
-import android.graphics.Color
-import android.text.SpannableStringBuilder
-import android.text.Spanned
-import android.text.style.AbsoluteSizeSpan
-import android.text.style.ForegroundColorSpan
+import android.graphics.Typeface
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.widget.LinearLayoutCompat
@@ -18,68 +15,94 @@ class TextSetup(val context: Context) {
 
     val TAG: String = "PracticeTextSetup"
 
-    fun createTextView2( details: List<String>, linear: LinearLayoutCompat) {
+    private lateinit var linear: LinearLayoutCompat
+    lateinit var params: LinearLayoutCompat.LayoutParams
+
+    fun createTextView(details: List<String>, linear: LinearLayoutCompat) {
+        this.linear = linear
+        // Create a views for each item in the list.
         for (i in details.indices) {
-            val loadText = details[i]
-            var myText: TextView = TextView(context)
-            myText.apply {
-                text = loadText
-                textSize = 14f
-                textAlignment = View.TEXT_ALIGNMENT_TEXT_START
+            val item = details[i]
 
-                // If text isn't summary minimize the text, and add click listener to expand view.
-                if(i != 0){
-                    setOnClickListener { showHideText(myText) }
-                    maxLines = 1
-                }
+            if (i == 0) summaryString(item)
+            else {
+                setTitle(item, i)
+                setInfo(item, i)
             }
-
-            // Every single ViewGroup needs to store information about its children's properties. About
-            // the way its children are being laid out in the ViewGroup. This information i stored in objects
-            // of a wrapper class.
-            val params: LinearLayoutCompat.LayoutParams = LinearLayoutCompat.LayoutParams(
-                LinearLayoutCompat.LayoutParams.MATCH_PARENT,
-                LinearLayoutCompat.LayoutParams.MATCH_PARENT
-            )
-            
-            params.setMargins(
-                context.resources.getDimensionPixelSize(R.dimen.default_start),
-                context.resources.getDimensionPixelSize(R.dimen.default_top),
-                context.resources.getDimensionPixelSize(R.dimen.default_end),
-                0
-            )
-            linear.addView(myText, params)
         }
     }
 
-    fun showHideText(view: TextView) {
-        val titleEnd = view.text.indexOf(":", 0, true) + 1
-        val end = view.text.length
+    private fun summaryString(summaryText: String) {
+        val textView: TextView = setTextView(summaryText)
+        setMargin(true)
+        linear.addView(textView, params)
+    }
 
-        val red = ForegroundColorSpan(Color.RED)
-        val largeTextSize = AbsoluteSizeSpan(32, true)
-        val smallTextSize = AbsoluteSizeSpan(14, true)
+    private fun setTitle(item: String, pos: Int) {
+        val titleEnd = item.indexOf(":")
+        val title = item.substring(0, titleEnd)
+        val titleTextView = setTextView(title).apply {
+            paint.isUnderlineText = true
+            typeface = Typeface.DEFAULT_BOLD
+            setOnClickListener {
+                val showTextView = linear.findViewWithTag<TextView>(pos + 1000)
+                Log.i(TAG, "ViewTAG: ${showTextView.tag}")
 
-        val ssb = SpannableStringBuilder(view.text)
+                if(showTextView.visibility == 0) {
+                    showTextView.visibility = View.GONE
+                    textSize = 14f
+                } else {
+                    showTextView.visibility = View.VISIBLE
+                    textSize = 24f
+                }
+            }
+        }
 
-        if (view.maxLines == 1) {
-            ssb.apply {
-                setSpan(largeTextSize, 0, titleEnd, Spanned.SPAN_COMPOSING)
-                setSpan(smallTextSize, (titleEnd), end, Spanned.SPAN_COMPOSING)
-                setSpan(red, titleEnd, end, Spanned.SPAN_COMPOSING)
-            }
-            view.apply {
-                maxLines = Int.MAX_VALUE
-                text = ssb
-            }
-        } else {
-            ssb.apply {
-                setSpan(smallTextSize, 0, titleEnd, Spanned.SPAN_COMPOSING)
-            }
-            view.apply {
-                maxLines = 1
-                text = ssb
-            }
+        setMargin(true)
+        linear.addView(titleTextView, params)
+
+    }
+
+    private fun setInfo(item: String, pos: Int) {
+
+        val infoStart = item.indexOf(":") + 1
+        val info = item.substring(infoStart)
+        val infoTextView = setTextView(info).apply {
+            tag = pos + 1000
+            text
+            visibility = View.GONE
+        }
+
+
+        Log.i(TAG, "setInfo, infoTextView Tag: ${infoTextView.tag}")
+        setMargin(false)
+        linear.addView(infoTextView, params)
+
+    }
+
+    private fun setMargin(marginTop: Boolean) {
+        params = LinearLayoutCompat.LayoutParams(
+            LinearLayoutCompat.LayoutParams.MATCH_PARENT,
+            LinearLayoutCompat.LayoutParams.MATCH_PARENT
+        )
+        params.apply {
+            marginStart = context.resources.getDimensionPixelSize(R.dimen.default_start)
+            topMargin = if (marginTop) {
+                context.resources.getDimensionPixelSize(R.dimen.default_top)
+            } else 0
+            marginEnd = context.resources.getDimensionPixelSize(R.dimen.default_end)
+            bottomMargin = 0
+        }
+    }
+
+    /**
+     * Sets the default Attributes for the textViews.
+     */
+    private fun setTextView(string: String): TextView {
+        return TextView(context).apply {
+            text = string
+            textSize = 14f
+            textAlignment = View.TEXT_ALIGNMENT_TEXT_START
         }
     }
 }

@@ -47,8 +47,6 @@ abstract class DevDatabase() : RoomDatabase() {
                     devDao.insert(dev)
                     dev = Dev("Lifecycle", "Activity", mContext.getString(R.string.activity_lifecycle_onCreate) )
                     devDao.insert(dev)
-                    dev = Dev("Lifecycle", "Activity", mContext.getString(R.string.activity_lifecycle_onCreate) )
-                    devDao.insert(dev)
                     dev = Dev("Lifecycle", "Activity", mContext.getString(R.string.activity_lifecycle_onRestart))
                     devDao.insert(dev)
                     dev = Dev("Lifecycle", "Activity", mContext.getString(R.string.activity_lifecycle_onStart))
@@ -352,6 +350,11 @@ abstract class DevDatabase() : RoomDatabase() {
                     dev = Dev("Notification", "UserInterface", mContext.getString(R.string.notification_ForegroundService))
                     devDao.insert(dev)
 
+                    // UI App bar
+                    dev = Dev("AppBar", "UserInterface", mContext.getString(R.string.UI_appbar_summary))
+                    devDao.insert(dev)
+
+
 
 
 
@@ -364,8 +367,7 @@ abstract class DevDatabase() : RoomDatabase() {
 
 
 //                    // User Interface
-//                    dev = Dev("AppBar", "User Interface", "AppBar")
-//                    devDao.insert(dev)
+
 //                    dev = Dev("Up Button", "User Interface", "AppBar")
 //                    devDao.insert(dev)
 //                    dev = Dev("What is CardView", "User Interface", "Material Design")

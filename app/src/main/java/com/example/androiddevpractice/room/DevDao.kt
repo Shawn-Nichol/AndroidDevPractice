@@ -17,12 +17,11 @@ interface DevDao {
     @Query("SELECT * FROM dev_table WHERE topic LIKE :search GROUP BY topic, Category ORDER BY category, topic")
     fun getAllDevTopics(search: String): LiveData<List<Dev>>
 
-
+    /**
+     * Returns the string details column, when the topic and category setting are true.
+     */
     @Query("SELECT Details FROM dev_table WHERE (Topic = :topic and Category = :category) ")
     fun getTopics(topic: String, category: String): LiveData<List<String>>
-
-//    @Query("SELECT Details FROM dev_table WHERE (Topic = :topic and Category = :category) ")
-//    suspend fun getTopics(topic: String, category: String): List<String>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun  insert(topic: Dev)
