@@ -30,9 +30,6 @@
             android:id="@+id/action_dest_recyclerViewFragment_to_menuFragment"
             app:destination="@id/dest_menuFragment" />
         <action
-            android:id="@+id/action_dest_recyclerViewFragment_to_buttonFragment"
-            app:destination="@id/dest_buttonFragment" />
-        <action
             android:id="@+id/action_dest_recyclerViewFragment_to_constraintLayoutFragment"
             app:destination="@id/dest_constraintLayoutFragment" />
         <action
@@ -149,6 +146,9 @@
         <argument
             android:name="Category"
             app:argType="string"/>
+        <action
+            android:id="@+id/action_dest_detailsFragment_to_dest_buttonFragment"
+            app:destination="@id/dest_buttonFragment" />
     </fragment>
     <fragment
         android:id="@+id/dest_menuFragment"

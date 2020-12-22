@@ -331,7 +331,7 @@
         \n - Styles: is a collection of attributes that specify the appearance for a single View. A style can specify attributes such as font color, font size background color and much more.
         \n - Theme: is a collection of attribute that\'s applied to an entire app, activity, or view hierarchy not just an individual view. When you apply a theme, every view in the app activity or view hierarchy.
     </string>
-    <string name="UI_Look_DarkTheme">DarkTheme: \n DarkTheme is color alternative to the app and supplies the following benifits.
+    <string name="UI_Look_DarkTheme">DarkTheme: \n DarkTheme is color alternative to the app and supplies the following benefits.
         \n - Reduce power usage by a significant amount
         \n - Improves visibility for users with low vision and those who are sensitive to bright light.
         \n - Makes it easier to use a device in a low-light environment.
@@ -340,7 +340,7 @@
     <string name="UI_Look_FAB">FAB: \nFloating Action Button, is a circular button that triggers the primary action in the activity. </string>
     <string name="UI_Look_Shadows">Shadows: \nMaterial design introduces elevation to help hep users understand the relative importance of each elements and focus their attention to the task at hand. Shadows are drawn by the parent of the elevated view and thus subject to standard view clipping.</string>
     <string name="UI_Look_clip">Clip: \nClipping views enables you to easily change the shape of a view. YOu can clip views for consistency with other design elements or to change the shape of a view in response to user input. you can clip a view to its outline are using the View.setClipTooutlIne</string>
-    <string name="UI_Look_button">Buttons: \nA button consist of text or an icon tht communicates what actions occurs when the user touches it. </string>
+    <string name="UI_Look_button">Buttons: \nA button consist of text or an icon tht communicates what actions occurs when the user touches it. *** Button</string>
     <string name="UI_Look_CheckButton">CheckBoxes: \nCheckboxes allow the user to select one or more options from a set. Typically you should present each checkbox option in a vertical list. </string>
     <string name="UI_Look_RadioButtons">RadioButtons: \nRadio buttons allow the user to select a option from a set. </string>
     <string name="UI_Look_ToggleButton">Toggle: \nThe toggle button allows the user to change a setting between two states.</string>
