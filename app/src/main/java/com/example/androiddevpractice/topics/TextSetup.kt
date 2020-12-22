@@ -19,11 +19,9 @@ class TextSetup(val context: Context) {
     private lateinit var linear: LinearLayoutCompat
     lateinit var params: LinearLayoutCompat.LayoutParams
 
-
     // Constants
     val TOP_MARGIN_YES = 0
     val TOP_MARGIN_NO = 1
-
 
     fun createTextView(details: List<String>, linear: LinearLayoutCompat) {
         this.linear = linear
@@ -35,7 +33,7 @@ class TextSetup(val context: Context) {
             else {
                 setTitle(item, i)
                 setInfo(item, i)
-                loadExample(item, i)
+                checkExample(item, i)
             }
         }
     }
@@ -49,45 +47,33 @@ class TextSetup(val context: Context) {
         linear.addView(textView, params)
     }
 
-
-    private fun setString(item: String, pos: Int, start: Char, end: String) {
-        val startString = item.indexOf(start)
-        val endString = item.indexOf(end)
-        val parsedString = item.substring(startString, endString)
-
-        val textView = setTextView(parsedString).apply {
-
-        }
-    }
-
     /**
      * Shows details title, This title is clickable and will display the infoText when clicked.
      */
     private fun setTitle(item: String, pos: Int) {
-        val titleEnd = item.indexOf(":")
-        val title = item.substring(0, titleEnd)
+        val endPosition = item.indexOf(":")
+        val title = item.substring(0, endPosition)
         val titleTextView = setTextView(title).apply {
             paint.isUnderlineText = true
             typeface = Typeface.DEFAULT_BOLD
             setOnClickListener {
-                val showTextView = linear.findViewWithTag<TextView>(pos + 1000)
+                val showTextView = linear.findViewWithTag<TextView>("info $pos")
 
                 Log.i(TAG, "ViewTAG: ${showTextView.tag}")
 
                 if (showTextView.visibility == 0) {
                     showTextView.visibility = View.GONE
 
-
                     // Text size of title
                     textSize = 14f
                 } else {
                     showTextView.visibility = View.VISIBLE
-
                     // TextSize of title
                     textSize = 24f
                 }
 
-                if(linear.findViewWithTag<TextView>("example $pos") == null) {
+                if(linear.findViewWithTag<TextView>("example $pos") != null) {
+                    Log.i(TAG, "Example position exists")
                     val exampleTextView = linear.findViewWithTag<TextView>("example $pos")
 
                     if (showTextView.visibility == 0) {
@@ -106,11 +92,16 @@ class TextSetup(val context: Context) {
      */
     private fun setInfo(item: String, pos: Int) {
         // Get the position of the : and add one
-        val infoStart = item.indexOf(":") + 1
+        val startPosition = item.indexOf(":") + 1
         // This is where the string starts
-        val info = item.substring(infoStart)
+        val endPosition: Int = if(item.contains("***")) {
+            item.indexOf("***")
+        } else item.length
+
+
+        val info = item.substring(startPosition, endPosition)
         val infoTextView = setTextView(info).apply {
-            tag = pos + 1000
+            tag = "info $pos"
             visibility = View.GONE
         }
 
@@ -120,15 +111,14 @@ class TextSetup(val context: Context) {
 
     }
 
-    fun loadExample(topic: String, pos: Int) {
-        if(topic.contains("***")) {
-            Log.i(TAG, "loadExample no example.")
+    private fun checkExample(item: String, pos: Int) {
+        if(!item.contains("***")) {
+            Log.i(TAG, "loadExample doesn't contain ***.")
             return
         }
-        val examplePos = topic.indexOf("Button")
-
-        Log.i(TAG, "Position $examplePos, Topic: ${topic.length}")
-        val navString = topic.substring(examplePos)
+        val examplePos = item.indexOf("***")
+        Log.i(TAG, "Position $examplePos, Topic: ${item.length}")
+        val navString = item.substring(examplePos + 3).trim()
         val exampleText = setTextView("Example").apply {
             tag = "example $pos"
             visibility = View.GONE
@@ -142,6 +132,9 @@ class TextSetup(val context: Context) {
         linear.addView(exampleText, params)
     }
 
+    /**
+     * Applies margins to the for the TextView, margins require the ViewGroup.
+     */
     private fun setMargin(margin: Int) {
         params = LinearLayoutCompat.LayoutParams(
             LinearLayoutCompat.LayoutParams.MATCH_PARENT,
@@ -171,6 +164,7 @@ class TextSetup(val context: Context) {
     }
 
     private fun navigate(view: View, navString: String) {
+        Log.i(TAG, "navigate, navString = $navString")
         when (navString) {
             "Button" -> view.findNavController().navigate(R.id.dest_buttonFragment)
         }
