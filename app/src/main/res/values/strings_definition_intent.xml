@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Intent    -->
+    <string name="intent_summary">An Intent is messaging object you can use to request an action from another app component. There fundamental use cases.
+        \n 1. Start an Activity: You can start a new instance of an Activity by passing an Intent to startActivity(). The intent describes the activiy to start and carries the necessary data.
+        \n 2. Start a Service: The intent describes the service and carries the necessary data.
+        \n 3. Delivering a broadcast: You can deliver a broadcast to other apps by passing an Intent to sendBroadcast() or sendOrderedBroadcast().
+    </string>
+    <string name="intent_types">Types:
+        \n - Explicit Intent: Launch a component by name, typically in your app.
+        \n - Implicit intents: Does not specify a name typically used to launch a component outside of your app.
+    </string>
+    <string name="intent_category">Category: \n A string containing additional information about the kind of component that should handle the intent. Any number category descriptions can be placed in a n intent but most intent do not require a category.  </string>
+    <string name="intent_chooser">Chooser: \n When there is more than one app that responds to your implicit intent, the user can select which app to use and make the app the default choice for the action.</string>
+    <string name="intent_receiving_implicit_intent">Receiving Implicit Intent: \nTo advertise which implicit intents your app can receive, declare one or more intents filters for each of your app components with an intent-filter in the manifest.</string>
+    <string name="intent_pending_Intent">PendingIntent: /n A PendingIntent object is a warpper around an intent object. The primary purpose of a PendingIntent is to grant permission to a foreign application oto use the contained Intent as if it were executed from your app. Cases for PendingIntents
+        \n - Declaring an intent to be executed when the user preforms an action with your Notification.
+        \n - Declaring an intent to be executed when the user preforms an action with your app widget
+        \n - Declaring an intent to be executed at a specified future time.
+    </string>
+    <string name="intent_resolution">Resolution: \n When the system receives an implicit itnent to start an activity, it searches for the best activity for the intent by comparing it to intent filters based on three aspeds
+        \n - Action
+        \n - Data
+        \n - Category
+    </string>
+</resources>

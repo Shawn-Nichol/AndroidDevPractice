@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--User Interface Notification   -->
+    <string name="notification_summary">A notification is a message that Android displays outside of the app\'s UI to provide the user with reminders, communication from other people, or other timely information. Users can tap the notification to open the app or take an action directly from the notification. *** Notification</string>
+    <string name="notification_types">Types:
+        \n - Status bar: The notification appears in the status bar, users can swipe down to view the notification.
+        \n - Heads-up: Notifications can briefly appear in a floating window. This is normally important an important notification  that user should know about.
+        \n - Lock Screen: Notification appear in the lock screen, users can set the detail level of visible of notification.
+        \n - icon Badge: Users can long press the app icon to view the notifications.
+    </string>
+    <string name="notification_action">Action: \nNotification should open an appropriate app activity when the notification is tapped, you can additional add three buttons to the notification.</string>
+    <string name="notification_expandable">Expandable: \nThe notification text content is truncated to fit on one line, applying expandable allows an additional template that show more text.</string>
+    <string name="notification_group">Groups: \n To avoid bombarding  your users with multiple or redundant notifications, new updates should update an existing notification rather than issuing a new one. </string>
+    <string name="notification_channel">NotificationChannel: \nAll notification must be assigned to a channel or it will not appear. by categorizing notifications into channels, users can disable specific notification channels.</string>
+    <string name="notification_importance">Importance: \n the importance of a notification to determine how much the notification should interrupt the user. The higher the importance of a notification the more interruptive the notification will be.
+        \n - Urgent: Makes a sound and appears as a heads-up notification.
+        \n - High: Makes a sound.
+        \n - Medium: No sound.
+        \n - Low: No sound and does not appear in the status bar.
+    </string>
+    <string name="notification_DoNotDisturb">Do Not Disturb: \n Users can enable Do not Disturb mode, which silences sounds and vibrations for all notifications.
+        \n Total silence: Blocks all sounds and vibrations, including alarms, videos and games.
+        \n Alarms only: blocks all sounds and vibrations, except from alarms
+        \n Priority only: users can configure which system-wide categories can interrupt them.
+    </string>
+    <string name="notification_ForegroundService">Foreground Service: \nA notification is required when your app is running a foreground service. </string>
+    <!-- TODO These can be removed in the future.   -->
+    <string name="notification_priority">Notification Priority: Is an indication of how much of the user\'s valuable attention should be consumed by this notification.</string>
+    <string name="notification_visibility_public">VISIBILITY_PUBLIC: shows the notification\'s full content</string>
+    <string name="notification_visibility_secret">VISIBILITY_SECRET: doesn\'t show any part of this notification on the screen</string>
+    <string name="notification_visibility_private">VISIBILITY_PRIVATE: shows basic information, such as the notifications icon and the content title, but hides the notifications full content</string>
+    <string name="notification_full_screen">Full Screen: Heads up notification doesn\'t close</string>
+    <string name="notification_on_going">OnGoing: You cannot swipe the notification away.</string>
+    <string name="notification_set_show_when">SetShowWhen: Controls whether the timestamp set with is displayed in the notification</string>
+
+</resources>

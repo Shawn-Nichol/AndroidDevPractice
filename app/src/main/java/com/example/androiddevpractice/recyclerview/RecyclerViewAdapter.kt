@@ -79,23 +79,8 @@ class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev,
     private fun loadFragment(view: View, item: Dev, extras: FragmentNavigator.Extras) {
         Log.i("PracticeRecyclerViewAdapter", "loadFragment(), ${item.topic}")
         when (item.topic) {
-            "Button" -> view.findNavController().navigate(R.id.dest_buttonFragment)
-            "Menu" -> view.findNavController().navigate(R.id.dest_menuFragment)
-            "Constraint" -> view.findNavController().navigate(R.id.dest_constraintLayoutFragment)
-            "Place Holder" -> view.findNavController().navigate(R.id.dest_placeHolderFragment)
-            "Motion Layout" -> view.findNavController().navigate(R.id.dest_motionLayoutFragment)
-            "Check Boxes" -> view.findNavController().navigate(R.id.dest_checkBoxFragment)
-            "Radio Buttons" -> view.findNavController().navigate(R.id.dest_radioButtonFragment)
-            "Toggle Buttons" -> view.findNavController().navigate(R.id.dest_toggleButtonFragment)
-            "Switch" -> view.findNavController().navigate(R.id.dest_switchesFragment)
-            "Pickers" -> view.findNavController().navigate(R.id.dest_pickerFragment)
-            "ToolTip" -> view.findNavController().navigate(R.id.dest_toolTipFragment)
-            "Notification" -> view.findNavController().navigate(R.id.dest_notificationFragment)
-            "System UI" -> view.findNavController().navigate(R.id.dest_systemUIFragment)
-            "Toast" -> view.findNavController().navigate(R.id.dest_toastFragment)
-            "Snackbar" -> view.findNavController().navigate(R.id.dest_snackbarFragment)
-            "Dialog" -> view.findNavController().navigate(R.id.dest_dialogInfoFragment)
-            "Preference" -> view.findNavController().navigate(R.id.dest_myPreferencesFragment)
+
+
             else -> {
                 val action = RecyclerViewFragmentDirections.actionDestRecyclerViewFragmentToDetailsFragment(
                     item.topic, item.category

@@ -26,84 +26,6 @@
         <action
             android:id="@+id/action_dest_recyclerViewFragment_to_detailsFragment"
             app:destination="@id/dest_detailsFragment" />
-        <action
-            android:id="@+id/action_dest_recyclerViewFragment_to_menuFragment"
-            app:destination="@id/dest_menuFragment" />
-        <action
-            android:id="@+id/action_dest_recyclerViewFragment_to_constraintLayoutFragment"
-            app:destination="@id/dest_constraintLayoutFragment" />
-        <action
-            android:id="@+id/action_dest_recyclerViewFragment_to_placeHolderFragment"
-            app:destination="@id/dest_placeHolderFragment" />
-        <action
-            android:id="@+id/action_dest_recyclerViewFragment_to_motionLayoutFragment"
-            app:destination="@id/dest_motionLayoutFragment" />
-        <action
-            android:id="@+id/action_dest_recyclerViewFragment_to_checkBoxFragment"
-            app:destination="@id/dest_checkBoxFragment" />
-        <action
-            android:id="@+id/action_dest_recyclerViewFragment_to_radioButtonFragment"
-            app:destination="@id/dest_radioButtonFragment" />
-        <action
-            android:id="@+id/action_dest_recyclerViewFragment_to_toggleButtonFragment"
-            app:destination="@id/dest_toggleButtonFragment" />
-        <action
-            android:id="@+id/action_dest_recyclerViewFragment_to_switchesFragment"
-            app:destination="@id/dest_switchesFragment" />
-        <action
-            android:id="@+id/action_dest_recyclerViewFragment_to_pickerFragment"
-            app:destination="@id/dest_pickerFragment" />
-        <action
-            android:id="@+id/action_dest_recyclerViewFragment_to_pickerFragment2"
-            app:destination="@id/dest_pickerFragment" />
-        <action
-            android:id="@+id/action_dest_recyclerViewFragment_to_pickerFragment3"
-            app:destination="@id/dest_pickerFragment" />
-        <action
-            android:id="@+id/action_dest_recyclerViewFragment_to_toolTipFragment"
-            app:destination="@id/dest_toolTipFragment" />
-        <action
-            android:id="@+id/action_dest_recyclerViewFragment_to_notificationFragment"
-            app:destination="@id/dest_notificationFragment" />
-        <action
-            android:id="@+id/action_dest_recyclerViewFragment_to_systemUIFragment"
-            app:destination="@id/dest_systemUIFragment" />
-        <action
-            android:id="@+id/action_dest_recyclerViewFragment_to_toastFragment"
-            app:destination="@id/dest_toastFragment" />
-        <action
-            android:id="@+id/action_dest_recyclerViewFragment_to_dest_toastFragment"
-            app:destination="@id/dest_toastFragment" />
-        <action
-            android:id="@+id/action_dest_recyclerViewFragment_to_snackbarFragment"
-            app:destination="@id/dest_snackbarFragment" />
-        <action
-            android:id="@+id/action_dest_recyclerViewFragment_to_dialogInfoFragment"
-            app:destination="@id/dest_dialogInfoFragment" />
-        <action
-            android:id="@+id/action_dest_recyclerViewFragment_to_myPreferencesFragment"
-            app:destination="@id/dest_myPreferencesFragment" />
-        <action
-            android:id="@+id/action_dest_recyclerViewFragment_to_myActivityFragment"
-            app:destination="@id/dest_myActivityFragment" />
-        <action
-            android:id="@+id/action_dest_recyclerViewFragment_to_configurationChangeFragment"
-            app:destination="@id/dest_configurationChangeFragment" />
-        <action
-            android:id="@+id/action_dest_recyclerViewFragment_to_processLifeCycleFragment"
-            app:destination="@id/dest_processLifeCycleFragment" />
-        <action
-            android:id="@+id/action_dest_recyclerViewFragment_to_savingPersistentStateFragment"
-            app:destination="@id/dest_savingPersistentStateFragment" />
-        <action
-            android:id="@+id/action_dest_recyclerViewFragment_to_lifecycleFragment"
-            app:destination="@id/dest_lifecycleFragment" />
-        <action
-            android:id="@+id/action_dest_recyclerViewFragment_to_dataBindingFragment"
-            app:destination="@id/dest_dataBindingFragment" />
-        <action
-            android:id="@+id/action_dest_recyclerViewFragment_to_lifeCycleAwareFragment"
-            app:destination="@id/dest_lifeCycleAwareFragment" />
     </fragment>
     <fragment
         android:id="@+id/dest_contextual1Fragment"
@@ -149,6 +71,66 @@
         <action
             android:id="@+id/action_dest_detailsFragment_to_dest_buttonFragment"
             app:destination="@id/dest_buttonFragment" />
+        <action
+            android:id="@+id/action_dest_detailsFragment_to_dest_toggleButtonFragment"
+            app:destination="@id/dest_toggleButtonFragment" />
+        <action
+            android:id="@+id/action_dest_detailsFragment_to_dest_toastFragment"
+            app:destination="@id/dest_toastFragment" />
+        <action
+            android:id="@+id/action_dest_detailsFragment_to_dest_menuFragment"
+            app:destination="@id/dest_menuFragment" />
+        <action
+            android:id="@+id/action_dest_detailsFragment_to_dest_lifecycleFragment"
+            app:destination="@id/dest_lifecycleFragment" />
+        <action
+            android:id="@+id/action_dest_detailsFragment_to_dest_dialogInfoFragment"
+            app:destination="@id/dest_dialogInfoFragment" />
+        <action
+            android:id="@+id/action_dest_detailsFragment_to_dest_dataBindingFragment"
+            app:destination="@id/dest_dataBindingFragment" />
+        <action
+            android:id="@+id/action_dest_detailsFragment_to_dest_systemUIFragment"
+            app:destination="@id/dest_systemUIFragment" />
+        <action
+            android:id="@+id/action_dest_detailsFragment_to_dest_constraintLayoutFragment"
+            app:destination="@id/dest_constraintLayoutFragment" />
+        <action
+            android:id="@+id/action_dest_detailsFragment_to_dest_checkBoxFragment"
+            app:destination="@id/dest_checkBoxFragment" />
+        <action
+            android:id="@+id/action_dest_detailsFragment_to_dest_lifeCycleAwareFragment"
+            app:destination="@id/dest_lifeCycleAwareFragment" />
+        <action
+            android:id="@+id/action_dest_detailsFragment_to_dest_myPreferencesFragment"
+            app:destination="@id/dest_myPreferencesFragment" />
+        <action
+            android:id="@+id/action_dest_detailsFragment_to_dest_snackbarFragment"
+            app:destination="@id/dest_snackbarFragment" />
+        <action
+            android:id="@+id/action_dest_detailsFragment_to_dest_radioButtonFragment"
+            app:destination="@id/dest_radioButtonFragment" />
+        <action
+            android:id="@+id/action_dest_detailsFragment_to_dest_processLifeCycleFragment"
+            app:destination="@id/dest_processLifeCycleFragment" />
+        <action
+            android:id="@+id/action_dest_detailsFragment_to_dest_switchesFragment"
+            app:destination="@id/dest_switchesFragment" />
+        <action
+            android:id="@+id/action_dest_detailsFragment_to_dest_pickerFragment"
+            app:destination="@id/dest_pickerFragment" />
+        <action
+            android:id="@+id/action_dest_detailsFragment_to_dest_notificationFragment"
+            app:destination="@id/dest_notificationFragment" />
+        <action
+            android:id="@+id/action_dest_detailsFragment_to_dest_placeHolderFragment"
+            app:destination="@id/dest_placeHolderFragment" />
+        <action
+            android:id="@+id/action_dest_detailsFragment_to_dest_toolTipFragment"
+            app:destination="@id/dest_toolTipFragment" />
+        <action
+            android:id="@+id/action_dest_detailsFragment_to_dest_motionLayoutFragment"
+            app:destination="@id/dest_motionLayoutFragment" />
     </fragment>
     <fragment
         android:id="@+id/dest_menuFragment"

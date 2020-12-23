@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Activity Lifecycle    -->
+    <string name="activity_lifecycle_summary">As a user navigates through, out of and back to your app, the Activity instances transition through different states in their lifecycle. The activity class provides a number of callbacks that allow the activity to know that a state has changed.</string>
+    <string name="activity_lifecycle_onCreate">callback onCreate():
+        This Call back fires when the system first creates an activity, onCreate handles basic application startup logic that should happen only once for the entire life of the activity. This method receives the savedInstanceState</string>
+    <string name="activity_lifecycle_onRestart">callback onRestart():
+        Called after onStop() when the current activity is being re-displayed to the user
+    </string>
+    <string name="activity_lifecycle_onStart">callback onStart():
+        Makes the activity visible to the user, as the app prepares for the activity to enter the foreground and become interactive</string>
+    <string name="activity_lifecycle_onResume">callback onResume():
+        The app comes to the foreground, and then the system invokes onResume(). The user interacts with the app in this state, the app will stay in this state until something happens to take focus away from the app.</string>
+    <string name="activity_lifecycle_onPause">callback onPause():
+        When the activity leaves the foreground it will enter the onPause() state. Use onPause() to adjust operations that should not continue while the activity is not in active state. OnPause can also be used to release system resources.</string>
+    <string name="activity_lifecycle_onStop">callback onStop():
+        When the activity is no longer visible to the user the system will invoke the onStop(). The app should release or adjust resources that are not needed while the app is not visible to the user. When the activity enters the stopped state, the activity object maintains all state and member information, but is not attached to window manager.</string>
+    <string name="activity_lifecycle_onDestroy">callback onDestroy():
+        Is called before the activity is destroyed. The system invokes this call back for two reasons. \n 1. The Activity is finished\n 2. The system is temporarily destroying the activity due to a configuration change.</string>
+    <string name="activity_lifecycle_loop_entire">Entire Life Loop:
+        The entire lifetime of an activity happens between the first call to onCreate() through to a single final call to onDestroy(). An activity will do all setup of global states in onCreate(), and release all remaining resources in onDestroy().</string>
+    <string name="activity_lifecycle_loop_visible">Visible Life Loop:
+        The visible lifetime of an activity happens between a call to onStart() until a corresponding call to onStop(). During this time the user can see the activity -on-screen, though it may not be in the foreground interacting with the user.</string>
+    <string name="activity_lifecycle_loop_foreground">Foreground Life Loop:
+        The foreground lifetime of an activity happens between a call to onResume() until a corresponding call to onPause(). During this time the activity is invisible, active and interacting with the user.</string>
+
+    <string name="activity_process_lifecycle_summary">The Android system attempts to keep process around fo as long as possible, if memory needs to be freed up then process can be terminated. The four states of importance are listed here and will determine what process get terminated.</string>
+    <string name="activity_saving_persistent_data_summary">Saving persistent data will save the data as a key value pair into a file to be loaded later.</string>
+
+    <!-- ArchitectureComponent  Coroutines -->
+    <string name="ac_coroutines_summary">Provides an API that enables allows for asynchronous code. </string>
+    <string name="ac_coroutines_coroutine_scope">Coroutine Scope: \nDefines a scope for new coroutines. Every coroutine builder is an extension on CoroutineScope and inherits its coroutineContext to automatically propagate all its elements and cancellation </string>
+    <string name="ac_coroutines_viewmodel_scope">ViewModelScope: \nA ViewModelScope is defined for each ViewModel. Any coroutine launched in this scope is automatically canceled if the ViewModel is cleared. </string>
+    <string name="ac_coroutines_lifecycle_scope">LifecycleScope: \nA lifecycleScope is defined for each Lifecycle object. Any coroutine launched in this scope is canceled when the lifecycle is destroyed. You can access the CoroutineScope of the Lifecycle either via lifecycle.coroutineScope or lifecycleOwner.lifecycleScope properties.  </string>
+    <string name="ac_coroutines_suspend">Suspend Lifecycle-aware coroutines: \nYou can suspend coroutines if they aren\'t in the minimum state.
+        \n - lifecycle.whenCreated
+        \n - lifecycle.whenStarted
+        \n - lifecycle.whenResumed </string>
+    <string name="ac_coroutines_livedata">LiveData:
+        \nLiveData works with coroutines to calculate data asynchronously. When LiveData is canceled or suspends so its coroutine.  </string>
+    <string name="ac_data_binding_summary">The Data Binding library is a support library that allows you to bind UI components in your layout o data sources in your app using a declarative format. DataBinding is the replacement for findViewById.</string>
+    <string name="ac_data_binding_expression_language">Expression Language:
+        \nAllows you to write expressions that connect variables to the view in the layout. The DB library generates the classes required to bind views in the layout with your data objects. \nVariable: Allows you to find data objects and methods to views in the layout.</string>
+    <string name="ac_data_binding_generated_classes">Generated Classes:
+        \nThe DB will generate binding class that are used to access the layout\'s variables and views. The generated class links the layout variables with the views in the layout.</string>
+    <string name="ac_data_binding_binding_object">Binding Object:
+        \nThe binding object is created immediately after inflating the layout to ensure that the view hierarchy isn\'t modified before it binds to the views with expressions in the layout. Use DataBindingUtil.inflate to inflate the binding class. In a fragment you will need to return the root of Binding object in onCreateView().</string>
+    <string name="ac_data_binding_view_id">View with ID:
+        \nThe DB creates a immutable filed in the binding class for each view that has an ID in the layout. The library extracts the views including the IDs fromt eh view hierarchy in a single pass. This is faster than calling findViewById for every view.</string>
+    <string name="ac_data_binding_observable_data">Observable data:
+        \nThe DB Library can make objects, fields or collections observable. Any object can be used with data binding but modifying the object doesn\'t automatically cause the UI to update. DB can be used to give objects the ability to notify other objects, known as listeners, when data is changed.</string>
+    <string name="ac_data_binding_twoway_data_binding">Two-way DataBinding:
+        \nUsing one-way data binding, you can set a value on an attribute and set a listener that reacts to a change in that attribute. The @={} notiation, includes the = sign, receives data changes to the property and listen to user updates at the same time.</string>
+    <!--Architecture Components Lifecycle aware    -->
+    <string name="ac_lifecycle_aware_summary">Lifecycle-aware components: perform actions in response to a change in the lifecycle status of another component, such as activities and fragments. These components help you produce better-organized, adn often lighter-weight code, that is easier to maintain. Lifecycles are managed by the operating system or the framework code running in process.</string>
+    <string name="ac_lifecycle_aware_lifecycle">Lifecycle:
+        \nIs a class that holds the information about the lifecycle state of a component(Activity/Fragment) and allows other objects to observe this state. Lifecycle uses two enumerations to track the lifecycle status for its associated component. /n - Event: The lifecycle events that are dispatched from the framework and Lifecycle class. These events map to callbacks in Activities and Fragments \n  - State: The current state of the component tracked by the Lifecycle object </string>
+    <string name="ac_lifecycle_aware_owner">LifecycleOwner:
+        \nIs a single method interface that denotes that he class has a Lifecycle. It has one method, getLifecycle(), which must be implemented by the class. The interface abstaracts the ownership of a Lifecycle from individual classes, such as Fragments and allows writing components that work with them. Components that implement Lifecycle owner work seamlessly with components that implement Lifecycle observer</string>
+    <string name="ac_lifecycle_aware_best_practice">Best Practice:
+        \n - Keep UI controllers as lean as possible. They should not acquire their own data, use ViewModel and observe LiveData to reflect changes.
+        \n - Write data-driven UIs where the UI controllers responsibility is to update the views as data changes.
+        \n - Put data logic in a ViewModel. ViewModel should server as a connector between the UI and the rest of the app
+        \n - Use DataBinding to maintain a clean interface between your views and UI controller. This allows views to be more declarative and minimizes the update code.
+        \n - Avoid referencing a View or activity context in the a ViewModel. If ViewModel outlives the activity, the activity leaks and isn\'t properly disposed of by the garbage collector.
+        \n - kotlin coroutines to manage long-running tasks and other operations that can run asynchronously.</string>
+    <string name="ac_lifecycle_aware_cases">When to use Lifecycle-aware components:
+        \nComponents can make it much easier for you to manage lifecycles in a variety of cases.
+        \n - LiveData allows you to automatically update the UI.\n - Stopping and starting video buffering. Lifecycleaware_components can start buffering as soon as possible but deffer playback until the app is fully loaded.
+        \n - Starting and stopping network connectivity. Enable live updating of network data while an app is in the foreground and also to automatically pause when the  app goes into the background.
+        \n - Pausing and resuming animated drawables. pausing animation well the app is in the background and resume animation after the app enters the foreground.</string>
+    <string name="ac_lifecycle_aware_stop_events">StopEvents: \nPrevents UI changes from being called after the app is no longer in the foregrounds. </string>
+    <!--Architecture Components LiveData-->
+    <string name="ac_livedata_summary">Is an observable data holder class. LifeData is lifecycle aware, meaning it respects the lifecycle of other app components, This ensures that only component observers that are in the active lifecycle state are updated. </string>
+    <string name="ac_livedata_observer">Observer:
+        \n LiveData notifies observer objects when the lifecycle state changes.</string>
+    <string name="ac_livedata_advantages">Advantages:
+        \n - Ensures you UI matches data state. Any changes to LiveData the observer will update the UI.
+        \n - No memory leaks, Observers are bound to lifecycle objects and clean up after themselves when their associated lifecycle is destroyed.
+        \n - No crashes Due to stopped activities.
+        \n No more manual lifecyle handling. UI components just observe relevant data and don\'t stop or start observation.
+        \n Always upto date.
+        \n Proper configuration changes.
+        \n Sharing resources, LiveData can extend using the singleton pattern to wrap system services so that they can be  shared in the app.
+    </string>
+    <string name="ac_livedata_working_with">Working With:
+        \n 1. Create an instance  of LiveData to hold a certain type of data
+        \n 2. Create an observer object taht defines the onChanged(), which controls what happens when data is changed
+        \n 3. Attach the observer obect to the LiveData object using observe(). The observe() method takes a LifecycleOwner object. This subscribes the observer object to the LiveData object.
+    </string>
+    <string name="ac_livedata_states">States:
+        \n - onActive(): is called when the LiveData object has an active observer.
+        \n - onInactive(): is called when the LiveData object doesn\'t have any active observers.
+        \n - setValue(T): updates the value of the LiveData instance and notifies any active observes about the change.
+    </string>
+    <string name="ac_livedata_transform">Transform:
+        \nTransformations applies a function on the value stored in LiveData object, and propagates teh result downstream.
+    </string>
+    <!--Architecture Components Room    -->
+    <string name="ac_room_summary">The Room persistence library provides an abstraction layer over SQLite to allow for more robust database access while harnessing the full power of SQLite. The library helps create a cache of the app\'s data on a device that\'s running the app.</string>
+    <string name="ac_room_entity">Entity: \nrepresents a table in the data base. Use a data class to create the entity. For each entity a table is created.  </string>
+    <string name="ac_room_database">Database: \nContains the database holder and  serves as the main access point for the underlying connection tyou app\'s persisted relation data. </string>
+    <string name="ac_room_dao">DAO: \nData Access Object, contains the methods used for accessing the data in the database. </string>
+    <string name="ac_room_repository">Repository: \nIs responsible for interacting with the database  on behalf of the ViewModel and will need to provide methods that use the DAO.  </string>
+
+    <!--Architecture Component ViewModel    -->
+    <string name="ac_viewmodel_summary">The View Model class is designed to store and manage UI-related data in a lifecycle conscious way. The ViewModel class allows data to survive configuration changes. ViewModel replaces Loaders.</string>
+    <string name="ac_viewmodel_provider">ViewModelProvider: \nA utility class that provides ViewModels scope. </string>
+    <string name="ac_viewmodel_lifecycle">Lifecycle: \nViewModel objects are scoped to the lifecycle passed to the ViewModelProvider when getting the ViewModel remains in memory until the Lifecycle is scoped to go away permanently or in the case of fragment detached. </string>
+    <string name="ac_viewmodel_sharedViewModel">SharedViewModel:
+        \n Fragments can share ViewModels by using their activity scope to handle communication. SharedViewModel provides the following benefits.
+        \n - The activity does not need to do anything, or know aything about this communication
+        \n - Fragments doesn\'t need to know about each other be sides the SharedViewModel
+        \n - Each fragment has its own lifecyle, and is not affected by the lifecycle of the other one.
+    </string>
+    <!--Architecture WorkManager-->
+    <string name="ac_WorkManager_summary">WorkManager is an API used to schedule deferrable asynchronous tasks that are expected to run even if the app exits or the device restarts. WorkManager API is a suitable and recommend replacement for all previous Android background scheduling APIs. </string>
+    <string name="ac_WorkManager_constraints">Constraints: \nDefine the optimal conditions for your work to run using Work Constraints. ex wait to be on Wi-Fi, device idle</string>
+    <string name="ac_WorkManager_scheduling">Scheduling: \nWork can be run on-time or repeatedly using flexible scheduling windows. Work can be tagged  and named as well, allowing you to schedule unique, replaceable work and monitor or cancel groups of work together. Scheduled work is stored in an internally managed SQLite database and WorkManager takes careof ensuring that this work persists and is rescheduled across device reboots..</string>
+    <string name="ac_WorkManager_retry">Retry Policy: \nWorkManager offers flexible retry polices, including a configurable exponential backoff policy.</string>
+    <string name="ac_WorkManager_chaining">Work Chaining: \nFor complex related work, chain individual work tasks together using a fluent, natural,interface that allows you to control which pieces run sequentially and which run in parallel. </string>
+    <string name="ac_WorkManager_integrates">Integrates: \nWorkManager intgrates seamlessly with RxJava and Coroutines and provides the flexibility to plug in your own asynchronous APIs.</string>
+
+</resources>
