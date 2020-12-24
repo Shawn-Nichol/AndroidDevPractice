@@ -117,24 +117,24 @@
         \n - Negative: Use this to cancel the action.
         \n - Neutral: Use this when the user may not want to proceed with the action, but doesn't necessarily want to cancel.
     </string>
-    <string name= "UI_Dialog_List">List: Dialogs can display a single choice or a multi choice list. *** Dialog</string>
-    <string name="UI_Dialog_CustomLayout">CustomLayout: You can create a custom Dialog by creating a layout and adding it to an AlertDialog and calling setView() on the AlertDialogBuilder.</string>
-    <string name="UI_Dialog_PassingEvents">Passing Events: When the user touches one of the Dialog buttons or selects an item form a list, you should deliver the action to the Activity/Fragment that opened the dialog. To do this define an interface with a click event. </string>
-    <string name="UI_Dialog_ShowDialog">ShowDialog: When you want to show your dialog, create an instance of the DialogFragment and call show(), passing the FragmentManager and a tag name for the Dialog. </string>
-    <string name="UI_Dialog_FullScreen">FullScreen: In order to make a dialog full screen you\'ll need to define the dialog in the layout.</string>
-    <string name="UI_Dismiss">Dismiss: When the user touches any of the action buttons created with an AlertDailog.Builder, the system dismisses the dialog for your. The system also dismisses the dialog when the users touches an item in a dialog list, except when the list uses radio buttons or checkboxes. You can manually dismiss the dialog by calling dimiss().</string>
+    <string name="UI_Dialog_List">List: Dialogs can display a single choice or a multi choice list. *** Dialog</string>
+    <string name="UI_Dialog_CustomLayout">CustomLayout: You can create a custom Dialog by creating a layout and adding it to an AlertDialog and calling setView() on the AlertDialogBuilder. *** Dialog</string>
+    <string name="UI_Dialog_PassingEvents">Passing Events: When the user touches one of the Dialog buttons or selects an item form a list, you should deliver the action to the Activity/Fragment that opened the dialog. To do this define an interface with a click event. *** Dialog </string>
+    <string name="UI_Dialog_ShowDialog">ShowDialog: When you want to show your dialog, create an instance of the DialogFragment and call show(), passing the FragmentManager and a tag name for the Dialog. *** Dialog</string>
+    <string name="UI_Dialog_FullScreen">FullScreen: In order to make a dialog full screen you\'ll need to define the dialog in the layout. *** Dialog</string>
+    <string name="UI_Dialog_Dismiss">Dismiss: When the user touches any of the action buttons created with an AlertDailog.Builder, the system dismisses the dialog for your. The system also dismisses the dialog when the users touches an item in a dialog list, except when the list uses radio buttons or checkboxes. You can manually dismiss the dialog by calling dismiss(). *** Dialog</string>
 
     <!-- UI Toast    -->
     <string name="UI_Toast_Summary">A toast provides simple feedback about an operation in a small popup. It only fills the amount of space required for the message and the current activity remains visible and interactive. Toasts automatically disappear after a timeout.</string>
-    <string name="UI_Toast_Basics">Basics: Instantiate a Toast object with makeText(). This method takes three parameters the application the context the text to display and the length. Display toast with the show().</string>
-    <string name="UI_Toast_Position">Position: A standard toast notification appears near the bottom of the screen, centered horizontally. You can change this position with the setGravity(). </string>
-    <string name="UI_Toast_CustomToast">Custom Toast: If a text message isn\'t enough you can createa a customized layout for your toast notification to create custom layout, define a View layout, in XML or in your application code. and pass the root view object.</string>
+    <string name="UI_Toast_Basics">Basics: Instantiate a Toast object with makeText(). This method takes three parameters the application the context the text to display and the length. Display toast with the show(). *** Toast.</string>
+    <string name="UI_Toast_Position">Position: A standard toast notification appears near the bottom of the screen, centered horizontally. You can change this position with the setGravity(). *** Toast</string>
+    <string name="UI_Toast_CustomToast">Custom Toast: If a text message isn\'t enough you can create a customized layout for your toast notification to create custom layout, define a View layout, in XML or in your application code. and pass the root view object. *** Toast</string>
 
     <!--UI Menu-->
     <string name="UI_Menu_Summary">Menus are a common user interface component, the Menu API should present user actions and other options in your activities. As of API 11 a menu is no loner required.</string>
-    <string name="UI_Menu_Options">OptionsMenu: The options menu is the primary collection of menu items for an activity. It\'s where you should place actions that have a global impact on the app, such as Search.</string>
-    <string name="UI_Menu_Context">ContextMenu: A context menu is a floating menu that appears when the user preforms a long-click on a element. it provides actions that affect the selected content.</string>
-    <string name="UI_Menu_PopUp">Popup: A popup menu displays a list of items in a vertical list that\'s anchored to the view that invoked the menu. It\'s good for providing an overflow of actions that relate to specific content or to provide options for a second part of a command. </string>
+    <string name="UI_Menu_Options">OptionsMenu: The options menu is the primary collection of menu items for an activity. It\'s where you should place actions that have a global impact on the app, such as Search. *** Menu</string>
+    <string name="UI_Menu_Context">ContextMenu: A context menu is a floating menu that appears when the user preforms a long-click on a element. it provides actions that affect the selected content. *** Menu</string>
+    <string name="UI_Menu_PopUp">Popup: A popup menu displays a list of items in a vertical list that\'s anchored to the view that invoked the menu. It\'s good for providing an overflow of actions that relate to specific content or to provide options for a second part of a command. *** Menu</string>
     <string name="UI_Menu_Define">Defining a Menu: For all menu types, Android provides a standard XML format to define menu items. Instead of building a menu. List of elements.
         \n menu: Defines a menu, which is a container for menu item. A menu element must be the root node for th file and can hold one or more item and group elements.
         \n item: Creates a MenuItem, which represents a single item in a menu> this element may contain a nested element in order to create a submenu.
@@ -147,13 +147,4 @@
         \n - Enable or disable all items.
         \n - Specify where all items are checkable.
     </string>
-
-
-
-
-
-
-
-
-
 </resources>
