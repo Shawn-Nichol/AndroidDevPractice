@@ -31,5 +31,4 @@
     <string name="notification_full_screen">Full Screen: Heads up notification doesn\'t close</string>
     <string name="notification_on_going">OnGoing: You cannot swipe the notification away.</string>
     <string name="notification_set_show_when">SetShowWhen: Controls whether the timestamp set with is displayed in the notification</string>
-
 </resources>

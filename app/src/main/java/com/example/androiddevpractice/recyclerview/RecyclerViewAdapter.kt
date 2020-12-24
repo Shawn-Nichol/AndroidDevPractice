@@ -74,7 +74,7 @@ class RecyclerViewAdapter() : androidx.recyclerview.widget.ListAdapter<Dev,
     }
 
     /**
-     * Loads framgent depending on item selection.
+     * Loads Details fragment.
      */
     private fun loadFragment(view: View, item: Dev, extras: FragmentNavigator.Extras) {
         Log.i("PracticeRecyclerViewAdapter", "loadFragment(), ${item.topic}")

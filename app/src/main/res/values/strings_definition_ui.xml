@@ -1,20 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!--UserInterface-->
-    <string name="UI_summary">UserInterface is everything that the user can see and interact with. Android provides variety of pre-built UI components such as structured layout objects and UI controls that allow you to interface such as dialogs, notification and menus. </string>
-    <string name="UI_layouts_summary">A layout defines the structure for a user interface in your app, such as in activity. All elements in the layout are built using a hierarchy of View and ViewGroup objects.</string>
-    <string name="UI_layouts_xml">XML: Layouts are typically written in XML but can be coded to</string>
-    <string name="UI_layouts_load">Load Layout: When you compile your app, each XML layout file compiled into a View resource. Load the layout resource form Activity.onCreate(). Do so by calling setContentView(), passing the reference to the layout resource</string>
-    <string name="UI_layouts_attributes">Attribute: Every View and ViewGroup object supports their own variety of XML attributes. Some attributes are specific to a View object, well others are common to all View objects because they inherit the root View.  </string>
-    <string name="UI_layout_parameters">Layout Parameters: Are layout attributes named layout_something define layout parameters for the view that are appropriate for the ViewGroup in which it resides. EveryViewGroup class implements a nested class that extends ViewGroup.LayoutParams. This subclass contains property types that define the size and position for each child view, as appropriate for the view group.  .</string>
-    <string name="UI_layout_ID">ID: Any View object may have an integer ID associated with it, to uniquely identify the View within the tree. When the app is compiled, this ID is referenced as an integer, but the ID is typically assigned in the layout XMl file as a string, in the id attribute.The @ symbol at the beginning of the string indicates that the XML parser should parse and expand the rest of the ID string and identify it as an ID resource. The plus symbol menas that this is a new resource name that must be created and added to resources file. </string>
-    <string name="UI_layout_position">Layout Position: The geometry of a view is that of a rectangle. A View has a location,expressed as a pair of left and top coordinates, and two dimensions, expressed as a width and height. The unit for location and dimension is the pixel.</string>
-    <string name="UI_layout_size">Size, Padding, Margins: The size of a view is expressed with a width and height. A view posses two pairs of width and height values.
-        \n 1. Measured width and Measured Height. These dimension define how big a view wants to be within  its parents, this includes the padding surrounding the view.
-        \n 2. The second pair is known as width and height. or sometimes drawing width and drawing height. These dimensions define the actual size of the view on screen, at drawing time and after layout.
-    </string>
-
     <!-- UserInterface AppBar    -->
     <string name="UI_appbar_summary">The app bar, also known as the action bar, provides a visual structure and interactive element that is familiar to users. Key functions of an app bar.
         \n - A dedicated space for giving your app an identity and indicating the user\'s location in the app.
@@ -43,6 +29,36 @@
     </string>
     <string name="UI_CustomView_paint">Paint: The paint class holds the style and color information about how to draw geometries, text and bitmaps. </string>
 
+    <!-- User Interface Dialogs   -->
+    <string name="UI_Dialog_Summary">A Dialog is a small window that prompts the user to make a decision or enter additional information. A Dialog does not fill the screen and is normally used for modal events that require users to take ana action before they can proceed. The Dialog class is the base class for dialogs but you should avoid instantiating dialog.</string>
+    <string name="UI_Dialog_Alert">AlertDialog: A dialog that can show a text *** Dialog</string>
+    <string name="UI_Dialog_Picker">Picker: A dialog with a predefined UI that allows the user to select a date or time. *** Pickers </string>
+    <string name="UI_Dialog_Fragment">DialogFragment: Is a container for the dialog, The DialogFragment provides all the controls needed to create a dailog.</string>
+    <string name="UI_Dialog_Buttons">Buttons: A dialog can have up to three buttons, each button should preform a separate tasks.
+        \n - Positive: You should use this to accept and continue with the action
+        \n - Negative: Use this to cancel the action.
+        \n - Neutral: Use this when the user may not want to proceed with the action, but doesn\'t necessarily want to cancel.
+    </string>
+    <string name="UI_Dialog_List">List: Dialogs can display a single choice or a multi choice list. *** Dialog</string>
+    <string name="UI_Dialog_CustomDialog">CustomDialog: You can create a custom Dialog by creating a layout and adding it to an AlertDialog and calling setView() on the AlertDialogBuilder. *** Dialog</string>
+    <string name="UI_Dialog_PassingEvents">Passing Events: When the user touches one of the Dialog buttons or selects an item form a list, you should deliver the action to the Activity/Fragment that opened the dialog. To do this define an interface with a click event. *** Dialog </string>
+    <string name="UI_Dialog_ShowDialog">ShowDialog: When you want to show your dialog, create an instance of the DialogFragment and call show(), passing the FragmentManager and a tag name for the Dialog. *** Dialog</string>
+    <string name="UI_Dialog_FullScreen">FullScreen: In order to make a dialog full screen you\'ll need to define the dialog in the layout. *** Dialog</string>
+    <string name="UI_Dialog_Dismiss">Dismiss: When the user touches any of the action buttons created with an AlertDailog.Builder, the system dismisses the dialog for your. The system also dismisses the dialog when the users touches an item in a dialog list, except when the list uses radio buttons or checkboxes. You can manually dismiss the dialog by calling dismiss(). *** Dialog</string>
+
+    <!--UserInterface-->
+    <string name="UI_summary">UserInterface is everything that the user can see and interact with. Android provides variety of pre-built UI components such as structured layout objects and UI controls that allow you to interface such as dialogs, notification and menus. </string>
+    <string name="UI_layouts_summary">A layout defines the structure for a user interface in your app, such as in activity. All elements in the layout are built using a hierarchy of View and ViewGroup objects.</string>
+    <string name="UI_layouts_xml">XML: Layouts are typically written in XML but can be coded to</string>
+    <string name="UI_layouts_load">Load Layout: When you compile your app, each XML layout file compiled into a View resource. Load the layout resource form Activity.onCreate(). Do so by calling setContentView(), passing the reference to the layout resource</string>
+    <string name="UI_layouts_attributes">Attribute: Every View and ViewGroup object supports their own variety of XML attributes. Some attributes are specific to a View object, well others are common to all View objects because they inherit the root View.  </string>
+    <string name="UI_layout_parameters">Layout Parameters: Are layout attributes named layout_something define layout parameters for the view that are appropriate for the ViewGroup in which it resides. EveryViewGroup class implements a nested class that extends ViewGroup.LayoutParams. This subclass contains property types that define the size and position for each child view, as appropriate for the view group.  .</string>
+    <string name="UI_layout_ID">ID: Any View object may have an integer ID associated with it, to uniquely identify the View within the tree. When the app is compiled, this ID is referenced as an integer, but the ID is typically assigned in the layout XMl file as a string, in the id attribute.The @ symbol at the beginning of the string indicates that the XML parser should parse and expand the rest of the ID string and identify it as an ID resource. The plus symbol menas that this is a new resource name that must be created and added to resources file. </string>
+    <string name="UI_layout_position">Layout Position: The geometry of a view is that of a rectangle. A View has a location,expressed as a pair of left and top coordinates, and two dimensions, expressed as a width and height. The unit for location and dimension is the pixel.</string>
+    <string name="UI_layout_size">Size, Padding, Margins: The size of a view is expressed with a width and height. A view posses two pairs of width and height values.
+        \n 1. Measured width and Measured Height. These dimension define how big a view wants to be within  its parents, this includes the padding surrounding the view.
+        \n 2. The second pair is known as width and height. or sometimes drawing width and drawing height. These dimensions define the actual size of the view on screen, at drawing time and after layout.
+    </string>
 
     <!--UserInterface Layouts    -->
     <string name="UI_layout_summary">Layout: Is a ViewGroup that has several child views to create a UserInterface.</string>
@@ -54,7 +70,6 @@
     <string name="UI_layout_gridView">GridView: Displays a scrolling grid of columns and rows. </string>
     <string name="UI_layout_constraint">ConstraintLayout: Allows you to create large and complex layouts with a flat view hierarchy. Defines the view\'s position by add on horizontal and one vertical constraint for the view. *** Constraint Layout</string>
     <string name="UI_layout_MotionLayout">MotionLayout: Is a layout that helps you manage motion and widget animation in your app. MotionLayout is a subclass of ConstraintLayout, offering a mix of features between the property animation framework and TransitionManager. *** Motion Layout</string>
-
 
     <!--UserInterface Look and feel    -->
     <string name="UI_Look_summary">  </string>
@@ -83,53 +98,6 @@
     <string name="UI_Look_CardView">CardView: The CardView API shows information inside a card that have s a consistent look across the platform. These cards have default elevation above their containing view group s other system draws shadows below them. </string>
     <string name="UI_Look_PlaceHolder">Click on an icon to move it to the center and in large it. *** Place Holder</string>
 
-
-    <!--UserInterface RecyclerView.-->
-    <string name="UI_RecyclerView_summary">Is a ViewGroup that efficiently displays a large set of data. When an item scrolls off the screen RecyclerView doesn\'t destroy its view. Instead, RecyclerView reuses the view for new items that have scrolled onscreen. Reuse improves the apps responsiveness and reducing power consumption.  </string>
-    <string name="UI_RecyclerView_adapter">Adapter: Adapters provide a binding from an app-specific data set to views that are displayed within a RecyclerView.</string>
-    <string name="UI_RecyclerView_layoutManager">LayoutManager: The layout manager arranges the individual elements.
-        \n - LinearLayout: arranges the items in one dimensional list.
-        \n - LinearLayout: arranges all items in a two-dimensional grid.
-    </string>
-    <string name="UI_RecyclerView_ViewHolder">ViewHolder: Each element in the list is defined by a ViewHolder object. ViewHolder provides all the functionality for the list items. ViewHolder is a wrapper around a view, and that view is managed by RecyclerView.  </string>
-    <string name="UI_RecyclerView_onCreateViewHolder">onCreateViewHolder(): RecyclerView calls this method when it needs to create a new ViewHolder. The method creates and initializes the ViewHolder and its associated View, but does not fill in the view\s contents.</string>
-    <string name="UI_RecyclerView_onBindViewHolder">onBindViewHolder(): RecyclerView calls this method to associate a ViewHolder with data. The method fetches the appropriate data and uses the data to fill in the view holder\'s layout. </string>
-    <string name="UI_recyclerView_getItemCount">getItemCount(): RecyclerView calls this method to get the size of the list. </string>
-    <string name="UI_recyclerView_diffUtils">DiffUtil: Is a utility class that calculates the difference between two lists and outputs the operations that convert the first lit into the second one. </string>
-    <string name="UI_RecyclerView_ItemDecoration">ItemDecoration: Item decoration allows the application to add a drawing and a layout offset to a specific item view from the adapters data set. All Item decorations are drawing in the order they appear.</string>
-    <string name="UI_RecyclerView_TouchHelper">TouchHelper: This is a contract between ItemTouchHelper and the application, that allows you to control touch behavior such as slide drag.</string>
-
-
-    <!-- User Interface system UI visibility    -->
-    <string name="UI_SystemUIVisibility_summary">The system bars are screen areas dedicated to the display of notifications, communication of device status, and device navigation. Typically the system bars are displayed concurrently int he app. Apps that display immersive content such as movies or images can temporarily dim the ssytem bar icons for a less distracting experience or temporarily hide the bars for a fully immersive experience. *** System UI</string>
-    <string name="UI_SystemUIVisibility_Dim">Dim Bars: Will hide the system bars until the user touches the status or navigation bar clearing the flag, once the flag is cleared it will need to be reset to hide the bars. Dim system bars doesn\'t adjust the size of the screen or views. </string>
-    <string name="UI_SystemUIVisibility_StatusBar">Hide StatusBar: Hiding the status bar allows the app to use more of the screen. This can be either programmatically set or use a theme without a status bar. </string>
-    <string name="UI_SystemUIVisibility_Navigation">Hide Navigation Bar: Removes the navigation bar at the bottom of the screen.  </string>
-
-
-    <!-- User Interface Dialogs   -->
-    <string name="UI_Dialogs_Summary">A Dialog is a small window that prompts the user to make a decision or enter additional information. A Dialog does not fill the screen and is normally used for modal events that require users to take ana action before they can proceed. The Dialog class is the base class for dialogs but you should avoid instantiating dialog *** Dialog</string>
-    <string name="UI_Dialog_Alert">AlertDialog: A dialog that can show a t</string>
-    <string name="UI_Dialog_Picker">Picker: A dialog with a predefined UI that allows the user to select a date or time. *** Picker </string>
-    <string name="UI_Dialog_Fragment">DialogFragment: Is a container for the dialog, The DialogFragment provides all the controls needed to create a dailog.</string>
-    <string name="UI_Dialog_Buttons">Buttons: A dialog can have up to three buttons, each button should preform a separate tasks.
-        \n - Positive: You should use this to accept and continue with the action
-        \n - Negative: Use this to cancel the action.
-        \n - Neutral: Use this when the user may not want to proceed with the action, but doesn't necessarily want to cancel.
-    </string>
-    <string name="UI_Dialog_List">List: Dialogs can display a single choice or a multi choice list. *** Dialog</string>
-    <string name="UI_Dialog_CustomLayout">CustomLayout: You can create a custom Dialog by creating a layout and adding it to an AlertDialog and calling setView() on the AlertDialogBuilder. *** Dialog</string>
-    <string name="UI_Dialog_PassingEvents">Passing Events: When the user touches one of the Dialog buttons or selects an item form a list, you should deliver the action to the Activity/Fragment that opened the dialog. To do this define an interface with a click event. *** Dialog </string>
-    <string name="UI_Dialog_ShowDialog">ShowDialog: When you want to show your dialog, create an instance of the DialogFragment and call show(), passing the FragmentManager and a tag name for the Dialog. *** Dialog</string>
-    <string name="UI_Dialog_FullScreen">FullScreen: In order to make a dialog full screen you\'ll need to define the dialog in the layout. *** Dialog</string>
-    <string name="UI_Dialog_Dismiss">Dismiss: When the user touches any of the action buttons created with an AlertDailog.Builder, the system dismisses the dialog for your. The system also dismisses the dialog when the users touches an item in a dialog list, except when the list uses radio buttons or checkboxes. You can manually dismiss the dialog by calling dismiss(). *** Dialog</string>
-
-    <!-- UI Toast    -->
-    <string name="UI_Toast_Summary">A toast provides simple feedback about an operation in a small popup. It only fills the amount of space required for the message and the current activity remains visible and interactive. Toasts automatically disappear after a timeout.</string>
-    <string name="UI_Toast_Basics">Basics: Instantiate a Toast object with makeText(). This method takes three parameters the application the context the text to display and the length. Display toast with the show(). *** Toast.</string>
-    <string name="UI_Toast_Position">Position: A standard toast notification appears near the bottom of the screen, centered horizontally. You can change this position with the setGravity(). *** Toast</string>
-    <string name="UI_Toast_CustomToast">Custom Toast: If a text message isn\'t enough you can create a customized layout for your toast notification to create custom layout, define a View layout, in XML or in your application code. and pass the root view object. *** Toast</string>
-
     <!--UI Menu-->
     <string name="UI_Menu_Summary">Menus are a common user interface component, the Menu API should present user actions and other options in your activities. As of API 11 a menu is no loner required.</string>
     <string name="UI_Menu_Options">OptionsMenu: The options menu is the primary collection of menu items for an activity. It\'s where you should place actions that have a global impact on the app, such as Search. *** Menu</string>
@@ -147,4 +115,31 @@
         \n - Enable or disable all items.
         \n - Specify where all items are checkable.
     </string>
+
+    <!--UserInterface RecyclerView.-->
+    <string name="UI_RecyclerView_summary">Is a ViewGroup that efficiently displays a large set of data. When an item scrolls off the screen RecyclerView doesn\'t destroy its view. Instead, RecyclerView reuses the view for new items that have scrolled onscreen. Reuse improves the apps responsiveness and reducing power consumption.  </string>
+    <string name="UI_RecyclerView_adapter">Adapter: Adapters provide a binding from an app-specific data set to views that are displayed within a RecyclerView.</string>
+    <string name="UI_RecyclerView_layoutManager">LayoutManager: The layout manager arranges the individual elements.
+        \n - LinearLayout: arranges the items in one dimensional list.
+        \n - LinearLayout: arranges all items in a two-dimensional grid.
+    </string>
+    <string name="UI_RecyclerView_ViewHolder">ViewHolder: Each element in the list is defined by a ViewHolder object. ViewHolder provides all the functionality for the list items. ViewHolder is a wrapper around a view, and that view is managed by RecyclerView.  </string>
+    <string name="UI_RecyclerView_onCreateViewHolder">onCreateViewHolder(): RecyclerView calls this method when it needs to create a new ViewHolder. The method creates and initializes the ViewHolder and its associated View, but does not fill in the view\s contents.</string>
+    <string name="UI_RecyclerView_onBindViewHolder">onBindViewHolder(): RecyclerView calls this method to associate a ViewHolder with data. The method fetches the appropriate data and uses the data to fill in the view holder\'s layout. </string>
+    <string name="UI_recyclerView_getItemCount">getItemCount(): RecyclerView calls this method to get the size of the list. </string>
+    <string name="UI_recyclerView_diffUtils">DiffUtil: Is a utility class that calculates the difference between two lists and outputs the operations that convert the first lit into the second one. </string>
+    <string name="UI_RecyclerView_ItemDecoration">ItemDecoration: Item decoration allows the application to add a drawing and a layout offset to a specific item view from the adapters data set. All Item decorations are drawing in the order they appear.</string>
+    <string name="UI_RecyclerView_TouchHelper">TouchHelper: This is a contract between ItemTouchHelper and the application, that allows you to control touch behavior such as slide drag.</string>
+
+    <!-- User Interface system UI visibility    -->
+    <string name="UI_SystemUIVisibility_summary">The system bars are screen areas dedicated to the display of notifications, communication of device status, and device navigation. Typically the system bars are displayed concurrently int he app. Apps that display immersive content such as movies or images can temporarily dim the ssytem bar icons for a less distracting experience or temporarily hide the bars for a fully immersive experience. *** System UI</string>
+    <string name="UI_SystemUIVisibility_Dim">Dim Bars: Will hide the system bars until the user touches the status or navigation bar clearing the flag, once the flag is cleared it will need to be reset to hide the bars. Dim system bars doesn\'t adjust the size of the screen or views. </string>
+    <string name="UI_SystemUIVisibility_StatusBar">Hide StatusBar: Hiding the status bar allows the app to use more of the screen. This can be either programmatically set or use a theme without a status bar. </string>
+    <string name="UI_SystemUIVisibility_Navigation">Hide Navigation Bar: Removes the navigation bar at the bottom of the screen.  </string>
+
+    <!-- UI Toast    -->
+    <string name="UI_Toast_Summary">A toast provides simple feedback about an operation in a small popup. It only fills the amount of space required for the message and the current activity remains visible and interactive. Toasts automatically disappear after a timeout.</string>
+    <string name="UI_Toast_Basics">Basics: Instantiate a Toast object with makeText(). This method takes three parameters the application the context the text to display and the length. Display toast with the show(). *** Toast</string>
+    <string name="UI_Toast_Position">Position: A standard toast notification appears near the bottom of the screen, centered horizontally. You can change this position with the setGravity(). *** Toast</string>
+    <string name="UI_Toast_CustomToast">Custom Toast: If a text message isn\'t enough you can create a customized layout for your toast notification to create custom layout, define a View layout, in XML or in your application code. and pass the root view object. *** Toast</string>
 </resources>
