@@ -100,9 +100,10 @@
 
     <!--UI Menu-->
     <string name="UI_Menu_Summary">Menus are a common user interface component, the Menu API should present user actions and other options in your activities. As of API 11 a menu is no loner required.</string>
-    <string name="UI_Menu_Options">OptionsMenu: The options menu is the primary collection of menu items for an activity. It\'s where you should place actions that have a global impact on the app, such as Search. *** Menu</string>
-    <string name="UI_Menu_Context">ContextMenu: A context menu is a floating menu that appears when the user preforms a long-click on a element. it provides actions that affect the selected content. *** Menu</string>
-    <string name="UI_Menu_PopUp">Popup: A popup menu displays a list of items in a vertical list that\'s anchored to the view that invoked the menu. It\'s good for providing an overflow of actions that relate to specific content or to provide options for a second part of a command. *** Menu</string>
+    <string name="UI_Menu_Options">Options Menu: The options menu is the primary collection of menu items for an activity. It\'s where you should place actions that have a global impact on the app, such as Search. </string>
+    <string name="UI_Menu_Contextual">Contextual Menu: A contextual menu is a floating menu that appears when the user preforms a long-click on a element. it provides actions that affect the selected content. *** Menu</string>
+    <string name="UI_Menu_PopUp">Popup Menu: A popup menu displays a list of items in a vertical list that\'s anchored to the view that invoked the menu. It\'s good for providing an overflow of actions that relate to specific content or to provide options for a second part of a command. *** Menu</string>
+    <string name="UI_Menu_Floating">Floating Menu: Is similar to a pop menu but needs a long press to show the view. *** Menu</string>
     <string name="UI_Menu_Define">Defining a Menu: For all menu types, Android provides a standard XML format to define menu items. Instead of building a menu. List of elements.
         \n menu: Defines a menu, which is a container for menu item. A menu element must be the root node for th file and can hold one or more item and group elements.
         \n item: Creates a MenuItem, which represents a single item in a menu> this element may contain a nested element in order to create a submenu.
@@ -115,6 +116,17 @@
         \n - Enable or disable all items.
         \n - Specify where all items are checkable.
     </string>
+
+    <!--UI Preferences    -->
+    <string name="UI_Settings_Summary">Settings allow the user to change the functionality and behavior of an application. Settings can affect background behavior , such as how often the application synchronizes data, or change the contents and presentation of the UI.</string>
+    <string name="UI_Settings_Preferences">Preferences: A Preference is the basic building block of the preference library. A setting screen contains a Preference hierarchy. You can define this hierarchy as an XML resource. *** Example</string>
+    <string name="UI_Settings_Inflate">Inflate: To inflate a hierarchy from an XML attribute create a PreferenceFragmentCompat and override onCreatePreferences().</string>
+    <string name="UI_Settings_PreferenceCategory">Preference Category: Displays a category title and visually separates the category. To define a category wrap the Preference tags with PreferenceCategory. *** Example</string>
+    <string name="UI_Settings_SplitHierarchy">Split Hierarchy: You can spilt Preferences on to multiple screens, each screen should b e a PreferenceFragmentCompat with its own hierarchy. Presences on the initial screen can link to sub screens. *** Example</string>
+    <string name="UI_Settings_SummaryProvider">SummaryProvider: ListPreference and EditTextPreference include a SummaryProvider implementations that automatically displays the saved Preference value as the summary. If no value has been saved they display not set. *** Example</string>
+    <string name="UI_Settings_PreferenceAction">PreferenceAction: A preference can have a specific action when tapped. A preference can act as a link to a separate part of the application. To add an action you can either set an Intent on the Preference directly, or you can set an OnPreferenceClickListener. *** Example</string>
+    <string name="UI_Settings_SharedPreference">Shared Preference: Preference uses SharedPreferences to save values. The SharedPreferences API allows for reading and writing key-value pairs from a file that is saved across application sessions. The preference library uses a private SharedPreferences instance so that only your application can access it. *** Example</string>
+
 
     <!--UserInterface RecyclerView.-->
     <string name="UI_RecyclerView_summary">Is a ViewGroup that efficiently displays a large set of data. When an item scrolls off the screen RecyclerView doesn\'t destroy its view. Instead, RecyclerView reuses the view for new items that have scrolled onscreen. Reuse improves the apps responsiveness and reducing power consumption.  </string>

@@ -188,7 +188,7 @@ class TextSetup(val context: Context) {
             "Toast" -> view.findNavController().navigate(R.id.dest_toastFragment) // Done
             "Snackbar" -> view.findNavController().navigate(R.id.dest_snackbarFragment) // Done
             "Dialog" -> view.findNavController().navigate(R.id.dest_dialogInfoFragment) // Dialog
-            "Preference" -> view.findNavController().navigate(R.id.dest_myPreferencesFragment)
+            "Settings" -> view.findNavController().navigate(R.id.dest_myPreferencesFragment)
         }
     }
 
