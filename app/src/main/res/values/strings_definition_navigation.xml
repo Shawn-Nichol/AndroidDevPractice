@@ -2,11 +2,10 @@
 <resources>
     <!-- Navigation    -->
     <string name="navigation_summary">Refers to the interactions that allow users to navigate through different sections of the app. JetPack\s navigation component ensures a consistent and predictable user experience by adhering to an established set of principles </string>
-    <string name="navigation_graph">Navigation Graph: \nAn XML resource that contains all navigation-related information in one centralized location. This includes all of the individual content areas within your app, called destinations, as well as the possible paths that a user can take to navigate through the app.</string>
-    <string name="navigation_nav_host">NavHost: \nAn empty container that displays destinations from your navigation graph. The navigation component contains a default NavHost implementation, NavHostFragment, that displays fragment destinations.</string>
-    <string name="navigation_nav_controller">NavController: \nAn object that manages app navigation with a navHost. The NavController orchestrates the swapping of destination content in the NavHost as users move throughout the app.</string>
-    <string name="navigation_navigation_benefits">Benefits:
-        \n - Handling fragment transactions
+    <string name="navigation_graph">Navigation Graph: An XML resource that contains all navigation-related information in one centralized location. This includes all of the individual content areas within your app, called destinations, as well as the possible paths that a user can take to navigate through the app.</string>
+    <string name="navigation_nav_host">NavHost: An empty container that displays destinations from your navigation graph. The navigation component contains a default NavHost implementation, NavHostFragment, that displays fragment destinations.</string>
+    <string name="navigation_nav_controller">NavController: An object that manages app navigation with a navHost. The NavController orchestrates the swapping of destination content in the NavHost as users move throughout the app.</string>
+    <string name="navigation_navigation_benefits">Benefits: - Handling fragment transactions
         \n - Handling Up and Back actions correctly be default
         \n - Providing standardized resources for animations and transitions.
         \n - Implementing and handling deep link
@@ -18,20 +17,18 @@
     <string name="navigation_conditional_navigation">When designing navigation for your app, ou might want to navigate to one destination versus another based on conditional logic. </string>
 
     <!--Navigation Principles    -->
-    <string name="navigation_principles_of_navigation_fixed">Fixed Start Destination: \nThis is the first screen the user sees when they launch the app from the launcher. This destination is also the last screen the user after pressing the back button. </string>
-    <string name="navigation_principles_of_navigation_stack">Stack: \nThe start destination is the base destination of what is known as the back stack and is the basis for the app\'s navigation state. The top of the stack is the current screen and the previous destinations in the stack represent the history of where you\'ve been. The back stack always has the start destination of the app at the bottom of the stack. Navigation component manages all of the back stack ordering for you can choose to manage the back stack your self.</string>
-    <string name="navigation_principles_of_navigation_up_and_back">Up and Back:
-        \nThe back button appears in the system navigation bar at the bottom of the screen and is used to navigate in reverse-chronological order through the history of the screens the user has recently worked with. When you press the current destination is popped off the top of the back stack, and you then navigate to the previous destination.
+    <string name="navigation_principles_of_navigation_fixed">Fixed Start Destination: This is the first screen the user sees when they launch the app from the launcher. This destination is also the last screen the user after pressing the back button. </string>
+    <string name="navigation_principles_of_navigation_stack">Stack: The start destination is the base destination of what is known as the back stack and is the basis for the app\'s navigation state. The top of the stack is the current screen and the previous destinations in the stack represent the history of where you\'ve been. The back stack always has the start destination of the app at the bottom of the stack. Navigation component manages all of the back stack ordering for you can choose to manage the back stack your self.</string>
+    <string name="navigation_principles_of_navigation_up_and_back">Up and Back: The back button appears in the system navigation bar at the bottom of the screen and is used to navigate in reverse-chronological order through the history of the screens the user has recently worked with. When you press the current destination is popped off the top of the back stack, and you then navigate to the previous destination.
         \nThe Up button appears in the app bar at tht top of the screen and is identical to the back button but can\'t exit the app. </string>
-    <string name="navigation_principles_of_navigation_deep_link">Deep Link: \nAllows an icon that you place on the screen to link to specified destination in the app. </string>
+    <string name="navigation_principles_of_navigation_deep_link">Deep Link: Allows an icon that you place on the screen to link to specified destination in the app. </string>
 
     <!--Navigation NavGraph    -->
     <string name="navigation_NavGraph_summary">The Navigation component uses a navigation graph too manage your app\'s navigation. A navigation graph is a resource file that contains all of the app\'s destinations along with the logical connections, or actions, that users can take to navigate from one destination to another. You can manage your app\s navigation using the navigation editor.  </string>
-    <string name="navigation_NavGraph_TopLevel">TopLevel: \nTop-level navigation graph should start with the initial destination the user sees when launching the app and should include the destinations the user sees. </string>
-    <string name="navigation_NavGraph_GlobalActions">Global Actions: \nA common action that multiple destinations can use. A global action is respseneted in teh Navigation Editor by a small arrow that points to the associated destiantion.</string>
-    <string name="navigation_NavGraph_NestedGraphs_summary">NestedNavGraph: \nA series of destinations can be grouped into a nested graph within a parent navigation graph called the root graph. Nested graphs are useful to organize and reuse sections of your app\'s UI such as a self-contained login flow.The nested graph encapsulates its destinations. As with a root graph, a nested graph must have destination identified as the start destination. Destinations outside of the nested graph ,such as those on the root graph, access the nested graph only through its start destinationn. </string>
-    <string name="navigation_NavGraph_NestedGraphs_create">Create:
-        \n 1. In the NavEditor, press and hold the shift key and click on the destinations you want to include in the nested graph.
+    <string name="navigation_NavGraph_TopLevel">TopLevel: Top-level navigation graph should start with the initial destination the user sees when launching the app and should include the destinations the user sees. </string>
+    <string name="navigation_NavGraph_GlobalActions">Global Actions: A common action that multiple destinations can use. A global action is respseneted in teh Navigation Editor by a small arrow that points to the associated destiantion.</string>
+    <string name="navigation_NavGraph_NestedGraphs_summary">NestedNavGraph: A series of destinations can be grouped into a nested graph within a parent navigation graph called the root graph. Nested graphs are useful to organize and reuse sections of your app\'s UI such as a self-contained login flow.The nested graph encapsulates its destinations. As with a root graph, a nested graph must have destination identified as the start destination. Destinations outside of the nested graph ,such as those on the root graph, access the nested graph only through its start destinationn. </string>
+    <string name="navigation_NavGraph_NestedGraphs_create">Create: 1. In the NavEditor, press and hold the shift key and click on the destinations you want to include in the nested graph.
         \n 2. Right-click to open the context menu, and select Move to Nested Graph > New Graph. The destinations are enclosed in  a nested graph.
         \n 3. Click on the nested graph. The following attributes appear in the attribute panel
         \n  - Type: which contains Nested Graph
@@ -42,20 +39,20 @@
     </string>
     <!--Navigation_Navigate    -->
     <string name="navigation_Navigate_summary">Navigation to a destination is done using a navController, an object that manages app navigation within a NavHost. Each NavHost has its own corresponding NavController. NavController provides a few different ways to navigate to a destination.</string>
-    <string name="navigation_Navigate_safe_args">SafeArgs: \nThe recommended way to navigate between destinations is to use the SafeArgs Gradle plugin. This plugin generates simple object and builder classes that enable type-safe navigation between destinations. SafeArgs is recommend both for navigating as well as passing data between destinations. </string>
-    <string name="navigation_Navigate_with_id">Navigate with ID: \nNavigate takes the resource ID of either an action or a destination.</string>
-    <string name="navigation_Navigate_action">Action: \nNavigation actions provide a level of indirection between your navigation code and the underlying destinations. This allows you to define common actions that change their destination or NavOptions based on the current NavDestination.
+    <string name="navigation_Navigate_safe_args">SafeArgs: The recommended way to navigate between destinations is to use the SafeArgs Gradle plugin. This plugin generates simple object and builder classes that enable type-safe navigation between destinations. SafeArgs is recommend both for navigating as well as passing data between destinations. </string>
+    <string name="navigation_Navigate_with_id">Navigate with ID: Navigate takes the resource ID of either an action or a destination.</string>
+    <string name="navigation_Navigate_action">Action: Navigation actions provide a level of indirection between your navigation code and the underlying destinations. This allows you to define common actions that change their destination or NavOptions based on the current NavDestination.
         \n Destination: the resource ID of the target destination.
         \n Default arguments: An android.osBundle containing default values for the target destination if supplied.
         \n Navigation options: Navigation options, represented as NavOptions. This class contains all of the special configuration for transitioning to and back from the target destination including animation resource configuration, pop behavior, and whether the destination should be lunched in a single top mode.
     </string>
-    <string name="navigation_Navigate_DeepLink">DeepLink: \nCan navigate directly ot an implicit DeepLink destination or a URI </string>
+    <string name="navigation_Navigate_DeepLink">DeepLink: Can navigate directly ot an implicit DeepLink destination or a URI </string>
 
     <!--Navigation Pass data -->
     <string name="navigation_PassData_summary">Navigation allows you to attach data to a navigation operation by defining arguments for a destination, Like a user ID. </string>
-    <string name="navigation_PassData_Arguments">Arguments: \nTo pass data between destinations, first define the argument by adding it to the destination receiving it.</string>
-    <string name="navigation_PassData_support">Support types: \nInteger, Float, Long, Boolean, String, Resource Reference, Custom Parcelable, Custom Serializable, Custom enum</string>
-    <string name="navigation_PassData_safe_args">SafeArgs: \nThe recommended way to navigate between destinations is to use the SafeArgs Gradle plugin. This plugin generates simple object and builder classes that enable type-safe navigation between destinations. SafeArgs is recommend both for navigating as well as passing data between destinations. </string>
+    <string name="navigation_PassData_Arguments">Arguments: To pass data between destinations, first define the argument by adding it to the destination receiving it.</string>
+    <string name="navigation_PassData_support">Support types: Integer, Float, Long, Boolean, String, Resource Reference, Custom Parcelable, Custom Serializable, Custom enum</string>
+    <string name="navigation_PassData_safe_args">SafeArgs: The recommended way to navigate between destinations is to use the SafeArgs Gradle plugin. This plugin generates simple object and builder classes that enable type-safe navigation between destinations. SafeArgs is recommend both for navigating as well as passing data between destinations. </string>
 
 
 </resources>
