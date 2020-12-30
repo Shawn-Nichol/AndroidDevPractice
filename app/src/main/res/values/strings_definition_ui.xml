@@ -144,9 +144,9 @@
     <string name="UI_RecyclerView_TouchHelper">TouchHelper: This is a contract between ItemTouchHelper and the application, that allows you to control touch behavior such as slide drag.</string>
 
     <!-- User Interface system UI visibility    -->
-    <string name="UI_SystemUIVisibility_summary">The system bars are screen areas dedicated to the display of notifications, communication of device status, and device navigation. Typically the system bars are displayed concurrently int he app. Apps that display immersive content such as movies or images can temporarily dim the ssytem bar icons for a less distracting experience or temporarily hide the bars for a fully immersive experience. *** System UI</string>
-    <string name="UI_SystemUIVisibility_Dim">Dim Bars: Will hide the system bars until the user touches the status or navigation bar clearing the flag, once the flag is cleared it will need to be reset to hide the bars. Dim system bars doesn\'t adjust the size of the screen or views. </string>
-    <string name="UI_SystemUIVisibility_StatusBar">Hide StatusBar: Hiding the status bar allows the app to use more of the screen. This can be either programmatically set or use a theme without a status bar. </string>
+    <string name="UI_SystemUIVisibility_summary">The system bars are screen areas dedicated to the display of notifications, communication of device status, and device navigation. Typically the system bars are displayed concurrently int he app. Apps that display immersive content such as movies or images can temporarily dim the ssytem bar icons for a less distracting experience or temporarily hide the bars for a fully immersive experience. </string>
+    <string name="UI_SystemUIVisibility_Dim">Dim Bars: Will hide the system bars until the user touches the status or navigation bar clearing the flag, once the flag is cleared it will need to be reset to hide the bars. Dim system bars doesn\'t adjust the size of the screen or views. *** System UI </string>
+    <string name="UI_SystemUIVisibility_StatusBar">Hide StatusBar: Hiding the status bar allows the app to use more of the screen. This can be either programmatically set or use a theme without a status bar. *** System UI </string>
     <string name="UI_SystemUIVisibility_Navigation">Hide Navigation Bar: Removes the navigation bar at the bottom of the screen.  </string>
 
     <!-- UI Toast    -->

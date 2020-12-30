@@ -1,10 +1,14 @@
 package com.example.androiddevpractice.topics.service
 
+import android.app.Notification
+import android.app.PendingIntent
 import android.app.Service
 import android.content.Intent
 import android.os.IBinder
-import android.os.SystemClock
 import android.util.Log
+import com.example.androiddevpractice.MainActivity
+import com.example.androiddevpractice.R
+import com.example.androiddevpractice.topics.userinterface.notification.CHANNEL_ID
 
 class MyForegroundService : Service() {
     private var TAG = "PracticeMyForeground"
@@ -16,6 +20,18 @@ class MyForegroundService : Service() {
     override fun onCreate() {
         super.onCreate()
         Log.i(TAG, "onCreate")
+        val intent = Intent(this, MainActivity::class.java)
+        val pendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
+
+        val notification = Notification.Builder(this, CHANNEL_ID).apply {
+            setContentTitle("Foreground Title")
+            setContentText("Foreground Text")
+            setSmallIcon(R.drawable.ic_android)
+            setContentIntent(pendingIntent)
+        }
+
+        startForeground(2, notification.build())
+
     }
 
     /**
@@ -25,10 +41,10 @@ class MyForegroundService : Service() {
      */
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         Log.i(TAG, "onStartCommand")
-        for (i in 0..9) {
-            Log.i(TAG, "onStartCommand: counter $i")
-            SystemClock.sleep(1000)
-        }
+//        for (i in 0..9) {
+//            Log.i(TAG, "onStartCommand: counter $i")
+//            SystemClock.sleep(1000)
+//        }
         return START_STICKY
 
     }
@@ -41,7 +57,6 @@ class MyForegroundService : Service() {
     override fun onBind(intent: Intent?): IBinder? {
         return null
     }
-
 
 
     /**

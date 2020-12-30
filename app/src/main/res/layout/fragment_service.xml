@@ -14,25 +14,27 @@
         android:layout_height="match_parent"
         tools:context=".topics.service.ServiceFragment">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatToggleButton
             android:id="@+id/btn_StartService"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:onClick="@{() -> binding.startMyService()}"
-            android:text="Start Service"
+            android:textOn="Stop Service"
+            android:textOff="Start Service"
+            android:checked="false"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/btn_StopService"
+        <androidx.appcompat.widget.AppCompatToggleButton
+            android:id="@+id/btn_startForeground"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:onClick="@{() -> binding.stopMyService()}"
-            android:text="Stop Service"
+            android:checked="false"
+            android:textOff="StartForeground"
+            android:textOn="StopForeground"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_StartService" />
 

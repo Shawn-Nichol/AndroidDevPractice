@@ -1,4 +1,4 @@
-package com.example.androiddevpractice.room.dbinfo
+package com.example.androiddevpractice.room.dbInsert
 
 import android.content.Context
 import com.example.androiddevpractice.room.DevDao
