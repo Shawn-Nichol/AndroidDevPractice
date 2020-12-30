@@ -21,6 +21,9 @@ class ToggleButtonFragment : Fragment() {
     private lateinit var binding: FragmentToggleButtonBinding
     private lateinit var sharedPref: SharedPreferences
 
+
+    // Bound service
+
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
