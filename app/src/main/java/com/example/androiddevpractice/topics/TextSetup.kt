@@ -172,22 +172,22 @@ class TextSetup(val context: Context) {
     private fun navigate(view: View, navString: String) {
         Log.i(TAG, "navigate, navString = $navString")
         when (navString) {
-            "Button" -> view.findNavController().navigate(R.id.dest_buttonFragment) // Done
+            "Button" -> view.findNavController().navigate(R.id.dest_buttonFragment)
             "Menu" -> view.findNavController().navigate(R.id.dest_menuFragment)
-            "Constraint Layout" -> view.findNavController().navigate(R.id.dest_constraintLayoutFragment) // Done
-            "Place Holder" -> view.findNavController().navigate(R.id.dest_placeHolderFragment) // Done
-            "Motion Layout" -> view.findNavController().navigate(R.id.dest_motionLayoutFragment) // Done
-            "Check Boxes" -> view.findNavController().navigate(R.id.dest_checkBoxFragment) // Done
-            "Radio Buttons" -> view.findNavController().navigate(R.id.dest_radioButtonFragment) // Done
-            "Toggle Buttons" -> view.findNavController().navigate(R.id.dest_toggleButtonFragment) // Done
-            "Switch" -> view.findNavController().navigate(R.id.dest_switchesFragment) // Switch
-            "Pickers" -> view.findNavController().navigate(R.id.dest_pickerFragment) // Done
-            "ToolTip" -> view.findNavController().navigate(R.id.dest_toolTipFragment) // Done
-            "Notification" -> view.findNavController().navigate(R.id.dest_notificationFragment) // Done
-            "System UI" -> view.findNavController().navigate(R.id.dest_systemUIFragment) // Done
-            "Toast" -> view.findNavController().navigate(R.id.dest_toastFragment) // Done
-            "Snackbar" -> view.findNavController().navigate(R.id.dest_snackbarFragment) // Done
-            "Dialog" -> view.findNavController().navigate(R.id.dest_dialogInfoFragment) // Dialog
+            "Constraint Layout" -> view.findNavController().navigate(R.id.dest_constraintLayoutFragment)
+            "Place Holder" -> view.findNavController().navigate(R.id.dest_placeHolderFragment)
+            "Motion Layout" -> view.findNavController().navigate(R.id.dest_motionLayoutFragment)
+            "Check Boxes" -> view.findNavController().navigate(R.id.dest_checkBoxFragment)
+            "Radio Buttons" -> view.findNavController().navigate(R.id.dest_radioButtonFragment)
+            "Toggle Buttons" -> view.findNavController().navigate(R.id.dest_toggleButtonFragment)
+            "Switch" -> view.findNavController().navigate(R.id.dest_switchesFragment)
+            "Pickers" -> view.findNavController().navigate(R.id.dest_pickerFragment)
+            "ToolTip" -> view.findNavController().navigate(R.id.dest_toolTipFragment)
+            "Notification" -> view.findNavController().navigate(R.id.dest_notificationFragment)
+            "System UI" -> view.findNavController().navigate(R.id.dest_systemUIFragment)
+            "Toast" -> view.findNavController().navigate(R.id.dest_toastFragment)
+            "Snackbar" -> view.findNavController().navigate(R.id.dest_snackbarFragment)
+            "Dialog" -> view.findNavController().navigate(R.id.dest_dialogInfoFragment)
             "Settings" -> view.findNavController().navigate(R.id.dest_myPreferencesFragment)
         }
     }
