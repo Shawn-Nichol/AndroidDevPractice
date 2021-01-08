@@ -29,12 +29,12 @@ class MyService : Service() {
             Log.i(TAG, "onStartCommand: counter $i")
             SystemClock.sleep(1000)
         }
-        return START_STICKY
 
+        return START_STICKY
     }
 
     /**
-     * The system invokes this mehod by calling bindService() when another component wants to bind with
+     * The system invokes this method by calling bindService() when another component wants to bind with
      * the service. You must provide an interface that clients use to communicate with the service by
      * returning an IBinder. you must always implement this method however if you don't want to allow binding, you should return null.
      */
@@ -53,4 +53,6 @@ class MyService : Service() {
         super.onDestroy()
         Log.i(TAG, "onDestroy")
     }
+
+
 }

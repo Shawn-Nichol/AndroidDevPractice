@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/dest_serviceFragment">
+    app:startDestination="@id/dest_recyclerViewFragment">
 
     <fragment
         android:id="@+id/dest_loginFragment"
@@ -80,15 +80,12 @@
         <action
             android:id="@+id/action_dest_detailsFragment_to_dest_menuFragment"
             app:destination="@id/dest_menuFragment" />
-        <action
-            android:id="@+id/action_dest_detailsFragment_to_dest_lifecycleFragment"
-            app:destination="@id/dest_lifecycleFragment" />
+
         <action
             android:id="@+id/action_dest_detailsFragment_to_dest_dialogInfoFragment"
             app:destination="@id/dest_dialogInfoFragment" />
-        <action
-            android:id="@+id/action_dest_detailsFragment_to_dest_dataBindingFragment"
-            app:destination="@id/dest_dataBindingFragment" />
+
+
         <action
             android:id="@+id/action_dest_detailsFragment_to_dest_systemUIFragment"
             app:destination="@id/dest_systemUIFragment" />
@@ -99,9 +96,6 @@
             android:id="@+id/action_dest_detailsFragment_to_dest_checkBoxFragment"
             app:destination="@id/dest_checkBoxFragment" />
         <action
-            android:id="@+id/action_dest_detailsFragment_to_dest_lifeCycleAwareFragment"
-            app:destination="@id/dest_lifeCycleAwareFragment" />
-        <action
             android:id="@+id/action_dest_detailsFragment_to_dest_myPreferencesFragment"
             app:destination="@id/dest_myPreferencesFragment" />
         <action
@@ -110,9 +104,6 @@
         <action
             android:id="@+id/action_dest_detailsFragment_to_dest_radioButtonFragment"
             app:destination="@id/dest_radioButtonFragment" />
-        <action
-            android:id="@+id/action_dest_detailsFragment_to_dest_processLifeCycleFragment"
-            app:destination="@id/dest_processLifeCycleFragment" />
         <action
             android:id="@+id/action_dest_detailsFragment_to_dest_switchesFragment"
             app:destination="@id/dest_switchesFragment" />
@@ -133,7 +124,7 @@
             app:destination="@id/dest_motionLayoutFragment" />
         <action
             android:id="@+id/action_dest_detailsFragment_to_serviceFragment"
-            app:destination="@id/dest_serviceFragment" />
+            app:destination="@id/dest_ServiceFragment" />
     </fragment>
     <fragment
         android:id="@+id/dest_menuFragment"
@@ -290,71 +281,13 @@
         android:id="@+id/dest_seekBarPreferences"
         android:name="com.example.androiddevpractice.topics.userinterface.preferences.SeekBarPreferences"
         android:label="SeekBar Preferences" />
-    <fragment
-        android:id="@+id/dest_myActivityFragment"
-        android:name="com.example.androiddevpractice.topics.activity.MyActivityFragment"
-        android:label="Activity"
-        tools:layout="@layout/fragment_my_activity">
-        <argument
-            android:name="Title"
-            app:argType="string" />
 
-    </fragment>
-    <fragment
-        android:id="@+id/dest_configurationChangeFragment"
-        android:name="com.example.androiddevpractice.topics.activity.ConfigurationChangeFragment"
-        android:label="ConfigurationChange"
-        tools:layout="@layout/fragment_configuration_change">
-        <argument
-            android:name="Title"
-            app:argType="string" />
-    </fragment>
-    <fragment
-        android:id="@+id/dest_processLifeCycleFragment"
-        android:name="com.example.androiddevpractice.topics.activity.ProcessLifeCycleFragment"
-        android:label="ProcessLifeCycleFragment"
-        tools:layout="@layout/fragment_process_life_cycle">
-        <argument
-            android:name="Title"
-            app:argType="string" />
-    </fragment>
-    <fragment
-        android:id="@+id/dest_savingPersistentStateFragment"
-        android:name="com.example.androiddevpractice.topics.activity.SavingPersistentStateFragment"
-        android:label="SavingPersistentState">
-        <argument
-            android:name="Title"
-            app:argType="string" />
-    </fragment>
-    <fragment
-        android:id="@+id/dest_lifecycleFragment"
-        android:name="com.example.androiddevpractice.topics.activity.LifecycleFragment"
-        android:label="Activity Lifecycle" >
-        <argument
-            android:name="Title"
-            app:argType="string" />
 
-    </fragment>
+
+
+
     <fragment
-        android:id="@+id/dest_dataBindingFragment"
-        android:name="com.example.androiddevpractice.topics.architecturecomponents.DataBindingFragment"
-        android:label="DataBinding"
-        tools:layout="@layout/fragment_databinding">
-    <argument
-        android:name="Title"
-        app:argType="string" />
-    </fragment>
-    <fragment
-        android:id="@+id/dest_lifeCycleAwareFragment"
-        android:name="com.example.androiddevpractice.topics.architecturecomponents.LifeCycleAwareFragment"
-        android:label="LifeCycleAware"
-        tools:layout="@layout/fragment_life_cycle_aware">
-        <argument
-            android:name="Title"
-            app:argType="string" />
-    </fragment>
-    <fragment
-        android:id="@+id/dest_serviceFragment"
+        android:id="@+id/dest_ServiceFragment"
         android:name="com.example.androiddevpractice.topics.service.ServiceFragment"
         android:label="ServiceFragment"
         tools:layout="@layout/fragment_service"/>

@@ -189,6 +189,7 @@ class TextSetup(val context: Context) {
             "Snackbar" -> view.findNavController().navigate(R.id.dest_snackbarFragment)
             "Dialog" -> view.findNavController().navigate(R.id.dest_dialogInfoFragment)
             "Settings" -> view.findNavController().navigate(R.id.dest_myPreferencesFragment)
+            "ServiceFragment" -> view.findNavController().navigate(R.id.dest_ServiceFragment)
         }
     }
 

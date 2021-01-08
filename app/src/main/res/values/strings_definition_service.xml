@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="Service_Summary">A service is an application component that can perform long-running operations in the background, start a new thread to complete work. It does not provide a user interface. Once started a service will continue until the user turns it off. Use a service when work needs to be completed well the app is in the background.</string>
+    <string name="Service_Background">Background Service: A background service preforms an operation that isn\'t visible to the user.  *** ServiceFragment </string>
+    <string name="Service_Foreground">Foreground Service: Is a service that preform some operations that is noticeable to the user. A foreground service must display a notification so the user is aware that the service is active. *** ServiceFragment</string>
+    <string name="Service_Bound">Bound: A bound service is bound when an application component binds to it by calling bindService(). A bound Service offers a client-server interface that allows components to interact with the service, end requests, receive results, and even do so across process with InterProcess Communication. A bound service runs only as long as an application component is bound to it. *** ServiceFragment</string>
+    <string name="Service_onStartCommand">OnStartCommand: Called by the system every time a client explicitly starts the service by calling Context.startService() providing the arguments it supplied and a unique integer token representing the start request. The return value indicates what the service should use for the current started stated.
+        \n - START_NOT_STICKY: If the system kills the service after onStartCommand() returns, do not recreate the service unless there are pending intents to deliver.
+        \n - START_STICK: If the system kills the service after onStartCommand() returns, create the service and call onStartCommand(), do not redeliver the last intent. Instead the system calls onStartCommand() with a null intent.
+        \n - START_REDELIVER_INTENT: If the system kills the service after onStartCommand() returns, recreate the service and call onStartCommnad() witht he lastt intent that was delivered to the service.Any pending intents are delivered in turn. This is suitable for services that are actively perfroming a job that should be immediately resumed, such as downloading a file.
+    </string>
+    <string name="Service_StartService">Started Service: You can start a service two ways.
+        \n - startService(): Requests that a given application service be started. The intent should either contain the complete class name of a specific service implementation to start, or specific package name to target.Start service overrides bindService() and runs until stopService().
+        \n - startForegroundService(): Similar to startService() but with an implicit promise that the service will call startForeground() once it begins running. The service is given an amount of time comparable to the ANR interval to do this, otherwise the system will automatically stop the service and declare the app ANR.
+    </string>
+    <string name="Service_StopService">Stop Service: You can stop a service multiple ways.
+        \n - stopService(): Request that a given application service be stopped. If the service is not running, nothing happens.
+        \n - stopSelf(): Stop the service, it it was previously started. This is the same as calling stopService().
+    </string>
+    <string name="Service_onBind">onBind(): Return the communication channel to the service. may return null if clients can not bind to the service.</string>
+    <string name="Service_IBinder">IBinder: Base interface for remote object, the core part of a light wieght remote procedure call mechanism designed for high performance when performing in -process and cross-process calls. This interface describes the abstract protocol for interacting with a remote object. Do not implement this interface directly, instead extend t from Binder. The key IBinder API is transact() matched by Binder onTransact. </string>
+
+
+
+
+
+
+</resources>
