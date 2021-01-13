@@ -56,7 +56,7 @@ dependencies {
     // Material Design, Text Input, Nav Drawer, CardView, FAB
     implementation 'com.google.android.material:material:1.2.1'
 
-    def room_version = "2.3.0-alpha03"
+    def room_version = "2.3.0-alpha04"
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
     // optional - Kotlin Extensions and Coroutines support for Room
@@ -69,7 +69,11 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:1.1.0"
 
     // Used for media notification
-    implementation "androidx.media:media:1.1.0"
+    implementation "androidx.media:media:1.2.1"
 
-    implementation "androidx.preference:preference:1.1.1"
+    implementation "androidx.preference:preference-ktx:1.1.1"
+
+    def work_version = "2.4.0"
+    // Kotlin + coroutines
+    implementation "androidx.work:work-runtime-ktx:$work_version"
 }

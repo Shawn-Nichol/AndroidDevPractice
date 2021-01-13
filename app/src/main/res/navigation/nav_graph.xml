@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/dest_recyclerViewFragment">
+    app:startDestination="@id/dest_workerFragment">
 
     <fragment
         android:id="@+id/dest_loginFragment"
         android:name="com.example.androiddevpractice.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_recyclerViewFragment"
             app:destination="@id/dest_recyclerViewFragment" />
@@ -18,11 +18,11 @@
         android:id="@+id/dest_recyclerViewFragment"
         android:name="com.example.androiddevpractice.recyclerview.RecyclerViewFragment"
         android:label="Android Dev"
-        tools:layout="@layout/fragment_recycler_view" >
+        tools:layout="@layout/fragment_recycler_view">
         <argument
             android:name="UserName"
-            app:argType="string"
-            android:defaultValue="No Name" />
+            android:defaultValue="No Name"
+            app:argType="string" />
         <action
             android:id="@+id/action_dest_recyclerViewFragment_to_detailsFragment"
             app:destination="@id/dest_detailsFragment" />
@@ -61,13 +61,13 @@
         android:id="@+id/dest_detailsFragment"
         android:name="com.example.androiddevpractice.topics.DetailsFragment"
         android:label="Details"
-        tools:layout="@layout/fragment_details" >
+        tools:layout="@layout/fragment_details">
         <argument
             android:name="Title"
             app:argType="string" />
         <argument
             android:name="Category"
-            app:argType="string"/>
+            app:argType="string" />
         <action
             android:id="@+id/action_dest_detailsFragment_to_dest_buttonFragment"
             app:destination="@id/dest_buttonFragment" />
@@ -125,6 +125,9 @@
         <action
             android:id="@+id/action_dest_detailsFragment_to_serviceFragment"
             app:destination="@id/dest_ServiceFragment" />
+        <action
+            android:id="@+id/action_dest_detailsFragment_to_workerFragment"
+            app:destination="@id/dest_workerFragment" />
     </fragment>
     <fragment
         android:id="@+id/dest_menuFragment"
@@ -140,27 +143,27 @@
         android:id="@+id/dest_constraintLayoutFragment"
         android:name="com.example.androiddevpractice.topics.userinterface.ConstraintLayoutFragment"
         android:label="Constraint Layout"
-        tools:layout="@layout/fragment_constraint_layout"/>
+        tools:layout="@layout/fragment_constraint_layout" />
     <fragment
         android:id="@+id/dest_placeHolderFragment"
         android:name="com.example.androiddevpractice.topics.userinterface.PlaceHolderFragment"
         android:label="Place Holder"
-        tools:layout="@layout/fragment_place_holder"/>
+        tools:layout="@layout/fragment_place_holder" />
     <fragment
         android:id="@+id/dest_motionLayoutFragment"
         android:name="com.example.androiddevpractice.topics.userinterface.MotionLayoutFragment"
         android:label="Motion Layout"
-        tools:layout="@layout/fragment_motion_layout"/>
+        tools:layout="@layout/fragment_motion_layout" />
     <fragment
         android:id="@+id/dest_checkBoxFragment"
         android:name="com.example.androiddevpractice.topics.userinterface.CheckBoxFragment"
         android:label="Check Box"
-        tools:layout="@layout/fragment_check_box"/>
+        tools:layout="@layout/fragment_check_box" />
     <fragment
         android:id="@+id/dest_radioButtonFragment"
         android:name="com.example.androiddevpractice.topics.userinterface.RadioButtonFragment"
         android:label="Radio Button"
-        tools:layout="@layout/fragment_radio_button"/>
+        tools:layout="@layout/fragment_radio_button" />
     <fragment
         android:id="@+id/dest_toggleButtonFragment"
         android:name="com.example.androiddevpractice.topics.userinterface.ToggleButtonFragment"
@@ -189,7 +192,7 @@
         android:id="@+id/dest_systemUIFragment"
         android:name="com.example.androiddevpractice.topics.userinterface.SystemUIFragment"
         android:label="System UI"
-        tools:layout="@layout/fragment_system_ui"/>
+        tools:layout="@layout/fragment_system_ui" />
     <fragment
         android:id="@+id/dest_toastFragment"
         android:name="com.example.androiddevpractice.topics.userinterface.ToastFragment"
@@ -203,7 +206,7 @@
     <fragment
         android:id="@+id/dest_dialogInfoFragment"
         android:name="com.example.androiddevpractice.topics.userinterface.dialog.DialogInfoFragment"
-        android:label="Dialog Info" >
+        android:label="Dialog Info">
         <action
             android:id="@+id/action_dest_dialogInfoFragment_to_myAlertDialog"
             app:destination="@id/dest_myAlertDialog" />
@@ -236,8 +239,7 @@
     <fragment
         android:id="@+id/dest_myPreferencesFragment"
         android:name="com.example.androiddevpractice.topics.userinterface.preferences.MyPreferencesFragment"
-        android:label="Preferences"
-        >
+        android:label="Preferences">
         <action
             android:id="@+id/action_dest_myPreferencesFragment_to_UIPreferences"
             app:destination="@id/dest_UIPreferences" />
@@ -281,16 +283,15 @@
         android:id="@+id/dest_seekBarPreferences"
         android:name="com.example.androiddevpractice.topics.userinterface.preferences.SeekBarPreferences"
         android:label="SeekBar Preferences" />
-
-
-
-
-
     <fragment
         android:id="@+id/dest_ServiceFragment"
         android:name="com.example.androiddevpractice.topics.service.ServiceFragment"
         android:label="ServiceFragment"
-        tools:layout="@layout/fragment_service"/>
+        tools:layout="@layout/fragment_service" />
+    <fragment
+        android:id="@+id/dest_workerFragment"
+        android:name="com.example.androiddevpractice.topics.worker.WorkerFragment"
+        android:label="WorkerFragment" />
 
 
 </navigation>
