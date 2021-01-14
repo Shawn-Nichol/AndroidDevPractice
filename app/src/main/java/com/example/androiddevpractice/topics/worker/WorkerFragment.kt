@@ -21,6 +21,10 @@ class WorkerFragment : Fragment() {
 
     var counter = 0
 
+    lateinit var workRequest: OneTimeWorkRequest
+
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -29,27 +33,29 @@ class WorkerFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_worker,container, false)
 
         binding.binding  = this
+        myWorkRequest()
 
         return binding.root
     }
 
-    fun oneTime() {
-        Log.i(TAG, "oneTime()")
 
-        val constraints = Constraints.Builder().apply {
-//            setRequiredNetworkType(NetworkType.UNMETERED)
-//            setRequiresCharging(true)
-
-        }
+    fun myWorkRequest() {
 
         val myData = Data.Builder()
             .putString("KEY_INPUT", "This is myData")
             .build()
 
+        val constraints = Constraints.Builder().apply {
+           setRequiredNetworkType(NetworkType.NOT_REQUIRED)
+            setRequiresBatteryNotLow(binding.swBatteryNotLow.)
+            setRequiresCharging()
+            setRequiresDeviceIdle(true)
+            setRequiresStorageNotLow(true)
 
+        }
 
         // Create Work Request.
-        val workRequest: WorkRequest = OneTimeWorkRequestBuilder<MyWorker>()
+        workRequest = OneTimeWorkRequestBuilder<MyWorker>()
             .addTag("One Time Worker")
             .setConstraints(constraints.build())
             .setBackoffCriteria(
@@ -59,10 +65,25 @@ class WorkerFragment : Fragment() {
             )
             .setInputData(myData)
             .build()
+    }
+
+
+    fun oneTime() {
+        Log.i(TAG, "oneTime()")
 
         // Submit Work Request to the system
-        WorkManager.getInstance(requireContext())
-            .enqueue(workRequest)
+        WorkManager
+            .getInstance(requireContext())
+            .enqueueUniqueWork("MyWorkRequest",
+                ExistingWorkPolicy.KEEP,
+                workRequest
+            )
+    }
+
+    fun cancelWork() {
+        WorkManager
+            .getInstance(requireContext())
+            .cancelUniqueWork("MyWorkRequest")
     }
 
 
