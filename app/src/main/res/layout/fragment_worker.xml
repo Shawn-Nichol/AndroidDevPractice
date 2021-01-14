@@ -85,10 +85,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Charging"
             android:onClick="@{() -> binding.workRequest}"
+            android:text="Charging"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/spinner_network"
             app:layout_constraintTop_toBottomOf="@+id/sw_storage_low" />
 
         <com.google.android.material.switchmaterial.SwitchMaterial
@@ -112,6 +112,15 @@
             app:layout_constraintEnd_toStartOf="@+id/sw_battery_not_low"
             app:layout_constraintStart_toEndOf="@+id/sw_idle"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinner_network"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/sw_charging"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/sw_charging" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

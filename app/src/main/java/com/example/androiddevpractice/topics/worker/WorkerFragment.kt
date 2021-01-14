@@ -5,6 +5,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+
+import android.widget.ArrayAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.work.*
@@ -13,7 +16,7 @@ import com.example.androiddevpractice.databinding.FragmentWorkerBinding
 import java.util.concurrent.TimeUnit
 
 
-class WorkerFragment : Fragment() {
+class WorkerFragment : Fragment(), AdapterView.OnItemClickListener {
 
     private val TAG = "PracWorkFragment"
 
@@ -22,7 +25,7 @@ class WorkerFragment : Fragment() {
     var counter = 0
 
     lateinit var workRequest: OneTimeWorkRequest
-
+    var networkSelection = 0
 
 
     override fun onCreateView(
@@ -30,27 +33,56 @@ class WorkerFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_worker,container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_worker, container, false)
 
-        binding.binding  = this
+        binding.binding = this
+        loadSpinner()
         myWorkRequest()
+
 
         return binding.root
     }
 
 
-    fun myWorkRequest() {
+    override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        networkSelection = 0
+        myWorkRequest()
+    }
+
+    private fun loadSpinner() {
+        ArrayAdapter.createFromResource(
+            requireContext(),
+            R.array.worker_network_options,
+            android.R.layout.simple_spinner_item
+        )
+            .also { adapter ->
+                //Specify the layout
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+                binding.spinnerNetwork.adapter = adapter
+
+            }
+    }
+
+
+    private fun myWorkRequest() {
 
         val myData = Data.Builder()
             .putString("KEY_INPUT", "This is myData")
             .build()
 
         val constraints = Constraints.Builder().apply {
-           setRequiredNetworkType(NetworkType.NOT_REQUIRED)
-            setRequiresBatteryNotLow(binding.swBatteryNotLow.)
-            setRequiresCharging()
-            setRequiresDeviceIdle(true)
-            setRequiresStorageNotLow(true)
+            when (networkSelection) {
+                1 -> setRequiredNetworkType(NetworkType.NOT_REQUIRED)
+                2 -> setRequiredNetworkType(NetworkType.CONNECTED)
+                3 -> setRequiredNetworkType(NetworkType.METERED)
+                4 -> setRequiredNetworkType(NetworkType.NOT_ROAMING)
+                else -> setRequiredNetworkType(NetworkType.UNMETERED)
+            }
+            setRequiresBatteryNotLow(binding.swBatteryNotLow.isChecked)
+            setRequiresCharging(binding.swCharging.isChecked)
+            setRequiresDeviceIdle(binding.swIdle.isChecked)
+            setRequiresStorageNotLow(binding.swStorageLow.isChecked)
 
         }
 
@@ -74,7 +106,8 @@ class WorkerFragment : Fragment() {
         // Submit Work Request to the system
         WorkManager
             .getInstance(requireContext())
-            .enqueueUniqueWork("MyWorkRequest",
+            .enqueueUniqueWork(
+                "MyWorkRequest",
                 ExistingWorkPolicy.KEEP,
                 workRequest
             )
