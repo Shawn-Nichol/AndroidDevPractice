@@ -45,6 +45,7 @@ abstract class DevDatabase() : RoomDatabase() {
                     navigationInsert(devDao, mContext)
                     serviceInsert(devDao, mContext)
                     UIInsert(devDao, mContext)
+                    workManagerInsert(devDao, mContext)
 
 
 

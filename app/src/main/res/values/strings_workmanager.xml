@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="WorkManager_Summary">WorkManager is an API that makes it easy to schedule deferrable, asynchronous tasks that are expected to run even if the app exits or the device restarts. The WorkManager API is suitable and recommended replacement for all previous Aandroid background scheduling APIs. *** Example</string>
+    <string name="WorkManager_WorkerClass">WorkClass: A class that performs work synchronously on a background thread provided by the WorkManager. Worker classes are instantiated at runtime by WorkManager and the dowWork() method is called on pre-specified background thread.</string>
+    <string name="WorkManager_DoWork">doWork(): This method is called on a background thread and returns a ListenableWorker.Result. One this method returns the Worker is considered to have finished its work and is destroyed
+        \n - Result:success(): The work finished successfully
+        \n - Result.failure(): The work failed
+        \n - Result.retry(): The work failed and should be tried at another time according to its retry policy
+    </string>
+    <string name="WorkManager_WorkRequest">WorkRequest: define how and when the Work should run.</string>
+    <string name="WorkManager_Schedule">There are two types of schedules.
+        \n - OneTimeWorkRequest: only scheduled once
+        \n - PeriodicWorkRequest: Schedules work that repeats.
+    </string>
+    <string name="WorkManager_Constraints">Constraints: Defines the optimal conditions for the work to run.
+        \n - NetworkType: Contains the type of network required the work to run.
+        \n - BatteryNotLow: Work will not run when the battery is low.
+        \n - RequiresCharging: Work will only run when charging.
+        \n - DeviceIdle: Device needs to be idle for work to run
+        \n - StorageNotLow: Work will not run if the users storage is low.
+    </string>
+    <string name="WorkManager_BackOffPolicy">BackOff Policy: If the work needs to retry return Result.retry()
+        \n - Delay: Specifies the minimum amount of time to wait before retrying the work after the first attempt, cant be less then 10 seconds.
+        \n - Policy: defines how the backoff delay should increase over time for subsequent retry attempts.There are two policies.
+        \n      - LINEAR:  WorkManager will increase the Backoff time linearly.
+        \n      - EXPONENTIAL: WorkManager should increase the backoff time exponentially.
+    </string>
+    <string name="WorkManager_Tag">Tag Work: Work request have a unique identifier, which can be used to identify the work later in order to cancel the work or observe its progress.</string>
+    <string name="WorkManager_inputData">Input Data: Use a data object o pass info the doWork().</string>
+
+    <string name="WorkManager_enqueue">Enqueue: Submits the workRequest to the WorkManager. Policies
+        \n - REPLACE: replaces the existing work with new work
+        \n - KEEP: keeps existing work and ignore new work.
+        \n - APPEND: Append the new work to the end of the existing work. This policy will cause your new work to be chained to the existing work, running after the existing work finishes.
+        \n - APPEND or REPLACE: This functions similarly to APPEND, except that it is not dependent on prerequisites  work status. If the existing work is cancelled or FAILED, the new work still runs.
+    </string>
+    <string name="WorkManager_CancelAndStop">Cancel and Stop: If the work no longer needs to run you can request it to be canceled. </string>
+
+
+</resources>
