@@ -17,7 +17,7 @@ import com.example.androiddevpractice.databinding.FragmentWorkerBinding
 import java.util.concurrent.TimeUnit
 
 
-class WorkerFragment : Fragment(), AdapterView.OnItemClickListener {
+class WorkerFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     private val TAG = "PracWorkFragment"
 
@@ -52,8 +52,9 @@ class WorkerFragment : Fragment(), AdapterView.OnItemClickListener {
     }
 
 
-    override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        networkSelection = 0
+    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        networkSelection = position
+        Log.i(TAG, "Selected position $position")
     }
 
     private fun loadSpinner() {
@@ -62,10 +63,17 @@ class WorkerFragment : Fragment(), AdapterView.OnItemClickListener {
             requireActivity(),
             R.array.worker_network_options,
             android.R.layout.simple_spinner_dropdown_item
-        ) .also { adapter ->
+        ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             spinner.adapter = adapter
+
         }
+
+        spinner.onItemSelectedListener = this
+    }
+
+    override fun onNothingSelected(parent: AdapterView<*>?) {
+        Log.i(TAG, "Spinner no item selected")
     }
 
     private fun myWorkRequest(): OneTimeWorkRequest {
@@ -90,7 +98,8 @@ class WorkerFragment : Fragment(), AdapterView.OnItemClickListener {
         }
 
         // Create Work Request.
-        val workRequest = OneTimeWorkRequestBuilder<MyWorker>()
+
+        return OneTimeWorkRequestBuilder<MyWorker>()
             .addTag("One Time Worker")
             .setConstraints(constraints.build())
             .setBackoffCriteria(
@@ -100,8 +109,6 @@ class WorkerFragment : Fragment(), AdapterView.OnItemClickListener {
             )
             .setInputData(myData)
             .build()
-
-        return workRequest
     }
 
     fun oneTime() {
@@ -144,8 +151,9 @@ class WorkerFragment : Fragment(), AdapterView.OnItemClickListener {
                         return@Observer
                     }
                     WorkInfo.State.SUCCEEDED -> {
-                        Log.i(TAG, "Worker Succeeded")
-                        Toast.makeText(context, "Worker is Succeeded", Toast.LENGTH_SHORT).show()
+                        val output: String = workInfo.outputData.getString("KEY_OUTPUT").toString()
+                        Log.i(TAG, "Worker Succeeded ${workInfo.outputData.getString("KEY_OUTPUT")}")
+                        Toast.makeText(context, "Worker is Succeeded, output string $output", Toast.LENGTH_SHORT).show()
                         return@Observer
                     }
                     else -> {

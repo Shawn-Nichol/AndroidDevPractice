@@ -2,6 +2,7 @@ package com.example.androiddevpractice.topics.worker
 
 import android.content.Context
 import android.util.Log
+import androidx.work.Data
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 
@@ -19,7 +20,11 @@ class MyWorker(context: Context, params: WorkerParameters) : Worker(context, par
 
         log()
         Log.i(TAG, "doWork(), work completed")
-        return Result.success()
+
+        val data: Data = Data.Builder()
+            .putString("KEY_OUTPUT", "Worker Output")
+            .build()
+        return Result.success(data)
     }
 
     override fun onStopped() {
@@ -35,7 +40,7 @@ class MyWorker(context: Context, params: WorkerParameters) : Worker(context, par
             counter++
             Log.i(TAG, "Counter, $counter")
             Thread.sleep(1000)
-            if(counter == 100) return
+            if(counter == 10) return
         }
     }
 }
