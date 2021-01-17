@@ -70,17 +70,6 @@
             app:layout_constraintStart_toEndOf="@+id/btn_one_time_work_request"
             app:layout_constraintTop_toTopOf="@+id/btn_one_time_work_request" />
 
-        <Button
-            android:id="@+id/btn_check_work"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:onClick="@{()-> binding.checkWork()}"
-            android:text="Check Work"
-            app:layout_constraintEnd_toEndOf="@+id/btn_one_time_work_request"
-            app:layout_constraintStart_toStartOf="@+id/btn_one_time_work_request"
-            app:layout_constraintTop_toBottomOf="@+id/btn_one_time_work_request" />
-
         <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/sw_battery_not_low"
             android:layout_width="wrap_content"

@@ -35,7 +35,7 @@ class MyWorker(context: Context, params: WorkerParameters) : Worker(context, par
             counter++
             Log.i(TAG, "Counter, $counter")
             Thread.sleep(1000)
-            if(counter == 10) return
+            if(counter == 100) return
         }
     }
 }

@@ -34,11 +34,11 @@
 
 
     <string-array name="worker_network_options">
-        <item name="UnMetered"/>
-        <item name="Not Required"/>
-        <item name="Connected"/>
-        <item name="Metered"/>
-        <item name="Not Roaming"/>
+        <item>UnMetered</item>
+        <item>Not Required</item>
+        <item>Connected</item>
+        <item>Metered</item>>
+        <item>Not Roaming</item>>
     </string-array>
 
 

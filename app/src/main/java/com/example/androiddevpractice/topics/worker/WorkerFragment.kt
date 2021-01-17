@@ -54,24 +54,19 @@ class WorkerFragment : Fragment(), AdapterView.OnItemClickListener {
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         networkSelection = 0
-
     }
 
     private fun loadSpinner() {
+        val spinner = binding.spinnerNetwork
         ArrayAdapter.createFromResource(
-            requireContext(),
+            requireActivity(),
             R.array.worker_network_options,
             android.R.layout.simple_spinner_dropdown_item
-        )
-            .also { adapter ->
-                //Specify the layout
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-
-                binding.spinnerNetwork.adapter = adapter
-
-            }
+        ) .also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinner.adapter = adapter
+        }
     }
-
 
     private fun myWorkRequest(): OneTimeWorkRequest {
 
@@ -109,7 +104,6 @@ class WorkerFragment : Fragment(), AdapterView.OnItemClickListener {
         return workRequest
     }
 
-
     fun oneTime() {
         Log.i(TAG, "oneTime()")
 
@@ -122,8 +116,6 @@ class WorkerFragment : Fragment(), AdapterView.OnItemClickListener {
                 ExistingWorkPolicy.KEEP,
                 workRequest
             )
-
-
     }
 
     fun cancelWork() {
@@ -162,11 +154,6 @@ class WorkerFragment : Fragment(), AdapterView.OnItemClickListener {
                     }
                 }
             })
-    }
-
-    fun checkWork() {
-
-
     }
 
 
