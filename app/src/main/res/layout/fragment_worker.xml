@@ -22,7 +22,8 @@
             android:onClick="@{() -> binding.oneTime()}"
             android:text="Work One time"
             app:layout_constraintBottom_toTopOf="@+id/tv_counter"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sw_charging" />
 
         <TextView
             android:id="@+id/tv_counter"
@@ -69,13 +70,23 @@
             app:layout_constraintStart_toEndOf="@+id/btn_one_time_work_request"
             app:layout_constraintTop_toTopOf="@+id/btn_one_time_work_request" />
 
+        <Button
+            android:id="@+id/btn_check_work"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:onClick="@{()-> binding.checkWork()}"
+            android:text="Check Work"
+            app:layout_constraintEnd_toEndOf="@+id/btn_one_time_work_request"
+            app:layout_constraintStart_toStartOf="@+id/btn_one_time_work_request"
+            app:layout_constraintTop_toBottomOf="@+id/btn_one_time_work_request" />
+
         <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/sw_battery_not_low"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Battery Not Low"
-            android:onClick="@{() -> binding.workRequest}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/sw_storage_low"
             app:layout_constraintTop_toTopOf="parent" />
@@ -85,7 +96,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:onClick="@{() -> binding.workRequest}"
             android:text="Charging"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/spinner_network"
@@ -97,7 +107,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Idle"
-            android:onClick="@{() -> binding.workRequest}"
             app:layout_constraintEnd_toStartOf="@+id/sw_storage_low"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -108,7 +117,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Storage Low"
-            android:onClick="@{() -> binding.workRequest}"
             app:layout_constraintEnd_toStartOf="@+id/sw_battery_not_low"
             app:layout_constraintStart_toEndOf="@+id/sw_idle"
             app:layout_constraintTop_toTopOf="parent" />

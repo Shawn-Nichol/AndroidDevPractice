@@ -18,6 +18,7 @@ class MyWorker(context: Context, params: WorkerParameters) : Worker(context, par
         counterOn = true
 
         log()
+        Log.i(TAG, "doWork(), work completed")
         return Result.success()
     }
 

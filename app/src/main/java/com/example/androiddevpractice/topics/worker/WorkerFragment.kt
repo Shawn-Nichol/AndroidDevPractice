@@ -6,10 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
-
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.work.*
 import com.example.androiddevpractice.R
 import com.example.androiddevpractice.databinding.FragmentWorkerBinding
@@ -24,9 +25,16 @@ class WorkerFragment : Fragment(), AdapterView.OnItemClickListener {
 
     var counter = 0
 
-    lateinit var workRequest: OneTimeWorkRequest
+
     var networkSelection = 0
 
+    lateinit var workManager: WorkManager
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        workManager = WorkManager.getInstance(requireContext())
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,8 +45,8 @@ class WorkerFragment : Fragment(), AdapterView.OnItemClickListener {
 
         binding.binding = this
         loadSpinner()
-        myWorkRequest()
 
+        observerWork()
 
         return binding.root
     }
@@ -46,14 +54,14 @@ class WorkerFragment : Fragment(), AdapterView.OnItemClickListener {
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         networkSelection = 0
-        myWorkRequest()
+
     }
 
     private fun loadSpinner() {
         ArrayAdapter.createFromResource(
             requireContext(),
             R.array.worker_network_options,
-            android.R.layout.simple_spinner_item
+            android.R.layout.simple_spinner_dropdown_item
         )
             .also { adapter ->
                 //Specify the layout
@@ -65,7 +73,7 @@ class WorkerFragment : Fragment(), AdapterView.OnItemClickListener {
     }
 
 
-    private fun myWorkRequest() {
+    private fun myWorkRequest(): OneTimeWorkRequest {
 
         val myData = Data.Builder()
             .putString("KEY_INPUT", "This is myData")
@@ -87,7 +95,7 @@ class WorkerFragment : Fragment(), AdapterView.OnItemClickListener {
         }
 
         // Create Work Request.
-        workRequest = OneTimeWorkRequestBuilder<MyWorker>()
+        val workRequest = OneTimeWorkRequestBuilder<MyWorker>()
             .addTag("One Time Worker")
             .setConstraints(constraints.build())
             .setBackoffCriteria(
@@ -97,26 +105,68 @@ class WorkerFragment : Fragment(), AdapterView.OnItemClickListener {
             )
             .setInputData(myData)
             .build()
+
+        return workRequest
     }
 
 
     fun oneTime() {
         Log.i(TAG, "oneTime()")
 
+        val workRequest: OneTimeWorkRequest = myWorkRequest()
+
         // Submit Work Request to the system
-        WorkManager
-            .getInstance(requireContext())
+        workManager
             .enqueueUniqueWork(
                 "MyWorkRequest",
                 ExistingWorkPolicy.KEEP,
                 workRequest
             )
+
+
     }
 
     fun cancelWork() {
-        WorkManager
-            .getInstance(requireContext())
+        workManager
             .cancelUniqueWork("MyWorkRequest")
+    }
+
+    private fun observerWork() {
+        workManager.getWorkInfosByTagLiveData("One Time Worker")
+            .observe(viewLifecycleOwner, Observer<List<WorkInfo>> { listOfWorkInfo ->
+                Log.i(TAG, "Start observing")
+                if (listOfWorkInfo.isNullOrEmpty()) {
+                    Log.i(TAG, "listOfWorkInfo is empty")
+                    return@Observer
+                }
+
+                val workInfo = listOfWorkInfo[0]
+                when (workInfo.state) {
+                    WorkInfo.State.RUNNING -> {
+                        Log.i(TAG, "Worker is running")
+                        Toast.makeText(context, "Worker is Running", Toast.LENGTH_SHORT).show()
+                    }
+                    WorkInfo.State.CANCELLED -> {
+                        Log.i(TAG, "Worker canceled")
+                        Toast.makeText(context, "Worker is Cancelled", Toast.LENGTH_SHORT).show()
+                        return@Observer
+                    }
+                    WorkInfo.State.SUCCEEDED -> {
+                        Log.i(TAG, "Worker Succeeded")
+                        Toast.makeText(context, "Worker is Succeeded", Toast.LENGTH_SHORT).show()
+                        return@Observer
+                    }
+                    else -> {
+                        Log.i(TAG, "WorkInfo else")
+                        Toast.makeText(context, "Worker Nothing", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            })
+    }
+
+    fun checkWork() {
+
+
     }
 
 
