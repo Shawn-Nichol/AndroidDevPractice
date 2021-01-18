@@ -5,11 +5,17 @@ import android.util.Log
 import androidx.work.Data
 import androidx.work.Worker
 import androidx.work.WorkerParameters
+import androidx.work.workDataOf
 
 class MyWorker(context: Context, params: WorkerParameters) : Worker(context, params) {
 
     private val TAG = "PracMyWorker"
     private var counterOn = true
+
+    companion object {
+        const val Progress = "Progress"
+
+    }
 
     override fun doWork(): Result {
         Log.i(TAG, "doWork()")
@@ -39,7 +45,11 @@ class MyWorker(context: Context, params: WorkerParameters) : Worker(context, par
         while(counterOn){
             counter++
             Log.i(TAG, "Counter, $counter")
+
             Thread.sleep(1000)
+            val update = workDataOf(Progress to counter)
+            setProgressAsync(update)
+
             if(counter == 10) return
         }
     }

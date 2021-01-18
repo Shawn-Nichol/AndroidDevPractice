@@ -87,17 +87,4 @@ suspend fun architectureComponentInserts(devDao: DevDao, mContext: Context) {
     dev = Dev("ViewModel", "Architecture Component", mContext.getString(R.string.ac_viewmodel_sharedViewModel))
     devDao.insert(dev)
 
-    // Architecture components, WorkManager
-    dev = Dev("WorkManager", "Architecture Component", mContext.getString(R.string.ac_WorkManager_summary))
-    devDao.insert(dev)
-    dev = Dev("WorkManager", "Architecture Component", mContext.getString(R.string.ac_WorkManager_constraints))
-    devDao.insert(dev)
-    dev = Dev("WorkManager", "Architecture Component", mContext.getString(R.string.ac_WorkManager_scheduling))
-    devDao.insert(dev)
-    dev = Dev("WorkManager", "Architecture Component", mContext.getString(R.string.ac_WorkManager_retry))
-    devDao.insert(dev)
-    dev = Dev("WorkManager", "Architecture Component", mContext.getString(R.string.ac_WorkManager_chaining))
-    devDao.insert(dev)
-    dev = Dev("WorkManager", "Architecture Component", mContext.getString(R.string.ac_WorkManager_integrates))
-    devDao.insert(dev)
 }

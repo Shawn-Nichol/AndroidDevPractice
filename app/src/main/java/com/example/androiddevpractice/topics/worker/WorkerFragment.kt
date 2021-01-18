@@ -14,6 +14,7 @@ import androidx.lifecycle.Observer
 import androidx.work.*
 import com.example.androiddevpractice.R
 import com.example.androiddevpractice.databinding.FragmentWorkerBinding
+import com.example.androiddevpractice.topics.worker.MyWorker.Companion.Progress
 import java.util.concurrent.TimeUnit
 
 
@@ -130,16 +131,24 @@ class WorkerFragment : Fragment(), AdapterView.OnItemSelectedListener {
             .cancelUniqueWork("MyWorkRequest")
     }
 
+    @Synchronized
     private fun observerWork() {
         workManager.getWorkInfosByTagLiveData("One Time Worker")
             .observe(viewLifecycleOwner, Observer<List<WorkInfo>> { listOfWorkInfo ->
-                Log.i(TAG, "Start observing")
                 if (listOfWorkInfo.isNullOrEmpty()) {
                     Log.i(TAG, "listOfWorkInfo is empty")
                     return@Observer
                 }
 
+
+
+
                 val workInfo = listOfWorkInfo[0]
+
+                val progress = workInfo.progress
+                val value = progress.getInt(Progress, 0)
+                Log.i(TAG, "observer Progress $value")
+
                 when (workInfo.state) {
                     WorkInfo.State.RUNNING -> {
                         Log.i(TAG, "Worker is running")
@@ -175,4 +184,7 @@ class WorkerFragment : Fragment(), AdapterView.OnItemSelectedListener {
         binding.tvCounter.text = counter.toString()
     }
 
+
+    // TODO Progress is buggy and could use some work.
+    //TODO ViewModel
 }

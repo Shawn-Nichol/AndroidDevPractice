@@ -88,12 +88,6 @@
         \n - Fragments doesn\'t need to know about each other be sides the SharedViewModel
         \n - Each fragment has its own lifecyle, and is not affected by the lifecycle of the other one.
     </string>
-    <!--Architecture WorkManager-->
-    <string name="ac_WorkManager_summary">WorkManager is an API used to schedule deferrable asynchronous tasks that are expected to run even if the app exits or the device restarts. WorkManager API is a suitable and recommend replacement for all previous Android background scheduling APIs. </string>
-    <string name="ac_WorkManager_constraints">Constraints: Define the optimal conditions for your work to run using Work Constraints. ex wait to be on Wi-Fi, device idle</string>
-    <string name="ac_WorkManager_scheduling">Scheduling: Work can be run on-time or repeatedly using flexible scheduling windows. Work can be tagged  and named as well, allowing you to schedule unique, replaceable work and monitor or cancel groups of work together. Scheduled work is stored in an internally managed SQLite database and WorkManager takes careof ensuring that this work persists and is rescheduled across device reboots..</string>
-    <string name="ac_WorkManager_retry">Retry Policy: WorkManager offers flexible retry polices, including a configurable exponential backoff policy.</string>
-    <string name="ac_WorkManager_chaining">Work Chaining: For complex related work, chain individual work tasks together using a fluent, natural,interface that allows you to control which pieces run sequentially and which run in parallel. </string>
-    <string name="ac_WorkManager_integrates">Integrates: WorkManager integrates seamlessly with RxJava and Coroutines and provides the flexibility to plug in your own asynchronous APIs.</string>
+
 
 </resources>

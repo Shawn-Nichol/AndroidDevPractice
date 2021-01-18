@@ -9,6 +9,11 @@ import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.navigation.findNavController
 import com.example.androiddevpractice.R
 
+
+// Constants
+const val TOP_MARGIN_YES = 0
+const val TOP_MARGIN_NO = 1
+
 /**
  * DisplayText is used to show and hide the description of text.
  */
@@ -18,10 +23,6 @@ class TextSetup(val context: Context) {
 
     private lateinit var linear: LinearLayoutCompat
     lateinit var params: LinearLayoutCompat.LayoutParams
-
-    // Constants
-    val TOP_MARGIN_YES = 0
-    val TOP_MARGIN_NO = 1
 
     fun createTextView(details: List<String>, linear: LinearLayoutCompat) {
         this.linear = linear
