@@ -29,7 +29,7 @@ class TextSetup(val context: Context) {
         for (i in details.indices) {
             val item = details[i]
 
-            if (i == 0) summaryString(item)
+            if (i == 0) summaryString(item, 0)
             else {
                 setTitle(item, i)
                 setInfo(item, i)
@@ -41,11 +41,50 @@ class TextSetup(val context: Context) {
     /**
      * Displays the summary text of the the selected Topic
      */
-    private fun summaryString(summaryText: String) {
-        val textView: TextView = setTextView(summaryText)
-        setMargin(TOP_MARGIN_YES)
+    private fun summaryString(item: String, pos: Int) {
+        // Parse out display string
+        val displayString = displayString(item)
+
+        createTextView(displayString, pos, topMargin = true, linkText = false)
+
+
+        // Load navigation link
+        if (item.contains("***")) {
+            val stringStarts = item.indexOf("***")
+            val navString = item.substring(stringStarts + 3).trim()
+            createTextView(navString, pos, topMargin = false, linkText = true)
+        }
+
+    }
+
+    private fun displayString(item: String): String {
+        val stringStarts = 0
+        val stringEnds = if (item.contains("***")) {
+            item.indexOf("***")
+        } else item.length
+
+        return item.substring(stringStarts, stringEnds)
+    }
+
+    private fun createTextView(item: String, pos: Int, topMargin: Boolean, linkText: Boolean) {
+
+
+        val textView: TextView = if (linkText) {
+            setTextView("example").apply {
+                tag = "example $pos"
+                setOnClickListener {
+                    navigate(it, item)
+                }
+            }
+        } else {
+            setTextView(item)
+        }
+
+        if (topMargin) setMargin(TOP_MARGIN_YES) else setMargin(TOP_MARGIN_NO)
         linear.addView(textView, params)
     }
+
+
 
     /**
      * Shows details title, This title is clickable and will display the infoText when clicked.
@@ -72,7 +111,7 @@ class TextSetup(val context: Context) {
                     textSize = 24f
                 }
 
-                if(linear.findViewWithTag<TextView>("example $pos") != null) {
+                if (linear.findViewWithTag<TextView>("example $pos") != null) {
                     Log.i(TAG, "Example position exists")
                     val exampleTextView = linear.findViewWithTag<TextView>("example $pos")
 
@@ -94,7 +133,7 @@ class TextSetup(val context: Context) {
         // Get the position of the : and add one
         val startPosition = item.indexOf(":") + 1
         // This is where the string starts
-        val endPosition: Int = if(item.contains("***")) {
+        val endPosition: Int = if (item.contains("***")) {
             item.indexOf("***")
         } else item.length
 
@@ -118,7 +157,7 @@ class TextSetup(val context: Context) {
      *  @pos: the position in the list of the string, This is used to assign a tag to the TextView.s
      */
     private fun checkExample(item: String, pos: Int) {
-        if(!item.contains("***")) {
+        if (!item.contains("***")) {
             Log.i(TAG, "loadExample doesn't contain ***.")
             return
         }
@@ -174,7 +213,8 @@ class TextSetup(val context: Context) {
         when (navString) {
             "Button" -> view.findNavController().navigate(R.id.dest_buttonFragment)
             "Menu" -> view.findNavController().navigate(R.id.dest_menuFragment)
-            "Constraint Layout" -> view.findNavController().navigate(R.id.dest_constraintLayoutFragment)
+            "Constraint Layout" -> view.findNavController()
+                .navigate(R.id.dest_constraintLayoutFragment)
             "Place Holder" -> view.findNavController().navigate(R.id.dest_placeHolderFragment)
             "Motion Layout" -> view.findNavController().navigate(R.id.dest_motionLayoutFragment)
             "Check Boxes" -> view.findNavController().navigate(R.id.dest_checkBoxFragment)

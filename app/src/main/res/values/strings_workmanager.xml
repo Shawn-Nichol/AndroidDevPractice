@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="WorkManager_Summary">WorkManager is an API that makes it easy to schedule deferrable, asynchronous tasks that are expected to run even if the app exits or the device restarts. The WorkManager API is suitable and recommended replacement for all previous Aandroid background scheduling APIs. *** Example</string>
+    <string name="WorkManager_Summary">WorkManager is an API that makes it easy to schedule deferrable, asynchronous tasks that are expected to run even if the app exits or the device restarts. The WorkManager API is suitable and recommended replacement for all previous Android background scheduling APIs. *** WorkManager</string>
     <string name="WorkManager_WorkerClass">WorkClass: A class that performs work synchronously on a background thread provided by the WorkManager. Worker classes are instantiated at runtime by WorkManager and the dowWork() method is called on pre-specified background thread.</string>
     <string name="WorkManager_DoWork">doWork(): This method is called on a background thread and returns a ListenableWorker.Result. One this method returns the Worker is considered to have finished its work and is destroyed
         \n - Result:success(): The work finished successfully
