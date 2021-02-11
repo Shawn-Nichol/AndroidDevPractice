@@ -1,4 +1,4 @@
-package com.example.androiddevpractice
+package com.example.androiddevpractice.ui
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -7,7 +7,6 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -21,8 +20,14 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import com.example.androiddevpractice.MainActivityViewModel
+import com.example.androiddevpractice.R
 import com.google.android.material.navigation.NavigationView
 
+
+// KEYS
+private const val KEY_THEME: String = "User selected theme"
+private const val KEY_DARK_MODE: String = "DarkMode"
 
 class MainActivity : AppCompatActivity(), PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
 
@@ -33,13 +38,11 @@ class MainActivity : AppCompatActivity(), PreferenceFragmentCompat.OnPreferenceS
     private lateinit var sharedPref: SharedPreferences
     private lateinit var myAppBar: AppBarConfiguration
 
-    // KEYS
-    private val KEY_THEME: String = "User selected theme"
-    private val KEY_DARK_MODE: String = "DarkMode"
-
     // Theme variables
-    private var darkMode = 0
-    private var userTheme = 0
+    private var darkModeState = 0
+    private var userThemeState = 0
+
+    val load = LoadTheme()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -93,13 +96,13 @@ class MainActivity : AppCompatActivity(), PreferenceFragmentCompat.OnPreferenceS
             }
 
             R.id.force_dark -> {
-                darkMode = if(darkMode == 0 ) 1 else 0
-                setDarkMode()
+                darkModeState = if(darkModeState == 0 ) 1 else 0
+                load.setDarkMode(darkModeState)
                 return true
             }
 
             R.id.theme_change -> {
-                userTheme = if(userTheme == 0) 1 else 0
+                userThemeState = if(userThemeState == 0) 1 else 0
                 // Reloads the app so theme changes can be applied.
                 recreate()
                 return true
@@ -121,8 +124,8 @@ class MainActivity : AppCompatActivity(), PreferenceFragmentCompat.OnPreferenceS
         super.onStop()
         Log.i(TAG, "onStop")
         with(sharedPref.edit()) {
-            putInt(KEY_THEME, userTheme)
-            putInt(KEY_DARK_MODE, darkMode)
+            putInt(KEY_THEME, userThemeState)
+            putInt(KEY_DARK_MODE, darkModeState)
             commit()
         }
     }
@@ -133,10 +136,10 @@ class MainActivity : AppCompatActivity(), PreferenceFragmentCompat.OnPreferenceS
     private fun initSharedPreference() {
         Log.i(TAG, "initSharedPreference")
         sharedPref = this.getSharedPreferences("AndroidDevPractice", Context.MODE_PRIVATE)
-        userTheme = sharedPref.getInt(KEY_THEME, 0)
-        darkMode = sharedPref.getInt(KEY_DARK_MODE, 0)
-        loadTheme()
-        setDarkMode()
+        userThemeState = sharedPref.getInt(KEY_THEME, 0)
+        darkModeState = sharedPref.getInt(KEY_DARK_MODE, 0)
+        setTheme(load.setAppTheme(userThemeState))
+        load.setDarkMode(darkModeState)
     }
 
     /**
@@ -213,32 +216,9 @@ class MainActivity : AppCompatActivity(), PreferenceFragmentCompat.OnPreferenceS
         }
     }
 
-    /**
-     * Changes the current theme to dark mode.
-     */
-    private fun setDarkMode() {
-        Log.i(TAG, "darkMode(): $darkMode")
-        if(darkMode == 0) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        }
-    }
 
-    /**
-     * Loads differentAPP themes.
-     */
-    private fun loadTheme() {
-        Log.i(TAG, "loadTheme")
-        when(userTheme) {
-            0 -> {
-                setTheme(R.style.AppTheme)
-            }
-            1 -> {
-                 setTheme(R.style.AppTheme2)
-            }
-        }
-    }
+
+
 
     /**
      * Called when the user clicked on a preference that has a fragment class associated with it. The

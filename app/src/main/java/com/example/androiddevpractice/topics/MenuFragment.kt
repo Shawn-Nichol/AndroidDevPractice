@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
-import com.example.androiddevpractice.MainActivity
+import com.example.androiddevpractice.ui.MainActivity
 import com.example.androiddevpractice.R
 import com.example.androiddevpractice.databinding.FragmentMenuBinding
 

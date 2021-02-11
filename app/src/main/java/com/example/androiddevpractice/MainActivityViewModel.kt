@@ -56,4 +56,6 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
         repository.deleteTopic(topic)
     }
 
+
+
 }

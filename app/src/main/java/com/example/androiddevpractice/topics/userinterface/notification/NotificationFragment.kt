@@ -15,7 +15,7 @@ import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import com.example.androiddevpractice.MainActivity
+import com.example.androiddevpractice.ui.MainActivity
 import com.example.androiddevpractice.R
 import com.example.androiddevpractice.databinding.FragmentNotificationBinding
 
