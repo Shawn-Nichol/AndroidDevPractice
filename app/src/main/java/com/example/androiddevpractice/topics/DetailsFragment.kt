@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.transition.TransitionInflater
-import com.example.androiddevpractice.MainActivityViewModel
+import com.example.androiddevpractice.ui.main.MainActivityViewModel
 import com.example.androiddevpractice.R
 import com.example.androiddevpractice.databinding.FragmentDetailsBinding
 

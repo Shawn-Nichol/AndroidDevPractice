@@ -1,4 +1,4 @@
-package com.example.androiddevpractice
+package com.example.androiddevpractice.ui.login
 
 import android.content.Context
 import android.os.Bundle
@@ -11,6 +11,8 @@ import android.view.inputmethod.InputMethodManager
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+
+import com.example.androiddevpractice.R
 import com.example.androiddevpractice.databinding.FragmentLoginBinding
 
 
@@ -30,8 +32,6 @@ class LoginFragment : Fragment() {
 
         initDoneButtonHandler()
 
-
-
         return binding.root
     }
 
@@ -42,7 +42,6 @@ class LoginFragment : Fragment() {
     private fun initDoneButtonHandler() {
         binding.inputEditTextPassword.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE && enterUser()) {
-
                 // Closes keyboard
                 true
             }
@@ -60,7 +59,10 @@ class LoginFragment : Fragment() {
         Log.i(TAG, "User: $user")
         val password = binding.textInputPassword.editText?.text.toString().toInt()
 
-        if(password == 4369) {
+
+        val userInfo = UserInfo()
+
+        if(userInfo.checkPassword(password)) {
             //val action = RecyclerViewFragment
             val action = LoginFragmentDirections.actionLoginFragmentToRecyclerViewFragment(user)
             view?.findNavController()?.navigate(action)

@@ -12,7 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.androiddevpractice.MainActivityViewModel
+import com.example.androiddevpractice.ui.main.MainActivityViewModel
 import com.example.androiddevpractice.R
 import com.example.androiddevpractice.databinding.FragmentRecyclerViewBinding
 import com.example.androiddevpractice.recyclerview.ui.CustomTouchHelper

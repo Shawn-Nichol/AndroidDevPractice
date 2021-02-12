@@ -3,7 +3,7 @@ package com.example.androiddevpractice.recyclerview.ui
 import android.content.Context
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
-import com.example.androiddevpractice.MainActivityViewModel
+import com.example.androiddevpractice.ui.main.MainActivityViewModel
 import com.example.androiddevpractice.room.Dev
 
 class CustomTouchHelper(context: Context, val viewModel: MainActivityViewModel) : ItemTouchHelper.Callback() {

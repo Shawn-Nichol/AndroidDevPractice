@@ -1,9 +1,10 @@
 package com.example.androiddevpractice
 
 import android.content.SharedPreferences
-import com.example.androiddevpractice.ui.KEY_DARK_MODE
-import com.example.androiddevpractice.ui.KEY_THEME
-import com.example.androiddevpractice.ui.MyPreference
+import com.example.androiddevpractice.ui.main.KEY_DARK_MODE
+import com.example.androiddevpractice.ui.main.KEY_THEME
+
+import com.example.androiddevpractice.ui.main.MyPreference
 import com.nhaarman.mockitokotlin2.inOrder
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify

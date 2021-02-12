@@ -1,7 +1,5 @@
-package com.example.androiddevpractice.ui
+package com.example.androiddevpractice.ui.main
 
-import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -20,7 +18,6 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
-import com.example.androiddevpractice.MainActivityViewModel
 import com.example.androiddevpractice.R
 import com.google.android.material.navigation.NavigationView
 
@@ -29,36 +26,33 @@ import com.google.android.material.navigation.NavigationView
 const val KEY_THEME: String = "User selected theme"
 const val KEY_DARK_MODE: String = "DarkMode"
 
-class MainActivity : AppCompatActivity(), PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
+class MainActivity : AppCompatActivity(),
+    PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
 
     private var TAG = "PracticeMainActivity"
 
     private lateinit var navController: NavController
     private lateinit var drawerLayout: DrawerLayout
-    private lateinit var sharedPref: SharedPreferences
     private lateinit var myAppBar: AppBarConfiguration
 
     // Theme variables
     private var darkModeState = 0
     private var userThemeState = 0
 
-    val load = LoadTheme()
-
-
-
+    val load = AppTheme()
+    private lateinit var myPreference: MyPreference
 
     override fun onCreate(savedInstanceState: Bundle?) {
-       Log.i(TAG, "onCreate")
+        Log.i(TAG, "onCreate")
 
         initSharedPreference()
         // Needs to load before super, this allows for the correct theme to be loaded.
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-         ViewModelProvider(this).get(MainActivityViewModel::class.java)
-         initNavDrawer()
-         initNavDrawerClickListener()
+        ViewModelProvider(this).get(MainActivityViewModel::class.java)
+        initNavDrawer()
+        initNavDrawerClickListener()
     }
 
     /**
@@ -78,7 +72,7 @@ class MainActivity : AppCompatActivity(), PreferenceFragmentCompat.OnPreferenceS
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         Log.i(TAG, "onOptionsItemSelected")
-        return when(item.itemId) {
+        return when (item.itemId) {
             R.id.dest_loginFragment -> {
                 return NavigationUI.onNavDestinationSelected(item, navController)
             }
@@ -97,13 +91,13 @@ class MainActivity : AppCompatActivity(), PreferenceFragmentCompat.OnPreferenceS
             }
 
             R.id.force_dark -> {
-                darkModeState = if(darkModeState == 0 ) 1 else 0
+                darkModeState = if (darkModeState == 0) 1 else 0
                 load.setDarkMode(darkModeState)
                 return true
             }
 
             R.id.theme_change -> {
-                userThemeState = if(userThemeState == 0) 1 else 0
+                userThemeState = if (userThemeState == 0) 1 else 0
                 // Reloads the app so theme changes can be applied.
                 recreate()
                 return true
@@ -124,7 +118,7 @@ class MainActivity : AppCompatActivity(), PreferenceFragmentCompat.OnPreferenceS
     override fun onStop() {
         super.onStop()
         Log.i(TAG, "onStop")
-
+        myPreference.saveUserPreferences(userThemeState, darkModeState)
     }
 
     /**
@@ -132,10 +126,11 @@ class MainActivity : AppCompatActivity(), PreferenceFragmentCompat.OnPreferenceS
      */
     private fun initSharedPreference() {
         Log.i(TAG, "initSharedPreference")
-        sharedPref = this.getSharedPreferences("AndroidDevPractice", Context.MODE_PRIVATE)
 
-        userThemeState = sharedPref.getInt(KEY_THEME, 0)
-        darkModeState = sharedPref.getInt(KEY_DARK_MODE, 0)
+        myPreference =
+            MyPreference(this.getSharedPreferences("AndroidDevPractice", MODE_PRIVATE))
+        userThemeState = myPreference.getSavedTheme()
+        darkModeState = myPreference.getDarkModeState()
         setTheme(load.setAppTheme(userThemeState))
         load.setDarkMode(darkModeState)
     }
@@ -172,7 +167,6 @@ class MainActivity : AppCompatActivity(), PreferenceFragmentCompat.OnPreferenceS
             drawerLayout
         )
 
-
         // Shows a title based off of the destinations label
         // Display the UP button whenever you'r not on a top-level destination.
         // Displays the DrawerIcon when you're on a top-level destination
@@ -186,7 +180,7 @@ class MainActivity : AppCompatActivity(), PreferenceFragmentCompat.OnPreferenceS
         val navView = findViewById<NavigationView>(R.id.nav_drawer_view)
         navView.setNavigationItemSelectedListener { menuItem ->
 
-            when(menuItem.itemId) {
+            when (menuItem.itemId) {
                 R.id.nav_first_fragment -> {
                     Log.i(TAG, "drawerClickListener nav First Fragment")
                     navController.navigate(R.id.dest_menu1Fragment)
@@ -214,10 +208,6 @@ class MainActivity : AppCompatActivity(), PreferenceFragmentCompat.OnPreferenceS
         }
     }
 
-
-
-
-
     /**
      * Called when the user clicked on a preference that has a fragment class associated with it. The
      * implementation should instantiate and switch to an instance of the given fragment.
@@ -232,20 +222,15 @@ class MainActivity : AppCompatActivity(), PreferenceFragmentCompat.OnPreferenceS
     ): Boolean {
         Log.i(TAG, "onPreferenceStartFragment, pref: $pref, Caller: $caller")
 
-        when(pref?.key) {
+        when (pref?.key) {
             "CheckBox" -> navController.navigate(R.id.dest_checkBoxPreferences)
             "EditText" -> navController.navigate(R.id.dest_edit_text_preference)
             "List" -> navController.navigate(R.id.dest_listPreferences)
             "MultiList" -> navController.navigate(R.id.dest_multiSelectListPreferences)
             "SeekBars" -> navController.navigate(R.id.dest_seekBarPreferences)
-            "UI" ->  navController.navigate(R.id.dest_UIPreferences)
+            "UI" -> navController.navigate(R.id.dest_UIPreferences)
         }
-
-
         return true
     }
-
-
-
 }
 
