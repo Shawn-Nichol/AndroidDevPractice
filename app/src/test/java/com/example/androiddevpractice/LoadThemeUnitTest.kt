@@ -4,8 +4,7 @@ import com.example.androiddevpractice.ui.LoadTheme
 import org.junit.Assert
 import org.junit.Test
 
-class LoadThemeTest {
-
+class LoadThemeUnitTest {
 
 
     @Test
@@ -30,6 +29,8 @@ class LoadThemeTest {
         val loadTheme = LoadTheme()
 
         val userSelectedTheme = loadTheme.setAppTheme(1)
+
+        Assert.assertEquals(R.style.AppTheme2, userSelectedTheme)
     }
 
 

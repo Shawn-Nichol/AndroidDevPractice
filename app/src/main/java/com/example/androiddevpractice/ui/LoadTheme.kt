@@ -3,7 +3,7 @@ package com.example.androiddevpractice.ui
 import androidx.appcompat.app.AppCompatDelegate
 import com.example.androiddevpractice.R
 
-class LoadTheme {
+class LoadTheme() {
 
     /**
      * DarkMode = 1

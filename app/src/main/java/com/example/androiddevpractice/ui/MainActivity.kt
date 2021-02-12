@@ -26,8 +26,8 @@ import com.google.android.material.navigation.NavigationView
 
 
 // KEYS
-private const val KEY_THEME: String = "User selected theme"
-private const val KEY_DARK_MODE: String = "DarkMode"
+const val KEY_THEME: String = "User selected theme"
+const val KEY_DARK_MODE: String = "DarkMode"
 
 class MainActivity : AppCompatActivity(), PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
 
@@ -45,6 +45,8 @@ class MainActivity : AppCompatActivity(), PreferenceFragmentCompat.OnPreferenceS
     val load = LoadTheme()
 
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
        Log.i(TAG, "onCreate")
 
@@ -52,7 +54,6 @@ class MainActivity : AppCompatActivity(), PreferenceFragmentCompat.OnPreferenceS
         // Needs to load before super, this allows for the correct theme to be loaded.
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
 
 
          ViewModelProvider(this).get(MainActivityViewModel::class.java)
@@ -123,11 +124,7 @@ class MainActivity : AppCompatActivity(), PreferenceFragmentCompat.OnPreferenceS
     override fun onStop() {
         super.onStop()
         Log.i(TAG, "onStop")
-        with(sharedPref.edit()) {
-            putInt(KEY_THEME, userThemeState)
-            putInt(KEY_DARK_MODE, darkModeState)
-            commit()
-        }
+
     }
 
     /**
@@ -136,6 +133,7 @@ class MainActivity : AppCompatActivity(), PreferenceFragmentCompat.OnPreferenceS
     private fun initSharedPreference() {
         Log.i(TAG, "initSharedPreference")
         sharedPref = this.getSharedPreferences("AndroidDevPractice", Context.MODE_PRIVATE)
+
         userThemeState = sharedPref.getInt(KEY_THEME, 0)
         darkModeState = sharedPref.getInt(KEY_DARK_MODE, 0)
         setTheme(load.setAppTheme(userThemeState))
