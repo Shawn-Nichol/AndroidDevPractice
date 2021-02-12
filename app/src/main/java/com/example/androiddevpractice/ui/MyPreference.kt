@@ -15,4 +15,8 @@ class MyPreference(private val sharedPreferences: SharedPreferences) {
     fun getSavedTheme(): Int {
         return sharedPreferences.getInt(KEY_THEME, 0)
     }
+
+    fun getDarkModeState(): Int {
+        return sharedPreferences.getInt(KEY_DARK_MODE, 0)
+    }
 }
