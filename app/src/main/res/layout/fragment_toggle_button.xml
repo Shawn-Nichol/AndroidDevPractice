@@ -7,13 +7,13 @@
 
         <variable
             name="binding"
-            type="com.example.androiddevpractice.topics.userinterface.ToggleButtonFragment" />
+            type="com.example.androiddevpractice.ui.details.topics.ui.ToggleButtonFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".topics.userinterface.ToggleButtonFragment">
+        tools:context=".ui.details.topics.ui.ToggleButtonFragment">
 
         <TextView
             android:id="@+id/what_is_toggle_button"

@@ -136,12 +136,12 @@
         tools:layout="@layout/fragment_menu" />
     <fragment
         android:id="@+id/dest_buttonFragment"
-        android:name="com.example.androiddevpractice.topics.userinterface.ButtonFragment"
+        android:name="com.example.androiddevpractice.ui.details.topics.ui.ButtonFragment"
         android:label="fragment_button"
         tools:layout="@layout/fragment_button" />
     <fragment
         android:id="@+id/dest_constraintLayoutFragment"
-        android:name="com.example.androiddevpractice.topics.userinterface.ConstraintLayoutFragment"
+        android:name="com.example.androiddevpractice.ui.details.topics.ui.ConstraintLayoutFragment"
         android:label="Constraint Layout"
         tools:layout="@layout/fragment_constraint_layout" />
     <fragment
@@ -156,7 +156,7 @@
         tools:layout="@layout/fragment_motion_layout" />
     <fragment
         android:id="@+id/dest_checkBoxFragment"
-        android:name="com.example.androiddevpractice.topics.userinterface.CheckBoxFragment"
+        android:name="com.example.androiddevpractice.ui.details.topics.ui.CheckBoxFragment"
         android:label="Check Box"
         tools:layout="@layout/fragment_check_box" />
     <fragment
@@ -166,12 +166,12 @@
         tools:layout="@layout/fragment_radio_button" />
     <fragment
         android:id="@+id/dest_toggleButtonFragment"
-        android:name="com.example.androiddevpractice.topics.userinterface.ToggleButtonFragment"
+        android:name="com.example.androiddevpractice.ui.details.topics.ui.ToggleButtonFragment"
         android:label="Toggle Button"
         tools:layout="@layout/fragment_toggle_button" />
     <fragment
         android:id="@+id/dest_switchesFragment"
-        android:name="com.example.androiddevpractice.topics.userinterface.SwitchFragment"
+        android:name="com.example.androiddevpractice.ui.details.topics.ui.SwitchFragment"
         android:label="Switch"
         tools:layout="@layout/fragment_switch" />
     <fragment
@@ -181,7 +181,7 @@
         tools:layout="@layout/fragment_picker" />
     <fragment
         android:id="@+id/dest_toolTipFragment"
-        android:name="com.example.androiddevpractice.topics.userinterface.ToolTipFragment"
+        android:name="com.example.androiddevpractice.ui.details.topics.ui.ToolTipFragment"
         android:label="Tool Tip"
         tools:layout="@layout/fragment_tool_tip" />
     <fragment

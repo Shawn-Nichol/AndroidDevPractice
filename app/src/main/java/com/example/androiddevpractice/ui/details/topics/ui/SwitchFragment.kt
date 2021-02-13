@@ -1,4 +1,4 @@
-package com.example.androiddevpractice.topics.userinterface
+package com.example.androiddevpractice.ui.details.topics.ui
 
 import android.content.Context
 import android.content.SharedPreferences
