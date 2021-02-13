@@ -6,13 +6,13 @@
     <data>
         <variable
             name="binding"
-            type="com.example.androiddevpractice.topics.worker.WorkerFragment" />
+            type="com.example.androiddevpractice.ui.details.topics.worker.WorkerFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".topics.worker.WorkerFragment">
+        tools:context=".ui.details.topics.worker.WorkerFragment">
 
         <Button
             android:id="@+id/btn_one_time_work_request"

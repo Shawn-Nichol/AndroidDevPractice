@@ -28,9 +28,9 @@
             <nav-graph android:value="@navigation/nav_graph" />
         </activity>
 
-        <service android:name=".topics.service.MyService" />
-        <service android:name=".topics.service.MyForegroundService"/>
-        <service android:name=".topics.service.MyBoundService"/>
+        <service android:name=".ui.details.topics.service.MyService" />
+        <service android:name=".ui.details.topics.service.MyForegroundService"/>
+        <service android:name=".ui.details.topics.service.MyBoundService"/>
     </application>
 
 </manifest>

@@ -59,7 +59,7 @@
         tools:layout="@layout/fragment_menu3" />
     <fragment
         android:id="@+id/dest_detailsFragment"
-        android:name="com.example.androiddevpractice.topics.DetailsFragment"
+        android:name="com.example.androiddevpractice.ui.details.DetailsFragment"
         android:label="Details"
         tools:layout="@layout/fragment_details">
         <argument
@@ -285,12 +285,12 @@
         android:label="SeekBar Preferences" />
     <fragment
         android:id="@+id/dest_ServiceFragment"
-        android:name="com.example.androiddevpractice.topics.service.ServiceFragment"
+        android:name="com.example.androiddevpractice.ui.details.topics.service.ServiceFragment"
         android:label="ServiceFragment"
         tools:layout="@layout/fragment_service" />
     <fragment
         android:id="@+id/dest_workerFragment"
-        android:name="com.example.androiddevpractice.topics.worker.WorkerFragment"
+        android:name="com.example.androiddevpractice.ui.details.topics.worker.WorkerFragment"
         android:label="WorkerFragment" />
 
 

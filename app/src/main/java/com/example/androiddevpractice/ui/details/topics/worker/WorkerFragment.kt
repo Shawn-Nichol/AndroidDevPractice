@@ -1,4 +1,4 @@
-package com.example.androiddevpractice.topics.worker
+package com.example.androiddevpractice.ui.details.topics.worker
 
 import android.os.Bundle
 import android.util.Log
@@ -14,7 +14,7 @@ import androidx.lifecycle.Observer
 import androidx.work.*
 import com.example.androiddevpractice.R
 import com.example.androiddevpractice.databinding.FragmentWorkerBinding
-import com.example.androiddevpractice.topics.worker.MyWorker.Companion.Progress
+import com.example.androiddevpractice.ui.details.topics.worker.MyWorker.Companion.Progress
 import java.util.concurrent.TimeUnit
 
 

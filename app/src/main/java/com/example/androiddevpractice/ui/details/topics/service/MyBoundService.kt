@@ -1,4 +1,4 @@
-package com.example.androiddevpractice.topics.service
+package com.example.androiddevpractice.ui.details.topics.service
 
 import android.app.Service
 import android.content.Intent

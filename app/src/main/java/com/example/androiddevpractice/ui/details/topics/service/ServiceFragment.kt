@@ -1,4 +1,4 @@
-package com.example.androiddevpractice.topics.service
+package com.example.androiddevpractice.ui.details.topics.service
 
 import android.content.ComponentName
 import android.content.Context

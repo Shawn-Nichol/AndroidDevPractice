@@ -1,4 +1,4 @@
-package com.example.androiddevpractice.topics
+package com.example.androiddevpractice.ui.details
 
 import android.content.Context
 import android.graphics.Typeface

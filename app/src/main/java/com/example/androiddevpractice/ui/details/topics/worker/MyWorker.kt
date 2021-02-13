@@ -1,4 +1,4 @@
-package com.example.androiddevpractice.topics.worker
+package com.example.androiddevpractice.ui.details.topics.worker
 
 import android.content.Context
 import android.util.Log

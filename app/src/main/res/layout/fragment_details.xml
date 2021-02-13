@@ -7,7 +7,7 @@
 
         <variable
             name="binding"
-            type="com.example.androiddevpractice.topics.DetailsFragment" />
+            type="com.example.androiddevpractice.ui.details.DetailsFragment" />
     </data>
 
     <ScrollView

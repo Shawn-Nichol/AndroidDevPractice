@@ -6,13 +6,13 @@
     <data>
         <variable
             name="binding"
-            type="com.example.androiddevpractice.topics.service.ServiceFragment" />
+            type="com.example.androiddevpractice.ui.details.topics.service.ServiceFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".topics.service.ServiceFragment">
+        tools:context=".ui.details.topics.service.ServiceFragment">
 
         <androidx.appcompat.widget.AppCompatToggleButton
             android:id="@+id/btn_StartService"
