@@ -2,7 +2,6 @@ package com.example.androiddevpractice.ui.login
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +10,6 @@ import android.view.inputmethod.InputMethodManager
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-
 import com.example.androiddevpractice.R
 import com.example.androiddevpractice.databinding.FragmentLoginBinding
 
@@ -53,12 +51,11 @@ class LoginFragment : Fragment() {
 
     /**
      * Checks password to ensure that it is correct, if not the user can't enter the app.
+     * This functions runs when the presses the submit button.
      */
     fun enterUser() : Boolean {
         val user = binding.textInputUserName.editText?.text.toString()
-        Log.i(TAG, "User: $user")
-        val password = binding.textInputPassword.editText?.text.toString().toInt()
-
+        val password : Int? = binding.textInputPassword.editText?.text.toString().toInt()
 
         val userInfo = UserInfo()
 
