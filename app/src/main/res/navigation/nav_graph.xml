@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/dest_recyclerViewFragment"
-        android:name="com.example.androiddevpractice.recyclerview.RecyclerViewFragment"
+        android:name="com.example.androiddevpractice.ui.recyclerview.RecyclerViewFragment"
         android:label="Android Dev"
         tools:layout="@layout/fragment_recycler_view">
         <argument
@@ -29,32 +29,32 @@
     </fragment>
     <fragment
         android:id="@+id/dest_contextual1Fragment"
-        android:name="com.example.androiddevpractice.menu.contextualmenu.Contextual1Fragment"
+        android:name="com.example.androiddevpractice.ui.details.topics.ui.menu.contextualmenu.Contextual1Fragment"
         android:label="Contextual Menu 1"
         tools:layout="@layout/fragment_contextual1" />
     <fragment
         android:id="@+id/dest_contextual2Fragment"
-        android:name="com.example.androiddevpractice.menu.contextualmenu.Contextual2Fragment"
+        android:name="com.example.androiddevpractice.ui.details.topics.ui.menu.contextualmenu.Contextual2Fragment"
         android:label="Contextual Menu 2"
         tools:layout="@layout/fragment_contextual2" />
     <fragment
         android:id="@+id/dest_contextual3Fragment"
-        android:name="com.example.androiddevpractice.menu.contextualmenu.Contextual3Fragment"
+        android:name="com.example.androiddevpractice.ui.details.topics.ui.menu.contextualmenu.Contextual3Fragment"
         android:label="Contextual Menu 3"
         tools:layout="@layout/fragment_contextual3" />
     <fragment
         android:id="@+id/dest_menu1Fragment"
-        android:name="com.example.androiddevpractice.menu.Menu1Fragment"
+        android:name="com.example.androiddevpractice.ui.details.topics.ui.menu.Menu1Fragment"
         android:label="Menu 1"
         tools:layout="@layout/fragment_menu1" />
     <fragment
         android:id="@+id/dest_menu2Fragment"
-        android:name="com.example.androiddevpractice.menu.Menu2Fragment"
+        android:name="com.example.androiddevpractice.ui.details.topics.ui.menu.Menu2Fragment"
         android:label="Menu 2"
         tools:layout="@layout/fragment_menu2" />
     <fragment
         android:id="@+id/dest_menu3Fragment"
-        android:name="com.example.androiddevpractice.menu.Menu3Fragment"
+        android:name="com.example.androiddevpractice.ui.details.topics.ui.menu.Menu3Fragment"
         android:label="Menu 3"
         tools:layout="@layout/fragment_menu3" />
     <fragment
@@ -131,7 +131,7 @@
     </fragment>
     <fragment
         android:id="@+id/dest_menuFragment"
-        android:name="com.example.androiddevpractice.topics.MenuFragment"
+        android:name="com.example.androiddevpractice.ui.details.topics.ui.menu.MenuFragment"
         android:label="fragment_menu"
         tools:layout="@layout/fragment_menu" />
     <fragment
@@ -146,12 +146,12 @@
         tools:layout="@layout/fragment_constraint_layout" />
     <fragment
         android:id="@+id/dest_placeHolderFragment"
-        android:name="com.example.androiddevpractice.topics.userinterface.PlaceHolderFragment"
+        android:name="com.example.androiddevpractice.ui.details.topics.ui.PlaceHolderFragment"
         android:label="Place Holder"
         tools:layout="@layout/fragment_place_holder" />
     <fragment
         android:id="@+id/dest_motionLayoutFragment"
-        android:name="com.example.androiddevpractice.topics.userinterface.MotionLayoutFragment"
+        android:name="com.example.androiddevpractice.ui.details.topics.ui.MotionLayoutFragment"
         android:label="Motion Layout"
         tools:layout="@layout/fragment_motion_layout" />
     <fragment
@@ -161,7 +161,7 @@
         tools:layout="@layout/fragment_check_box" />
     <fragment
         android:id="@+id/dest_radioButtonFragment"
-        android:name="com.example.androiddevpractice.topics.userinterface.RadioButtonFragment"
+        android:name="com.example.androiddevpractice.ui.details.topics.ui.RadioButtonFragment"
         android:label="Radio Button"
         tools:layout="@layout/fragment_radio_button" />
     <fragment
@@ -176,7 +176,7 @@
         tools:layout="@layout/fragment_switch" />
     <fragment
         android:id="@+id/dest_pickerFragment"
-        android:name="com.example.androiddevpractice.topics.userinterface.picker.PickerFragment"
+        android:name="com.example.androiddevpractice.ui.details.topics.ui.picker.PickerFragment"
         android:label="Picker"
         tools:layout="@layout/fragment_picker" />
     <fragment
@@ -186,26 +186,26 @@
         tools:layout="@layout/fragment_tool_tip" />
     <fragment
         android:id="@+id/dest_notificationFragment"
-        android:name="com.example.androiddevpractice.topics.userinterface.notification.NotificationFragment"
+        android:name="com.example.androiddevpractice.ui.details.topics.ui.notification.NotificationFragment"
         android:label="Notifications" />
     <fragment
         android:id="@+id/dest_systemUIFragment"
-        android:name="com.example.androiddevpractice.topics.userinterface.SystemUIFragment"
+        android:name="com.example.androiddevpractice.ui.details.topics.ui.SystemUIFragment"
         android:label="System UI"
         tools:layout="@layout/fragment_system_ui" />
     <fragment
         android:id="@+id/dest_toastFragment"
-        android:name="com.example.androiddevpractice.topics.userinterface.ToastFragment"
+        android:name="com.example.androiddevpractice.ui.details.topics.ui.ToastFragment"
         android:label="Toast"
         tools:layout="@layout/fragment_toast" />
     <fragment
         android:id="@+id/dest_snackbarFragment"
-        android:name="com.example.androiddevpractice.topics.userinterface.snackbar.SnackbarFragment"
+        android:name="com.example.androiddevpractice.ui.details.topics.ui.snackbar.SnackbarFragment"
         android:label="Snackbar"
         tools:layout="@layout/fragment_snackbar" />
     <fragment
         android:id="@+id/dest_dialogInfoFragment"
-        android:name="com.example.androiddevpractice.topics.userinterface.dialog.DialogInfoFragment"
+        android:name="com.example.androiddevpractice.ui.details.topics.ui.dialog.DialogInfoFragment"
         android:label="Dialog Info">
         <action
             android:id="@+id/action_dest_dialogInfoFragment_to_myAlertDialog"
@@ -222,23 +222,23 @@
     </fragment>
     <dialog
         android:id="@+id/dest_myAlertDialog"
-        android:name="com.example.androiddevpractice.topics.userinterface.dialog.MyAlertDialog"
+        android:name="com.example.androiddevpractice.ui.details.topics.ui.dialog.MyAlertDialog"
         android:label="MyAlertDialog" />
     <dialog
         android:id="@+id/dest_customDialog"
-        android:name="com.example.androiddevpractice.topics.userinterface.dialog.CustomDialog"
+        android:name="com.example.androiddevpractice.ui.details.topics.ui.dialog.CustomDialog"
         android:label="CustomDialog" />
     <dialog
         android:id="@+id/dest_multiChoiceList"
-        android:name="com.example.androiddevpractice.topics.userinterface.dialog.MultiChoiceList"
+        android:name="com.example.androiddevpractice.ui.details.topics.ui.dialog.MultiChoiceList"
         android:label="MultiChoiceList" />
     <dialog
         android:id="@+id/dest_singleChoiceList"
-        android:name="com.example.androiddevpractice.topics.userinterface.dialog.SingleChoiceList"
+        android:name="com.example.androiddevpractice.ui.details.topics.ui.dialog.SingleChoiceList"
         android:label="SingleChoiceList" />
     <fragment
         android:id="@+id/dest_myPreferencesFragment"
-        android:name="com.example.androiddevpractice.topics.userinterface.preferences.MyPreferencesFragment"
+        android:name="com.example.androiddevpractice.ui.details.topics.ui.preferences.MyPreferencesFragment"
         android:label="Preferences">
         <action
             android:id="@+id/action_dest_myPreferencesFragment_to_UIPreferences"
@@ -261,27 +261,27 @@
     </fragment>
     <fragment
         android:id="@+id/dest_UIPreferences"
-        android:name="com.example.androiddevpractice.topics.userinterface.preferences.UIPreferences"
+        android:name="com.example.androiddevpractice.ui.details.topics.ui.preferences.UIPreferences"
         android:label="UI Preferences" />
     <fragment
         android:id="@+id/dest_edit_text_preference"
-        android:name="com.example.androiddevpractice.topics.userinterface.preferences.EditTextPreferences"
+        android:name="com.example.androiddevpractice.ui.details.topics.ui.preferences.EditTextPreferences"
         android:label="EditText Preference" />
     <fragment
         android:id="@+id/dest_checkBoxPreferences"
-        android:name="com.example.androiddevpractice.topics.userinterface.preferences.CheckBoxPreferences"
+        android:name="com.example.androiddevpractice.ui.details.topics.ui.preferences.CheckBoxPreferences"
         android:label="CheckBox Preferences" />
     <fragment
         android:id="@+id/dest_listPreferences"
-        android:name="com.example.androiddevpractice.topics.userinterface.preferences.ListPreferences"
+        android:name="com.example.androiddevpractice.ui.details.topics.ui.preferences.ListPreferences"
         android:label="List Preferences" />
     <fragment
         android:id="@+id/dest_multiSelectListPreferences"
-        android:name="com.example.androiddevpractice.topics.userinterface.preferences.MultiSelectListPreferences"
+        android:name="com.example.androiddevpractice.ui.details.topics.ui.preferences.MultiSelectListPreferences"
         android:label="MultiList Preferences" />
     <fragment
         android:id="@+id/dest_seekBarPreferences"
-        android:name="com.example.androiddevpractice.topics.userinterface.preferences.SeekBarPreferences"
+        android:name="com.example.androiddevpractice.ui.details.topics.ui.preferences.SeekBarPreferences"
         android:label="SeekBar Preferences" />
     <fragment
         android:id="@+id/dest_ServiceFragment"

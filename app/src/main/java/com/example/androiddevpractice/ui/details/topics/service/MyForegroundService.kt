@@ -7,7 +7,7 @@ import android.content.Intent
 import android.os.IBinder
 import android.util.Log
 import com.example.androiddevpractice.R
-import com.example.androiddevpractice.topics.userinterface.notification.CHANNEL_ID
+import com.example.androiddevpractice.ui.details.topics.ui.notification.CHANNEL_ID
 import com.example.androiddevpractice.ui.main.MainActivity
 
 class MyForegroundService : Service() {

@@ -6,13 +6,13 @@
     <data>
         <variable
             name="binding"
-            type="com.example.androiddevpractice.topics.userinterface.notification.NotificationFragment" />
+            type="com.example.androiddevpractice.ui.details.topics.ui.notification.NotificationFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".topics.userinterface.notification.NotificationFragment">
+        tools:context=".ui.details.topics.ui.notification.NotificationFragment">
 
         <TextView
             android:id="@+id/textView2"

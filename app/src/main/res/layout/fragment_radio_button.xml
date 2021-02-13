@@ -6,13 +6,13 @@
     <data>
         <variable
             name="binding"
-            type="com.example.androiddevpractice.topics.userinterface.RadioButtonFragment" />
+            type="com.example.androiddevpractice.ui.details.topics.ui.RadioButtonFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".topics.userinterface.RadioButtonFragment">
+        tools:context=".ui.details.topics.ui.RadioButtonFragment">
 
         <TextView
             android:id="@+id/what_is_radio_button"

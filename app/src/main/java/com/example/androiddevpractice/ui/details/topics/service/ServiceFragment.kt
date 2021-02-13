@@ -15,7 +15,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.androiddevpractice.R
 import com.example.androiddevpractice.databinding.FragmentServiceBinding
-import com.example.androiddevpractice.topics.userinterface.notification.MyNotificationChannel
+import com.example.androiddevpractice.ui.details.topics.ui.notification.MyNotificationChannel
 
 
 class ServiceFragment : Fragment() {

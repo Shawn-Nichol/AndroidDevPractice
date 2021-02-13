@@ -6,13 +6,13 @@
     <data>
         <variable
             name="binding"
-            type="com.example.androiddevpractice.topics.userinterface.dialog.DialogInfoFragment" />
+            type="com.example.androiddevpractice.ui.details.topics.ui.dialog.DialogInfoFragment"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".topics.userinterface.dialog.DialogInfoFragment">
+        tools:context=".ui.details.topics.ui.dialog.DialogInfoFragment">
 
 
         <com.google.android.material.button.MaterialButton

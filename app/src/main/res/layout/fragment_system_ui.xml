@@ -6,13 +6,13 @@
     <data>
         <variable
             name="binding"
-            type="com.example.androiddevpractice.topics.userinterface.SystemUIFragment" />
+            type="com.example.androiddevpractice.ui.details.topics.ui.SystemUIFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".topics.userinterface.SystemUIFragment">
+        tools:context=".ui.details.topics.ui.SystemUIFragment">
 
         <TextView
             android:id="@+id/textView14"

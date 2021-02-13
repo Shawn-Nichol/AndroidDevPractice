@@ -6,7 +6,7 @@
     <data>
         <variable
             name="binding"
-            type="com.example.androiddevpractice.topics.userinterface.MotionLayoutFragment" />
+            type="com.example.androiddevpractice.ui.details.topics.ui.MotionLayoutFragment" />
     </data>
 
     <!-- [databinding] {"msg":"Only one layout element with 1 view child is allowed.  -->
@@ -30,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layoutDescription="@xml/motion_scene_01"
-            tools:context=".menu.contextual.FragmentContextualOne"
+            tools:context=".ui.details.topics.menu.contextual.FragmentContextualOne"
             tools:showPath="true">
 
             <Button

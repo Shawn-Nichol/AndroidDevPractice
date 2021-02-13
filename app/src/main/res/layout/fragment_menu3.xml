@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".menu.Menu3Fragment">
+    tools:context=".ui.details.topics.ui.menu.Menu3Fragment">
 
 
 

@@ -6,7 +6,7 @@
     <data>
         <variable
             name="binding"
-            type="com.example.androiddevpractice.recyclerview.RecyclerViewFragment" />
+            type="com.example.androiddevpractice.ui.recyclerview.RecyclerViewFragment" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -33,7 +33,7 @@
                 app:borderWidth="8dp"
                 android:backgroundTint="@color/colorSecondary"
                 app:backgroundTint="@color/material_on_surface_emphasis_high_type"
-                app:layout_behavior=".recyclerview.ui.FABBehavior"/>
+                app:layout_behavior=".ui.recyclerview.FABBehavior"/>
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </layout>
