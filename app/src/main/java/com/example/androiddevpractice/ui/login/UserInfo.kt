@@ -3,18 +3,18 @@ package com.example.androiddevpractice.ui.login
 class UserInfo {
 
     var password = 4369
-    var userName = ""
+    var userName = "Hulk"
 
 
-    fun checkPassword(submit: Int): Boolean {
-        var success = false
+    fun checkPassword(submit: Int?): Boolean {
+        if (submit == null) return false
+        return submit == password
+    }
 
-        if(password == submit) {
-            success = true
+    fun checkUser(submit: String): Boolean {
 
-        }
 
-        return success
+        return submit.trim() == userName
     }
 
 }

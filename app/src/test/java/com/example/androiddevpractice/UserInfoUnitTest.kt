@@ -15,16 +15,54 @@ class UserInfoUnitTest {
 
 
     @Test
-    fun userInfo_submitUserName_Success() {
+    fun checkPassword_submitUserName_Success() {
         val checkPassword = userInfo.checkPassword(4369)
 
         Assert.assertTrue(checkPassword)
     }
 
     @Test
-    fun userInfo_submitUserName_Fail() {
+    fun checkPassword_submitUserName_Fail() {
         val checkPassword = userInfo.checkPassword(333)
         Assert.assertFalse(checkPassword)
+    }
+
+    @Test
+    fun checkPassword_noPassword() {
+        val checkPassword = userInfo.checkPassword(null)
+        Assert.assertFalse(checkPassword)
+    }
+
+    @Test
+    fun checkUser_Success() {
+        val userName = userInfo.checkUser("Hulk")
+
+        Assert.assertTrue(userName)
+    }
+
+    @Test
+    fun checkUser_Fail() {
+        val userName =userInfo.checkUser("Not Hulk")
+        Assert.assertFalse(userName)
+    }
+
+    @Test
+    fun checkUser_LeadingWhiteSpace_Success() {
+        val userName = userInfo.checkUser("   Hulk")
+
+        Assert.assertTrue(userName)
+    }
+
+    @Test
+    fun checkUser_TrailingWhiteSpace_Success() {
+        val userName = userInfo.checkUser("Hulk    ")
+        Assert.assertTrue(userName)
+    }
+
+    @Test
+    fun checkUser_NotCapitalized_fail() {
+        val userName = userInfo.checkUser("hulk")
+        Assert.assertFalse(userName)
     }
 
 }
