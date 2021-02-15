@@ -64,6 +64,7 @@ dependencies {
 
     //ViewModel
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 
     // RecyclerView
     implementation "androidx.recyclerview:recyclerview:1.1.0"
@@ -79,4 +80,11 @@ dependencies {
 
     // Testing
     testImplementation 'com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0'
+    // LiveData testing
+    testImplementation 'androidx.arch.core:core-testing:2.0.1'
+
+    // AndroidX Test - JVM testing, use to get context
+    testImplementation "androidx.test.ext:junit-ktx:1.1.2"
+    testImplementation "androidx.test:core-ktx:1.3.0"
+    testImplementation "org.robolectric:robolectric:4.3"
 }

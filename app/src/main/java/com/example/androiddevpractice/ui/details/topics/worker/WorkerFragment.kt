@@ -24,9 +24,8 @@ class WorkerFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     private lateinit var binding: FragmentWorkerBinding
 
-    var counter = 0
 
-
+    lateinit var counter: WorkerCounter
     var networkSelection = 0
 
     lateinit var workManager: WorkManager
@@ -34,6 +33,8 @@ class WorkerFragment : Fragment(), AdapterView.OnItemSelectedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         workManager = WorkManager.getInstance(requireContext())
+
+        counter = WorkerCounter()
 
     }
 
@@ -78,7 +79,6 @@ class WorkerFragment : Fragment(), AdapterView.OnItemSelectedListener {
     }
 
     private fun myWorkRequest(): OneTimeWorkRequest {
-
         val myData = Data.Builder()
             .putString("KEY_INPUT", "This is myData")
             .build()
@@ -95,7 +95,6 @@ class WorkerFragment : Fragment(), AdapterView.OnItemSelectedListener {
             setRequiresCharging(binding.swCharging.isChecked)
             setRequiresDeviceIdle(binding.swIdle.isChecked)
             setRequiresStorageNotLow(binding.swStorageLow.isChecked)
-
         }
 
         // Create Work Request.
@@ -110,6 +109,7 @@ class WorkerFragment : Fragment(), AdapterView.OnItemSelectedListener {
             )
             .setInputData(myData)
             .build()
+
     }
 
     fun oneTime() {
@@ -139,10 +139,6 @@ class WorkerFragment : Fragment(), AdapterView.OnItemSelectedListener {
                     Log.i(TAG, "listOfWorkInfo is empty")
                     return@Observer
                 }
-
-
-
-
                 val workInfo = listOfWorkInfo[0]
 
                 val progress = workInfo.progress
@@ -175,13 +171,11 @@ class WorkerFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
 
     fun counterPlus() {
-        counter++
-        binding.tvCounter.text = counter.toString()
+        binding.tvCounter.text = counter.countUp()
     }
 
     fun counterMinus() {
-        counter--
-        binding.tvCounter.text = counter.toString()
+        binding.tvCounter.text = counter.countDown()
     }
 
 

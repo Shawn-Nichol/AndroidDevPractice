@@ -18,34 +18,30 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
     // Reference Repository
     private var repository: DevRepository
 
-    var listDevTopics: LiveData<List<Dev>>
-    // LiveData is used because list doesn't update when the Details fragment is loaded.
-    var listTopic: LiveData<List<String>>
+    var listOfDevTopics: LiveData<List<Dev>>
+    // LiveData so when there is an change the list will update.
+    var selectedListTopic: LiveData<List<String>>
 
     val devDao = DevDatabase.getDatabase(application, viewModelScope).devDao()
 
 
     init {
         repository = DevRepository(devDao, "%")
-        listDevTopics = repository.listDevTopics
-        listTopic = repository.selectTopic("Activity", "Activity")
-        //selectTopic("Activity", "Activity")
+        listOfDevTopics = repository.listDevTopics
+        selectedListTopic = repository.selectTopic("Activity", "Activity")
     }
 
     fun searchTopic(search: String) = viewModelScope.launch(Dispatchers.IO){
         Log.i(TAG, "Search: $search")
         repository = DevRepository(devDao, search)
-        listDevTopics = repository.listDevTopics
+        listOfDevTopics = repository.listDevTopics
     }
 
 
     fun selectTopic(topic: String, category: String) = viewModelScope.launch(Dispatchers.IO){
         Log.i(TAG, "SelectedTopic = $topic, Category = $category")
-//        listTopic = repository.selectTopic(topic, category).toMutableList()
-        listTopic = repository.selectTopic(topic, category)
-        Log.i(TAG, "selectTopic, ${listTopic}")
-
-
+        selectedListTopic = repository.selectTopic(topic, category)
+        Log.i(TAG, "selectTopic, ${selectedListTopic}")
     }
 
     fun insertTopic(topic: Dev) = viewModelScope.launch(Dispatchers.IO) {

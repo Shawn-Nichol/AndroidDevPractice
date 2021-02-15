@@ -108,7 +108,7 @@ class RecyclerViewFragment : Fragment() {
 
 
     private fun submitList() {
-        viewModel.listDevTopics.observe(viewLifecycleOwner, Observer {
+        viewModel.listOfDevTopics.observe(viewLifecycleOwner, Observer {
             it?.let {
                 rvAdapter.submitList(it)
             }

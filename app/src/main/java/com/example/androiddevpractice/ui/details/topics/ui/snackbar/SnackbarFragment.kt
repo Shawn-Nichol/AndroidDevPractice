@@ -31,8 +31,5 @@ class SnackbarFragment : Fragment() {
             setAction("My Action", SnackbarAction())
             show()
         }
-
-
-
     }
 }

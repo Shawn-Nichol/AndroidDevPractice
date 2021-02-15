@@ -1,7 +1,6 @@
 package com.example.androiddevpractice.ui.main
 
 import android.content.SharedPreferences
-import android.util.Log
 
 class MyPreference(private val sharedPreferences: SharedPreferences) {
 
@@ -16,14 +15,10 @@ class MyPreference(private val sharedPreferences: SharedPreferences) {
     }
 
     fun getSavedTheme(): Int {
-        val savedTheme = sharedPreferences.getInt(KEY_THEME, 0)
-        Log.i(TAG, "savedTheme: $savedTheme")
-        return savedTheme
+        return sharedPreferences.getInt(KEY_THEME, 0)
     }
 
     fun getDarkModeState(): Int {
-        val darkModeState = sharedPreferences.getInt(KEY_DARK_MODE, 0)
-        Log.i(TAG, "darkModeState: $darkModeState")
-        return darkModeState
+        return  sharedPreferences.getInt(KEY_DARK_MODE, 0)
     }
 }

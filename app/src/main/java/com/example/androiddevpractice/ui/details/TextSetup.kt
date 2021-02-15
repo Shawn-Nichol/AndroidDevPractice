@@ -24,13 +24,18 @@ class TextSetup(val context: Context) {
     private lateinit var linear: LinearLayoutCompat
     lateinit var params: LinearLayoutCompat.LayoutParams
 
+    var count = 0
+    fun myTest() {
+        count++
+    }
+
     fun createTextView(details: List<String>, linear: LinearLayoutCompat) {
         this.linear = linear
         // Create a views for each item in the list.
         for (i in details.indices) {
             val item = details[i]
 
-            if (i == 0) summaryString(item, 0)
+            if (i == 0) summaryString(item)
             else {
                 setTitle(item, i)
                 setInfo(item, i)
@@ -42,37 +47,24 @@ class TextSetup(val context: Context) {
     /**
      * Displays the summary text of the the selected Topic
      */
-    private fun summaryString(item: String, pos: Int) {
-        // Parse out display string
-        val displayString = displayString(item)
-
-        createTextView(displayString, pos, topMargin = true, linkText = false)
-
+    private fun summaryString(item: String) {
+        createTextView(item, topMargin = true, linkText = false)
 
         // Load navigation link
         if (item.contains("***")) {
             val stringStarts = item.indexOf("***")
             val navString = item.substring(stringStarts + 3).trim()
-            createTextView(navString, pos, topMargin = false, linkText = true)
+            createTextView(navString, topMargin = false, linkText = true)
         }
 
     }
 
-    private fun displayString(item: String): String {
-        val stringStarts = 0
-        val stringEnds = if (item.contains("***")) {
-            item.indexOf("***")
-        } else item.length
-
-        return item.substring(stringStarts, stringEnds)
-    }
-
-    private fun createTextView(item: String, pos: Int, topMargin: Boolean, linkText: Boolean) {
 
 
+    private fun createTextView(item: String, topMargin: Boolean, linkText: Boolean) {
         val textView: TextView = if (linkText) {
             setTextView("example").apply {
-                tag = "example $pos"
+
                 setOnClickListener {
                     navigate(it, item)
                 }
@@ -202,6 +194,7 @@ class TextSetup(val context: Context) {
      * Sets the default Attributes for the textViews.
      */
     private fun setTextView(string: String): TextView {
+
         return TextView(context).apply {
             text = string
             textSize = 14f
