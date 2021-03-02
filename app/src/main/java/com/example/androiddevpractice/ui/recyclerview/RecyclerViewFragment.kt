@@ -9,13 +9,13 @@ import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.androiddevpractice.R
 import com.example.androiddevpractice.databinding.FragmentRecyclerViewBinding
+import com.example.androiddevpractice.di.MyApplication
 import com.example.androiddevpractice.ui.main.MainActivityViewModel
-
+import javax.inject.Inject
 
 
 class RecyclerViewFragment : Fragment() {
@@ -23,10 +23,14 @@ class RecyclerViewFragment : Fragment() {
     private val TAG = "PracticeRecyclerViewFragment"
 
     private lateinit var binding: FragmentRecyclerViewBinding
-    private lateinit var viewModel: MainActivityViewModel
+
+    @Inject
+    lateinit var viewModel: MainActivityViewModel
     private lateinit var userName: String
     private lateinit var mContext: Context
     private val rvAdapter = RecyclerViewAdapter()
+
+
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -34,12 +38,13 @@ class RecyclerViewFragment : Fragment() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        (requireActivity().application as MyApplication).appComponent.inject(this)
         super.onCreate(savedInstanceState)
 
 
         val args: RecyclerViewFragmentArgs = RecyclerViewFragmentArgs.fromBundle(requireArguments())
         userName = args.UserName
-        viewModel = ViewModelProvider(requireActivity()).get(MainActivityViewModel::class.java)
+
 
     }
 

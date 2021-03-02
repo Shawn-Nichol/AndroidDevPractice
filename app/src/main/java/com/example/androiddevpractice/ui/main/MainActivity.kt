@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -19,7 +18,9 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.example.androiddevpractice.R
+import com.example.androiddevpractice.di.MyApplication
 import com.google.android.material.navigation.NavigationView
+import javax.inject.Inject
 
 
 // KEYS
@@ -35,6 +36,9 @@ class MainActivity : AppCompatActivity(),
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var myAppBar: AppBarConfiguration
 
+    @Inject
+    lateinit var viewModel: MainActivityViewModel
+
     // Theme variables
     private var darkModeState = 0
     private var userThemeState = 0
@@ -45,12 +49,16 @@ class MainActivity : AppCompatActivity(),
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.i(TAG, "onCreate")
 
+        (application as MyApplication).appComponent.inject(this)
         initSharedPreference()
         // Needs to load before super, this allows for the correct theme to be loaded.
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        ViewModelProvider(this).get(MainActivityViewModel::class.java)
+
+
+
+
         initNavDrawer()
         initNavDrawerClickListener()
     }

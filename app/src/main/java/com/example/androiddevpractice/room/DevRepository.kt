@@ -4,9 +4,15 @@ import androidx.lifecycle.LiveData
 
 class DevRepository(private val devDao: DevDao, search: String) {
 
-    val TAG = "PracticeDevRepository"
+
 
     val listDevTopics: LiveData<List<Dev>> = devDao.getAllDevTopics(search)
+
+
+
+    init {
+
+    }
 
 
 
